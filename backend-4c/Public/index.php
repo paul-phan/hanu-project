@@ -13,3 +13,4 @@ session_start();
 $url = explode("/", @$_GET['page']);
 
 require_once "loader.php";
+

@@ -36,9 +36,11 @@ class Index extends MainController
         global $connection;
         $co = $connection->getCo();
         $model = new \Application\Models\Index($co);
-        $test = $model->blowfishHasher('minh');
+        $test2 = $model->blowfishHasher('12345678');
+        $test = '$2a$07$ptm74gg6vIPXuMfmAdl2OuNOb5pRYJ5D7y1fAjb0AiOqp7Be4QS/G';
         echo $test;
-        if ($this->validHasher('minh', $test)) {
+        echo '<br>' . $test2;
+        if ($this->validHasher(12345678, $test)) {
             echo 'right';
         } else {
             echo 'wrong!';

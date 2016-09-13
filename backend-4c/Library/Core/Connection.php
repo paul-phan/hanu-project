@@ -11,6 +11,7 @@
 namespace Library\Core;
 
 use PDO;
+use DateTime;
 
 /**
  * Connection class
@@ -22,6 +23,7 @@ class Connection
 
     public function __construct()
     {
+        date_default_timezone_set(TIMEZONE);
     }
 
     /**
@@ -31,12 +33,13 @@ class Connection
      * @param string $password
      * @param string $charset
      */
-    public function connectDb($host = DB_HOST, $dbname = DB_NAME, $user = DB_USER, $password = DB_PASSWORD, $charset = DB_CHARSET)
+    public function connectDb($host = DB_HOST, $dbname = DB_NAME, $user = DB_USER, $password = DB_PASSWORD, $charset = DB_CHARSET, $offset = OFFSET)
     {
         try {
             $this->co = new PDO('mysql:host=' . $host . ';dbname=' . $dbname, $user, $password);
             $this->co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             $this->co->exec("SET CHARACTER SET $charset");
+//          $this->co->exec("SET time_zone = '$offset';"); // TurnOn only if in other country/religion, default is Vietnam GMT+7
         } catch (\PDOException $e) {
             die($e);
         }
