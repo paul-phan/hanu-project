@@ -1,7 +1,9 @@
-# hackademy-project
+# hanu-project-4c13
+**_By_**: <br />
+    `Phan Thế Minh` `Nguyễn Trung Đức` `Trần Thị Thu` `Nguyễn Khắc Hoàn` `Trần Kim Tiến`
 
 Import database into your phpMyadmin, by default, name the database:
-`hackademy_project` or you can redefined it in `Application\Configs\Settings.php`
+`at_mobile` or you can redefined it in `Application\Configs\Settings.php`
 
 **_Important:_** to use this project, config your virtualhost as below: 
 Go to `(xampp)\apache\conf\extra\httpd-vhosts.conf` and paste this below other vhost: (remeber to change directory)
