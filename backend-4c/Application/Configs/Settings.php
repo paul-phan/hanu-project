@@ -32,7 +32,7 @@ class Settings
 
 //        Database Configure
         define('DB_HOST', 'localhost');
-        define('DB_NAME', 'hackademy_project');
+        define('DB_NAME', 'at_mobile');
         define('DB_USER', 'root');
         define('DB_PASSWORD', '');
         define('DB_CHARSET', 'utf8');

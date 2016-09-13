@@ -7,10 +7,10 @@ Import database into your phpMyadmin, by default, name the database:
 Go to `(xampp)\apache\conf\extra\httpd-vhosts.conf` and paste this below other vhost: (remeber to change directory)
 
 `<VirtualHost backend.4c.dev:80>` <br />
-`   ServerName hdm.dev` <br/>
+`   ServerName backend.4c.dev` <br/>
 `   ServerAlias www.backend.4c.dev`<br/>
 `   DocumentRoot "D:/your/project/dir"` <br/>
-`<Directory "D:/your/project/dir>`
+`<Directory "D:/your/project/dir">`
 ` 		Options All `<br/>
 ` 		AllowOverride All` <br/>
 ` 		Require all granted`<br/>
