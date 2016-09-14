@@ -23,13 +23,14 @@ class Settings
         $upload_root = str_replace('Public/index.php', 'Public/upload/', $_SERVER['SCRIPT_FILENAME']);
 
         //offset timezone if in other religion
-        $now = new DateTime();
-        $mins = $now->getOffset() / 60;
-        $sgn = ($mins < 0 ? -1 : 1);
-        $mins = abs($mins);
-        $hrs = floor($mins / 60);
-        $mins -= $hrs * 60;
-        $offset = sprintf('%+d:%02d', $hrs * $sgn, $mins);
+//        $now = new DateTime();
+//        $mins = $now->getOffset() / 60;
+//        $sgn = ($mins < 0 ? -1 : 1);
+//        $mins = abs($mins);
+//        $hrs = floor($mins / 60);
+//        $mins -= $hrs * 60;
+//        $offset = sprintf('%+d:%02d', $hrs * $sgn, $mins);
+        //        define('OFFSET', $offset);
 
 //        General constance
         define('ADMIN_ROOT', $admin_root);
@@ -40,7 +41,7 @@ class Settings
         define('HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST']);
         define('UPLOAD_ROOT', $upload_root);
         define('UPLOAD_DIR', 'http://' . $_SERVER['HTTP_HOST'] . '/Public/upload/');
-        define('OFFSET', $offset);
+
 
 //        Database Configure
         define('DB_HOST', 'localhost');
@@ -50,6 +51,7 @@ class Settings
         define('DB_CHARSET', 'utf8');
 
         define('TIMEZONE', 'Asia/Ho_Chi_Minh');
+
     }
 
     public function getVariables()

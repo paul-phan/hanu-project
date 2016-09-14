@@ -22,33 +22,8 @@ class Index extends MainController
 
     public function indexAction()
     {
-        switch ($_SERVER['REQUEST_METHOD']) {
-            case 'GET':
-                echo json_encode($_GET);
-                break;
-            case 'POST':
-                echo json_encode($_POST);
-                break;
-            default:
-                echo json_encode($_SERVER['REQUEST_METHOD']);
-        }
-        echo '<br/>';
-        global $connection;
-        $co = $connection->getCo();
-        $model = new \Application\Models\Index($co);
-        $test2 = $model->blowfishHasher('12345678');
-        $test = '$2a$07$ptm74gg6vIPXuMfmAdl2OuNOb5pRYJ5D7y1fAjb0AiOqp7Be4QS/G';
-        echo $test;
-        echo '<br>' . $test2;
-        if ($this->validHasher(12345678, $test)) {
-            echo 'right';
-        } else {
-            echo 'wrong!';
-        }
+        $this->responseApi(120000,'',$_POST);
 
-
-        $this->setResponseHeader("json");
-        $this->addDataView(array("viewTitle" => "Trang Chủ", "viewSiteName" => "Minh", "front" => TRUE));
     }
 
 }

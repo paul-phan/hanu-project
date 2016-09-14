@@ -16,10 +16,59 @@ class AppController extends MainController
 {
     protected $src_root = APP_ROOT;
     protected $src_link = 'Application\\Controllers\\';
+    protected $api_error = array(
+        100001 => 'invalid token or user id',
+        100002 => 'invalid params',
+        100003 => 'lack of params',
+        110001 => 'User Data invalid',
+        110002 => 'Save data fail',
+        120000 => 'Upload image error',
+        130000 => 'abc',
+        130001 => 'def',
+    );
 
     function __construct()
     {
         parent::__construct();
-//        $this->setResponseHeader('json');
+    }
+
+    function setHeader($code)
+    {
+        http_response_code($code);
+    }
+
+    function responseApi($code = 0, $message = '', $data = array(), $header_type = 'json')
+    {
+        if ($header_type == 'json')
+        {
+            header('Content-Type: application/json');
+        }
+        else
+        {
+            header('Content-Type: text/html');
+        }
+
+
+        if ($code == 0) {
+            $this->setHeader(200);
+            echo json_encode(array(
+                    'code' => $code,
+                    'message' => $message,
+                    'data' => $data
+                )
+            );
+        } else {
+            $this->setHeader(400);
+            if (!$message) {
+                $message = isset($this->api_error[$code]) ? $this->api_error[$code] : '';
+            }
+            echo json_encode(array(
+                    'code' => $code,
+                    'message' => $message,
+                    'data' => $data
+                )
+            );
+        }
+        die;
     }
 }

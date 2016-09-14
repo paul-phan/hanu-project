@@ -33,7 +33,7 @@ class Connection
      * @param string $password
      * @param string $charset
      */
-    public function connectDb($host = DB_HOST, $dbname = DB_NAME, $user = DB_USER, $password = DB_PASSWORD, $charset = DB_CHARSET, $offset = OFFSET)
+    public function connectDb($host = DB_HOST, $dbname = DB_NAME, $user = DB_USER, $password = DB_PASSWORD, $charset = DB_CHARSET/*, $offset = OFFSET*/)
     {
         try {
             $this->co = new PDO('mysql:host=' . $host . ';dbname=' . $dbname, $user, $password);
