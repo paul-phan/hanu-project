@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2016 at 06:06 PM
+-- Generation Time: Sep 14, 2016 at 06:53 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -27,14 +27,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `cat_name` varchar(255) NOT NULL,
-  `params` varchar(255) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `cat_name` varchar(100) NOT NULL,
+  `params` varchar(100) NOT NULL,
   `position` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -45,13 +44,27 @@ CREATE TABLE `category` (
 
 CREATE TABLE `company` (
   `id` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
   `com_name` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
   `position` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
+--
+
+CREATE TABLE `image` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `product_id` int(11) UNSIGNED NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,7 +76,7 @@ CREATE TABLE `company` (
 CREATE TABLE `order_product` (
   `id` int(11) UNSIGNED NOT NULL,
   `profile_id` int(11) UNSIGNED NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `product_id` int(11) UNSIGNED NOT NULL,
   `item_count` int(11) NOT NULL,
   `to_price` int(20) NOT NULL,
   `ship_price` int(20) NOT NULL,
@@ -73,7 +86,7 @@ CREATE TABLE `order_product` (
   `status` tinyint(1) NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -84,15 +97,14 @@ CREATE TABLE `order_product` (
 
 CREATE TABLE `product` (
   `id` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL COMMENT 'người đăng sản phẩm',
   `category_id` int(11) UNSIGNED NOT NULL,
   `company_id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL COMMENT 'tên sp',
+  `title` varchar(80) NOT NULL COMMENT 'tên sp',
   `params` varchar(255) NOT NULL COMMENT 'link param trên url',
   `price` int(20) UNSIGNED NOT NULL,
   `active` tinyint(1) NOT NULL,
   `detail` text NOT NULL COMMENT 'thông tin',
-  `type` varchar(255) NOT NULL,
+  `type` varchar(50) NOT NULL,
   `sale` int(20) UNSIGNED NOT NULL COMMENT 'giá sale',
   `manufactured_date` date NOT NULL COMMENT 'ngày sản xuất',
   `tags` varchar(255) NOT NULL,
@@ -110,15 +122,16 @@ CREATE TABLE `product` (
 CREATE TABLE `profile` (
   `id` int(11) UNSIGNED NOT NULL,
   `user_id` int(11) UNSIGNED NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `phone` varchar(50) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `country` varchar(255) NOT NULL,
-  `gender` tinyint(1) NOT NULL,
+  `full_name` varchar(70) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `avatar` varchar(255) NOT NULL COMMENT 'avatar url',
+  `gender` tinyint(2) NOT NULL,
   `birthday` date NOT NULL,
-  `token` varchar(255) DEFAULT NULL,
+  `token` varchar(50) DEFAULT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -153,9 +166,9 @@ INSERT INTO `role` (`id`, `name`, `update`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) UNSIGNED NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `token` varchar(100) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `id_role` int(11) UNSIGNED NOT NULL,
   `last_login` datetime NOT NULL,
@@ -196,10 +209,18 @@ ALTER TABLE `company`
   ADD KEY `com_name` (`com_name`);
 
 --
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `order_product`
 --
 ALTER TABLE `order_product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_id` (`profile_id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `product`
@@ -208,7 +229,8 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `title` (`title`),
   ADD KEY `price` (`price`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `company_id` (`company_id`);
 
 --
 -- Indexes for table `profile`
@@ -238,11 +260,16 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `image`
+--
+ALTER TABLE `image`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `order_product`
@@ -274,10 +301,24 @@ ALTER TABLE `user`
 --
 
 --
+-- Constraints for table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_product`
+--
+ALTER TABLE `order_product`
+  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`),
+  ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+
+--
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 
 --
 -- Constraints for table `profile`
