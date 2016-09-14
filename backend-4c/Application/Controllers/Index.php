@@ -32,7 +32,9 @@ class Index extends MainController
             }
 //            $userModel->getUserLogin($_POST['username'], $_POST['password']);
 
+
         }
+        var_dump($_GET);
     }
 
 }
