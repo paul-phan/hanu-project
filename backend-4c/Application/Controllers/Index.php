@@ -12,6 +12,7 @@ namespace Application\Controllers;
 
 use Application\Controllers\AppController as MainController;
 
+
 class Index extends MainController
 {
 
@@ -22,8 +23,16 @@ class Index extends MainController
 
     public function indexAction()
     {
-        $this->responseApi(120000,'',$_POST);
+        if ($_POST) {
+            global $connection;
+            $co = $connection->getCo();
+            $userModel = new \Administration\Models\User($co);
+            if ($userModel->getUserLogin($_POST['username'], $_POST['password'])) {
+                $this->responseApi(0, 'login success', $_POST);
+            }
+//            $userModel->getUserLogin($_POST['username'], $_POST['password']);
 
+        }
     }
 
 }

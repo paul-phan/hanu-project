@@ -147,4 +147,18 @@ abstract class Model
         }
         return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
     }
+    /**
+     * Password/Token validator.
+     * @param string $password_entered
+     * @param string $password_hash
+     * @return bool
+     */
+    public function validHasher($password_entered, $password_hash)
+    {
+        if (crypt($password_entered, $password_hash) == $password_hash) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

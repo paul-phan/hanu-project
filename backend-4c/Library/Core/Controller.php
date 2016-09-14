@@ -118,20 +118,6 @@ class Controller
         $this->layout = $layout;
     }
 
-    /**
-     * Password/Token validator.
-     * @param string $password_entered
-     * @param string $password_hash
-     * @return bool
-     */
-    public function validHasher($password_entered, $password_hash)
-    {
-        if (crypt($password_entered, $password_hash) == $password_hash) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     /**
      * @return mixed request method

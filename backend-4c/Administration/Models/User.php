@@ -35,4 +35,22 @@ class User extends MainModel
             'created' => date("Y:m:d H:i:s")
         ));
     }
+
+    /**
+     * TODO getUserLogin
+     * @param string $name
+     * param string $password
+     * @return boolean
+     */
+    public function getUserLogin($login, $password)
+    {
+        $result = $this->fetchAll("username= '$login'");
+        foreach ($result as $k => $v) {
+            if ($this->validHasher($password, $v->password)) {
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
 }
