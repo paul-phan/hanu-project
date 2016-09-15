@@ -40,17 +40,44 @@ class User extends MainModel
      * TODO getUserLogin
      * @param string $name
      * param string $password
-     * @return boolean
+     * @return object result
      */
     public function getUserLogin($login, $password)
     {
         $result = $this->fetchAll("username= '$login'");
         foreach ($result as $k => $v) {
-            if ($this->validHasher($password, $v->password)) {
-                return true;
+            if ($this->validHasher($password, $result[$k]->password)) {
+                return $result[$k];
                 break;
             }
         }
-        return false;
+        return null;
+    }
+
+    /**
+     * function update token
+     * @param $token
+     * @param $id
+     * @return boolean
+     */
+    public function updateToken($token, $id)
+    {
+        return $this->update(array(
+            'token' => isset($token) ? $token : null
+        ),
+            ' id = ' . $id);
+    }
+
+    /**
+     * update last login time
+     * @param $time
+     * @param $id
+     * @return boolean
+     */
+    public function updateLastLogin($time, $id)
+    {
+        return $this->update(array(
+            'last_login' => isset($time) ? $time : ''
+        ), ' id = ' . $id);
     }
 }

@@ -15,19 +15,18 @@ use Library\Core\Controller as MainController;
 class AdminController extends MainController
 {
     protected $src_root = ADMIN_ROOT;
-    protected $src_link = 'Administration\\Controllers\\';
+    protected $src_link = 'Administration\Controllers\\';
 
     public function __construct()
     {
         parent::__construct();
-//        $this->loginVerify();
+        $this->loginVerify();
     }
 
-//    public function loginVerify()
-//    {
-//
-//        if (empty($_SESSION['User'])) {
-//            header("location:/login");
-//        }
-//    }
+    public function loginVerify()
+    {
+        if (empty($_SESSION['User'])) {
+            header("location:/login");
+        }
+    }
 }

@@ -17,6 +17,11 @@ class User extends MainController
         parent::__construct();
     }
 
+    //TODO reimplement add action
+    /**
+     * add user action
+     * parameter: $_POST['username'], $_POST['password'], $_POST['active'] (bằng 1 là active), $_POST['id_role']
+     */
     public function addAction()
     {
         global $connection;
@@ -40,11 +45,39 @@ class User extends MainController
             'alert' => (!empty($alert)) ? $alert : ''
         ));
 
-        if ($_POST) {
-            echo json_encode($_POST);
-        } elseif ($_GET) {
-            echo json_encode($_GET);
-        }
+
+    }
+
+    //TODO implement edit action
+    /**
+     * Trong User Model tạo 1 public method tên updateUser sử dụng phương thức update(post_array, $id) từ lớp Model cha để update
+     * Tương tự addAction, những trường có thể sửa:
+     * parameter: $_POST['username'], $_POST['password'], $_POST['active'] (bằng 1 là active), $_POST['id_role']
+     * tạo model Profile để có thể chỉnh sửa đc bảng profile
+     */
+    public function editAction()
+    {
+        Tools\Helper::checkUrlParamsIsNumeric(); //kiểm tra parameter có phải là số hay ko(edit theo id)
+        $id = $_GET['params']; //lấy số id  user người dùng đã bấm
+    }
+
+    //TODO implement delete action
+    /**
+     * Xóa user
+     * sử dụng phương thức từ model: delete($id)
+     */
+    public function deleteAction()
+    {
+
+    }
+
+    //TODO implement view action
+    /**
+     * Xem profile người dùng
+     * Tạo model Profile để lấy data từ trong bảng
+     * kết hợp với bảng user, hiển thị ra trang cá nhân người dùng hoàn chỉnh.
+     */
+    public function viewAction() {
 
     }
 }
