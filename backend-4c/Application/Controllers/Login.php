@@ -34,10 +34,10 @@ class Login extends MainController
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
                 $_SESSION['User']['id_role'] = $result->id_role;
-                $token = md5(uniqid() . time()); //create random token
-                if ($modelUser->updateToken($token, $result->id)) {
-                    $_SESSION['User']['token'] = $token;
-                }
+//                $token = md5(uniqid() . time()); //create random token
+//                if ($modelUser->updateToken($token, $result->id)) {
+//                    $_SESSION['User']['token'] = $token;
+//                }
                 $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
                 header('location:/admin/');
             } else {
