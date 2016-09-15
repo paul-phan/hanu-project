@@ -17,7 +17,7 @@ use Library\Core\Router as MainRouter;
 class AdminRouter extends MainRouter
 {
     protected $src_root = ADMIN_ROOT;
-    protected $src_link = 'Administration\\Controllers\\';
+    protected $src_link = 'Administration\Controllers\\';
 
     function __construct()
     {

@@ -53,7 +53,7 @@ class Controller
             $viewContent = ob_get_clean();
 
             ob_start();
-            include_once $this->src_root . 'Views/Layouts/' . $this->getLayout() . '.ptm';
+            include_once $this->src_root . 'Views/Layouts/' . $this->getLayout() . '.ptm.php';
             $finalRender = ob_get_clean();
 
             echo $finalRender;
@@ -109,7 +109,7 @@ class Controller
      */
     public function setLayout($layout)
     {
-        $layout_path = APP_ROOT . 'Views/Layouts/' . $layout . '.ptm';
+        $layout_path = APP_ROOT . 'Views/Layouts/' . $layout . '.ptm.php';
         if ((file_exists($layout_path))) {
             $this->layout = $layout;
         } else {

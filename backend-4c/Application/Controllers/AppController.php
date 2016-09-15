@@ -15,7 +15,7 @@ use Library\Core\Controller as MainController;
 class AppController extends MainController
 {
     protected $src_root = APP_ROOT;
-    protected $src_link = 'Application\\Controllers\\';
+    protected $src_link = 'Application\Controllers\\';
     protected $api_error = array(
         100001 => 'invalid token or user id',
         100002 => 'invalid params',
