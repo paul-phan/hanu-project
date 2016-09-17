@@ -26,6 +26,8 @@ class Login extends MainController
         }
         if (!empty($_POST['remember'])) {
             //TODO ghi nhớ vào cookie.
+            $user = $_POST['login'];
+            setcookie("user", "$user", time() + 3600);
         }
         if (!empty($_POST['login']) && !empty($_POST['password'])) {
             $modelUser = new \Administration\Models\User($co);
