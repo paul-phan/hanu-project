@@ -16,7 +16,7 @@ class Login extends MainController
     {
         global $connection;
         $co = $connection->getCo();
-        if (!empty($_COOKIE['user']) && !empty($_COOKIE['token']) || !empty($_SESSION['User'])) {
+        if (!empty($_COOKIE['user']) && !empty($_COOKIE['token']) && !empty($_SESSION['User'])) {
             $this->responseApi(0, 'You already loggedin!', $_SESSION['User']);
         } elseif (!empty($_GET['login']) && !empty($_GET['password'])) {
             $token = md5(uniqid() . time());
