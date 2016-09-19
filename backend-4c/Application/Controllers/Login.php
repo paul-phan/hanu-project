@@ -24,11 +24,7 @@ class Login extends MainController
         if (!empty($_SESSION['User'])) {
             header('location:/admin');
         }
-        if (!empty($_POST['remember'])) {
-            //TODO ghi nhớ vào cookie.
-            $user = $_POST['login'];
-            setcookie("user", "$user", time() + 3600);
-        }
+        $token = md5(uniqid() . time());
         if (!empty($_POST['login']) && !empty($_POST['password'])) {
             $modelUser = new \Administration\Models\User($co);
             $result = $modelUser->getUserLogin($_POST['login'], $_POST['password']);
@@ -36,10 +32,13 @@ class Login extends MainController
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
                 $_SESSION['User']['id_role'] = $result->id_role;
-//                $token = md5(uniqid() . time()); //create random token
-//                if ($modelUser->updateToken($token, $result->id)) {
-//                    $_SESSION['User']['token'] = $token;
-//                }
+                if (!empty($_POST['remember']) && $modelUser->updateToken($token, $result->id)) {
+                    //TODO ghi nhớ vào cookie.
+                    $user = $_POST['login'];
+                    setcookie("user", "$user", time() + (86400 * 30));
+                    setcookie("token", "$token", time() + (86400 * 30));
+                    $_SESSION['User']['token'] = $token;
+                }
                 $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
                 header('location:/admin/');
             } else {
