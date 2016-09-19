@@ -32,12 +32,12 @@ class Login extends MainController
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
                 $_SESSION['User']['id_role'] = $result->id_role;
+                $_SESSION['User']['token'] = $token;
                 if (!empty($_POST['remember']) && $modelUser->updateToken($token, $result->id)) {
                     //TODO ghi nhớ vào cookie.
                     $user = $_POST['login'];
                     setcookie("user", "$user", time() + (86400 * 30));
                     setcookie("token", "$token", time() + (86400 * 30));
-                    $_SESSION['User']['token'] = $token;
                 }
                 $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
                 header('location:/admin/');

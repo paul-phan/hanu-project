@@ -27,14 +27,16 @@ class Index extends MainController
             global $connection;
             $co = $connection->getCo();
             $userModel = new \Administration\Models\User($co);
-            if ($userModel->getUserLogin($_POST['username'], $_POST['password'])) {
-                $this->responseApi(0, 'login success', $_POST);
-            }
+//            if ($userModel->getUserLogin($_POST['username'], $_POST['password'])) {
+//                $this->responseApi(0, 'login success', $_POST);
+//            }
 //            $userModel->getUserLogin($_POST['username'], $_POST['password']);
 
 
         }
         var_dump($_GET);
+        var_dump($_SESSION);
+        var_dump($_COOKIE);
     }
 
 }

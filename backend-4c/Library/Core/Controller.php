@@ -117,13 +117,4 @@ class Controller
         }
         $this->layout = $layout;
     }
-
-
-    /**
-     * @return mixed request method
-     */
-    public function requestMethod()
-    {
-        return $_SERVER['REQUEST_METHOD'];
-    }
 }

@@ -27,7 +27,6 @@ function autoload($className)
     $fileName .= str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
 // bắt đầu require file cần thiết
     require str_replace('Public/index.php', $fileName, $_SERVER['SCRIPT_FILENAME']);
-
 }
 
 spl_autoload_register('autoload');
@@ -42,7 +41,12 @@ $connection->connectDb();
 if ($_GET['end'] == 'admin') {
     $AdminRouter = new Administration\Router\AdminRouter();
     $AdminRouter->dispatchPage($url);
-} else {
+}
+elseif ($_GET['end'] == 'api') {
+    $ApiRouter = new Api\Router\ApiRouter();
+    $ApiRouter->dispatchPage($url);
+}
+else {
     //trang thông thường -> chuyển đến AppRouter
     $AppRouter = new Application\Router\AppRouter();
     $AppRouter->dispatchPage($url);

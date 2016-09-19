@@ -18,6 +18,7 @@ class Settings
     {
         $admin_root = str_replace('Public/index.php', 'Administration/', $_SERVER['SCRIPT_FILENAME']);
         $app_root = str_replace('Public/index.php', 'Application/', $_SERVER['SCRIPT_FILENAME']);
+        $api_root = str_replace('Public/index.php', 'Api/', $_SERVER['SCRIPT_FILENAME']);
         $lib_root = str_replace('Public/index.php', 'Library/', $_SERVER['SCRIPT_FILENAME']);
         $web_root = str_replace('Public/index.php', '', $_SERVER['SCRIPT_FILENAME']);
         $upload_root = str_replace('Public/index.php', 'Public/upload/', $_SERVER['SCRIPT_FILENAME']);
@@ -35,6 +36,7 @@ class Settings
 //        General constance
         define('ADMIN_ROOT', $admin_root);
         define('APP_ROOT', $app_root);
+        define('API_ROOT', $api_root);
         define('LIB_ROOT', $lib_root);
         define('LINK_ROOT', '/');
         define('WEB_ROOT', $web_root);

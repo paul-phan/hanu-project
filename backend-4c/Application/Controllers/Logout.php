@@ -20,7 +20,8 @@ class Logout extends MainController
     public function indexAction()
     {
         unset($_SESSION['User']);
-
+        setcookie("user", "", 1);
+        setcookie("token", "", 1);
         $this->addDataView(array("viewTitle" => "Đăng xuất"));
         header("location:/");
     }
