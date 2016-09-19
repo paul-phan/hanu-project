@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link, browserHistory} from 'react-router'
 
+require('../resources/styles/style.css')
 export default function App({children}) {
     return (
         <div>
@@ -19,6 +20,8 @@ export default function App({children}) {
                 <button onClick={() => browserHistory.push('/todos')}>Todos</button>
                 {' '}
                 <button onClick={() => browserHistory.push('/youtube')}>Youtube</button>
+                {' '}
+                <button onClick={() => browserHistory.push('/kanban')}>Kanban</button>
             </div>
             <hr/>
             <div style={{marginTop: '1.5em'}}>{children}</div>

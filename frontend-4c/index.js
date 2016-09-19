@@ -2,6 +2,7 @@ import {render} from 'react-dom'
 import App from './components/App'
 import Todos from './components/Todos'
 import Youtube from './components/Youtube'
+import Kanban from './components/Kanban'
 import Examples from './components/Examples'
 import Examples02 from './components/Examples02'
 import store from './redux/store/config'
@@ -22,6 +23,7 @@ render(
                 <Route path="ex02/:name" component={Examples02}/>
                 <Route path="todos" component={Todos}/>
                 <Route path="youtube" component={Youtube}/>
+                <Route path="kanban" component={Kanban}/>
             </Route>
         </Router>
     </Provider>,
