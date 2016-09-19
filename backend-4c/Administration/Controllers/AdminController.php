@@ -28,5 +28,15 @@ class AdminController extends MainController
         if (empty($_SESSION['User'])) {
             header("location:/login");
         }
+        // `id_role` is devided from 1 to 4. 1 is admin and only admin can see administration pages.
+        elseif ($_SESSION['User']['id_role'] > 1 || empty($_SESSION['User']['id_role'])) {
+            $alert = 'Bạn không phải admin để có thể truy cập';
+            unset($_SESSION['User']);
+            setcookie("user", "", 1);
+            setcookie("token", "", 1);
+            $this->addDataView(array("viewTitle" => "Đăng xuất", isset($alert) ? $alert : ''));
+            echo 'Bạn không phải admin để có thể truy cập';
+            header( "Refresh:5; url=/", true, 303);
+        }
     }
 }

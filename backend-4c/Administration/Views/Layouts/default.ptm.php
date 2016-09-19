@@ -38,7 +38,7 @@
     <link href="dashboard/css/login-4.min.css" rel="stylesheet" type="text/css"/>
 
 
-        <link rel="shortcut icon" href="dashboard/img/favicon.ico" />
+    <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
     <!--    END CUSTOM CSS-->
 </head>
 <body>
@@ -82,7 +82,8 @@
                             <a href="#" id="profile">
 
                                 <i class="fa fa-user"></i>
-                                <?php echo $_SESSION['User']['username']; ?> <span class="label label-danger">Admin</span>
+                                <?= isset($_SESSION['User']['username']) ? $_SESSION['User']['username'] : '' ?>
+                                <span class="label label-danger">Admin</span>
                             </a>
                             <a href="/logout" class="btn btn-default">Đăng xuất <i class="fa fa-sign-in "></i></a>
                         </div>
