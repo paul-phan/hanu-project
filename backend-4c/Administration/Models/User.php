@@ -55,6 +55,17 @@ class User extends MainModel
     }
 
     /**
+     * function get user logged in by cookie
+     * @param string $token
+     * @return object $result
+     */
+    public function retrieveLoginByToken($token)
+    {
+        $result = $this->fetchAll("token= '$token'");
+        return $result[0];
+    }
+
+    /**
      * function update token
      * @param $token
      * @param $id

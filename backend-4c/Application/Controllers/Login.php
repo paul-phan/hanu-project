@@ -37,12 +37,16 @@ class Login extends MainController
                 $_SESSION['User']['role_name'] = $role[0]->name;
                 $_SESSION['User']['token'] = $token;
                 if (!empty($_POST['remember']) && $modelUser->updateToken($token, $result->id)) {
-                    $user = $_POST['login'];
-                    setcookie("user", "$user", time() + (86400 * 30));
+                    setcookie("user", $_SESSION['User']['username'], time() + (86400 * 30));
+                    setcookie("token", "$token", time() + (86400 * 30));
                     setcookie("token", "$token", time() + (86400 * 30));
                 }
                 $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
-                header('location:/admin/');
+                if ($role[0]->level < 2) {
+                    header('location:/admin/');
+                } else {
+                    header('location:/');
+                }
             } else {
                 $alert = Tools\Alert::render('Wrong username or password!', 'danger');
             }

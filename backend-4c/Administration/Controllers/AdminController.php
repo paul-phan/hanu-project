@@ -21,22 +21,39 @@ class AdminController extends MainController
     {
         parent::__construct();
         $this->loginVerify();
+
     }
 
     public function loginVerify()
     {
+        if (isset($_COOKIE['user']) && isset($_COOKIE['token']) && empty($_SESSION['User'])) {
+            global $connection;
+            $co = $connection->getCo();
+            $userModel = new \Administration\Models\User($co);
+            $result = $userModel->retrieveLoginByToken($_COOKIE['token']);
+            if (!empty($user) && ($result->username == $_COOKIE['user'])) {
+                $roleModel = new \Administration\Models\Role($co);
+                $role = $roleModel->findById($result->id_role);
+                $_SESSION['User']['id'] = $result->id;
+                $_SESSION['User']['username'] = $result->username;
+                $_SESSION['User']['role_level'] = $role[0]->level;
+                $_SESSION['User']['role_name'] = $role[0]->name;
+                $_SESSION['User']['token'] = $_COOKIE['token'];
+            }
+        }
         if (empty($_SESSION['User'])) {
             header("location:/login");
         }
         // `role_level` is devided from 1 to 4. 1 is admin and only admin can see administration pages.
-        elseif ($_SESSION['User']['role_level'] > 1 || !isset($_SESSION['User']['role_level']) || !is_numeric($_SESSION['User']['role_level'])) {
-            $alert = 'Bạn không phải admin để có thể truy cập';
-            unset($_SESSION['User']);
-            setcookie("user", "", 1);
-            setcookie("token", "", 1);
-            $this->addDataView(array("viewTitle" => "Đăng xuất", isset($alert) ? $alert : ''));
-            echo 'Bạn không phải admin để có thể truy cập';
-            header( "Refresh:5; url=/", true, 303);
+        if ($_SESSION['User']['role_level'] > 1 || !isset($_SESSION['User']['role_level']) || !is_numeric($_SESSION['User']['role_level'])) {
+            echo 'Hello, ';
+            echo isset($_SESSION['User']['username']) ? $_SESSION['User']['username'] : 'Customer';
+            echo ', you are logged in as ';
+            echo isset($_SESSION['User']['role_name']) ? $_SESSION['User']['role_name'] : 'Anonymous';
+            header("Refresh:2; url=/", true, 303);
+            die;
         }
+
+
     }
 }
