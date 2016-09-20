@@ -641,38 +641,12 @@
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
             <div class="row">
+                <?php echo $alert ?>
+            <!--BEGIN CONTENT-->
                 <div class="col-md-12">
-                    <?php echo $alert ?>
-                    <!-- BEGIN PORTLET-->
-                    <div class="portlet light form-fit bordered">
-                        <div class="portlet-title">
-                            <div class="caption">
-                                <i class="icon-social-dribbble font-green"></i>
-                                <span
-                                    class="caption-subject font-green bold uppercase"><?php echo $viewTitle . ' | ' . $viewSiteName ?></span>
-                            </div>
-                            <div class="actions">
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="icon-cloud-upload"></i>
-                                </a>
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="icon-wrench"></i>
-                                </a>
-                                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                                    <i class="icon-trash"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!-- BEGIN CONTENT-->
-
                         <?php echo $viewContent; ?>
-
-                        <!-- END CONTENT-->
-
-                    </div>
-                    <!-- END PORTLET-->
                 </div>
+                <!--END CONTENT-->
             </div>
         </div>
     </div>
@@ -732,7 +706,7 @@
                             <img class="media-object" src="img/avatar3.jpg" alt="...">
                             <div class="media-body">
                                 <h4 class="media-heading">Phan Thế Minh</h4>
-                                <div class="media-heading-sub"> Project Manager</div>
+                                <div class="media-heading-sub">Architect & Scrum Master</div>
                             </div>
                         </li>
                         <li class="media">
@@ -756,7 +730,7 @@
                             <img class="media-object" src="img/avatar2.jpg" alt="...">
                             <div class="media-body">
                                 <h4 class="media-heading">Trần Thị Thu</h4>
-                                <div class="media-heading-sub"> Quality Assurance</div>
+                                <div class="media-heading-sub">BA & Quality Assurance</div>
                             </div>
                         </li>
                         <li class="media">
@@ -766,7 +740,7 @@
                             <img class="media-object" src="img/avatar4.jpg" alt="...">
                             <div class="media-body">
                                 <h4 class="media-heading">Trần Kim Tiến</h4>
-                                <div class="media-heading-sub"> Analyst & Developer</div>
+                                <div class="media-heading-sub"> Solution Developer</div>
                             </div>
                         </li>
                     </ul>

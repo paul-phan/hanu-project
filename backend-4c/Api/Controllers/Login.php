@@ -22,10 +22,12 @@ class Login extends MainController
             $token = md5(uniqid() . time());
             $modelUser = new \Administration\Models\User($co);
             $result = $modelUser->getUserLogin($_GET['login'], $_GET['password']);
-            if (!empty($result)) {
+            $roleModel = new \Administration\Models\Role($co);
+            $role = $roleModel->findById($result->id_role);
+            if (!empty($result) && !empty($role)) {
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
-                $_SESSION['User']['id_role'] = $result->id_role;
+                $_SESSION['User']['role_level'] = $role[0]->level;
                 $_SESSION['User']['token'] = $token;
                 $modelUser->updateToken($token, $result->id);
                 setcookie("user", $_GET['login'], time() + (86400 * 30));
@@ -38,5 +40,13 @@ class Login extends MainController
         } else {
             $this->responseApi(100003);
         }
+    }
+
+    public function logoutAction()
+    {
+        unset($_SESSION['User']);
+        setcookie("user", "", 1);
+        setcookie("token", "", 1);
+        $this->responseApi(0, 'Bạn đã đăng xuất thành công!', $_SESSION);
     }
 }

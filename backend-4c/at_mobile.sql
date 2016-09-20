@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2016 at 07:08 PM
+-- Generation Time: Sep 20, 2016 at 09:11 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -162,6 +162,7 @@ CREATE TABLE `profile` (
 
 CREATE TABLE `role` (
   `id` int(11) UNSIGNED NOT NULL,
+  `level` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -170,11 +171,16 @@ CREATE TABLE `role` (
 -- Dumping data for table `role`
 --
 
-INSERT INTO `role` (`id`, `name`, `update`) VALUES
-(1, 'admin', '2014-08-20 10:54:36'),
-(2, 'staff', '2014-08-20 10:54:36'),
-(3, 'level 3', '2016-09-13 07:44:29'),
-(4, 'customer', '2016-09-13 07:44:29');
+INSERT INTO `role` (`id`, `level`, `name`, `update`) VALUES
+(1, 0, 'Administrator', '2014-08-20 10:54:36'),
+(2, 1, 'Staff', '2014-08-20 10:54:36'),
+(3, 2, 'Stakeholder ', '2016-09-13 07:44:29'),
+(4, 3, 'Customer', '2016-09-13 07:44:29'),
+(5, 0, 'Architect & Scrum Master', '2016-09-20 06:14:03'),
+(6, 0, 'PHP Developer', '2016-09-20 06:14:03'),
+(7, 1, 'Android Developer', '2016-09-20 06:15:00'),
+(8, 1, 'BA & Quality Assurance', '2016-09-20 06:15:00'),
+(9, 1, 'Solution Developer', '2016-09-20 06:15:26');
 
 -- --------------------------------------------------------
 
@@ -205,7 +211,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (6, 'minhtest6', '$2a$07$ptmoOWLjwgZT6VlImAlYYeV7Fx789/SxtNChznXXcyhlAbiyjsbz2', 'b194f1cf64a8d8a32d1240b6fd261e53', 0, 1, '0000-00-00 00:00:00', '2016-09-13 19:59:55', '2016-09-13 17:59:55'),
 (7, 'minhtest7', '$2a$07$ptmqvBEBkpt0XhH6cVGQ3.2V78wmSdm/g9JrJlnnJGUfqWfa8VDkK', 'cb81cd80a6712216a75cc7460d13bb87', 0, 1, '0000-00-00 00:00:00', '2016-09-14 01:22:20', '2016-09-13 18:22:20'),
 (8, 'minhtest8', '$2a$07$ptmq5dHVG85giiRDGWzGRO0iQTurIcXLDxyVbmBjeyKeooVCdvL4a', '563f40ddafb7589633158a38b9c5b4b1', 0, 1, '0000-00-00 00:00:00', '2016-09-13 20:24:12', '2016-09-13 18:24:12'),
-(9, 'minhtest9', '$2a$07$ptm4VkYjX5Xfx5rICAfpjOWVvNyN5v/pjdggca2JHrBa/gBa.x/wu', '6fa89c9293da470e7ad3bbb2d9b3aacb', 0, 1, '2016-09-19 23:30:53', '2016-09-14 01:28:13', '2016-09-19 16:30:53'),
+(9, 'minhtest9', '$2a$07$ptm4VkYjX5Xfx5rICAfpjOWVvNyN5v/pjdggca2JHrBa/gBa.x/wu', '761f3fc74190d219de511debc7a2d7fa', 0, 1, '2016-09-20 13:43:28', '2016-09-14 01:28:13', '2016-09-20 06:43:28'),
 (10, 'minhtest10', '$2a$07$ptmRZCosDZmP27YDqZ02W.rFRu6BQQDsavfx.SBWfJA7.06ORx4Iq', 'b0cac10c096f90b5c2d95a6ae7167f1f', 0, 3, '2016-09-19 21:06:01', '2016-09-14 01:30:28', '2016-09-19 14:06:01');
 
 -- --------------------------------------------------------
@@ -286,7 +292,8 @@ ALTER TABLE `profile`
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_role` (`level`);
 
 --
 -- Indexes for table `user`
@@ -346,7 +353,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --

@@ -28,8 +28,8 @@ class AdminController extends MainController
         if (empty($_SESSION['User'])) {
             header("location:/login");
         }
-        // `id_role` is devided from 1 to 4. 1 is admin and only admin can see administration pages.
-        elseif ($_SESSION['User']['id_role'] > 1 || empty($_SESSION['User']['id_role'])) {
+        // `role_level` is devided from 1 to 4. 1 is admin and only admin can see administration pages.
+        elseif ($_SESSION['User']['role_level'] > 1 || !isset($_SESSION['User']['role_level']) || !is_numeric($_SESSION['User']['role_level'])) {
             $alert = 'Bạn không phải admin để có thể truy cập';
             unset($_SESSION['User']);
             setcookie("user", "", 1);
