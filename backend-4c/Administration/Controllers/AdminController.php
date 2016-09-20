@@ -21,7 +21,6 @@ class AdminController extends MainController
     {
         parent::__construct();
         $this->loginVerify();
-
     }
 
     public function loginVerify()
