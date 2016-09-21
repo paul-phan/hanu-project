@@ -10,9 +10,9 @@ namespace Api\Controllers;
 
 use Api\Controllers\ApiController as MainController;
 
-class Login extends MainController
+class Auth extends MainController
 {
-    public function indexAction()
+    public function loginAction()
     {
         global $connection;
         $co = $connection->getCo();

@@ -41,7 +41,7 @@ class AdminController extends MainController
             }
         }
         if (empty($_SESSION['User'])) {
-            header("location:/login");
+            header("location:/auth/login");
         }
         // `role_level` is devided from 1 to 4. 1 is admin and only admin can see administration pages.
         if ($_SESSION['User']['role_level'] > 1 || !isset($_SESSION['User']['role_level']) || !is_numeric($_SESSION['User']['role_level'])) {
@@ -49,6 +49,7 @@ class AdminController extends MainController
             echo isset($_SESSION['User']['username']) ? $_SESSION['User']['username'] : 'Customer';
             echo ', you are logged in as ';
             echo isset($_SESSION['User']['role_name']) ? $_SESSION['User']['role_name'] : 'Anonymous';
+            echo ' please logout and signin with admin account!';
             header("Refresh:2; url=/", true, 303);
             die;
         }

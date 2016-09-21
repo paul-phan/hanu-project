@@ -21,6 +21,6 @@ class _404 extends MainController
 
     public function indexAction()
     {
-        $this->responseApi(0, 'Not found API', $_GET);
+        $this->responseApi(0, 'Not found API or lack of params', $_GET);
     }
 }

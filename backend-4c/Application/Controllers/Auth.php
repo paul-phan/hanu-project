@@ -9,7 +9,7 @@ namespace Application\Controllers;
 use Application\Controllers\AppController as MainController;
 use Library\Tools as Tools;
 
-class Login extends MainController
+class Auth extends MainController
 {
 
     public function __construct()
@@ -17,7 +17,7 @@ class Login extends MainController
         parent::__construct();
     }
 
-    public function indexAction()
+    public function loginAction()
     {
         global $connection;
         $co = $connection->getCo();
@@ -55,5 +55,25 @@ class Login extends MainController
             'viewSiteName' => 'Đăng Nhập',
             'alert' => (!empty($alert) ? $alert : '')));
         $this->setLayout('login');
+    }
+
+    public function logoutAction()
+    {
+        unset($_SESSION['User']);
+        setcookie("user", "", 1);
+        setcookie("token", "", 1);
+        $this->addDataView(array("viewTitle" => "Đăng xuất"));
+        // unset cookies
+//        if (isset($_SERVER['HTTP_COOKIE'])) {
+//            $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+//            foreach($cookies as $cookie) {
+//                $parts = explode('=', $cookie);
+//                $name = trim($parts[0]);
+//                setcookie($name, '', time()-1000);
+//                setcookie($name, '', time()-1000, '/');
+//            }
+//        }
+        header("location:/");
+
     }
 }
