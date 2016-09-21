@@ -15,5 +15,13 @@ class Product extends MainController
         parent::__construct();
     }
 
+    public function indexAction()
+    {
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $productList = $productModel->findById(44);
+        $this->responseApi(0, "ABC", $productList);
+    }
 
 }
