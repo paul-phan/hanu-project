@@ -1,8 +1,8 @@
 <!-- BEGIN EXAMPLE TABLE PORTLET-->
 <div class="btn-group" style="padding-bottom: 10px">
-    <button class="btn blue"> Add New
+    <a href="admin/user/add/" class="btn blue"> Add New
         <i class="fa fa-plus"></i>
-    </button>
+    </a>
 </div>
 <div class="portlet box green">
     <div class="portlet-title">

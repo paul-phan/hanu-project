@@ -24,6 +24,7 @@ class User extends MainController
         $roleModel = new \Administration\Models\Role($co);
         $users = $userModel->fetchAll();
 //        $roles = $roleModel->
+        var_dump($users);
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Thành Viên',

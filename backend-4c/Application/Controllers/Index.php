@@ -15,7 +15,6 @@ use Application\Controllers\AppController as MainController;
 
 class Index extends MainController
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -23,20 +22,15 @@ class Index extends MainController
 
     public function indexAction()
     {
-        if ($_POST) {
-            global $connection;
-            $co = $connection->getCo();
-            $userModel = new \Administration\Models\User($co);
-//            if ($userModel->getUserLogin($_POST['username'], $_POST['password'])) {
-//                $this->responseApi(0, 'login success', $_POST);
-//            }
-//            $userModel->getUserLogin($_POST['username'], $_POST['password']);
-
-
-        }
+        global $connection;
+        $co = $connection->getCo();
+        $userModel = new \Administration\Models\User($co);
+        $result = $userModel->fetchAll();
+//        var_dump($result);
         var_dump($_GET);
         var_dump($_SESSION);
         var_dump($_COOKIE);
+
     }
 
 }

@@ -62,7 +62,7 @@ class User extends MainModel
     public function retrieveLoginByToken($token)
     {
         $result = $this->fetchAll("token= '$token'");
-        return $result[0];
+        return isset($result[0]) ? $result[0] : null;
     }
 
     /**
@@ -90,5 +90,13 @@ class User extends MainModel
         return $this->update(array(
             'last_login' => isset($time) ? $time : ''
         ), ' id = ' . $id);
+    }
+
+    /**
+     *
+     */
+    public function getAllUserAndRole($table = 'role, profile', $on = 'user.id_role = role.id')
+    {
+        return $this->fetchJoinedTable($table , $on,  'user.username as usn, role.name as rname' );
     }
 }

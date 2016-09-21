@@ -18,7 +18,6 @@ class Controller
     protected $src_root;
     protected $src_link;
     private $layout = "default";
-    private $responseHeader = "text/html";
     private $vars = array(
         "viewSiteName" => "",
         "viewTitle" => "",
@@ -42,7 +41,6 @@ class Controller
         $pathViews = $this->src_root . 'Views/Controllers/' . str_replace($this->src_link, '', $controller) . '/' . str_replace('Action', '', $action) . '.php';
         //Nếu tồn tại file view, tiến hành render
         if (file_exists($pathViews)) {
-            header('Content-type: ' . $this->responseHeader . ';charset=UTF-8');
             //Lấy các giá trị để hiển thị sau khi chạy qua addDataView
             extract($this->vars);
             //turn on output buffering ( dùng để thay thế view)
@@ -73,25 +71,6 @@ class Controller
     protected function getLayout()
     {
         return $this->layout;
-    }
-
-    /**
-     * This method adds the required headers
-     * @param string $responseHeader
-     */
-    protected function setResponseHeader($value)
-    {
-        $possibility = array(
-            "txt" => "text/plain",
-            "html" => "text/html",
-            "css" => "text/css",
-            "js" => "application/javascript",
-            "json" => "application/json",
-            "xml" => "application/xml",
-        );
-        if (array_key_exists(strtolower($value), $possibility)) {
-            $this->responseHeader = $possibility[$value];
-        }
     }
 
     /**

@@ -28,10 +28,11 @@ class Auth extends MainController
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
                 $_SESSION['User']['role_level'] = $role[0]->level;
-                $_SESSION['User']['token'] = $token;
-                $modelUser->updateToken($token, $result->id);
-                setcookie("user", $_GET['login'], time() + (86400 * 30));
-                setcookie("token", "$token", time() + (86400 * 30));
+                if ($modelUser->updateToken($token, $result->id)) {
+                    setcookie("user", $_SESSION['User']['username'], time() + (86400 * 30), '/');
+                    setcookie("token", "$token", time() + (86400 * 30), '/');
+                    $_SESSION['User']['token'] = $token;
+                }
                 $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
                 $this->responseApi(0, 'Login successfully', $_SESSION['User']);
             } else {

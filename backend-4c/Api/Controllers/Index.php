@@ -22,6 +22,11 @@ class Index extends MainController
 
     public function indexAction()
     {
-        $this->responseApi(0, 'Hello world', $_COOKIE);
+        global $connection;
+        $co = $connection->getCo();
+        $userModel = new \Administration\Models\User($co);
+        $result = $userModel->fetchByClause('');
+//        var_dump($result);
+        $this->responseApi(0, '', $result);
     }
 }

@@ -32,17 +32,17 @@ class ApiController extends MainController
         parent::__construct();
     }
 
-    function setHeader($code)
+    private function setHeader($code)
     {
         http_response_code($code);
     }
 
-    function responseApi($code = 0, $message = '', $data = array(), $header_type = 'json')
+    protected function responseApi($code = 0, $message = '', $data = array(), $header_type = 'json')
     {
         if ($header_type == 'json') {
-            header('Content-Type: application/json');
+            header('Content-Type: application/json; charset=UTF-8');
         } else {
-            header('Content-Type: text/html');
+            header('Content-Type: text/html; charset=UTF-8');
         }
 
 

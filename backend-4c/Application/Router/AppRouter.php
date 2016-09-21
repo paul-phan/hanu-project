@@ -14,7 +14,7 @@ use Library\Core\Router as MainRouter;
 class AppRouter extends MainRouter
 {
     protected $src_root = APP_ROOT;
-    protected $src_link = 'Application\Controllers\\';
+    protected $src_link = 'Application\\Controllers\\';
 
     function __construct()
     {

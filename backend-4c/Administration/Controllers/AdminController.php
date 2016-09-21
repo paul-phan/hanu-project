@@ -30,7 +30,7 @@ class AdminController extends MainController
             $co = $connection->getCo();
             $userModel = new \Administration\Models\User($co);
             $result = $userModel->retrieveLoginByToken($_COOKIE['token']);
-            if (!empty($user) && ($result->username == $_COOKIE['user'])) {
+            if (!empty($result) && ($result->username == $_COOKIE['user'])) {
                 $roleModel = new \Administration\Models\Role($co);
                 $role = $roleModel->findById($result->id_role);
                 $_SESSION['User']['id'] = $result->id;
@@ -40,7 +40,7 @@ class AdminController extends MainController
                 $_SESSION['User']['token'] = $_COOKIE['token'];
             }
         }
-        if (empty($_SESSION['User'])) {
+        if (!isset($_SESSION['User'])) {
             header("location:/auth/login");
         }
         // `role_level` is devided from 1 to 4. 1 is admin and only admin can see administration pages.

@@ -35,11 +35,10 @@ class Auth extends MainController
                 $_SESSION['User']['username'] = $result->username;
                 $_SESSION['User']['role_level'] = $role[0]->level;
                 $_SESSION['User']['role_name'] = $role[0]->name;
-                $_SESSION['User']['token'] = $token;
-                if (!empty($_POST['remember']) && $modelUser->updateToken($token, $result->id)) {
-                    setcookie("user", $_SESSION['User']['username'], time() + (86400 * 30));
-                    setcookie("token", "$token", time() + (86400 * 30));
-                    setcookie("token", "$token", time() + (86400 * 30));
+                if ($modelUser->updateToken($token, $result->id) && !empty($_POST['remember'])) {
+                    setcookie("user", $_SESSION['User']['username'], time() + (86400 * 30), '/');
+                    setcookie("token", "$token", time() + (86400 * 30), '/');
+                    $_SESSION['User']['token'] = $token;
                 }
                 $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
                 if ($role[0]->level < 2) {
@@ -60,9 +59,8 @@ class Auth extends MainController
     public function logoutAction()
     {
         unset($_SESSION['User']);
-        setcookie("user", "", 1);
-        setcookie("token", "", 1);
-        $this->addDataView(array("viewTitle" => "Đăng xuất"));
+        setcookie("user", "", 1,'/');
+        setcookie("token", "", 1,'/');
         // unset cookies
 //        if (isset($_SERVER['HTTP_COOKIE'])) {
 //            $cookies = explode(';', $_SERVER['HTTP_COOKIE']);

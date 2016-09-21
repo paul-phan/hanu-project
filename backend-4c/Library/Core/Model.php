@@ -58,6 +58,37 @@ abstract class Model
     }
 
     /**
+     * function allow to join two tables and fetch data
+     * @param string $joinTable
+     * @param string $joinOn example: $joinOn = 'role.id = user.id_role'
+     * @param string $fields example: $field =  'user.username as usn, role.name as rname'
+     * @return array
+     */
+    public function fetchJoinedTable($joinTable, $joinOn, $fields = '*')
+    {
+        $q = "SELECT $fields FROM `" . $this->table . "` JOIN $joinTable  ON  $joinOn ";
+        $sql = $this->db->prepare($q);
+        $sql->execute();
+        $sql->setFetchMode(PDO::FETCH_OBJ);
+        return $sql->fetchAll();
+    }
+
+    /**
+     * function fetchByClause()
+     * @param string $clause
+     * @param string $fields
+     * @return $array
+     */
+    public function fetchByClause($clause = 'WHERE 1', $fields = '*')
+    {
+        $q = "SELECT $fields FROM `" . $this->table . "` $clause ";
+        $sql = $this->db->prepare($q);
+        $sql->execute();
+        $sql->setFetchMode(PDO::FETCH_OBJ);
+        return $sql->fetchAll();
+    }
+
+    /**
      * insert() allows to add an occurence inside table
      * @param array $data
      * @return boolean
@@ -147,6 +178,7 @@ abstract class Model
         }
         return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
     }
+
     /**
      * Password/Token validator.
      * @param string $password_entered
