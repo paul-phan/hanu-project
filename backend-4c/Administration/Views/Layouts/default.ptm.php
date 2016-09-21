@@ -11,34 +11,34 @@
     <meta content="PhanTheMinh" name="author"/>
     <!-- Styles -->
     <!--    GLOBAL CSS-->
-    <!-- Bootstrap CSS -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
-    <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font awesome CSS -->
     <link href="dashboard/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom Color CSS -->
-    <link href="dashboard/css/less-style.css" rel="stylesheet">
+<!--    <link href="dashboard/css/less-style.css" rel="stylesheet">-->
     <link href="dashboard/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <!-- Custom CSS -->
+    <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboard/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
     <!--    END GLOBAL-->
     <link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
     <!--    CUSTOM CSS-->
+    <link href="dashboard/css/datatables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dashboard/css/datatables.bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/select2.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css"/>
-
+    <!--    END CUSTOM CSS-->
+    <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="dashboard/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
-
     <link href="dashboard/css/plugins-md.min.css" rel="stylesheet" type="text/css"/>
-    <link href="dashboard/css/login-4.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
     <link href="dashboard/css/layout.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/default.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/custom.min.css" rel="stylesheet" type="text/css"/>
-    <!--    END CUSTOM CSS-->
+    <!-- END THEME LAYOUT STYLES -->
+
     <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
@@ -488,7 +488,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link ">
+                            <a href="/admin/user/list" class="nav-link ">
                                 <span class="title">User list</span>
                             </a>
                         </li>
@@ -642,9 +642,9 @@
             <!-- END PAGE HEADER-->
             <div class="row">
                 <?php echo $alert ?>
-            <!--BEGIN CONTENT-->
+                <!--BEGIN CONTENT-->
                 <div class="col-md-12">
-                        <?php echo $viewContent; ?>
+                    <?php echo $viewContent; ?>
                 </div>
                 <!--END CONTENT-->
             </div>
@@ -1250,11 +1250,8 @@
 <!-- END FOOTER -->
 <!-- Javascript files -->
 <!--BEGIN CORE PLUGIN-->
-<!-- jQuery -->
 <script src="dashboard/js/jquery.min.js"></script>
-<!-- Bootstrap JS -->
 <script src="dashboard/js/bootstrap.min.js"></script>
-<!-- Custom JS -->
 <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -1263,6 +1260,10 @@
 <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!--END CORE PLUGIN-->
 <!--BEGIN CUSTOM-->
+<script src="dashboard/js/datatables.js" type="text/javascript"></script>
+<script src="dashboard/js/datatables.min.js" type="text/javascript"></script>
+<script src="dashboard/js/datatables.bootstrap.js" type="text/javascript"></script>
+<script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="dashboard/js/select2.full.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="dashboard/js/additional-methods.min.js" type="text/javascript"></script>
@@ -1274,12 +1275,13 @@
 <script src="dashboard/js/autosize.min.js" type="text/javascript"></script>
 <script src="dashboard/js/morris.min.js" type="text/javascript"></script>
 <!--END CUSTOM-->
-
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="dashboard/js/table-datatables-responsive.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
 <script src="dashboard/js/app.min.js" type="text/javascript"></script>
 <script src="dashboard/js/dashboard.min.js" type="text/javascript"></script>
 <script src="dashboard/js/layout.min.js" type="text/javascript"></script>
 <script src="dashboard/js/demo.min.js" type="text/javascript"></script>
 <script src="dashboard/js/quick-sidebar.min.js" type="text/javascript"></script>
-
 </body>
 </html>

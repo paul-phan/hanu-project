@@ -17,6 +17,20 @@ class User extends MainController
         parent::__construct();
     }
 
+    public function listAction() {
+        global $connection;
+        $co = $connection->getCo();
+        $userModel = new \Administration\Models\User($co);
+        $roleModel = new \Administration\Models\Role($co);
+        $users = $userModel->fetchAll();
+//        $roles = $roleModel->
+        $this->addDataView(array(
+            'viewTitle' => 'Quản lý',
+            'viewSiteName' => 'Thành Viên',
+            'users' => $users
+        ));
+    }
+
     //TODO reimplement add action
     /**
      * add user action

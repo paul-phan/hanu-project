@@ -15,5 +15,13 @@ class User extends MainController
         parent::__construct();
     }
 
+    public function listAction() {
+        global $connection;
+        $co = $connection->getCo();
+        $userModel = new \Administration\Models\User($co);
+        $roleModel = new \Administration\Models\Role($co);
+        $users = $userModel->fetchAll();
+        $this->responseApi(0,"",$users);
+    }
 
 }
