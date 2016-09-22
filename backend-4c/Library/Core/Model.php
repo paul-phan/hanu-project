@@ -17,6 +17,7 @@ abstract class Model
     private $db;
     protected $table;
     protected $primary;
+    public $insertedId;
 
     public function __construct($co)
     {
@@ -107,8 +108,13 @@ abstract class Model
 
         $query = "INSERT INTO `" . $this->table . "` ($fieldsList) VALUES ($valuesList)";
         $sql = $this->db->prepare($query);
-        return $sql->execute();
-
+        $sql->execute();
+        if ($sql) {
+            $this->insertedId = $this->db->lastInsertId();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

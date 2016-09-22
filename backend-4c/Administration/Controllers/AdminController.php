@@ -53,7 +53,5 @@ class AdminController extends MainController
             header("Refresh:2; url=/", true, 303);
             die;
         }
-
-
     }
 }

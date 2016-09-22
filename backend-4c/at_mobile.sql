@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2016 at 10:56 AM
+-- Generation Time: Sep 22, 2016 at 10:35 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -35,7 +35,7 @@ CREATE TABLE `bill` (
   `total_cash` int(20) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -51,7 +51,7 @@ CREATE TABLE `category` (
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `company` (
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE `image` (
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ CREATE TABLE `order_product` (
   `ip_address` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE `product` (
   `view` int(20) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
@@ -240,6 +240,43 @@ INSERT INTO `product` (`id`, `category_id`, `company_id`, `title`, `params`, `pr
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_detail`
+--
+
+CREATE TABLE `product_detail` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `product_id` int(11) UNSIGNED NOT NULL,
+  `length` varchar(255) NOT NULL,
+  `width` varchar(255) NOT NULL,
+  `height` varchar(255) NOT NULL,
+  `weight` varchar(255) NOT NULL,
+  `screen_type` varchar(255) NOT NULL,
+  `screen_size` varchar(255) NOT NULL,
+  `screen_resolution` varchar(255) NOT NULL,
+  `screen_des` varchar(255) NOT NULL,
+  `memory_int` varchar(255) NOT NULL,
+  `memory_ext` varchar(255) NOT NULL,
+  `memory_sup` varchar(255) NOT NULL,
+  `bandwidth` varchar(255) NOT NULL COMMENT 'băng tần hỗ trợ',
+  `gps_type` varchar(255) NOT NULL,
+  `bluetooth` varchar(255) NOT NULL,
+  `wifi` varchar(255) NOT NULL,
+  `infrared` varchar(255) NOT NULL,
+  `usb` varchar(255) NOT NULL,
+  `main_camera` varchar(255) NOT NULL,
+  `front_camera` varchar(255) NOT NULL,
+  `sim_support` varchar(255) NOT NULL,
+  `os` varchar(255) NOT NULL,
+  `cpu` varchar(255) NOT NULL,
+  `ram` varchar(255) NOT NULL,
+  `battery` varchar(255) NOT NULL,
+  `accessory` varchar(255) NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `profile`
 --
 
@@ -255,10 +292,18 @@ CREATE TABLE `profile` (
   `avatar` varchar(255) NOT NULL COMMENT 'avatar url',
   `gender` tinyint(2) NOT NULL,
   `birthday` date NOT NULL,
-  `token` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`, `city`, `country`, `avatar`, `gender`, `birthday`, `active`, `created`, `updated`) VALUES
+(1, 58, 'qweqwewer', '12312', 'phanminh65@gmail.com', '123123', 'qwe', 'VN', '', 1, '0000-00-00', 1, '2016-09-22 13:24:36', '2016-09-22 06:24:36'),
+(2, 59, 'Phan Th? Minh', '0914499925', 'phanminh65@gmail.com', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-22 14:34:22', '2016-09-22 07:34:22');
 
 -- --------------------------------------------------------
 
@@ -271,7 +316,7 @@ CREATE TABLE `role` (
   `level` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `role`
@@ -304,37 +349,43 @@ CREATE TABLE `user` (
   `last_login` datetime NOT NULL,
   `created` datetime NOT NULL,
   `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, `last_login`, `created`, `update`) VALUES
+(1, 'minhtest16', '$2a$07$ptmtdQmHJ4wcuEYh4lShF.66Z6Ryoja2F4iYQdMIlOxRXmECLNaOW', 'c2043d31610359fa202676ad8790a437', 1, 3, '0000-00-00 00:00:00', '2016-09-22 14:49:21', '2016-09-22 07:49:21'),
 (3, 'minhtest3', '$2a$07$ptm74gg6vIPXuMfmAdl2OuNOb5pRYJ5D7y1fAjb0AiOqp7Be4QS/G', 'f0676c9ff5be22e7bb5dba73c3d2e1de', 0, 1, '0000-00-00 00:00:00', '2016-09-13 19:09:56', '2016-09-13 17:48:56'),
 (4, 'minhtest4', '$2a$07$ptm2x5I9x8HWhA4UHi5TMuiF0adq7yRCJ9.cTzdknckFrvkp6L7Vm', '53a1ad474c8eab1c08d53b20bc726e9a', 0, 1, '0000-00-00 00:00:00', '2016-09-13 19:09:57', '2016-09-13 17:57:57'),
 (5, 'minhtest5', '$2a$07$ptmST3krtcYWNmqCszXNXe4GzR5PUFQPyiNoeA4jWx/WBkUe7xobK', 'e2099533d490d8549d1750678f247d11', 0, 1, '0000-00-00 00:00:00', '2016-09-13 19:09:04', '2016-09-13 17:59:04'),
 (6, 'minhtest6', '$2a$07$ptmoOWLjwgZT6VlImAlYYeV7Fx789/SxtNChznXXcyhlAbiyjsbz2', 'b194f1cf64a8d8a32d1240b6fd261e53', 0, 1, '0000-00-00 00:00:00', '2016-09-13 19:59:55', '2016-09-13 17:59:55'),
 (7, 'minhtest7', '$2a$07$ptmqvBEBkpt0XhH6cVGQ3.2V78wmSdm/g9JrJlnnJGUfqWfa8VDkK', 'cb81cd80a6712216a75cc7460d13bb87', 0, 1, '0000-00-00 00:00:00', '2016-09-14 01:22:20', '2016-09-13 18:22:20'),
 (8, 'minhtest8', '$2a$07$ptmq5dHVG85giiRDGWzGRO0iQTurIcXLDxyVbmBjeyKeooVCdvL4a', '563f40ddafb7589633158a38b9c5b4b1', 0, 1, '0000-00-00 00:00:00', '2016-09-13 20:24:12', '2016-09-13 18:24:12'),
-(9, 'minhtest9', '$2a$07$ptm4VkYjX5Xfx5rICAfpjOWVvNyN5v/pjdggca2JHrBa/gBa.x/wu', 'a94b02207e17cbcb39f70554fab48494', 0, 1, '2016-09-20 15:22:54', '2016-09-14 01:28:13', '2016-09-20 08:22:54'),
-(10, 'minhtest10', '$2a$07$ptmRZCosDZmP27YDqZ02W.rFRu6BQQDsavfx.SBWfJA7.06ORx4Iq', '1b2e114904e812ad21302e3468328818', 0, 3, '2016-09-20 15:22:26', '2016-09-14 01:30:28', '2016-09-20 08:22:26');
+(9, 'minhtest9', '$2a$07$ptm4VkYjX5Xfx5rICAfpjOWVvNyN5v/pjdggca2JHrBa/gBa.x/wu', '9af305f23942d6103757fefb999f598b', 0, 1, '2016-09-22 01:07:21', '2016-09-14 01:28:13', '2016-09-21 18:07:21'),
+(50, 'minhtest10', '$2a$07$ptmRZCosDZmP27YDqZ02W.rFRu6BQQDsavfx.SBWfJA7.06ORx4Iq', '78c8cd430208b0609256951de2035b66', 0, 3, '2016-09-21 14:42:59', '2016-09-14 01:30:28', '2016-09-21 14:52:33'),
+(52, 'minhtest91', '$2a$07$ptmChCg9OO3LxQ9kRCFBvO/0NuJlncCLmJCuS1SGyJeyoWjQNcuqa', '2da03a16eeac2ef836589ba8d9236e8d', 0, 4, '0000-00-00 00:00:00', '2016-09-22 11:02:26', '2016-09-22 04:02:26'),
+(53, 'minhtest11', '$2a$07$ptmb9OO3LxQ9kRCFBvUY0uePT.3Big6Xhi/52i6UGl3zoFAQRu3Py', 'c27efc387b879108af52e89578135104', 0, 2, '0000-00-00 00:00:00', '2016-09-22 11:06:14', '2016-09-22 04:06:14'),
+(54, 'minhtest12', '$2a$07$ptmlP27YDqZ02WEsNsVbQefRshkwi3RJAWGQPgVp4vTS/wG9kj5Em', 'c7959e5f49771506ca4318f947245dc3', 1, 1, '0000-00-00 00:00:00', '2016-09-22 13:09:13', '2016-09-22 06:09:13'),
+(58, 'minhtest13', '$2a$07$ptm2FsthVGz4i5arL8TmROyRwMLyhNWOfC7clJgGyhFnejm4oMJXu', 'a7eb9c6d30ac2fd42dd9654a667aef49', 1, 3, '0000-00-00 00:00:00', '2016-09-22 13:24:36', '2016-09-22 06:24:36'),
+(59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_report`
+-- Table structure for table `user_feedback`
 --
 
-CREATE TABLE `user_report` (
+CREATE TABLE `user_feedback` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `title` text NOT NULL,
-  `message` int(11) NOT NULL,
+  `message` text NOT NULL,
   `reported_in` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -354,20 +405,21 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `cat_name` (`cat_name`);
+  ADD KEY `cat_name` (`cat_name`(191));
 
 --
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `com_name` (`com_name`);
+  ADD KEY `com_name` (`com_name`(191));
 
 --
 -- Indexes for table `image`
 --
 ALTER TABLE `image`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `order_product`
@@ -382,10 +434,19 @@ ALTER TABLE `order_product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `title` (`title`),
+  ADD KEY `title` (`title`(191)),
   ADD KEY `price` (`price`),
   ADD KEY `category_id` (`category_id`),
-  ADD KEY `company_id` (`company_id`);
+  ADD KEY `company_id` (`company_id`),
+  ADD KEY `category_id_2` (`category_id`),
+  ADD KEY `company_id_2` (`company_id`);
+
+--
+-- Indexes for table `product_detail`
+--
+ALTER TABLE `product_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- Indexes for table `profile`
@@ -406,13 +467,12 @@ ALTER TABLE `role`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `id_role` (`id_role`);
 
 --
--- Indexes for table `user_report`
+-- Indexes for table `user_feedback`
 --
-ALTER TABLE `user_report`
+ALTER TABLE `user_feedback`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
@@ -451,10 +511,15 @@ ALTER TABLE `order_product`
 ALTER TABLE `product`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 --
+-- AUTO_INCREMENT for table `product_detail`
+--
+ALTER TABLE `product_detail`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -464,23 +529,15 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
--- AUTO_INCREMENT for table `user_report`
+-- AUTO_INCREMENT for table `user_feedback`
 --
-ALTER TABLE `user_report`
+ALTER TABLE `user_feedback`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `bill`
---
-ALTER TABLE `bill`
-  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `bill_ibfk_3` FOREIGN KEY (`order_id`) REFERENCES `order_product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `category`
@@ -498,7 +555,7 @@ ALTER TABLE `company`
 -- Constraints for table `image`
 --
 ALTER TABLE `image`
-  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `order_product`
@@ -506,6 +563,12 @@ ALTER TABLE `image`
 ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `product_detail`
+--
+ALTER TABLE `product_detail`
+  ADD CONSTRAINT `product_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `profile`
@@ -520,10 +583,10 @@ ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_report`
+-- Constraints for table `user_feedback`
 --
-ALTER TABLE `user_report`
-  ADD CONSTRAINT `user_report_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `user_feedback`
+  ADD CONSTRAINT `user_feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

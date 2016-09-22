@@ -31,8 +31,9 @@ class User extends MainModel
             'username' => $post['username'],
             'password' => $this->blowfishHasher($post['password']),
             'token' => md5(uniqid() . time()), //create random token
-            'id_role' => $post['role'],
-            'created' => date("Y:m:d H:i:s")
+            'id_role' => isset($post['role']) ? $post['role'] : 4,
+            'created' => date("Y:m:d H:i:s"),
+            'active' => isset($post['active']) ? $post['active'] : 1,
         ));
     }
 
@@ -92,11 +93,4 @@ class User extends MainModel
         ), ' id = ' . $id);
     }
 
-    /**
-     *
-     */
-    public function getAllUserAndRole($table = 'role, profile', $on = 'user.id_role = role.id')
-    {
-        return $this->fetchJoinedTable($table , $on,  'user.username as usn, role.name as rname' );
-    }
 }

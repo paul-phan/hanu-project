@@ -9,7 +9,11 @@
         <div class="caption">
             <i class="fa fa-globe"></i>Danh sách thành viên
         </div>
-        <div class="tools"></div>
+        <div class="tools" style="position: absolute">
+            <a href="javascript:;" class="collapse"> </a>
+        </div>
+
+
     </div>
     <div class="portlet-body">
         <table class="table table-striped table-bordered table-hover dt-responsive" id="sample_3"
@@ -20,10 +24,11 @@
                 <th class="min-phone-l">Ngày tham gia</th>
                 <th class="min-tablet">Quyền</th>
                 <th class="desktop">Option</th>
-                <th class="none">Age</th>
-                <th class="none">Start date</th>
-                <th class="none">Salary</th>
-                <th class="none">Extn.</th>
+
+                <th class="none">Fullname:</th>
+                <th class="none">Activation</th>
+                <th class="none">Last login</th>
+                <th class="none">Email</th>
             </tr>
             </thead>
             <tbody>
@@ -34,7 +39,7 @@
                         <a href="javascript:;"> <?= $user->username ?> </a>
                     </td>
                     <td> <?= $user->created ?> </td>
-                    <td> <?= $user->id_role ?> </td>
+                    <td> <?= $user->rname ?> </td>
 
                     <td style="width: 20%">
                         <a href="javascript:;" class="btn btn-outline btn-circle btn-sm purple">
@@ -42,10 +47,11 @@
                         <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm black">
                             <i class="fa fa-trash-o"></i> Delete </a>
                     </td>
-                    <td>Test</td>
-                    <td>2016</td>
-                    <td>999</td>
-                    <td>aasdasd</td>
+                    <td><?= $user->full_name ?></td>
+                    <td><?= $user->active ?></td>
+                    <td><?= $user->last_login ?></td>
+
+                    <td><?= $user->email ?></td>
                 </tr>
             <?php } ?>
             </tbody>

@@ -17,18 +17,21 @@ class User extends MainController
         parent::__construct();
     }
 
-    public function listAction() {
+    public function indexAction()
+    {
+        header("Refresh:1; url=/admin/user/list", true, 303);
+    }
+
+    public function listAction()
+    {
         global $connection;
         $co = $connection->getCo();
         $userModel = new \Administration\Models\User($co);
-        $roleModel = new \Administration\Models\Role($co);
-        $users = $userModel->fetchAll();
-//        $roles = $roleModel->
-        var_dump($users);
+        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email');
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Thành Viên',
-            'users' => $users
+            'users' => $result
         ));
     }
 
@@ -44,13 +47,17 @@ class User extends MainController
         $modelRole = new \Administration\Models\Role($co);
         $role = $modelRole->fetchAll();
         $modelUser = new \Administration\Models\User($co);
+        $modelProfile = new \Administration\Models\Profile($co);
 
-        if (!empty($_POST['username'])) {
-            if (empty($_POST['password'])) {
-                $alert = Tools\Alert::render('Vui lòng nhập password của bạn!', 'danger');
+        if (!empty($_POST)) {
+            if ($modelUser->insertUser($_POST)) {
+                if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
+                    $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
+                } else {
+                    $alert = $alert = Tools\Alert::render('Người dùng mới đã được tao, tuy nhiên hãy kiểm tra lại profile của bạn!', 'warning');
+                }
             } else {
-                $modelUser->insertUser($_POST);
-                $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
+                $alert = Tools\Alert::render('Không thành công! Vui lòng kiểm tra lại thông tin đã nhập!', 'danger');
             }
         }
         $this->addDataView(array(
@@ -59,8 +66,6 @@ class User extends MainController
             'role' => $role,
             'alert' => (!empty($alert)) ? $alert : ''
         ));
-
-
     }
 
     //TODO implement edit action
@@ -92,7 +97,8 @@ class User extends MainController
      * Tạo model Profile để lấy data từ trong bảng
      * kết hợp với bảng user, hiển thị ra trang cá nhân người dùng hoàn chỉnh.
      */
-    public function viewAction() {
+    public function viewAction()
+    {
 
     }
 }

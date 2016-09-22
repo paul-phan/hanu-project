@@ -10,25 +10,26 @@
     <meta content="HelloWorld" name="description"/>
     <meta content="PhanTheMinh" name="author"/>
     <!-- Styles -->
-    <!--    GLOBAL CSS-->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link href="dashboard/css/font-awesome.min.css" rel="stylesheet">
-<!--    <link href="dashboard/css/less-style.css" rel="stylesheet">-->
+    <!--    <link href="dashboard/css/less-style.css" rel="stylesheet">-->
     <link href="dashboard/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboard/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-    <!--    END GLOBAL-->
-    <link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
-    <!--    CUSTOM CSS-->
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
     <link href="dashboard/css/datatables.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/datatables.bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/select2.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dashboard/css/clockface.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css"/>
-    <!--    END CUSTOM CSS-->
+    <link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="dashboard/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
     <link href="dashboard/css/plugins-md.min.css" rel="stylesheet" type="text/css"/>
@@ -487,14 +488,14 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
-                        <li class="nav-item  ">
+                        <li class="nav-item">
                             <a href="/admin/user/list" class="nav-link ">
-                                <span class="title">User list</span>
+                                <i class="fa fa-list-ul"></i> <span class="title">User list</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link ">
-                                <span class="title">Add</span>
+                            <a href="/admin/user/add" class="nav-link ">
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Add</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
@@ -1259,29 +1260,36 @@
 <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!--END CORE PLUGIN-->
-<!--BEGIN CUSTOM-->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="dashboard/js/datatables.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.min.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.bootstrap.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="dashboard/js/clockface.js" type="text/javascript"></script>
 <script src="dashboard/js/select2.full.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="dashboard/js/additional-methods.min.js" type="text/javascript"></script>
-<script src="dashboard/js/form-validation-md.min.js" type="text/javascript"></script>
+<script src="dashboard/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
 <script src="dashboard/js/ckeditor.js" type="text/javascript"></script>
 <script src="dashboard/js/pwstrength-bootstrap.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-markdown.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-markdown.js" type="text/javascript"></script>
 <script src="dashboard/js/autosize.min.js" type="text/javascript"></script>
 <script src="dashboard/js/morris.min.js" type="text/javascript"></script>
-<!--END CUSTOM-->
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script src="dashboard/js/app.min.js" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="dashboard/js/table-datatables-responsive.min.js" type="text/javascript"></script>
+<script src="dashboard/js/components-date-time-pickers.min.js" type="text/javascript"></script>
+<script src="dashboard/js/form-wizard.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
-<script src="dashboard/js/app.min.js" type="text/javascript"></script>
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="dashboard/js/dashboard.min.js" type="text/javascript"></script>
 <script src="dashboard/js/layout.min.js" type="text/javascript"></script>
 <script src="dashboard/js/demo.min.js" type="text/javascript"></script>
 <script src="dashboard/js/quick-sidebar.min.js" type="text/javascript"></script>
+<!-- END THEME LAYOUT SCRIPTS -->
 </body>
 </html>
