@@ -21,11 +21,11 @@
             <thead>
             <tr>
                 <th class="all">Tên đăng nhập</th>
-                <th class="min-phone-l">Ngày tham gia</th>
+                <th class="min-phone-l">Fullname</th>
                 <th class="min-tablet">Quyền</th>
                 <th class="desktop">Option</th>
 
-                <th class="none">Fullname:</th>
+                <th class="none">Ngày tham gia</th>
                 <th class="none">Activation</th>
                 <th class="none">Last login</th>
                 <th class="none">Email</th>
@@ -38,7 +38,8 @@
                         <div class="success"></div>
                         <a href="javascript:;"> <?= $user->username ?> </a>
                     </td>
-                    <td> <?= $user->created ?> </td>
+                    <td><?= $user->full_name ?></td>
+
                     <td> <?= $user->rname ?> </td>
 
                     <td style="width: 20%">
@@ -47,7 +48,7 @@
                         <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm black">
                             <i class="fa fa-trash-o"></i> Delete </a>
                     </td>
-                    <td><?= $user->full_name ?></td>
+                    <td> <?= $user->created ?> </td>
                     <td><?= $user->active ?></td>
                     <td><?= $user->last_login ?></td>
 

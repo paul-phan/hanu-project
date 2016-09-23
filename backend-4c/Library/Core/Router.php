@@ -10,7 +10,7 @@
 
 namespace Library\Core;
 
-class Router
+abstract class Router
 {
     protected $src_root;
     protected $src_link;

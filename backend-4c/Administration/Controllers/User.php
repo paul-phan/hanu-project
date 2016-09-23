@@ -8,9 +8,10 @@
 namespace Administration\Controllers;
 
 use Administration\Controllers\AdminController as MainController;
+use Library\Core\UserController;
 use Library\Tools;
 
-class User extends MainController
+class User extends MainController implements UserController
 {
     public function __construct()
     {
@@ -36,10 +37,7 @@ class User extends MainController
     }
 
     //TODO reimplement add action
-    /**
-     * add user action
-     * parameter: $_POST['username'], $_POST['password'], $_POST['active'] (bằng 1 là active), $_POST['id_role']
-     */
+
     public function addAction()
     {
         global $connection;
@@ -53,6 +51,7 @@ class User extends MainController
             if ($modelUser->insertUser($_POST)) {
                 if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
                     $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
+                    header("Refresh:2; url=/admin/user/list", true, 303);
                 } else {
                     $alert = $alert = Tools\Alert::render('Người dùng mới đã được tao, tuy nhiên hãy kiểm tra lại profile của bạn!', 'warning');
                 }
@@ -69,12 +68,7 @@ class User extends MainController
     }
 
     //TODO implement edit action
-    /**
-     * Trong User Model tạo 1 public method tên updateUser sử dụng phương thức update(post_array, $id) từ lớp Model cha để update
-     * Tương tự addAction, những trường có thể sửa:
-     * parameter: $_POST['username'], $_POST['password'], $_POST['active'] (bằng 1 là active), $_POST['id_role']
-     * tạo model Profile để có thể chỉnh sửa đc bảng profile
-     */
+
     public function editAction()
     {
         Tools\Helper::checkUrlParamsIsNumeric(); //kiểm tra parameter có phải là số hay ko(edit theo id)
@@ -82,21 +76,14 @@ class User extends MainController
     }
 
     //TODO implement delete action
-    /**
-     * Xóa user
-     * sử dụng phương thức từ model: delete($id)
-     */
+
     public function deleteAction()
     {
 
     }
 
     //TODO implement view action
-    /**
-     * Xem profile người dùng
-     * Tạo model Profile để lấy data từ trong bảng
-     * kết hợp với bảng user, hiển thị ra trang cá nhân người dùng hoàn chỉnh.
-     */
+
     public function viewAction()
     {
 

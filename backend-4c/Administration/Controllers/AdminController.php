@@ -12,7 +12,7 @@ namespace Administration\Controllers;
 
 use Library\Core\Controller as MainController;
 
-class AdminController extends MainController
+abstract class AdminController extends MainController
 {
     protected $src_root = ADMIN_ROOT;
     protected $src_link = 'Administration\Controllers\\';

@@ -10,9 +10,46 @@
 
 namespace Library\Core;
 
-/**
- * This is main controller
- */
+interface UserController
+{
+    public function indexAction();
+
+    public function listAction();
+
+    /**
+     * add user action
+     * parameter: $_POST['username'], $_POST['password'], $_POST['active'] (bằng 1 là active), $_POST['id_role']
+     */
+    public function addAction();
+
+    /**
+     * Trong User Model tạo 1 public method tên updateUser sử dụng phương thức update(post_array, $id) từ lớp Model cha để update
+     * Tương tự addAction, những trường có thể sửa:
+     * parameter: $_POST['username'], $_POST['password'], $_POST['active'] (bằng 1 là active), $_POST['id_role']
+     * tạo model Profile để có thể chỉnh sửa đc bảng profile
+     */
+    public function editAction();
+
+    /**
+     * Xóa user
+     * sử dụng phương thức từ model: delete($id)
+     */
+    public function deleteAction();
+
+    /**
+     * Xem profile người dùng
+     * Tạo model Profile để lấy data từ trong bảng
+     * kết hợp với bảng user, hiển thị ra trang cá nhân người dùng hoàn chỉnh.
+     */
+    public function viewAction();
+}
+
+interface ProductController
+{
+
+}
+
+
 class Controller
 {
     protected $src_root;

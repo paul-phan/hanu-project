@@ -12,6 +12,98 @@ namespace Library\Core;
 
 use PDO;
 
+interface UserModel
+{
+    /**
+     * insertUser() this function will choose/define which data from $_POST method to be inserted to table User
+     * @param array $post
+     * @return bool
+     */
+    public function insertUser($post);
+
+    /**
+     * @param string $name
+     * @param string $password
+     * @return object result
+     */
+    public function getUserLogin($login, $password);
+
+    /**
+     * function get user logged in by cookie
+     * @param string $token
+     * @return object $result
+     */
+    public function retrieveLoginByToken($token);
+
+    /**
+     * function update token
+     * @param string $token
+     * @param int $id
+     * @return boolean
+     */
+    public function updateToken($token, $id);
+
+    /**
+     * update last login time
+     * @param \DateTime $time
+     * @param int $id
+     * @return boolean
+     */
+    public function updateLastLogin($time, $id);
+
+    /**
+     * @param array $post
+     * @param int $id
+     * @return boolean
+     */
+    public function modifyUser($post, $id);
+
+    /**
+     * @param string $name
+     * @return mixed
+     */
+    public function getUserByName($name);
+
+}
+
+interface ProductModel
+{
+    /**
+     * @param array $post
+     * @return boolean
+     */
+    public function insertProduct($post);
+
+    /**
+     * @param array $post
+     * @param int $id
+     * @return boolean
+     */
+    public function modifyProduct($post, $id);
+
+}
+
+interface ProfileModel
+{
+    /**
+     * @param array $post
+     * @return boolean
+     */
+    public function insertProfile($post, $userId);
+
+    /**
+     * @param array $post
+     * @param int $id
+     * @return boolean
+     */
+    public function modifyProfile($post, $id);
+}
+
+interface ProductDetailModel
+{
+
+}
+
 abstract class Model
 {
     private $db;

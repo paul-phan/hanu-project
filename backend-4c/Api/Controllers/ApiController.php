@@ -12,7 +12,7 @@ namespace Api\Controllers;
 
 use Library\Core\Controller as MainController;
 
-class ApiController extends MainController
+abstract class ApiController extends MainController
 {
     protected $src_root = API_ROOT;
     protected $src_link = 'Api\Controllers\\';

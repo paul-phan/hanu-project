@@ -8,8 +8,9 @@
 namespace Administration\Models;
 
 use Library\Core\Model as MainModel;
+use Library\Core\ProfileModel;
 
-class Profile extends MainModel
+class Profile extends MainModel implements ProfileModel
 {
     protected $table = 'profile';
     protected $primary = 'id';
@@ -34,5 +35,10 @@ class Profile extends MainModel
             'active' => isset($post['active']) ? $post['active'] : 1,
             'created' => date("Y:m:d H:i:s"),
         ));
+    }
+
+    public function modifyProfile($post, $id)
+    {
+        // TODO: Implement modifyProfile() method.
     }
 }

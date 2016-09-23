@@ -8,9 +8,10 @@
 
 namespace Administration\Models;
 
+use Library\Core\UserModel;
 use Library\Core\Model as MainModel;
 
-class User extends MainModel
+class User extends MainModel implements UserModel
 {
     protected $table = 'user';
     protected $primary = 'id';
@@ -20,11 +21,7 @@ class User extends MainModel
         parent::__construct($co);
     }
 
-    /**
-     * insertUser() this function will choose/define which data from $_POST method to be inserted to table User
-     * @param array $post
-     * @return bool
-     */
+
     public function insertUser($post)
     {
         return $this->insert(array(
@@ -37,12 +34,7 @@ class User extends MainModel
         ));
     }
 
-    /**
-     * TODO getUserLogin
-     * @param string $name
-     * param string $password
-     * @return object result
-     */
+
     public function getUserLogin($login, $password)
     {
         $result = $this->fetchAll("username= '$login'");
@@ -55,23 +47,14 @@ class User extends MainModel
         return null;
     }
 
-    /**
-     * function get user logged in by cookie
-     * @param string $token
-     * @return object $result
-     */
+
     public function retrieveLoginByToken($token)
     {
         $result = $this->fetchAll("token= '$token'");
         return isset($result[0]) ? $result[0] : null;
     }
 
-    /**
-     * function update token
-     * @param $token
-     * @param $id
-     * @return boolean
-     */
+
     public function updateToken($token, $id)
     {
         return $this->update(array(
@@ -80,17 +63,23 @@ class User extends MainModel
             ' id = ' . $id);
     }
 
-    /**
-     * update last login time
-     * @param $time
-     * @param $id
-     * @return boolean
-     */
+
     public function updateLastLogin($time, $id)
     {
         return $this->update(array(
             'last_login' => isset($time) ? $time : ''
         ), ' id = ' . $id);
     }
+
+    public function modifyUser($post, $id)
+    {
+        // TODO: Implement modifyUser() method.
+    }
+
+    public function getUserByName($name)
+    {
+        // TODO: Implement getUserByName() method.
+    }
+
 
 }
