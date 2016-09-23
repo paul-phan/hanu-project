@@ -68,7 +68,11 @@ class User extends MainController
      */
     public function deleteAction()
     {
-
+        global $connection;
+        $co = $connection->getCo();
+        $modelRole = new \Administration\Models\Role($co);
+        $role = $modelRole->fetchAll();
+        $modelUser = new \Administration\Models\User($co);
     }
 
     //TODO implement view action

@@ -54,6 +54,9 @@ class User extends MainModel
         return null;
     }
 
+    public function delete($id){
+
+    }
     /**
      * function update token
      * @param $token
