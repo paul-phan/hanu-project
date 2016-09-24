@@ -12,7 +12,7 @@ namespace Administration\Controllers;
 
 use Library\Core\Controller as MainController;
 
-class AdminController extends MainController
+abstract class AdminController extends MainController
 {
     protected $src_root = ADMIN_ROOT;
     protected $src_link = 'Administration\Controllers\\';
@@ -25,8 +25,18 @@ class AdminController extends MainController
 
     public function loginVerify()
     {
-        if (empty($_SESSION['User'])) {
-            header("location:/login");
+        if (!isset($_SESSION['User'])) {
+            header("location:/auth/login");
+        }
+        // `role_level` is devided from 1 to 4. 1 is admin and only admin can see administration pages.
+        if ($_SESSION['User']['role_level'] > 1 || !isset($_SESSION['User']['role_level']) || !is_numeric($_SESSION['User']['role_level'])) {
+            echo 'Hello, ';
+            echo isset($_SESSION['User']['username']) ? $_SESSION['User']['username'] : 'Customer';
+            echo ', you are logged in as ';
+            echo isset($_SESSION['User']['role_name']) ? $_SESSION['User']['role_name'] : 'Anonymous';
+            echo ' please logout and signin with admin account!';
+            header("Refresh:2; url=/", true, 303);
+            die;
         }
     }
 }
