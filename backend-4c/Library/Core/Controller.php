@@ -46,7 +46,17 @@ interface UserController
 
 interface ProductController
 {
+    public function indexAction();
 
+    public function listAction();
+
+    public function addAction();
+
+    public function editAction();
+
+    public function deleteAction();
+
+    public function viewAction();
 }
 
 
