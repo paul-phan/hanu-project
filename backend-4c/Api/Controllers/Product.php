@@ -23,5 +23,4 @@ class Product extends MainController
         $productList = $productModel->findById(44);
         $this->responseApi(0, "ABC", $productList);
     }
-
 }

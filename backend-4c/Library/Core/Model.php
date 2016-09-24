@@ -59,10 +59,11 @@ interface UserModel
     public function modifyUser($post, $id);
 
     /**
-     * @param string $name
+     * @param string $username
      * @return mixed
      */
-    public function getUserByName($name);
+    public function getUserByUsername($username);
+
 
 }
 

@@ -34,11 +34,26 @@ class Profile extends MainModel implements ProfileModel
             'country' => $post['country'],
             'active' => isset($post['active']) ? $post['active'] : 1,
             'created' => date("Y:m:d H:i:s"),
+            'avatar' => isset($post['avatar']) ? $post['avatar'] : ''
         ));
     }
 
     public function modifyProfile($post, $id)
     {
         // TODO: Implement modifyProfile() method.
+    }
+
+
+    public function getUserByMail($mail)
+    {
+        return $this->fetchAll("email= '$mail' ");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getByUserId($id)
+    {
+        return $this->fetchAll("user_id= '$id' and active= 1 ");
     }
 }

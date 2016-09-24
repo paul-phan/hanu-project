@@ -3,7 +3,7 @@
         <div class="caption">
             <i class=" icon-layers font-red"></i>
             <span class="caption-subject font-red bold uppercase"> Thêm người dùng mới -
-                                            <span class="step-title"> Step 1 of 4 </span>
+                                            <span class="step-title"> Bước 1 của 4 </span>
                                         </span>
         </div>
         <div class="actions">
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="portlet-body form">
-        <form role="form" class="form-horizontal" id="submit_form" method="POST">
+        <form role="form" class="form-horizontal" id="submit_form" method="POST" enctype="multipart/form-data">
             <div class="form-wizard">
                 <div class="form-body">
                     <ul class="nav nav-pills nav-justified steps">
@@ -27,28 +27,28 @@
                             <a href="#tab1" data-toggle="tab" class="step">
                                 <span class="number"> 1 </span>
                                 <span class="desc">
-                                                                <i class="fa fa-check"></i> Account Setup </span>
+                                                                <i class="fa fa-check"></i> Thiết lập tài khoản </span>
                             </a>
                         </li>
                         <li>
                             <a href="#tab2" data-toggle="tab" class="step">
                                 <span class="number"> 2 </span>
                                 <span class="desc">
-                                                                <i class="fa fa-check"></i> Profile Setup </span>
+                                                                <i class="fa fa-check"></i> Thông tin cá nhân </span>
                             </a>
                         </li>
                         <li>
                             <a href="#tab3" data-toggle="tab" class="step active">
                                 <span class="number"> 3 </span>
                                 <span class="desc">
-                                                                <i class="fa fa-check"></i> Billing Setup </span>
+                                                                <i class="fa fa-check"></i> Cài đặt giao dịch </span>
                             </a>
                         </li>
                         <li>
                             <a href="#tab4" data-toggle="tab" class="step">
                                 <span class="number"> 4 </span>
                                 <span class="desc">
-                                                                <i class="fa fa-check"></i> Confirm </span>
+                                                                <i class="fa fa-check"></i> Xác nhận đăng ký </span>
                             </a>
                         </li>
                     </ul>
@@ -62,36 +62,34 @@
                         </div>
                         <div class="alert alert-success display-none">
                             <button class="close" data-dismiss="alert"></button>
-                            Your form validation is successful!
+                            Thông tin hợp lệ!
                         </div>
                         <div class="tab-pane active" id="tab1">
                             <h3 class="block">Nhập thông tin tài khoản:</h3>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Username
+                                <label class="control-label col-md-3">Tên tài khoản
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="username"/>
-                                    <span class="help-block"> Provide your username </span>
+                                    <input type="text" class="form-control" name="username"
+                                           value="<?= isset($form['username']) ? $form['username'] : '' ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Password
+                                <label class="control-label col-md-3">Mật khẩu
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
                                     <input type="password" class="form-control" name="password"
                                            id="submit_form_password"/>
-                                    <span class="help-block"> Provide your password. </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Confirm Password
+                                <label class="control-label col-md-3">Xác nhận mất khẩu
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
                                     <input type="password" class="form-control" name="rpassword"/>
-                                    <span class="help-block"> Confirm your password </span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -99,12 +97,12 @@
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="email"/>
-                                    <span class="help-block"> Provide your email address </span>
+                                    <input type="text" class="form-control" name="email"
+                                           value="<?= isset($form['email']) ? $form['email'] : '' ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="dropdown" class="control-label col-md-3">Role</label>
+                                <label for="dropdown" class="control-label col-md-3">Quyền</label>
                                 <div class="col-md-4">
                                     <select class="form-control" name="role">
                                         <?php if (isset($role)) :
@@ -120,36 +118,37 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="tab2">
-                            <h3 class="block">Provide your profile details</h3>
+                            <h3 class="block">Vui lòng cung cấp thông tin thêm:</h3>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Fullname
+                                <label class="control-label col-md-3">Tên đầy đủ
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="fullname"/>
-                                    <span class="help-block"> Provide your fullname </span>
+                                    <input type="text" class="form-control" name="fullname"
+                                           value="<?= isset($form['fullname']) ? $form['fullname'] : '' ?>"/>
+
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Phone Number
+                                <label class="control-label col-md-3">Số điện thoại
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="phone"/>
-                                    <span class="help-block"> Provide your phone number </span>
+                                    <input type="text" class="form-control" name="phone"
+                                           value="<?= isset($form['phone']) ? $form['phone'] : '' ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Gender
+                                <label class="control-label col-md-3">Giới tính
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
                                     <div class="radio-list">
                                         <label>
-                                            <input type="radio" name="gender" value="1" data-title="Male"/> Male
+                                            <input type="radio" name="gender" value="1" data-title="Male"/> Nam
                                         </label>
                                         <label>
-                                            <input type="radio" name="gender" value="2" data-title="Female"/> Female
+                                            <input type="radio" name="gender" value="2" data-title="Female" checked/> Nữ
                                         </label>
                                     </div>
                                     <div id="form_gender_error"></div>
@@ -160,7 +159,8 @@
                                 <div class="col-md-5">
                                     <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy"
                                          data-date="06-05-1995">
-                                        <input type="text" class="form-control" name="birthday" >
+                                        <input type="text" class="form-control" name="birthday"
+                                               value="<?= isset($form['birthday']) ? $form['birthday'] : '' ?>">
                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button">
                                                                 <i class="fa fa-calendar"></i>
@@ -168,29 +168,28 @@
                                                         </span>
                                     </div>
                                     <!-- /input-group -->
-                                    <span class="help-block"> Select date </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Address
+                                <label class="control-label col-md-3">Địa chỉ
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="address"/>
-                                    <span class="help-block"> Provide your street address </span>
+                                    <input type="text" class="form-control" name="address"
+                                           value="<?= isset($form['address']) ? $form['address'] : '' ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">City/Town
+                                <label class="control-label col-md-3">Thành phố/Thị trấn
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="city"/>
-                                    <span class="help-block"> Provide your city or town </span>
+                                    <input type="text" class="form-control" name="city"
+                                           value="<?= isset($form['city']) ? $form['city'] : '' ?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Country</label>
+                                <label class="control-label col-md-3">Quốc gia</label>
                                 <div class="col-md-4">
                                     <select name="country" id="country_list" class="form-control">
                                         <option value=""></option>
@@ -420,7 +419,7 @@
                                         <option value="UZ">Uzbekistan</option>
                                         <option value="VU">Vanuatu</option>
                                         <option value="VE">Venezuela</option>
-                                        <option value="VN">Viet Nam</option>
+                                        <option value="VN" selected>Viet Nam</option>
                                         <option value="VG">Virgin Islands (British)</option>
                                         <option value="VI">Virgin Islands (U.S.)</option>
                                         <option value="WF">Wallis and Futuna Islands</option>
@@ -431,17 +430,31 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Remarks</label>
-                                <div class="col-md-4">
-                                    <textarea class="form-control" rows="3" name="remarks"></textarea>
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Ảnh đại diện </label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+                                                 alt=""/></div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                             style="max-width: 200px; max-height: 150px;"></div>
+                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Chon ảnh </span>
+                                                                <span class="fileinput-exists"> Thay đổi </span>
+                                                                <input type="file" name="image"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists"
+                                               data-dismiss="fileinput"> Xóa </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="tab3">
-                            <h3 class="block">Provide your billing and credit card details</h3>
+                            <h3 class="block">Cung cấp thông tin thanh toán nếu có:</h3>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Card Holder Name
+                                <label class="control-label col-md-3">Họ tên chủ thẻ
                                     <!--                                    <span class="required"> * </span>-->
                                 </label>
                                 <div class="col-md-4">
@@ -450,7 +463,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Card Number
+                                <label class="control-label col-md-3">Số thẻ
                                     <!--                                    <span class="required"> * </span>-->
                                 </label>
                                 <div class="col-md-4">
@@ -468,7 +481,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Expiration(MM/YYYY)
+                                <label class="control-label col-md-3">Thời hạn(MM/YYYY)
                                     <!--                                    <span class="required"> * </span>-->
                                 </label>
                                 <div class="col-md-4">
@@ -478,18 +491,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Payment Options
+                                <label class="control-label col-md-3">Phương thức thanh toán
                                     <!--                                    <span class="required"> * </span>-->
                                 </label>
                                 <div class="col-md-4">
                                     <div class="checkbox-list">
                                         <label>
                                             <input type="checkbox" name="payment[]" value="1"
-                                                   data-title="Auto-Pay with this Credit Card."/> Auto-Pay with this
-                                            Credit Card </label>
+                                                   data-title="Auto-Pay with this Credit Card."/> tự động trả </label>
                                         <label>
                                             <input type="checkbox" name="payment[]" value="2"
-                                                   data-title="Email me monthly billing."/> Email me monthly billing
+                                                   data-title="Email me monthly billing."/> Mail cho tôi mỗi khi thanh
+                                            toán
                                         </label>
                                     </div>
                                     <div id="form_payment_error"></div>
@@ -497,10 +510,10 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="tab4">
-                            <h3 class="block">Confirm your account</h3>
+                            <h3 class="block">Xác nhận tài khoản cảu bạn</h3>
                             <h4 class="form-section">Account</h4>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Username:</label>
+                                <label class="control-label col-md-3">Tên đăng nhập:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="username"></p>
                                 </div>
@@ -511,58 +524,59 @@
                                     <p class="form-control-static" data-display="email"></p>
                                 </div>
                             </div>
-                            <h4 class="form-section">Profile</h4>
+                            <h4 class="form-section">Thôn tin cá nhân</h4>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Fullname:</label>
+                                <label class="control-label col-md-3">Họ & tên:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="fullname"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Gender:</label>
+                                <label class="control-label col-md-3">Giới tính:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="gender"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Phone:</label>
+                                <label class="control-label col-md-3">Ngày sinh:</label>
+                                <div class="col-md-4">
+                                    <p class="form-control-static" data-display="birthday"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Số điện thoại:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="phone"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Address:</label>
+                                <label class="control-label col-md-3">Địa chỉ:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="address"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">City/Town:</label>
+                                <label class="control-label col-md-3">Thành Phố/Thị Trấn:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="city"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Country:</label>
+                                <label class="control-label col-md-3">Quốc gia:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="country"></p>
                                 </div>
                             </div>
+
+                            <h4 class="form-section">Thông tin giao dịch</h4>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Remarks:</label>
-                                <div class="col-md-4">
-                                    <p class="form-control-static" data-display="remarks"></p>
-                                </div>
-                            </div>
-                            <h4 class="form-section">Billing</h4>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Card Holder Name:</label>
+                                <label class="control-label col-md-3">Chủ thẻ:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="card_name"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Card Number:</label>
+                                <label class="control-label col-md-3">Số thẻ:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="card_number"></p>
                                 </div>
@@ -574,13 +588,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Expiration:</label>
+                                <label class="control-label col-md-3">Thời hạn:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="card_expiry_date"></p>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Payment Options:</label>
+                                <label class="control-label col-md-3">Hình thức thanh toán:</label>
                                 <div class="col-md-4">
                                     <p class="form-control-static" data-display="payment[]"></p>
                                 </div>
@@ -592,11 +606,11 @@
                     <div class="row">
                         <div class="col-md-offset-3 col-md-9">
                             <a href="javascript:;" class="btn default button-previous">
-                                <i class="fa fa-angle-left"></i> Back </a>
-                            <a href="javascript:;" class="btn btn-outline green button-next"> Continue
+                                <i class="fa fa-angle-left"></i> Quay lại </a>
+                            <a href="javascript:;" class="btn btn-outline green button-next"> Tiếp tục
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                            <button type="submit" class="btn green button-submit" id="bsubmit"> Submit
+                            <button type="submit" class="btn green button-submit" id="bsubmit"> Đăng ký
                                 <i class="fa fa-check"></i>
                             </button>
                         </div>

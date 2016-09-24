@@ -23,23 +23,29 @@ class AppController extends MainController
         $this->retrieveLogin();
     }
 
-    private function retrieveLogin()
+    protected function retrieveLogin()
     {
-        if (!empty($_COOKIE['user']) && !empty($_COOKIE['token']) && empty($_SESSION['User'])) {
+        if (isset($_COOKIE['user']) && isset($_COOKIE['token']) && empty($_SESSION['User'])) {
             global $connection;
             $co = $connection->getCo();
             $userModel = new \Administration\Models\User($co);
             $result = $userModel->retrieveLoginByToken($_COOKIE['token']);
-            if (!empty($user) && ($result->username == $_COOKIE['user'])) {
+            if (!empty($result) && ($result->username == $_COOKIE['user'])) {
                 $roleModel = new \Administration\Models\Role($co);
                 $role = $roleModel->findById($result->id_role);
-                $_SESSION['User']['id'] = $result->id;
-                $_SESSION['User']['username'] = $result->username;
-                $_SESSION['User']['role_level'] = $role[0]->level;
-                $_SESSION['User']['role_name'] = $role[0]->name;
-                $_SESSION['User']['token'] = $_COOKIE['token'];
+                $profileModel = new \Administration\Models\Profile($co);
+                $profile = $profileModel->getByUserId($result->id);
+                if (!empty($role)) {
+                    $_SESSION['User']['id'] = $result->id;
+                    $_SESSION['User']['username'] = $result->username;
+                    $_SESSION['User']['role_level'] = $role[0]->level;
+                    $_SESSION['User']['role_name'] = $role[0]->name;
+                    $_SESSION['User']['token'] = $_COOKIE['token'];
+                    $_SESSION['User']['avatar'] = isset($profile[0]->avatar) ? $profile[0]->avatar : 'updatelater.jpg';
+                    return true;
+                }
             }
         }
+        return false;
     }
-
 }

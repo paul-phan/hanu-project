@@ -76,9 +76,10 @@ class User extends MainModel implements UserModel
         // TODO: Implement modifyUser() method.
     }
 
-    public function getUserByName($name)
+    public function getUserByUsername($username)
     {
         // TODO: Implement getUserByName() method.
+        return $this->fetchAll("username= '$username' ");
     }
 
 

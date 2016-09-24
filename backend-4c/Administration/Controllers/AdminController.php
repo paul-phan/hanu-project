@@ -25,21 +25,6 @@ abstract class AdminController extends MainController
 
     public function loginVerify()
     {
-        if (isset($_COOKIE['user']) && isset($_COOKIE['token']) && empty($_SESSION['User'])) {
-            global $connection;
-            $co = $connection->getCo();
-            $userModel = new \Administration\Models\User($co);
-            $result = $userModel->retrieveLoginByToken($_COOKIE['token']);
-            if (!empty($result) && ($result->username == $_COOKIE['user'])) {
-                $roleModel = new \Administration\Models\Role($co);
-                $role = $roleModel->findById($result->id_role);
-                $_SESSION['User']['id'] = $result->id;
-                $_SESSION['User']['username'] = $result->username;
-                $_SESSION['User']['role_level'] = $role[0]->level;
-                $_SESSION['User']['role_name'] = $role[0]->name;
-                $_SESSION['User']['token'] = $_COOKIE['token'];
-            }
-        }
         if (!isset($_SESSION['User'])) {
             header("location:/auth/login");
         }

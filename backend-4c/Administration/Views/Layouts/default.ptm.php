@@ -27,6 +27,7 @@
     <link href="dashboard/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/clockface.css" rel="stylesheet" type="text/css"/>
+    <link href="dashboard/css/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
     <!-- END PAGE LEVEL PLUGINS -->
@@ -70,18 +71,18 @@
                     <ul class="dropdown-menu">
                         <li class="external">
                             <h3>
-                                <span class="bold">12 pending</span> notifications</h3>
-                            <a href="#">view all</a>
+                                <span class="bold">12 thông báo</span> đang đợi</h3>
+                            <a href="#">xem tất cả</a>
                         </li>
                         <li>
                             <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                                 <li>
                                     <a href="javascript:;">
-                                        <span class="time">just now</span>
+                                        <span class="time">vừa xong</span>
                                         <span class="details">
                                                     <span class="label label-sm label-icon label-success">
                                                         <i class="fa fa-plus"></i>
-                                                    </span> New user registered. </span>
+                                                    </span> Thành viên mới vừa đăng ký. </span>
                                     </a>
                                 </li>
                                 <li>
@@ -364,7 +365,7 @@
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
-                        <img alt="" class="img-circle" src="img/avatar3_small.jpg"/>
+                        <img style="border-radius: 50%; width: 30px; "  alt="" class="img-circle" src="<?= isset($_SESSION['User']['avatar']) ? UPLOAD_DIR.'avatar/'.$_SESSION['User']['avatar'] : UPLOAD_DIR.'avatar/updatelater.jpg'?>"/>
                         <span class="username username-hide-on-mobile"> <?= $_SESSION['User']['username'] ?> </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
@@ -452,25 +453,25 @@
                 <li class="nav-item start ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-home"></i>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Trang quản lý</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item start ">
-                            <a href="#" class="nav-link ">
+                            <a href="/admin" class="nav-link ">
                                 <i class="icon-bar-chart"></i>
                                 <span class="title">Dashboard 1</span>
                             </a>
                         </li>
                         <li class="nav-item start ">
-                            <a href="#" class="nav-link ">
+                            <a href="/admin" class="nav-link ">
                                 <i class="icon-bulb"></i>
                                 <span class="title">Dashboard 2</span>
                                 <span class="badge badge-success">1</span>
                             </a>
                         </li>
                         <li class="nav-item start ">
-                            <a href="#" class="nav-link ">
+                            <a href="/admin" class="nav-link ">
                                 <i class="icon-graph"></i>
                                 <span class="title">Dashboard 3</span>
                                 <span class="badge badge-danger">5</span>
@@ -479,32 +480,32 @@
                     </ul>
                 </li>
                 <li class="heading">
-                    <h3 class="uppercase">Features</h3>
+                    <h3 class="uppercase">Các tính năng</h3>
                 </li>
                 <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-user"></i>
-                        <span class="title">User</span>
+                        <span class="title">Thành viên</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
                             <a href="/admin/user/list" class="nav-link ">
-                                <i class="fa fa-list-ul"></i> <span class="title">User list</span>
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
                             <a href="/admin/user/add" class="nav-link ">
-                                <i class="fa fa-plus-square-o"></i> <span class="title">Add</span>
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Thêm Thành Viên</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link ">
+                            <a href="/admin" class="nav-link ">
                                 <span class="title">Sume other funcs</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link ">
+                            <a href="/admin" class="nav-link ">
                                 <span class="title">...</span>
                             </a>
                         </li>
@@ -1270,7 +1271,7 @@
 <script src="dashboard/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="dashboard/js/additional-methods.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
-<script src="dashboard/js/ckeditor.js" type="text/javascript"></script>
+<script src="dashboard/js/bootstrap-fileinput.js" type="text/javascript"></script>
 <script src="dashboard/js/pwstrength-bootstrap.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-markdown.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-markdown.js" type="text/javascript"></script>
