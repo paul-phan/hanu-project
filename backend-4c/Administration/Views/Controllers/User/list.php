@@ -31,6 +31,13 @@
                 <th class="none">Trạng thái</th>
                 <th class="none">Thời gian đăng nhập</th>
                 <th class="none">Email</th>
+                <th class="none">Phone</th>
+                <th class="none">Address</th>
+                <th class="none">City</th>
+                <th class="none">Country</th>
+                <th class="none">Sinh nhật</th>
+                <th class="none">Giới tính</th>
+
             </tr>
             </thead>
             <tbody>
@@ -47,14 +54,20 @@
                         <td style="width: 20%">
                             <a href="admin/user/edit/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
                                 <i class="fa fa-edit"></i> Sửa </a>
-                            <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm black">
+                            <a href="admin/user/delete/<?= $user->id ?>" class="btn btn-outline btn-circle dark btn-sm black">
                                 <i class="fa fa-trash-o"></i> Xóa </a>
                         </td>
                     <?php endif; ?>
                     <td><?= $user->active ?></td>
                     <td><?= $user->last_login ?></td>
-
                     <td><?= $user->email ?></td>
+                    <td><?= $user->phone ?></td>
+                    <td><?= $user->address ?></td>
+                    <td><?= $user->city ?></td>
+                    <td><?= $user->country ?></td>
+                    <td><?= date('d-m-Y', strtotime($user->birthday)) ?></td>
+                    <td><?= ($user->gender == 1) ? 'Nam' : 'Nữ' ?></td>
+
                 </tr>
             <?php } ?>
             </tbody>

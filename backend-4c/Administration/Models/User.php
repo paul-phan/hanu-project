@@ -30,7 +30,7 @@ class User extends MainModel implements UserModel
             'token' => md5(uniqid() . time()), //create random token
             'id_role' => isset($post['role']) ? $post['role'] : 4,
             'created' => date("Y:m:d H:i:s"),
-            'active' => isset($post['active']) ? $post['active'] : 1,
+            'active' =>  1,
         ));
     }
 
@@ -74,6 +74,11 @@ class User extends MainModel implements UserModel
     public function modifyUser($post, $id)
     {
         // TODO: Implement modifyUser() method.
+        return $this->update(array(
+            "username" => $post['username'],
+            'id_role' => isset($post['role']) ? $post['role'] : 4,
+            'active' => isset($post['active']) ? 1 : 0,
+        ), 'id = ' . $id);
     }
 
     public function getUserByUsername($username)

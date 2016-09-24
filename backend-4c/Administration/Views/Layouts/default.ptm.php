@@ -365,7 +365,7 @@
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
-                        <img style="border-radius: 50%; width: 30px; "  alt="" class="img-circle" src="<?= isset($_SESSION['User']['avatar']) ? UPLOAD_DIR.'avatar/'.$_SESSION['User']['avatar'] : UPLOAD_DIR.'avatar/updatelater.jpg'?>"/>
+                        <img style="border-radius: 50%; width: 30px; "  alt="" class="img-circle" src="<?= !empty($_SESSION['User']['avatar']) ? UPLOAD_DIR.'avatar/'.$_SESSION['User']['avatar'] : UPLOAD_DIR.'avatar/updatelater.jpg'?>"/>
                         <span class="username username-hide-on-mobile"> <?= $_SESSION['User']['username'] ?> </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

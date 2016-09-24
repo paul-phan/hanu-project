@@ -24,4 +24,20 @@ class Helper
         }
     }
 
+    static function checkRoleAdmin()
+    {
+        if ($_GET['params'] === $_SESSION['User']['id']) {
+            return false;
+        } elseif (empty($_SESSION['User']) || !is_numeric($_SESSION['User']['role_level']) || $_SESSION['User']['role_level'] > 0 || empty($_SESSION['User']['token'])) {
+            echo 'Hello, ';
+            echo isset($_SESSION['User']['username']) ? $_SESSION['User']['username'] : 'Customer';
+            echo ', you are logged in as ';
+            echo isset($_SESSION['User']['role_name']) ? $_SESSION['User']['role_name'] : 'Anonymous';
+            echo ' please logout and signin with admin account to continue this action!';
+            header("Refresh:2; url=/admin", true, 303);
+            die;
+        }  elseif($_SESSION['User']['role_level'] == 0) {
+            return true;
+        }
+    }
 }

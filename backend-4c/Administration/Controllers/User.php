@@ -28,7 +28,7 @@ class User extends MainController implements UserController
         global $connection;
         $co = $connection->getCo();
         $userModel = new \Administration\Models\User($co);
-        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email');
+        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id  ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email, profile.active as pactive, profile.address, profile.city, profile.avatar, profile.gender, profile.birthday, profile.country, profile.phone');
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Thành Viên',
@@ -40,7 +40,7 @@ class User extends MainController implements UserController
 
     public function addAction()
     {
-
+        Tools\Helper::checkRoleAdmin();
         global $connection;
         $co = $connection->getCo();
         $modelRole = new \Administration\Models\Role($co);
@@ -97,14 +97,101 @@ class User extends MainController implements UserController
     public function editAction()
     {
         Tools\Helper::checkUrlParamsIsNumeric(); //kiểm tra parameter có phải là số hay ko(edit theo id)
+        Tools\Helper::checkRoleAdmin();
         $id = $_GET['params']; //lấy số id  user người dùng đã bấm
+        global $connection;
+        $co = $connection->getCo();
+        $userModel = new \Administration\Models\User($co);
+        $roleModel = new \Administration\Models\Role($co);
+        $profileModel = new \Administration\Models\Profile($co);
+        //Hiển thị ra form để edit
+        $formUser = $userModel->findById($id);
+        $formProfile = $profileModel->getByUserId($id);
+        $role = $roleModel->fetchAll();
+        $right = Tools\Helper::checkRoleAdmin();
+//        var_dump($right);die;
+        if (!empty($_POST)) {
+            $usernameResult = $userModel->getUserByUsername($_POST['username']);
+            $emailResult = $profileModel->getUserByMail($_POST['email']);
+            if (!empty($usernameResult) && $_POST['username'] != $formUser[0]->username) {
+                $alert = Tools\Alert::render('Tên tài khoản này đã tồn tại. Vui lòng nhập lại!', 'danger');
+            } elseif (!empty($emailResult) && $_POST['email'] != (isset($formProfile[0]->email) ? $formProfile[0]->email : false)) {
+                $alert = Tools\Alert::render('Tên email này đã tồn tại. Vui lòng nhập lại!', 'danger');
+            } else {
+                if ($right == false) {
+                    $_POST['id_role'] = $formUser[0]->id_role;
+                }
+                if (!empty($_POST['password'])) {
+                    $userModel->update(array('password' => $userModel->blowfishHasher($_POST['password'])), ' id = ' . $id);
+                }
+                if ($userModel->modifyUser($_POST, $id)) {
+                    $image = $_FILES['image'];
+                    if (!empty($image)) {
+                        $upload = new \Library\Tools\Upload();
+                        $name = $upload->copy(array(
+                            'file' => $image,
+                            'path' => 'avatar/', //name your optional folder if needed
+                            'name' => time() . '-' . $_POST['username'] // name your file name if needed
+                        ));
+                        $_POST['avatar'] = (isset($name) && !empty($_FILES['image'])) ? $name : (isset($formProfile[0]->avatar) ? $formProfile[0]->avatar : 'updatelater.jpg');
+                    }
+                    if (!empty($_POST['avatar'])) {
+                        $_SESSION['User']['avatar'] = $_POST['avatar'];
+                    }
+
+                    if (!empty($formProfile) && $profileModel->modifyProfile($_POST, $id)) {
+                        $alert = Tools\Alert::render('Tài khoản ' . $_POST['username'] . ' đã được chỉnh sửa thành công! ', 'success');
+                        header("Refresh:3; url=/admin/user/list", true, 303);
+                    } elseif (empty($formProfile) && $profileModel->insertProfile($_POST, $id)) {
+                        $alert = Tools\Alert::render('Tài khoản ' . $_POST['username'] . ' đã được chỉnh sửa thành công! ', 'success');
+                        header("Refresh:3; url=/admin/user/list", true, 303);
+                    } elseif ($upload->getErrors()) {
+                        $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
+                    } else {
+                        $alert = Tools\Alert::render('Tài khoản ' . $_POST['username'] . ' đã thay đổi, tuy nhiên thông tin cá nhân cần được cập nhật! ', 'warning');
+                    }
+                } else {
+                    $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại! ', 'danger');
+                }
+            }
+        }
+        //truyền dữ liệu vào view
+        $this->addDataView(array(
+            'viewTitle' => 'Thành viên',
+            'viewSiteName' => 'Chỉnh sửa',
+            'role' => $role,
+            'formUser' => !empty($formUser) ? $formUser[0] : '',
+            'formProfile' => !empty($formProfile) ? $formProfile[0] : '',
+            'alert' => (!empty($alert) ? $alert : '')
+        ));
     }
 
     //TODO implement delete action
 
     public function deleteAction()
     {
-
+        Tools\Helper::checkUrlParamsIsNumeric();
+        Tools\Helper::checkRoleAdmin();
+        global $connection;
+        $co = $connection->getCo();
+        $modelUser = new \Administration\Models\User($co);
+        if (!empty($_POST['submit'])) {
+            if ($modelUser->findById($_GET['params'])) {
+                $modelUser->delete($_GET['params']);
+                $alert = Tools\Alert::render('Xóa thành viên thành công!', 'success');
+                $action = TRUE;
+                header("Refresh:3; url=/admin/user/list", true, 303);
+            } else {
+                $alert = Tools\Alert::render('Người dùng này không tồn tại!', 'danger');
+                header("Refresh:3; url=/admin/user/list", true, 303);
+            }
+        }
+        $this->addDataView(array(
+                'viewTitle' => 'Thành viên',
+                'viewSiteName' => 'Xóa thành viên?',
+                'action' => (!empty($action)) ? TRUE : FALSE,
+                'alert' => (!empty($alert)) ? $alert : '')
+        );
     }
 
     //TODO implement view action
