@@ -17,7 +17,7 @@ class Product extends MainController implements ProductController{
     }
 
     public function indexAction(){
-
+        header("Refresh:1; url=/admin/product/list", true, 303);
     }
 
     public function listAction(){
