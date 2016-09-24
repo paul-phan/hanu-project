@@ -34,6 +34,14 @@ class Product extends MainController implements ProductController{
 
     public function addAction(){
 
+        global $connection;
+        $co = $connection->getCo();
+        $modelRole = new \Administration\Models\Role($co);
+        $role = $modelRole->fetchAll();
+        $modelProduct = new \Administration\Models\Product($co);
+        $modelProfile = new \Administration\Models\Profile($co);
+
+     
     }
 
     public function editAction(){
