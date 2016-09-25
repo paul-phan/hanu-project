@@ -23,6 +23,7 @@ class Product extends MainModel implements ProductModel
     public function insertProduct($post)
     {
         // TODO: Implement insertProduct() method.
+
     }
 
     public function modifyProduct($post, $id)
