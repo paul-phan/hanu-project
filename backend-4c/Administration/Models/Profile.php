@@ -25,20 +25,48 @@ class Profile extends MainModel implements ProfileModel
         return $this->insert(array(
             'user_id' => $userId,
             'full_name' => $post['fullname'],
-            'gender' => $post['gender'],
+            'gender' => isset($post['gender']) ? 1 : 0,
             'phone' => $post['phone'],
             'address' => $post['address'],
             'email' => $post['email'],
             'city' => $post['city'],
             'birthday' => date('Y-m-d', strtotime($post['birthday'])),
             'country' => $post['country'],
-            'active' => isset($post['active']) ? $post['active'] : 1,
+            'active' => 1,
             'created' => date("Y:m:d H:i:s"),
+            'avatar' => isset($post['avatar']) ? $post['avatar'] : 'updatelater.jpg'
         ));
     }
 
     public function modifyProfile($post, $id)
     {
         // TODO: Implement modifyProfile() method.
+        return $this->update(array(
+            'full_name' => $post['fullname'],
+            'gender' => isset($post['gender']) ? 1 : 0,
+            'phone' => $post['phone'],
+            'address' => $post['address'],
+            'email' => $post['email'],
+            'city' => $post['city'],
+            'birthday' => date('Y-m-d', strtotime($post['birthday'])),
+            'country' => $post['country'],
+            'active' => isset($post['active']) ? 1 : 0,
+            'avatar' => $post['avatar']
+        ), " user_id = " . $id);
     }
+
+
+    public function getUserByMail($mail)
+    {
+        return $this->fetchAll("email= '$mail' ");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getByUserId($id)
+    {
+        return $this->fetchAll("user_id= '$id' and active = 1 ");
+    }
+
 }

@@ -1,6 +1,6 @@
 <!-- BEGIN EXAMPLE TABLE PORTLET-->
 <div class="btn-group" style="padding-bottom: 10px">
-    <a href="admin/user/add/" class="btn blue"> Add New
+    <a href="admin/user/add/" class="btn blue"> Thêm thành viên
         <i class="fa fa-plus"></i>
     </a>
 </div>
@@ -21,14 +21,20 @@
             <thead>
             <tr>
                 <th class="all">Tên đăng nhập</th>
-                <th class="min-phone-l">Fullname</th>
-                <th class="min-tablet">Quyền</th>
-                <th class="desktop">Option</th>
-
-                <th class="none">Ngày tham gia</th>
-                <th class="none">Activation</th>
-                <th class="none">Last login</th>
+                <th class="min-phone-l">Tên đầy đủ</th>
+                <th class="desktop">Quyền</th>
+                <th class="min-tablet">Ngày tham gia</th>
+                <th class="min-tablet">Tùy chỉnh</th>
+                <th class="none">Trạng thái</th>
+                <th class="none">Thời gian đăng nhập</th>
                 <th class="none">Email</th>
+                <th class="none">Phone</th>
+                <th class="none">Address</th>
+                <th class="none">City</th>
+                <th class="none">Country</th>
+                <th class="none">Sinh nhật</th>
+                <th class="none">Giới tính</th>
+
             </tr>
             </thead>
             <tbody>
@@ -39,20 +45,29 @@
                         <a href="javascript:;"> <?= $user->username ?> </a>
                     </td>
                     <td><?= $user->full_name ?></td>
-
                     <td> <?= $user->rname ?> </td>
-
-                    <td style="width: 20%">
-                        <a href="javascript:;" class="btn btn-outline btn-circle btn-sm purple">
-                            <i class="fa fa-edit"></i> Edit </a>
-                        <a href="javascript:;" class="btn btn-outline btn-circle dark btn-sm black">
-                            <i class="fa fa-trash-o"></i> Delete </a>
-                    </td>
                     <td> <?= $user->created ?> </td>
+                    <td>
+                        <?php if (isset($_SESSION['User']['role_level']) && $_SESSION['User']['role_level'] == 0) : ?>
+                            <a href="admin/user/edit/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
+                                <i class="fa fa-edit"></i> Sửa </a>
+                            <a href="admin/user/delete/<?= $user->id ?>"
+                               class="btn btn-outline btn-circle dark btn-sm black">
+                                <i class="fa fa-trash-o"></i> Xóa </a>
+                        <?php endif; ?>
+                        <a href="admin/user/view/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
+                            <i class="fa fa-edit"></i> Xem </a>
+                    </td>
                     <td><?= $user->active ?></td>
                     <td><?= $user->last_login ?></td>
-
                     <td><?= $user->email ?></td>
+                    <td><?= $user->phone ?></td>
+                    <td><?= $user->address ?></td>
+                    <td><?= $user->city ?></td>
+                    <td><?= $user->country ?></td>
+                    <td><?= date('d-m-Y', strtotime($user->birthday)) ?></td>
+                    <td><?= ($user->gender == 1) ? 'Nam' : 'Nữ' ?></td>
+
                 </tr>
             <?php } ?>
             </tbody>

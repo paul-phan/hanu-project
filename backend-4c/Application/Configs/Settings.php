@@ -41,6 +41,9 @@ class Settings
         define('LINK_ROOT', '/');
         define('WEB_ROOT', $web_root);
         define('HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST']);
+        /**
+         * Note: Use UPLOAD_ROOT for uploading files & UPLOAD_DIR for retrieving files!!
+         */
         define('UPLOAD_ROOT', $upload_root);
         define('UPLOAD_DIR', 'http://' . $_SERVER['HTTP_HOST'] . '/Public/upload/');
 

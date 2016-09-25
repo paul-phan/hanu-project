@@ -34,7 +34,7 @@ class Upload
     {
         // Verify file and path
         if (!isset($data['file']) || !is_array($data['file'])) {
-            $this->errors[] = 'Name or path not found!';
+            $this->errors[] = 'Cannot upload! Name or path not found!';
             return false;
         }
         if (!isset($data['path'])) {
@@ -42,12 +42,12 @@ class Upload
         }
 
         if (!is_writable(UPLOAD_ROOT . $data['path'])) {
-            $this->errors[] = 'Destination path is not writable!';
+            $this->errors[] = 'Cannot upload! Destination path is not writable!';
             return false;
         }
 
         if (!$this->_verifyMime($data['file']['name'], $allow_type)) {
-            $this->errors[] = 'The file type not allow!';
+            $this->errors[] = 'Cannot upload! The file type not allow!';
             return false;
         }
 
@@ -84,7 +84,7 @@ class Upload
                 chmod(UPLOAD_ROOT . $data['path'] . $name, 0644);
             }
         } else {
-            $this->errors[] = 'The uploaded file exceeds the upload_max_filesize directive ' . ini_get('upload_max_filesize');
+            $this->errors[] = 'Cannot upload! The uploaded file exceeds the upload_max_filesize directive ' . ini_get('upload_max_filesize');
             return false;
         }
 

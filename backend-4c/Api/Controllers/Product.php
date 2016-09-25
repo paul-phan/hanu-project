@@ -32,6 +32,7 @@ class Product extends MainController
             $this->responseApi(130002);
         }
     }
+<<<<<<< HEAD
 
     /** construct a SQL request string
      * @param $value
@@ -44,4 +45,6 @@ class Product extends MainController
         WHERE product.title LIKE '$value' OR company.com_name LIKE '$value' OR product.detail LIKE '$value' OR product.sale LIKE '$value' OR product.price LIKE '$value' OR product.type LIKE '$value' OR product.tags LIKE '$value'";
         return $sql;
     }
+=======
+>>>>>>> b3f4034aad7d32271ad937fbfc168bf2eaf9c3c8
 }

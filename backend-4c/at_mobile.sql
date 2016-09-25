@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2016 at 10:35 AM
+-- Generation Time: Sep 24, 2016 at 07:05 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -303,7 +303,11 @@ CREATE TABLE `profile` (
 
 INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`, `city`, `country`, `avatar`, `gender`, `birthday`, `active`, `created`, `updated`) VALUES
 (1, 58, 'qweqwewer', '12312', 'phanminh65@gmail.com', '123123', 'qwe', 'VN', '', 1, '0000-00-00', 1, '2016-09-22 13:24:36', '2016-09-22 06:24:36'),
-(2, 59, 'Phan Th? Minh', '0914499925', 'phanminh65@gmail.com', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-22 14:34:22', '2016-09-22 07:34:22');
+(2, 59, 'Phan Th? Minh', '0914499925', 'phanminh65@gmail.com', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-22 14:34:22', '2016-09-22 07:34:22'),
+(3, 60, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-22 15:47:49', '2016-09-22 08:47:49'),
+(4, 61, 'Phan Thế Minh', '01234567890', 'phanminh65@gmail.com', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-22 16:16:16', '2016-09-22 09:16:16'),
+(5, 62, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com', 'assd', 'qwe', 'VN', '', 1, '1995-05-06', 1, '2016-09-23 15:32:18', '2016-09-23 08:32:18'),
+(6, 63, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com', '54564', 'tytyu', 'VN', '', 1, '1995-05-06', 1, '2016-09-23 18:44:54', '2016-09-23 11:44:54');
 
 -- --------------------------------------------------------
 
@@ -367,9 +371,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (50, 'minhtest10', '$2a$07$ptmRZCosDZmP27YDqZ02W.rFRu6BQQDsavfx.SBWfJA7.06ORx4Iq', '78c8cd430208b0609256951de2035b66', 0, 3, '2016-09-21 14:42:59', '2016-09-14 01:30:28', '2016-09-21 14:52:33'),
 (52, 'minhtest91', '$2a$07$ptmChCg9OO3LxQ9kRCFBvO/0NuJlncCLmJCuS1SGyJeyoWjQNcuqa', '2da03a16eeac2ef836589ba8d9236e8d', 0, 4, '0000-00-00 00:00:00', '2016-09-22 11:02:26', '2016-09-22 04:02:26'),
 (53, 'minhtest11', '$2a$07$ptmb9OO3LxQ9kRCFBvUY0uePT.3Big6Xhi/52i6UGl3zoFAQRu3Py', 'c27efc387b879108af52e89578135104', 0, 2, '0000-00-00 00:00:00', '2016-09-22 11:06:14', '2016-09-22 04:06:14'),
-(54, 'minhtest12', '$2a$07$ptmlP27YDqZ02WEsNsVbQefRshkwi3RJAWGQPgVp4vTS/wG9kj5Em', 'c7959e5f49771506ca4318f947245dc3', 1, 1, '0000-00-00 00:00:00', '2016-09-22 13:09:13', '2016-09-22 06:09:13'),
+(54, 'minhtest12', '$2a$07$ptmlP27YDqZ02WEsNsVbQefRshkwi3RJAWGQPgVp4vTS/wG9kj5Em', '653561fa1b8ee7ad72f5b0ccd2ca290c', 1, 1, '2016-09-23 18:47:38', '2016-09-22 13:09:13', '2016-09-23 11:47:38'),
 (58, 'minhtest13', '$2a$07$ptm2FsthVGz4i5arL8TmROyRwMLyhNWOfC7clJgGyhFnejm4oMJXu', 'a7eb9c6d30ac2fd42dd9654a667aef49', 1, 3, '0000-00-00 00:00:00', '2016-09-22 13:24:36', '2016-09-22 06:24:36'),
-(59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22');
+(59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22'),
+(60, 'minhtest20', '$2a$07$ptmUqoNpxz0O2Uasm1Lw2Ok2Bsn3M6HGs/kwbe2HJUkCrF49aKqXy', '30108f411c4913e0b48c12a92b0d4e93', 1, 5, '0000-00-00 00:00:00', '2016-09-22 15:47:49', '2016-09-22 08:47:49'),
+(61, 'minhtest21', '$2a$07$ptmcYTYEM97OnTrH692wPOHsFUpEBmxhJzzfC/dPnpe2NFU6IkQ9e', '46f13c233604674d335995663d8e1af1', 1, 8, '0000-00-00 00:00:00', '2016-09-22 16:16:16', '2016-09-22 09:16:16'),
+(62, 'minhtest3', '$2a$07$ptmi2VK9lVcvunogDZFgLuQ0UQIZ.ouMZrxdQbVCy2CRMQ.v37tU6', '64dc6ff5fbbc2bde6b4985e189418f6a', 1, 1, '0000-00-00 00:00:00', '2016-09-23 15:32:18', '2016-09-23 08:32:18'),
+(63, 'minhtest12', '$2a$07$ptmpzw2DMXVGShdgn8AvLer2IQONp1dXwvCQ91UYVqZ.AFC0LLZzi', '91393715604d5e6f597ca3b637272444', 1, 1, '0000-00-00 00:00:00', '2016-09-23 18:44:54', '2016-09-23 11:44:54');
 
 -- --------------------------------------------------------
 
@@ -519,7 +527,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -529,7 +537,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `user_feedback`
 --
