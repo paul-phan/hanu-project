@@ -109,9 +109,8 @@
                                             foreach ($role as $value): ?>
                                                 <option
                                                     value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
-                                            <?php endforeach;
-                                        else: ?>
-                                            <option value="4">Anonymous</option>
+                                            <?php endforeach; ?>
+                                            <option value="4" selected>Customer</option>
                                         <?php endif; ?>
                                     </select>
                                 </div>
@@ -139,20 +138,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Giới tính
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-4">
-                                    <div class="radio-list">
-                                        <label>
-                                            <input type="radio" name="gender" value="1" data-title="Male"/> Nam
-                                        </label>
-                                        <label>
-                                            <input type="radio" name="gender" value="2" data-title="Female" checked/> Nữ
-                                        </label>
-                                    </div>
-                                    <div id="form_gender_error"></div>
-                                </div>
+                                <label class="control-label col-md-3">Giới tính</label>
+                                <div class="col-md-9">
+                                    <input checked
+                                           name="gender" type="checkbox" class="make-switch" data-on-text="Nam"
+                                           data-off-text="Nữ" data-on-color="success" data-off-color="warning"></div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Ngày sinh</label>
@@ -620,9 +610,9 @@
         </form>
     </div>
 </div>
-<script>
-    var form = document.getElementById("submit_form");
-    document.getElementById("bsubmit").addEventListener("click", function () {
-        form.submit();
-    });
-</script>
+<!--<script>-->
+<!--    var form = document.getElementById("submit_form");-->
+<!--    document.getElementById("bsubmit").addEventListener("click", function () {-->
+<!--        form.submit();-->
+<!--    });-->
+<!--</script>-->
