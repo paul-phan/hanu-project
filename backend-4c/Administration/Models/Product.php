@@ -53,9 +53,9 @@ class Product extends MainModel implements ProductModel
     public function conStructSQL($value)
     {
         $sql = "SELECT company.com_name, product.* FROM product
-        INNER JOIN company
+        LEFT JOIN company
         ON product.company_id=company.id
-        WHERE product.title LIKE '$value' OR company.com_name LIKE '$value' OR product.detail LIKE '$value' OR product.sale LIKE '$value' OR product.price LIKE '$value' OR product.type LIKE '$value' OR product.tags LIKE '$value'";
+        WHERE product.title LIKE '%$value%' OR company.com_name LIKE '%$value%' OR product.detail LIKE '%$value%' OR product.sale LIKE '%$value%' OR product.price LIKE '%$value%' OR product.type LIKE '%$value%' OR product.tags LIKE '%$value%'";
         return $sql;
     }
 }
