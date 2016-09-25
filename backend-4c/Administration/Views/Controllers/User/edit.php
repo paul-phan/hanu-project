@@ -66,7 +66,8 @@
                             <div class="form-group">
                                 <label for="dropdown" class="control-label col-md-3">Quyền</label>
                                 <div class="col-md-7">
-                                    <select class="form-control" name="role">
+                                    <select <?= (isset($right) && $right == true) ? '' : 'disabled' ?>
+                                        class="form-control" name="role">
                                         <?php if (isset($role)) :
                                             foreach ($role as $value): ?>
                                                 <option

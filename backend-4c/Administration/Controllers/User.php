@@ -117,8 +117,8 @@ class User extends MainController implements UserController
             } elseif (!empty($emailResult) && $_POST['email'] != (isset($formProfile[0]->email) ? $formProfile[0]->email : false)) {
                 $alert = Tools\Alert::render('Tên email này đã tồn tại. Vui lòng nhập lại!', 'danger');
             } else {
-                if ($right == false) {
-                    $_POST['id_role'] = $formUser[0]->id_role;
+                if (!$right ) {
+                    $_POST['role'] = $formUser[0]->id_role;
                 }
                 if (!empty($_POST['password'])) {
                     $userModel->update(array('password' => $userModel->blowfishHasher($_POST['password'])), ' id = ' . $id);
@@ -137,7 +137,6 @@ class User extends MainController implements UserController
                     if (!empty($_POST['avatar'])) {
                         $_SESSION['User']['avatar'] = $_POST['avatar'];
                     }
-
                     if (!empty($formProfile) && $profileModel->modifyProfile($_POST, $id)) {
                         $alert = Tools\Alert::render('Tài khoản ' . $_POST['username'] . ' đã được chỉnh sửa thành công! ', 'success');
                         header("Refresh:3; url=/admin/user/list", true, 303);
@@ -161,7 +160,8 @@ class User extends MainController implements UserController
             'role' => $role,
             'formUser' => !empty($formUser) ? $formUser[0] : '',
             'formProfile' => !empty($formProfile) ? $formProfile[0] : '',
-            'alert' => (!empty($alert) ? $alert : '')
+            'alert' => (!empty($alert) ? $alert : ''),
+            'right' => $right
         ));
     }
 
