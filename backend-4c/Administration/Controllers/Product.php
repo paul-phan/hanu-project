@@ -24,7 +24,7 @@ class Product extends MainController implements ProductController{
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause(' left JOIN category ON category.id = product.category_id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, category.cat_name, image.url, company.com_name ');
+        $result = $productModel->fetchByClause(' left JOIN category ON category.id = product.category_id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, category.cat_name as cacat_name, image.url as iurl, company.com_name as ccom_name ');
 
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
