@@ -7,6 +7,7 @@ namespace Api\Controllers;
 
 use Api\Controllers\ApiController as MainController;
 use Library\Tools;
+use Library\Core\Model;
 
 class Product extends MainController
 {
@@ -20,8 +21,27 @@ class Product extends MainController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $productList = $productModel->findById(44);
-        $this->responseApi(0, "ABC", $productList);
+        // construct the SQL request
+        $sql=$this->conStructSQL($_GET["product"]);
+        $productList = $productModel->fetchMatchedFields($sql);
+        // check for nullity of array $productList
+        if(!empty($productList)) {
+            $this->responseApi(0, "fetch successfully", $productList);
+        }
+        else{
+            $this->responseApi(130002);
+        }
     }
 
+    /** construct a SQL request string
+     * @param $value
+     * @return string
+     */
+    private function conStructSQL($value){
+        $sql="SELECT company.com_name, product.* FROM product
+        INNER JOIN company
+        ON product.company_id=company.id
+        WHERE product.title LIKE '$value' OR company.com_name LIKE '$value' OR product.detail LIKE '$value' OR product.sale LIKE '$value' OR product.price LIKE '$value' OR product.type LIKE '$value' OR product.tags LIKE '$value'";
+        return $sql;
+    }
 }
