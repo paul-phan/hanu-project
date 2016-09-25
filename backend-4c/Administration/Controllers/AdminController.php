@@ -39,4 +39,5 @@ abstract class AdminController extends MainController
             die;
         }
     }
+
 }

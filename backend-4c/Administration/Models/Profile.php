@@ -68,4 +68,5 @@ class Profile extends MainModel implements ProfileModel
     {
         return $this->fetchAll("user_id= '$id' and active = 1 ");
     }
+
 }

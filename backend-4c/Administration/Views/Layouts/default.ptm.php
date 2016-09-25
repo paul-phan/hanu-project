@@ -365,7 +365,8 @@
                 <li class="dropdown dropdown-user">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
-                        <img style="border-radius: 50%; width: 30px; "  alt="" class="img-circle" src="<?= !empty($_SESSION['User']['avatar']) ? UPLOAD_DIR.'avatar/'.$_SESSION['User']['avatar'] : UPLOAD_DIR.'avatar/updatelater.jpg'?>"/>
+                        <img style="border-radius: 50%; width: 30px; " alt="" class="img-circle"
+                             src="<?= !empty($_SESSION['User']['avatar']) ? UPLOAD_DIR . 'avatar/' . $_SESSION['User']['avatar'] : UPLOAD_DIR . 'avatar/updatelater.jpg' ?>"/>
                         <span class="username username-hide-on-mobile"> <?= $_SESSION['User']['username'] ?> </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
@@ -497,6 +498,36 @@
                         <li class="nav-item  ">
                             <a href="/admin/user/add" class="nav-link ">
                                 <i class="fa fa-plus-square-o"></i> <span class="title">Thêm Thành Viên</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin" class="nav-link ">
+                                <span class="title">Sume other funcs</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin" class="nav-link ">
+                                <span class="title">...</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="icon-user"></i>
+                        <span class="title">Sản Phẩm</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/product/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách sản phẩm</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin/product/add" class="nav-link ">
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Thêm Sản phẩm</span>
                             </a>
                         </li>
                         <li class="nav-item  ">

@@ -30,7 +30,7 @@ class User extends MainModel implements UserModel
             'token' => md5(uniqid() . time()), //create random token
             'id_role' => isset($post['role']) ? $post['role'] : 4,
             'created' => date("Y:m:d H:i:s"),
-            'active' =>  1,
+            'active' => 1,
         ));
     }
 
@@ -86,6 +86,4 @@ class User extends MainModel implements UserModel
         // TODO: Implement getUserByName() method.
         return $this->fetchAll("username= '$username' ");
     }
-
-
 }
