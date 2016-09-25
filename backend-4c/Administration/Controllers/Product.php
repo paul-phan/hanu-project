@@ -24,10 +24,11 @@ class Product extends MainController implements ProductController{
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause('JOIN category ON category.id=product.category_id JOIN company ON company.id=product.company_id JOIN image.product_id=product.id', 'product.*, category.cat_name, image.url, company.com_name');
+        $result = $productModel->fetchByClause(' left JOIN category ON category.id = product.category_id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, category.cat_name, image.url, company.com_name ');
+
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
-            'viewSiteName' => 'Thành Viên',
+            'viewSiteName' => 'Sản phẩm',
             'products' => $result
         ));
     }
@@ -41,7 +42,7 @@ class Product extends MainController implements ProductController{
         $modelProduct = new \Administration\Models\Product($co);
         $modelProfile = new \Administration\Models\Profile($co);
 
-     
+
     }
 
     public function editAction(){
