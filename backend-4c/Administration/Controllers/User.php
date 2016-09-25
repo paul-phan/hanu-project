@@ -28,7 +28,7 @@ class User extends MainController implements UserController
         global $connection;
         $co = $connection->getCo();
         $userModel = new \Administration\Models\User($co);
-        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id  ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email, profile.active as pactive, profile.address, profile.city, profile.avatar, profile.gender, profile.birthday, profile.country, profile.phone');
+        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id where 1 order by created desc  ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email, profile.active as pactive, profile.address, profile.city, profile.avatar, profile.gender, profile.birthday, profile.country, profile.phone');
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Thành Viên',
@@ -108,8 +108,7 @@ class User extends MainController implements UserController
         $formProfile = $profileModel->getByUserId($id);
         $role = $roleModel->fetchAll();
         $right = Tools\Helper::checkRoleAdmin();
-//        var_dump($right);die;
-        if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['email'])) {
+        if ($_POST) {
             $usernameResult = $userModel->getUserByUsername($_POST['username']);
             $emailResult = $profileModel->getUserByMail($_POST['email']);
             if (!empty($usernameResult) && $_POST['username'] != $formUser[0]->username) {
@@ -153,8 +152,9 @@ class User extends MainController implements UserController
                 }
             }
         } else {
-            $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin theo yêu cầu! ', 'danger');
+//                $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin theo yêu cầu! ', 'danger');
         }
+
         //truyền dữ liệu vào view
         $this->addDataView(array(
             'viewTitle' => 'Thành viên',

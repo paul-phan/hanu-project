@@ -500,7 +500,7 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="tab4">
-                            <h3 class="block">Xác nhận tài khoản cảu bạn</h3>
+                            <h3 class="block">Xác nhận tài khoản của bạn</h3>
                             <h4 class="form-section">Account</h4>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Tên đăng nhập:</label>

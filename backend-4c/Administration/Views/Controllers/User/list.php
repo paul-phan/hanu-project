@@ -20,11 +20,11 @@
                cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th class="all">Tên đăng nhập</th>
+                <th class="desktop">Tên đăng nhập</th>
                 <th class="min-phone-l">Tên đầy đủ</th>
                 <th class="desktop">Quyền</th>
                 <th class="min-tablet">Ngày tham gia</th>
-                <th class="min-tablet">Tùy chỉnh</th>
+                <th class="all">Tùy chỉnh</th>
                 <th class="none">Trạng thái</th>
                 <th class="none">Thời gian đăng nhập</th>
                 <th class="none">Email</th>
