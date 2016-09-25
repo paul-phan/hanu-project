@@ -7,6 +7,7 @@ namespace Api\Controllers;
 
 use Api\Controllers\ApiController as MainController;
 use Library\Tools;
+use Library\Core\Model;
 
 class Product extends MainController
 {
@@ -20,7 +21,16 @@ class Product extends MainController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $productList = $productModel->findById(44);
-        $this->responseApi(0, "ABC", $productList);
+        // construct the SQL request
+        if (!empty($_GET['product'])) { //check nullity of get params first
+            $sql = $productModel->conStructSQL($_GET["product"]);
+            $productList = $productModel->fetchMatchedFields($sql);
+        }
+        // check for nullity of array $productList
+        if (!empty($productList)) {
+            $this->responseApi(0, "fetch successfully", $productList);
+        } else {
+            $this->responseApi(130002);
+        }
     }
 }
