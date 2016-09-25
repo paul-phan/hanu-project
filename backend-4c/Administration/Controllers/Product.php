@@ -11,20 +11,24 @@ use Administration\Controllers\AdminController as MainController;
 use Library\Core\ProductController;
 use Library\Tools;
 
-class Product extends MainController implements ProductController{
-    public function __construct(){
+class Product extends MainController implements ProductController
+{
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function indexAction(){
+    public function indexAction()
+    {
         header("Refresh:1; url=/admin/product/list", true, 303);
     }
 
-    public function listAction(){
+    public function listAction()
+    {
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause(' left JOIN category ON category.id = product.category_id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, category.cat_name, image.url, company.com_name ');
+        $result = $productModel->fetchByClause(' left JOIN category ON category.id = product.category_id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, category.cat_name as cacat_name, image.url as iurl, company.com_name as ccom_name ');
 
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
@@ -33,7 +37,8 @@ class Product extends MainController implements ProductController{
         ));
     }
 
-    public function addAction(){
+    public function addAction()
+    {
 
         global $connection;
         $co = $connection->getCo();
@@ -42,19 +47,23 @@ class Product extends MainController implements ProductController{
         $modelProduct = new \Administration\Models\Product($co);
         $modelProfile = new \Administration\Models\Profile($co);
 
-     
-    }
-
-    public function editAction(){
 
     }
 
-    public function deleteAction(){
+    public function editAction()
+    {
 
     }
 
-    public function viewAction(){
+    public function deleteAction()
+    {
+
+    }
+
+    public function viewAction()
+    {
 
     }
 
 }
+
