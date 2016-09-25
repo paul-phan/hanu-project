@@ -372,33 +372,33 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="profile">
-                                <i class="icon-user"></i> My Profile </a>
+                            <a href="admin/user/view/<?= $_SESSION['User']['id'] ?>">
+                                <i class="icon-user"></i> Trang cá nhân </a>
                         </li>
                         <li>
                             <a href="calendar">
-                                <i class="icon-calendar"></i> My Calendar </a>
+                                <i class="icon-calendar"></i> Lịch </a>
                         </li>
                         <li>
                             <a href="inbox">
-                                <i class="icon-envelope-open"></i> My Inbox
+                                <i class="icon-envelope-open"></i> Hộp thư
                                 <span class="badge badge-danger"> 3 </span>
                             </a>
                         </li>
                         <li>
                             <a href="todotask">
-                                <i class="icon-rocket"></i> My Tasks
+                                <i class="icon-rocket"></i> Nhiệm vụ
                                 <span class="badge badge-success"> 7 </span>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="lockscreen">
-                                <i class="icon-lock"></i> Lock Screen </a>
+                            <a href="/">
+                                <i class="icon-lock"></i> Thoát </a>
                         </li>
                         <li>
                             <a href="auth/logout">
-                                <i class="icon-key"></i> Log Out </a>
+                                <i class="icon-key"></i> Đăng xuất </a>
                         </li>
                     </ul>
                 </li>
@@ -515,7 +515,7 @@
                 </li>
                 <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="icon-user"></i>
+                        <i class="fa fa-database"></i>
                         <span class="title">Sản Phẩm</span>
                         <span class="arrow"></span>
                     </a>
