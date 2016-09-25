@@ -28,7 +28,7 @@ class User extends MainController implements UserController
         global $connection;
         $co = $connection->getCo();
         $userModel = new \Administration\Models\User($co);
-        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id  ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email, profile.active as pactive, profile.address, profile.city, profile.avatar, profile.gender, profile.birthday, profile.country, profile.phone');
+        $result = $userModel->fetchByClause(' LEFT JOIN role  ON role.id = user.id_role LEFT JOIN profile on profile.user_id = user.id where 1 order by created desc  ', 'user.* , role.name as rname, role.level as rlevel, profile.full_name, profile.email, profile.active as pactive, profile.address, profile.city, profile.avatar, profile.gender, profile.birthday, profile.country, profile.phone');
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Thành Viên',
