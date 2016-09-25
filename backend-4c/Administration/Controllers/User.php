@@ -109,7 +109,7 @@ class User extends MainController implements UserController
         $role = $roleModel->fetchAll();
         $right = Tools\Helper::checkRoleAdmin();
 //        var_dump($right);die;
-        if (!empty($_POST)) {
+        if (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['email'])) {
             $usernameResult = $userModel->getUserByUsername($_POST['username']);
             $emailResult = $profileModel->getUserByMail($_POST['email']);
             if (!empty($usernameResult) && $_POST['username'] != $formUser[0]->username) {
@@ -117,7 +117,7 @@ class User extends MainController implements UserController
             } elseif (!empty($emailResult) && $_POST['email'] != (isset($formProfile[0]->email) ? $formProfile[0]->email : false)) {
                 $alert = Tools\Alert::render('Tên email này đã tồn tại. Vui lòng nhập lại!', 'danger');
             } else {
-                if (!$right ) {
+                if (!$right) {
                     $_POST['role'] = $formUser[0]->id_role;
                 }
                 if (!empty($_POST['password'])) {
@@ -152,6 +152,8 @@ class User extends MainController implements UserController
                     $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại! ', 'danger');
                 }
             }
+        } else {
+            $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin theo yêu cầu! ', 'danger');
         }
         //truyền dữ liệu vào view
         $this->addDataView(array(
@@ -197,6 +199,24 @@ class User extends MainController implements UserController
 
     public function viewAction()
     {
-
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $userModel = new \Administration\Models\User($co);
+        $profileModel = new \Administration\Models\Profile($co);
+        $roleModel = new \Administration\Models\Role($co);
+        $user = $userModel->findById($id);
+        $profile = $profileModel->getByUserId($id);
+        if (!empty($user[0]->id_role)) {
+            $role = $roleModel->findById($user[0]->id_role);
+        }
+        $this->addDataView(array(
+            'viewTitle' => 'Trang cá nhân',
+            'viewSiteName' => 'Thành Viên',
+            'user' => $user[0],
+            'profile' => $profile[0],
+            'role' => !empty($role[0]) ? $role[0] : ''
+        ));
     }
 }

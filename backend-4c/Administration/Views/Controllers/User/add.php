@@ -109,9 +109,8 @@
                                             foreach ($role as $value): ?>
                                                 <option
                                                     value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
-                                            <?php endforeach;
-                                        else: ?>
-                                            <option value="4">Anonymous</option>
+                                            <?php endforeach; ?>
+                                            <option value="4" selected>Customer</option>
                                         <?php endif; ?>
                                     </select>
                                 </div>
