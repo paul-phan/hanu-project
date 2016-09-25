@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- BEGIN PORTLET-->
 <div class="portlet light form-fit bordered">
     <div class="portlet-title">
@@ -27,12 +26,3 @@
 
 </div>
 <!-- END PORTLET-->
-=======
-<html>
-    <form>
-        <input type="text" name="duc" />
-    </form>
-
-
-</html>
->>>>>>> 8861aea8ec78af8ee9aa419ae4d886e7f5a1e096

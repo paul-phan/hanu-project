@@ -93,7 +93,6 @@ class User extends MainController implements UserController
     }
 
     //TODO implement edit action
-
     public function editAction()
     {
         Tools\Helper::checkUrlParamsIsNumeric(); //kiểm tra parameter có phải là số hay ko(edit theo id)

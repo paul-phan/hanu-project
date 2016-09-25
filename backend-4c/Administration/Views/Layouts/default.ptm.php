@@ -515,7 +515,7 @@
                 </li>
                 <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="icon-user"></i>
+                        <i class="fa fa-database"></i>
                         <span class="title">Sản Phẩm</span>
                         <span class="arrow"></span>
                     </a>
