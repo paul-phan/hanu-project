@@ -60,7 +60,7 @@
                         <a href="admin/order/view/<?= $order->id ?>" class="btn btn-outline btn-circle btn-sm blue">
                             <i class="fa fa-eye"></i> Xem </a>
                     </td>
-                    <td><?= $order->status ?></td>
+                    <td><?= ($order->status == 1) ? 'Active' : '' ?></td>
                     <td><?= $order->created ?></td>
                     <td><?= $order->item_count ?></td>
                     <td><?= $order->to_price ?></td>
