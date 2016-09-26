@@ -65,5 +65,37 @@ class Product extends MainController implements ProductController
 
     }
 
+    public function add_categoryAction()
+    {
+        // TODO: Implement add_categoryAction() method.
+    }
+    public function add_companyAction()
+    {
+        // TODO: Implement add_companyAction() method.
+    }
+    public function add_imageAction()
+    {
+        // TODO: Implement add_imageAction() method.
+    }
+    public function edit_categoryAction()
+    {
+        // TODO: Implement edit_categoryAction() method.
+    }
+    public function edit_companyAction()
+    {
+        // TODO: Implement edit_companyAction() method.
+    }
+    public function imagesAction()
+    {
+        // TODO: Implement imagesAction() method.
+    }
+    public function list_categoryAction()
+    {
+        // TODO: Implement list_categoryAction() method.
+    }
+    public function list_companyAction()
+    {
+        // TODO: Implement list_companyAction() method.
+    }
 }
 

@@ -55,8 +55,8 @@
                                class="btn btn-outline btn-circle dark btn-sm black">
                                 <i class="fa fa-trash-o"></i> Xóa </a>
                         <?php endif; ?>
-                        <a href="admin/user/view/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
-                            <i class="fa fa-edit"></i> Xem </a>
+                        <a href="admin/user/view/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm blue">
+                            <i class="fa fa-eye"></i> Xem </a>
                     </td>
                     <td><?= $user->active ?></td>
                     <td><?= $user->last_login ?></td>
