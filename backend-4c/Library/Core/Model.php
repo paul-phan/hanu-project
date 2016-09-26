@@ -166,6 +166,18 @@ abstract class Model
         return $sql->fetchAll();
     }
 
+    /** This returns all matched columns containing the corresponding to the $sql
+     * @param String $sql
+     * @return array
+     */
+    public function fetchMatchedFields($sql)
+    {
+        $result = $this->db->prepare($sql);
+        $result->execute();
+        $result->setFetchMode(PDO::FETCH_OBJ);
+        return $result->fetchAll();
+    }
+
     /**
      * function fetchByClause()
      * @param string $clause

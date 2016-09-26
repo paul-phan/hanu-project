@@ -25,6 +25,7 @@ abstract class ApiController extends MainController
         120000 => 'Upload image error',
         130000 => 'abc',
         130001 => 'def',
+        130002 => 'item not found',
     );
 
     function __construct()

@@ -610,9 +610,3 @@
         </form>
     </div>
 </div>
-<!--<script>-->
-<!--    var form = document.getElementById("submit_form");-->
-<!--    document.getElementById("bsubmit").addEventListener("click", function () {-->
-<!--        form.submit();-->
-<!--    });-->
-<!--</script>-->

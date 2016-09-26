@@ -1,3 +1,4 @@
+
 <!-- BEGIN EXAMPLE TABLE PORTLET-->
 <div class="btn-group" style="padding-bottom: 10px">
     <a href="admin/product/add/" class="btn blue"> Thêm sản phẩm
@@ -53,8 +54,8 @@
                                class="btn btn-outline btn-circle dark btn-sm black">
                                 <i class="fa fa-trash-o"></i> Xóa </a>
                         <?php endif; ?>
-                        <a href="admin/product/view/<?= $product->id ?>" class="btn btn-outline btn-circle btn-sm purple">
-                            <i class="fa fa-edit"></i> Xem </a>
+                        <a href="admin/product/view/<?= $product->id ?>" class="btn btn-outline btn-circle btn-sm blue">
+                            <i class="fa fa-eye"></i> Xem </a>
                     </td>
                     <td><?= date('d-m-Y', strtotime($product->manufactured_date)) ?></td>
                     <td><?= $product->active ?></td>

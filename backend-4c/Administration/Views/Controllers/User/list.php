@@ -20,11 +20,11 @@
                cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th class="all">Tên đăng nhập</th>
+                <th class="desktop">Tên đăng nhập</th>
                 <th class="min-phone-l">Tên đầy đủ</th>
                 <th class="desktop">Quyền</th>
                 <th class="min-tablet">Ngày tham gia</th>
-                <th class="min-tablet">Tùy chỉnh</th>
+                <th class="all">Tùy chỉnh</th>
                 <th class="none">Trạng thái</th>
                 <th class="none">Thời gian đăng nhập</th>
                 <th class="none">Email</th>
@@ -55,8 +55,8 @@
                                class="btn btn-outline btn-circle dark btn-sm black">
                                 <i class="fa fa-trash-o"></i> Xóa </a>
                         <?php endif; ?>
-                        <a href="admin/user/view/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
-                            <i class="fa fa-edit"></i> Xem </a>
+                        <a href="admin/user/view/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm blue">
+                            <i class="fa fa-eye"></i> Xem </a>
                     </td>
                     <td><?= $user->active ?></td>
                     <td><?= $user->last_login ?></td>

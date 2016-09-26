@@ -11,16 +11,20 @@ use Administration\Controllers\AdminController as MainController;
 use Library\Core\ProductController;
 use Library\Tools;
 
-class Product extends MainController implements ProductController{
-    public function __construct(){
+class Product extends MainController implements ProductController
+{
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function indexAction(){
+    public function indexAction()
+    {
         header("Refresh:1; url=/admin/product/list", true, 303);
     }
 
-    public function listAction(){
+    public function listAction()
+    {
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
@@ -33,7 +37,8 @@ class Product extends MainController implements ProductController{
         ));
     }
 
-    public function addAction(){
+    public function addAction()
+    {
 
         Tools\Helper::checkRoleAdmin();
         global $connection;
@@ -90,16 +95,52 @@ class Product extends MainController implements ProductController{
 
     }
 
-    public function editAction(){
+    public function editAction()
+    {
 
     }
 
-    public function deleteAction(){
+    public function deleteAction()
+    {
 
     }
 
-    public function viewAction(){
+    public function viewAction()
+    {
 
     }
 
+    public function add_categoryAction()
+    {
+        // TODO: Implement add_categoryAction() method.
+    }
+    public function add_companyAction()
+    {
+        // TODO: Implement add_companyAction() method.
+    }
+    public function add_imageAction()
+    {
+        // TODO: Implement add_imageAction() method.
+    }
+    public function edit_categoryAction()
+    {
+        // TODO: Implement edit_categoryAction() method.
+    }
+    public function edit_companyAction()
+    {
+        // TODO: Implement edit_companyAction() method.
+    }
+    public function imagesAction()
+    {
+        // TODO: Implement imagesAction() method.
+    }
+    public function list_categoryAction()
+    {
+        // TODO: Implement list_categoryAction() method.
+    }
+    public function list_companyAction()
+    {
+        // TODO: Implement list_companyAction() method.
+    }
 }
+
