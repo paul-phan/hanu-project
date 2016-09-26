@@ -181,7 +181,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">Quốc gia</label>
                                 <div class="col-md-4">
-                                    <select name="country" id="country_list" class="form-control">
+                                    <select name="country" class="form-control country_list">
                                         <option value=""></option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AL">Albania</option>

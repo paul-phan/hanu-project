@@ -504,17 +504,6 @@
                                 <i class="fa fa-user-md"></i> <span class="title">Trang cá nhân</span>
                             </a>
                         </li>
-                        <li class="nav-item  ">
-                            <a href="/admin" class="nav-link ">
-                                <span class="title">Sume other funcs</span>
-                            </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="/admin" class="nav-link ">
-                                <span class="title">...</span>
-                            </a>
-                        </li>
-
                     </ul>
                 </li>
                 <li class="nav-item  ">
@@ -544,24 +533,30 @@
                                 <i class="fa fa-list-ol"></i> <span class="title">Danh sách công ty</span>
                             </a>
                         </li>
-
                         <li class="nav-item  ">
                             <a href="/admin/product/images" class="nav-link ">
                                 <i class="fa fa-plus-square-o"></i> <span class="title">Hình ảnh sản phẩm</span>
                             </a>
-
                         </li>
-                        <li class="nav-item  ">
-                            <a href="/admin" class="nav-link ">
-                                <span class="title">Sume other funcs</span>
+                    </ul>
+                </li>
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="title">Đơn hàng</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/order/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="/admin" class="nav-link ">
-                                <span class="title">...</span>
+                            <a href="/admin/order/add" class="nav-link ">
+                                <i class="fa fa-cart-plus"></i> <span class="title">Thêm đơn hàng</span>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
