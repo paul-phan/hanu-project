@@ -22,10 +22,6 @@ class Product extends MainModel implements ProductModel
 
     public function insertProduct($post)
     {
-<<<<<<< H
-        // TODO: Implement insertProduct() method.
-
-=======
         return $this->insert(array(
             'category_id' => $post['category_id'],
             'company_id' => $post['company_id'],
@@ -41,7 +37,6 @@ class Product extends MainModel implements ProductModel
             'active' => isset($post['active']) ? $post['active'] : 1,
             'manufactured_date' => date("Y:m:d H:i:s"),
         ));
->>>>>>> b3f4034aad7d32271ad937fbfc168bf2eaf9c3c8
     }
 
     public function modifyProduct($post, $id)

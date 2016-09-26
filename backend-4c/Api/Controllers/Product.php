@@ -33,22 +33,4 @@ class Product extends MainController
             $this->responseApi(130002);
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    /** construct a SQL request string
-     * @param $value
-     * @return string
-     */
-    private function conStructSQL($value){
-        $sql="SELECT company.com_name, product.* FROM product
-        INNER JOIN company
-        ON product.company_id=company.id
-        WHERE product.title LIKE '$value' OR company.com_name LIKE '$value' OR product.detail LIKE '$value' OR product.sale LIKE '$value' OR product.price LIKE '$value' OR product.type LIKE '$value' OR product.tags LIKE '$value'";
-        return $sql;
-    }
-=======
->>>>>>> b3f4034aad7d32271ad937fbfc168bf2eaf9c3c8
-=======
->>>>>>> 2560d06ae3cc1f616a4b2b4c64ab98eabfab2f64
 }
