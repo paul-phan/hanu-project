@@ -24,8 +24,8 @@
                 <th class="min-phone-l">Tên đầy đủ</th>
                 <th class="desktop">Quyền</th>
                 <th class="min-tablet">Ngày tham gia</th>
+                <th class="all">Trạng thái</th>
                 <th class="all">Tùy chỉnh</th>
-                <th class="none">Trạng thái</th>
                 <th class="none">Thời gian đăng nhập</th>
                 <th class="none">Email</th>
                 <th class="none">Phone</th>
@@ -47,6 +47,7 @@
                     <td><?= $user->full_name ?></td>
                     <td> <?= $user->rname ?> </td>
                     <td> <?= $user->created ?> </td>
+                    <td><?= ($user->active == 1) ? '<p style="color: green; font-weight: bolder;">Active</p>' : '<p style="color: red; font-weight: bolder;">Inactive</p>' ?></td>
                     <td>
                         <?php if (isset($_SESSION['User']['role_level']) && $_SESSION['User']['role_level'] == 0) : ?>
                             <a href="admin/user/edit/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
@@ -58,7 +59,7 @@
                         <a href="admin/user/view/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm blue">
                             <i class="fa fa-eye"></i> Xem </a>
                     </td>
-                    <td><?= $user->active ?></td>
+
                     <td><?= $user->last_login ?></td>
                     <td><?= $user->email ?></td>
                     <td><?= $user->phone ?></td>
