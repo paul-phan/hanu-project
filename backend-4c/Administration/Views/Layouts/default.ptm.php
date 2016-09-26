@@ -61,7 +61,6 @@
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
                 <!-- BEGIN NOTIFICATION DROPDOWN -->
-                <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                 <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
@@ -485,7 +484,7 @@
                 </li>
                 <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="icon-user"></i>
+                        <i class="icon-users"></i>
                         <span class="title">Thành viên</span>
                         <span class="arrow"></span>
                     </a>
@@ -498,6 +497,11 @@
                         <li class="nav-item  ">
                             <a href="/admin/user/add" class="nav-link ">
                                 <i class="fa fa-plus-square-o"></i> <span class="title">Thêm Thành Viên</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin/user/view/<?= $_SESSION['User']['id'] ?>" class="nav-link ">
+                                <i class="fa fa-user-md"></i> <span class="title">Trang cá nhân</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
@@ -529,6 +533,23 @@
                             <a href="/admin/product/add" class="nav-link ">
                                 <i class="fa fa-plus-square-o"></i> <span class="title">Thêm Sản phẩm</span>
                             </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin/product/categories" class="nav-link ">
+                                <i class="fa fa-list-alt"></i> <span class="title">Danh sách phân loại</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin/product/companies" class="nav-link ">
+                                <i class="fa fa-list-ol"></i> <span class="title">Danh sách công ty</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item  ">
+                            <a href="/admin/product/images" class="nav-link ">
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Hình ảnh sản phẩm</span>
+                            </a>
+
                         </li>
                         <li class="nav-item  ">
                             <a href="/admin" class="nav-link ">

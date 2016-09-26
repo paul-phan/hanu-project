@@ -166,13 +166,14 @@ abstract class Model
         $sql->setFetchMode(PDO::FETCH_OBJ);
         return $sql->fetchAll();
     }
+
     /** This returns all matched columns containing the corresponding to the $sql
-     * @parram String $sql
-     * @parram String $colunms
+     * @param String $sql
      * @return array
      */
-    public function  fetchMatchedFields($sql){
-        $result=$this->db->prepare($sql);
+    public function fetchMatchedFields($sql)
+    {
+        $result = $this->db->prepare($sql);
         $result->execute();
         $result->setFetchMode(PDO::FETCH_OBJ);
         return $result->fetchAll();

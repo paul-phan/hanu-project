@@ -46,7 +46,50 @@ interface UserController
 
 interface ProductController
 {
+    /**
+     * xem thông tin sản phẩm,
+     * yc lấy được thông tin từ các bảng product, product_detail, category, company, image
+     */
+    public function viewAction();
 
+    /**
+     * in danh sách sản phẩm ra table
+     */
+    public function listAction();
+
+    /**
+     * Thêm sản phẩm, yêu cầu nhập đầy đủ thông tin vào bảng product, chọn được category, company cho sản phẩm...
+     */
+    public function addAction();
+
+    /**
+     * Chỉnh sửa thông tin sản phẩm trong bảng product và product detail...
+     */
+    public function editAction();
+
+    /**
+     * xóa
+     */
+    public function deleteAction();
+
+    public function list_categoryAction();
+
+    public function edit_categoryAction();
+
+    public function add_categoryAction();
+
+    public function list_companyAction();
+
+    public function add_companyAction();
+
+    public function edit_companyAction();
+
+    /**
+     * Xem hình ảnh theo id sản phẩm.
+     */
+    public function imagesAction();
+
+    public function add_imageAction();
 }
 
 
