@@ -181,7 +181,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">Quốc gia</label>
                                 <div class="col-md-4">
-                                    <select name="country" class="form-control country_list">
+                                    <select name="country" id="country_list" class="form-control">
                                         <option value=""></option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AL">Albania</option>
@@ -500,7 +500,7 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="tab4">
-                            <h3 class="block">Xác nhận tài khoản của bạn</h3>
+                            <h3 class="block">Xác nhận tài khoản cảu bạn</h3>
                             <h4 class="form-section">Account</h4>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Tên đăng nhập:</label>
@@ -610,9 +610,3 @@
         </form>
     </div>
 </div>
-<!--<script>-->
-<!--    var form = document.getElementById("submit_form");-->
-<!--    document.getElementById("bsubmit").addEventListener("click", function () {-->
-<!--        form.submit();-->
-<!--    });-->
-<!--</script>-->

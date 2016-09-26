@@ -130,7 +130,6 @@ abstract class Model
             $sql = $this->db->prepare($q);
             $sql->execute();
             $sql->setFetchMode(PDO::FETCH_OBJ);
-
             return $sql->fetchAll();
         }
         return false;
