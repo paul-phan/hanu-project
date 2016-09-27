@@ -39,60 +39,15 @@ class Product extends MainController implements ProductController
 
     public function addAction()
     {
-
-        Tools\Helper::checkRoleAdmin();
         global $connection;
         $co = $connection->getCo();
-        $modelRole = new \Administration\Models\Role($co);
-        $role = $modelRole->fetchAll();
         $modelProduct = new \Administration\Models\Product($co);
-        $modelProfile = new \Administration\Models\Profile($co);
 
-        if (!empty($_POST)) {
-            $usernameResult = $modelUser->getUserByUsername($_POST['username']);
-            $emailResult = $modelProfile->getUserByMail($_POST['email']);
-            if (!empty($usernameResult)) {
-                $alert = Tools\Alert::render("Tài khoản này đã được sử dụng, vui lòng chọn tài khoản khác!.", "danger");
-                unset($_POST['username']);
-            } elseif (!empty($emailResult)) {
-                $alert = Tools\Alert::render("Email này đã được sử dụng, vui lòng chọn email khác", "danger");
-                unset($_POST['email']);
-            } else {
-                if ($modelUser->insertUser($_POST)) {
-                    $image = $_FILES['image'];
-                    $upload = new \Library\Tools\Upload();
-                    $name = $upload->copy(array(
-                        'file' => $image,
-                        'path' => 'avatar/', //name your optional folder if needed
-                        'name' => time() . '-' . $_POST['username'] // name your file name if needed
-                    ));
-                    $_POST['avatar'] = isset($name) ? $name : 'updatelater.jpg';
-                    if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
-                        $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
-                        header("Refresh:3; url=/admin/user/list", true, 303);
-                    } elseif ($upload->getErrors()) {
-                        $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
-                    } else {
-                        $alert = $alert = Tools\Alert::render('Người dùng mới đã được tao, tuy nhiên hãy kiểm tra lại profile của bạn!', 'warning');
-                    }
-                } else {
-                    $alert = Tools\Alert::render('Không thành công! Vui lòng kiểm tra lại thông tin đã nhập!', 'danger');
-                }
-            }
-            $form = $_POST;
+        if ($modelProduct->insertProduct($_POST)) {
+            echo "ok";
+        }else{
+            echo "sai";
         }
-        //Truyền các biến vào view
-        $this->addDataView(array(
-            'viewTitle' => 'Quản trị',
-            'viewSiteName' => 'Thêm Người dùng',
-            'role' => $role,
-            'alert' => (!empty($alert)) ? $alert : '',
-            'form' => (!empty($form) ? $form : '')
-
-        ));
-
-
-
     }
 
     public function editAction()
