@@ -14,8 +14,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link href="dashboard/css/font-awesome.min.css" rel="stylesheet">
-    <!--    <link href="dashboard/css/less-style.css" rel="stylesheet">-->
-    <link href="dashboard/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+      <link href="dashboard/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboard/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
@@ -1320,7 +1319,6 @@
 <script src="dashboard/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-fileinput.js" type="text/javascript"></script>
 <script src="dashboard/js/pwstrength-bootstrap.min.js" type="text/javascript"></script>
-<script src="dashboard/js/bootstrap-markdown.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-markdown.js" type="text/javascript"></script>
 <script src="dashboard/js/autosize.min.js" type="text/javascript"></script>
 <script src="dashboard/js/morris.min.js" type="text/javascript"></script>
