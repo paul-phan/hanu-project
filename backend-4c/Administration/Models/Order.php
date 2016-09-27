@@ -36,6 +36,22 @@ class Order extends MainModel
         ));
     }
 
+    public function editOrder($post, $id)
+    {
+        return $this->update(array(
+            'product_id' => $post['product_id'],
+            'item_count' => $post['item_count'],
+            'to_price' => $post['to_price'],
+            'ship_price' => $post['ship_price'],
+            'total_price' => intval(intval($post['to_price']) * intval($post['item_count']) + intval($post['ship_price'])),
+            'order_type' => isset($post['order_type']) ? $post['order_type'] : 'normal',
+            'description' => $post['description'],
+            'ip_address' => $this->get_client_ip(),
+            'created' => date("Y:m:d H:i:s"),
+            'status' => intval($post['status'])
+        ), ' id = ' . $id);
+    }
+
     private function get_client_ip()
     {
         $ipaddress = '';

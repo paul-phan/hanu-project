@@ -167,8 +167,6 @@ class User extends MainController implements UserController
         ));
     }
 
-    //TODO implement delete action
-
     public function deleteAction()
     {
         Tools\Helper::checkUrlParamsIsNumeric();
@@ -194,8 +192,6 @@ class User extends MainController implements UserController
                 'alert' => (!empty($alert)) ? $alert : '')
         );
     }
-
-    //TODO implement view action
 
     public function viewAction()
     {
