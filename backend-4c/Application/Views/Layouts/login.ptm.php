@@ -27,8 +27,6 @@
 <!-- Javascript files -->
 <script src="dashboard/js/jquery.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap.min.js"></script>
-<script src="dashboard/js/respond.min.js"></script>
-<script src="dashboard/js/excanvas.min.js"></script>
 <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.slimscroll.min.js" type="text/javascript"></script>
