@@ -5,6 +5,7 @@ import Youtube from './components/Youtube'
 import Kanban from './components/Kanban'
 import Examples from './components/Examples'
 import Examples02 from './components/Examples02'
+import TestApi from './components/TestApi'
 import store from './redux/store/config'
 import React from 'react'
 import {Provider} from 'react-redux'
@@ -24,7 +25,7 @@ render(
                 <Route path="todos" component={Todos}/>
                 <Route path="youtube" component={Youtube}/>
                 <Route path="kanban" component={Kanban}/>
-
+                <Route path="testapi" component={TestApi}/>
             </Route>
         </Router>
     </Provider>,

@@ -24,6 +24,8 @@ export default function App({children}) {
                 {' '}
                 <button onClick={() => browserHistory.push('/kanban')}>Kanban</button>
                 {' '}
+                <button onClick={() => browserHistory.push('/testapi')}>Test API</button>
+                {' '}
 
             </div>
             <hr/>
