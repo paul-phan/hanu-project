@@ -43,11 +43,14 @@ class Product extends MainController implements ProductController
         $co = $connection->getCo();
         $modelProduct = new \Administration\Models\Product($co);
 
-        if ($modelProduct->insertProduct($_POST)) {
-            echo "ok";
-        }else{
-            echo "sai";
+        $modelProduct->insertProduct($_POST);
+        if(!empty($_POST['title'])){
+            return $_POST['title'];
+            }else{
+                return '';
         }
+
+
     }
 
     public function editAction()
