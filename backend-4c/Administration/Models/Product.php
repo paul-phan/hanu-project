@@ -23,15 +23,16 @@ class Product extends MainModel implements ProductModel
     public function insertProduct($post)
     {
         return $this->insert(array(
-            'category_id' => isset($post['type']) ?  $post['type'] : '',
-            'company_id' =>  isset($post['company']) ? $post['company'] : '',
+            'company_id' => isset($post['company_id']) ? $post['company_id'] : '',
             'title' => isset($post['title']) ? $post['title'] : '',
+            'count' => isset($post['count']) ? $post['count'] : '',
             'price' => isset($post['price']) ? $post['price'] : '',
             'detail' => isset($post['detail']) ? $post['detail'] : '',
             'type' => isset($post['type']) ? $post['type'] : '',
             'sale' => isset($post['sale']) ? $post['sale'] : '',
             'created' => date("Y:m:d H:i:s"),
-            'active' => isset($post['active']) ? $post['active'] : 1,
+            'active' => 1,
+            'tags' => isset($post['tags']) ? $post['tags'] : '',
             'manufactured_date' => isset($post['manufactured_date']) ? $post['manufactured_date'] : ''
         ));
     }

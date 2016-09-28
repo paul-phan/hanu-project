@@ -27,7 +27,7 @@
                                 <img
                                     src="<?= !empty($profile->avatar) ? UPLOAD_DIR . 'avatar/' . $profile->avatar : UPLOAD_DIR . 'avatar/updatelater.jpg' ?>"
                                     class="img-responsive pic-bordered" alt=""/>
-                                <a href="javascript:;" class="profile-edit"> sửa </a>
+                                <a href="admin/user/edit/<?= $user->id ?>" class="profile-edit"> sửa </a>
                             </li>
                             <li>
                                 <a href="javascript:;"> Dự án </a>
@@ -54,11 +54,11 @@
                                     <a href="javascript:;"> www.facebook.com </a>
                                 </p>
                                 <p>
-                                    <a href="mailto:<?=$profile->email?>"> <?=$profile->email?> </a>
+                                    <a href="mailto:<?= $profile->email ?>"> <?= $profile->email ?> </a>
                                 </p>
                                 <ul class="list-inline">
                                     <li>
-                                        <i class="fa fa-map-marker"></i> <?=$profile->city.', '. $profile->country ?>
+                                        <i class="fa fa-map-marker"></i> <?= $profile->city . ', ' . $profile->country ?>
                                     </li>
                                     <li>
                                         <i class="fa fa-calendar"></i> <?= date("jS F, Y", strtotime($profile->birthday)) ?>
