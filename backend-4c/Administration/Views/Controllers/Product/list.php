@@ -25,7 +25,7 @@
                 <th class="min-tablet">Năm</th>
                 <th class="min-tablet">Cập nhật</th>
                 <th class="min-tablet">Tùy chỉnh</th>
-                <th class="none">Trạng thái</th>
+                <th class="none">Lượng hàng </th>
                 <th class="none">Ảnh</th>
                 <th class="none">Tên công ty</th>
             </tr>
@@ -55,7 +55,7 @@
                         <a href="admin/product/view/<?= $product->id ?>" class="btn btn-outline btn-circle btn-sm blue">
                             <i class="fa fa-eye"></i> Xem </a>
                     </td>
-                    <td><?= $product->active ?></td>
+                    <td><?= $product->count ?></td>
                     <td><?= $product->iurl ?></td>
                     <td><?= $product->ccom_name ?></td>
                 </tr>

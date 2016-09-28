@@ -28,7 +28,7 @@ class Product extends MainController implements ProductController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause(' left JOIN product_collection ON product_collection.product_id = product.id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, image.url as iurl, company.com_name as ccom_name ');
+        $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, image.url as iurl, company.com_name as ccom_name ');
 
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
@@ -52,7 +52,7 @@ class Product extends MainController implements ProductController
                 if ($productModel->insertProduct($_POST)) {
                     foreach ($categories as $v) {
                         if (array_key_exists($v->params, $_POST)) {
-                            if ($productCollectionModel->insertCollection($productModel->insertedId, $v->id)){
+                            if ($productCollectionModel->insertCollection($productModel->insertedId, $v->id)) {
                                 echo 'đã thêm category';
                             }
                         }

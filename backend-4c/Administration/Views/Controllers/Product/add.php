@@ -95,7 +95,7 @@
                                         <?php foreach ($categories as $v) { ?>
                                             <div class="md-checkbox">
                                                 <input
-                                                    name="<?= $v->params ?>" <?= (isset($form[$v->params]) && $form[$v->params] == 'on') ? 'checked' : '' ?>
+                                                    name="<?= $v->params ?>" <?= (isset($form[$v->params])) ? 'checked' : '' ?>
                                                     type="checkbox" value="<?= $v->id ?>" id="checkbox1_<?= $v->id ?>"
                                                     class="md-check">
                                                 <label for="checkbox1_<?= $v->id ?>">
@@ -112,7 +112,7 @@
                                 </label>
                                 <div class="col-md-7">
                                     <textarea rows="3" class="form-control"
-                                              name="description"><?= !empty($form['detail']) ? $form['detail'] : '' ?></textarea>
+                                              name="detail"><?= !empty($form['detail']) ? $form['detail'] : '' ?></textarea>
                                 </div>
                             </div>
                             <div class="form-action">
