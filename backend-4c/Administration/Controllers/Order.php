@@ -42,7 +42,7 @@ class Order extends MainController
         $profiles = $profileModel->fetchAll();
         if ($_POST) {
             $productSelected = $productModel->findById($_POST['product_id']);
-            $_POST['to_price'] = (isset($productSelected[0]->sale) ? $productSelected[0]->sale : $productSelected[0]->price);
+            $_POST['to_price'] = ((isset($productSelected[0]->sale) && $productSelected[0]->sale != 0) ? $productSelected[0]->sale : $productSelected[0]->price);
             if (empty($_POST['item_count']) || empty($_POST['profile_id']) || empty($_POST['product_id'])) {
                 $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin', 'warning');
             } else {

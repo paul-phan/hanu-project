@@ -28,12 +28,12 @@ class Product extends MainModel implements ProductModel
             'count' => isset($post['count']) ? $post['count'] : '',
             'price' => isset($post['price']) ? $post['price'] : '',
             'detail' => isset($post['detail']) ? $post['detail'] : '',
-            'type' => isset($post['type']) ? $post['type'] : '',
-            'sale' => isset($post['sale']) ? $post['sale'] : '',
+            'sale' => isset($post['sale']) ? $post['sale'] : '0',
             'created' => date("Y:m:d H:i:s"),
             'active' => 1,
-            'tags' => isset($post['tags']) ? $post['tags'] : '',
-            'manufactured_date' => isset($post['manufactured_date']) ? $post['manufactured_date'] : ''
+            'params' => $this->slugify(time() . '-' . $post['title']),
+            'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
+            'product_year' => isset($post['product_year']) ? $post['product_year'] : ''
         ));
     }
 

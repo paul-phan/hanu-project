@@ -41,14 +41,38 @@ class Product extends MainController implements ProductController
     {
         global $connection;
         $co = $connection->getCo();
-        $modelProduct = new \Administration\Models\Product($co);
-
-
-
+        $productModel = new \Administration\Models\Product($co);
+        $companyModel = new \Administration\Models\Company($co);
+        $categoryModel = new \Administration\Models\Category($co);
+        $productCollectionModel = new \Administration\Models\ProductCollection($co);
+        $companies = $companyModel->fetchAll();
+        $categories = $categoryModel->fetchAll();
+        if ($_POST) {
+            if (!empty($_POST['title']) && !empty($_POST['company_id']) && !empty($_POST['price'])) {
+                if ($productModel->insertProduct($_POST)) {
+                    foreach ($categories as $v) {
+                        if (array_key_exists($v->params, $_POST)) {
+                            if ($productCollectionModel->insertCollection($productModel->insertedId, $v->id)){
+                                echo 'đã thêm category';
+                            }
+                        }
+                    }
+                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
+                    header("Refresh:3; url=/admin/product/list", true, 303);
+                } else {
+                    $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
+                }
+            } else {
+                $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
+            }
+        }
         $this->addDataView(array(
             'viewTitle' => 'Sản phẩm',
             'viewSiteName' => 'Thêm sản phẩm',
-//            'products' => $result
+            'form' => $_POST,
+            'companies' => $companies,
+            'categories' => $categories,
+            'alert' => isset($alert) ? $alert : ''
         ));
     }
 

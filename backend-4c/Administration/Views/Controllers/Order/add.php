@@ -1,4 +1,4 @@
-<div class="portlet light bordered" xmlns="http://www.w3.org/1999/html">
+<div class="portlet light bordered">
     <div class="portlet-title">
         <div class="caption">
             <i class=" icon-layers font-red"></i>

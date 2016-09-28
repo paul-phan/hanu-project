@@ -22,10 +22,10 @@
                 <th class="min-phone-l">Thông tin</th>
                 <th class="desktop">Giá</th>
                 <th class="min-tablet">Giá sale</th>
-                <th class="min-tablet">Ngày sản xuất</th>
+                <th class="min-tablet">Năm</th>
+                <th class="min-tablet">Cập nhật</th>
                 <th class="min-tablet">Tùy chỉnh</th>
                 <th class="none">Trạng thái</th>
-                <th class="none">Loại</th>
                 <th class="none">Ảnh</th>
                 <th class="none">Tên công ty</th>
             </tr>
@@ -41,7 +41,8 @@
                     <td><?= $product->detail ?></td>
                     <td> <?= number_format($product->price, 0, ",", ".") ?>.000 VNĐ</td>
                     <td> <?= number_format($product->sale, 0, ",", ".") ?>.000 VNĐ</td>
-                    <td><?= date('d-m-Y', strtotime($product->manufactured_date)) ?></td>
+                    <td><?= $product->product_year ?></td>
+                    <td><?= $product->updated ?></td>
                     <td>
                         <?php if (isset($_SESSION['User']['role_level']) && $_SESSION['User']['role_level'] == 0) : ?>
                             <a href="admin/product/edit/<?= $product->id ?>"
@@ -55,10 +56,8 @@
                             <i class="fa fa-eye"></i> Xem </a>
                     </td>
                     <td><?= $product->active ?></td>
-                    <td><?= $product->type ?></td>
                     <td><?= $product->iurl ?></td>
                     <td><?= $product->ccom_name ?></td>
-
                 </tr>
             <?php } ?>
             </tbody>
