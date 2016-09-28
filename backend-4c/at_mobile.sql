@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2016 at 06:28 AM
+-- Generation Time: Sep 28, 2016 at 08:57 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -47,11 +47,19 @@ CREATE TABLE `category` (
   `id` int(11) UNSIGNED NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
-  `position` int(11) NOT NULL,
+  `group_name` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `cat_name`, `params`, `group_name`, `active`, `created`, `updated`) VALUES
+(1, 'Hàng cũ', 'hang-cu', 'cu-moi', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
+(2, 'Hàng-moi', 'hang-moi', 'cu-moi', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51');
 
 -- --------------------------------------------------------
 
@@ -68,6 +76,46 @@ CREATE TABLE `company` (
   `created` datetime NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `created`, `updated`) VALUES
+(1, 'Apple', '123-234-erwer-sdqw', 1, 1, '2016-09-28 00:00:00', '2016-09-28 06:47:05'),
+(2, 'Asus', 'qweqwe-234-ada', 2, 1, '2016-09-28 00:00:00', '2016-09-28 06:47:05'),
+(3, 'Xiaomi', 'asdas-qwe-as', 3, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
+(4, 'Sony', 'qweqw-34-aa', 4, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event`
+--
+
+CREATE TABLE `event` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `params` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `zipcode` int(5) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `schedule` varchar(255) NOT NULL,
+  `date_start` timestamp NULL DEFAULT NULL,
+  `date_end` timestamp NULL DEFAULT NULL,
+  `ticket` int(11) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`id`, `title`, `params`, `description`, `image`, `address`, `zipcode`, `city`, `schedule`, `date_start`, `date_end`, `ticket`, `price`, `updated`) VALUES
+(1, 'evenement test', 'evenement-test', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget sodales risus. Nullam feugiat accumsan aliquam. Suspendisse sagittis commodo feugiat. Cras aliquet et lorem a feugiat. Vestibulum sed ante quam. Duis semper magna egestas egestas scelerisque. Nam pharetra quam nec mauris pulvinar eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam lacinia mollis odio sed euismod. Nullam vestibulum id sem vel tincidunt. Nulla lobortis metus nec viverra porttitor. In eget gravida ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>', '/Public/img/event/nom.jpg', '19 rue jean robert', 75018, 'Paris', ' 17h20', '2014-12-03 23:00:00', '2014-12-03 23:00:00', 50, '', '2014-11-23 09:29:52');
 
 -- --------------------------------------------------------
 
@@ -114,7 +162,8 @@ INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `item_count`, `to
 (26, 21, 140, 30, 2, 20, 80, 'normal', 'minh', 1, 'null', '2016-09-26 16:50:23', '2016-09-26 09:50:23'),
 (27, 19, 45, 99, 5, 12, 507, 'normal', '', 1, 'null', '2016-09-26 17:00:47', '2016-09-26 10:00:47'),
 (29, 20, 49, 123, 5, 123231, 123846, 'normal', '1123', 1, '127.0.0.1', '2016-09-27 11:21:28', '2016-09-27 04:21:28'),
-(30, 23, 50, 999999, 5, 8776, 5008771, 'normal', '', 1, '127.0.0.1', '2016-09-27 11:27:51', '2016-09-27 04:27:51');
+(30, 23, 50, 999999, 5, 8776, 5008771, 'normal', '', 1, '127.0.0.1', '2016-09-27 11:27:51', '2016-09-27 04:27:51'),
+(31, 23, 45, 99999, 5, 99999, 599994, 'normal', 'asdasdqw', 1, '127.0.0.1', '2016-09-27 19:10:02', '2016-09-27 12:10:02');
 
 -- --------------------------------------------------------
 
@@ -270,7 +319,32 @@ INSERT INTO `product` (`id`, `category_id`, `company_id`, `title`, `params`, `pr
 (137, 97, 97, 'nec, diam. Duis mi enim,', 'NQU18PQI1CS', 9, 3, 1, 'sem mollis dui, in sodales elit erat vitae risus.', 'a, aliquet vel, vulputate', 5, '0000-00-00', '', 0, '2016-06-28 19:19:10', '2016-09-20 08:49:10'),
 (138, 98, 98, 'scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada', 'WAU19FCW5JR', 10, 4, 1, 'et, eros. Proin', 'metus eu erat semper rutrum. Fusce dolor quam,', 6, '0000-00-00', '', 0, '2016-06-17 11:39:35', '2016-09-20 08:49:10'),
 (139, 99, 99, 'sit amet lorem semper auctor. Mauris', 'PND32SDA8ZL', 10, 6, 1, 'gravida.', 'molestie tortor nibh sit amet orci. Ut sagittis', 5, '0000-00-00', '', 0, '2015-10-23 08:16:28', '2016-09-20 08:49:10'),
-(140, 100, 100, 'sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis', 'QMT63EYP6YB', 8, 2, 1, 'at sem molestie sodales. Mauris blandit', 'fermentum risus, at fringilla', 2, '0000-00-00', '', 0, '2017-01-30 04:14:49', '2016-09-20 08:49:10');
+(140, 100, 100, 'sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis', 'QMT63EYP6YB', 8, 2, 1, 'at sem molestie sodales. Mauris blandit', 'fermentum risus, at fringilla', 2, '0000-00-00', '', 0, '2017-01-30 04:14:49', '2016-09-20 08:49:10'),
+(141, 0, 0, '', '', 0, 0, 1, '', '', 0, '0000-00-00', '', 0, '2016-09-28 11:38:24', '2016-09-28 04:38:24'),
+(142, 0, 0, '', '', 0, 0, 1, '', '', 0, '0000-00-00', '', 0, '2016-09-28 13:20:48', '2016-09-28 06:20:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_collection`
+--
+
+CREATE TABLE `product_collection` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `product_id` int(11) UNSIGNED NOT NULL,
+  `category_id` int(11) UNSIGNED NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_collection`
+--
+
+INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) VALUES
+(1, 43, 1, '2016-09-28 06:56:38'),
+(2, 45, 2, '2016-09-28 06:56:38'),
+(3, 43, 2, '2016-09-28 06:57:03'),
+(4, 60, 2, '2016-09-28 06:57:03');
 
 -- --------------------------------------------------------
 
@@ -404,7 +478,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, `last_login`, `created`, `update`) VALUES
 (9, 'minhtest9', '$2a$07$ptmp4szOWxiOv0GqpHbdfukkHqQ3U4d4m7PFEE69vtTM1DiLgEaki', 'ab24dd7efa48a65b5aea845e9e5b5ce9', 1, 5, '2016-09-24 17:34:18', '2016-09-14 01:28:13', '2016-09-24 17:59:20'),
-(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', '1129fd2de0d52e6c74e9de34ad5f2fd6', 1, 1, '2016-09-27 09:39:08', '2016-09-14 01:30:28', '2016-09-27 02:39:08'),
+(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', '2912d35c377b60fe078f53f0a9714474', 1, 1, '2016-09-28 00:00:52', '2016-09-14 01:30:28', '2016-09-27 17:00:52'),
 (53, 'minhtest11', '$2a$07$ptmUO4pPC49WpBRuPKxBE.WB5TqSU.MhDpU9IfzxhoS/dQZfbSZ.K', '63be1949df643caba09310500ad0bb15', 1, 2, '2016-09-26 18:34:08', '2016-09-22 11:06:14', '2016-09-26 11:34:08'),
 (59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22'),
 (60, 'minhtest20', '$2a$07$ptmIpU9gBlKF8wRZCosDZefYIJU32uyJ4HjAlYTuXvQEcX2fjerVa', '8ad1e984d254bb75513f987cef3f92e6', 1, 5, '2016-09-25 02:01:47', '2016-09-22 15:47:49', '2016-09-24 19:01:47'),
@@ -459,7 +533,14 @@ ALTER TABLE `category`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `position` (`position`),
   ADD KEY `com_name` (`com_name`(191));
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `image`
@@ -495,6 +576,14 @@ ALTER TABLE `product`
   ADD KEY `category_id_2` (`category_id`),
   ADD KEY `company_id_2` (`company_id`),
   ADD KEY `params` (`params`(191));
+
+--
+-- Indexes for table `product_collection`
+--
+ALTER TABLE `product_collection`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `product_detail`
@@ -544,12 +633,17 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `event`
+--
+ALTER TABLE `event`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `image`
 --
@@ -559,7 +653,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `order_status`
 --
@@ -569,7 +663,12 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+--
+-- AUTO_INCREMENT for table `product_collection`
+--
+ALTER TABLE `product_collection`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
@@ -600,12 +699,6 @@ ALTER TABLE `user_feedback`
 --
 
 --
--- Constraints for table `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`id`) REFERENCES `product` (`category_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `company`
 --
 ALTER TABLE `company`
@@ -624,6 +717,13 @@ ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `order_product_ibfk_3` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `order_product_ibfk_4` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `product_collection`
+--
+ALTER TABLE `product_collection`
+  ADD CONSTRAINT `product_collection_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_collection_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product_detail`
