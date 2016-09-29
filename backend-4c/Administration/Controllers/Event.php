@@ -75,10 +75,10 @@ class event extends MainController implements EventController
         Tools\Helper::checkUrlParamsIsNumeric();
         global $connection;
         $co = $connection->getCo();
-        $eventModel = new \Administration\Models\event($co);
+        $EventModel = new \Administration\Models\Event($co);
         if (!empty($_POST['submit'])) {
-            if ($eventModel->findById($_GET['params'])) {
-                if ($eventModel->delete($_GET['params'])) {
+            if ($EventModel->findById($_GET['params'])) {
+                if ($EventModel->delete($_GET['params'])) {
                     $alert = Tools\Alert::render('Xóa sự kiện thành công!', 'success');
                     $action = TRUE;
                     header("Refresh:3; url=/admin/event/list", true, 303);
@@ -87,7 +87,7 @@ class event extends MainController implements EventController
                 }
             } else {
                 $alert = Tools\Alert::render('sự kiện này không tồn tại!', 'danger');
-                header("Refresh:3; url=/admin/order/list", true, 303);
+                header("Refresh:3; url=/admin/event/list", true, 303);
             }
         }
         $this->addDataView(array(

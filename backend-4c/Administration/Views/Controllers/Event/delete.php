@@ -6,7 +6,7 @@
 
             <div class="form-group">
                 <div class="col-md-12">
-                    <p>Bạn chắc chắn muốn xóa sản phẩm này chứ ?</p>
+                    <p>Bạn chắc chắn muốn xóa sự kiện này chứ ?</p>
                 </div>
             </div>
             <div class="form-group">
