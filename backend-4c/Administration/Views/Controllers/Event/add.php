@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="dropdown" class="control-label col-md-3">Miêu tả<span class="required"> * </span></label>
                                 <div class="col-md-7">
-                                    <textarea type="text" class="form-control"
+                                    <textarea class="form-control"
                                            name="description"
                                            value="<?= !empty($form['description']) ? $form['description'] : '' ?>"> </textarea>
                                 </div>
