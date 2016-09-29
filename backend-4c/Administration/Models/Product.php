@@ -23,25 +23,34 @@ class Product extends MainModel implements ProductModel
     public function insertProduct($post)
     {
         return $this->insert(array(
-            'category_id' => $post['category_id'],
-            'company_id' => $post['company_id'],
-            'title' => $post['title'],
-            'params' => $post['params'],
-            'price' => $post['price'],
-            'detail' => $post['detail'],
-            'type' => $post['type'],
-            'sale' => $post['sale'],
-            'tags' => $post['tags'],
-            'view' => $post['view'],
+            'company_id' => isset($post['company_id']) ? $post['company_id'] : '',
+            'title' => isset($post['title']) ? $post['title'] : '',
+            'count' => isset($post['count']) ? $post['count'] : '',
+            'price' => isset($post['price']) ? $post['price'] : '',
+            'detail' => isset($post['detail']) ? $post['detail'] : '',
+            'sale' => isset($post['sale']) ? $post['sale'] : '0',
             'created' => date("Y:m:d H:i:s"),
-            'active' => isset($post['active']) ? $post['active'] : 1,
-            'manufactured_date' => date("Y:m:d H:i:s"),
+            'active' => 1,
+            'params' => $this->slugify(time() . '-' . $post['title']),
+            'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
+            'product_year' => isset($post['product_year']) ? $post['product_year'] : ''
         ));
     }
 
     public function modifyProduct($post, $id)
     {
         // TODO: Implement modifyProduct() method.
+        return $this->update(array(
+            'company_id' => $post['company_id'],
+            'title' => $post['title'],
+            'count' => $post['count'],
+            'price' => $post['price'],
+            'detail' => $post['detail'],
+            'sale' => $post['sale'],
+            'active' => isset($post['active']) ? $post['active'] : 0,
+            'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
+            'product_year' => isset($post['product_year']) ? $post['product_year'] : ''
+        ), " id = '$id' ");
     }
 
 

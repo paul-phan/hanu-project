@@ -1,4 +1,4 @@
-<div class="portlet light bordered" xmlns="http://www.w3.org/1999/html">
+<div class="portlet light bordered">
     <div class="portlet-title">
         <div class="caption">
             <i class=" icon-layers font-red"></i>
@@ -69,9 +69,10 @@
                                 <label class="control-label col-md-3">Phí ship
                                 </label>
                                 <div class="col-md-6">
-                                    <input type="number" class="form-control" name="ship_price"/>
+                                    <input type="number" class="form-control" name="ship_price"
+                                           value="<?= !empty($form['ship_price']) ? $form['ship_price'] : '' ?>"/>
                                 </div>
-                                <span class="help-block"> nghìn VNĐ </span>
+                                <span class="help-block"> .000 VNĐ </span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Ghi chú
@@ -87,7 +88,8 @@
                                         <a href="admin/order/list" class="btn default button-previous">
                                             <i class="fa fa-angle-left"></i> Quay lại </a>
                                         </a>
-                                        <button type="submit" class="btn green button-submit" id="bsubmit"> Thêm đơn hàng
+                                        <button type="submit" class="btn green button-submit" id="bsubmit"> Thêm đơn
+                                            hàng
                                             <i class="fa fa-check"></i>
                                         </button>
                                     </div>

@@ -40,7 +40,6 @@ class Profile extends MainModel implements ProfileModel
 
     public function modifyProfile($post, $id)
     {
-        // TODO: Implement modifyProfile() method.
         return $this->update(array(
             'full_name' => $post['fullname'],
             'gender' => isset($post['gender']) ? 1 : 0,

@@ -73,7 +73,6 @@ class User extends MainModel implements UserModel
 
     public function modifyUser($post, $id)
     {
-        // TODO: Implement modifyUser() method.
         return $this->update(array(
             "username" => $post['username'],
             'id_role' => isset($post['role']) ? $post['role'] : 4,
@@ -83,7 +82,6 @@ class User extends MainModel implements UserModel
 
     public function getUserByUsername($username)
     {
-        // TODO: Implement getUserByName() method.
         return $this->fetchAll("username= '$username' ");
     }
 }

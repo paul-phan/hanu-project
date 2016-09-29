@@ -23,9 +23,9 @@
                 <th class="desktop" style="width: 30%">Sản phẩm</th>
                 <th class="min-phone-l" style="width: 15%">Người đặt</th>
                 <th class="desktop">Tổng tiền</th>
+                <th class="all">Trạng thái</th>
                 <th class="min-tablet">Cập nhật</th>
-                <th class="all">Tùy chỉnh</th>
-                <th class="none">Trạng thái</th>
+                <th class="all" style="width: 30%">Tùy chỉnh</th>
                 <th class="none">Thời gian đặt hàng</th>
                 <th class="none">Số lượng</th>
                 <th class="none">Đơn giá</th>
@@ -46,7 +46,8 @@
                     <td>
                         <div class="success"></div>
                         <a href="javascript:;"><?= $order->full_name ?></a></td>
-                    <td> <?= $order->total_price ?> </td>
+                    <td> <?= number_format($order->total_price,0,",",".") ?>.000 VNĐ</td>
+                    <td><?= $order->sname ?></td>
                     <td> <?= $order->updated ?> </td>
                     <td>
                         <?php if (isset($_SESSION['User']['role_level']) && $_SESSION['User']['role_level'] < 2) : ?>
@@ -60,10 +61,10 @@
                         <a href="admin/order/view/<?= $order->id ?>" class="btn btn-outline btn-circle btn-sm blue">
                             <i class="fa fa-eye"></i> Xem </a>
                     </td>
-                    <td><?= ($order->status == 1) ? 'Active' : '' ?></td>
+
                     <td><?= $order->created ?></td>
                     <td><?= $order->item_count ?></td>
-                    <td><?= $order->to_price ?></td>
+                    <td><?= number_format($order->to_price) ?>.000 VNĐ</td>
                     <td><?= $order->description ?></td>
                     <td><?= $order->address . ' - ' . $order->city . ' - ' . $order->country ?></td>
                     <td><?= $order->phone ?></td>

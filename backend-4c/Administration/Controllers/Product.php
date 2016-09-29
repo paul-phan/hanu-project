@@ -28,7 +28,7 @@ class Product extends MainController implements ProductController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause(' left JOIN category ON category.id = product.category_id left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, category.cat_name as cacat_name, image.url as iurl, company.com_name as ccom_name ');
+        $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id', 'product.*, image.url as iurl, company.com_name as ccom_name ');
 
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
@@ -39,65 +39,85 @@ class Product extends MainController implements ProductController
 
     public function addAction()
     {
-
-        Tools\Helper::checkRoleAdmin();
         global $connection;
         $co = $connection->getCo();
-        $modelRole = new \Administration\Models\Role($co);
-        $role = $modelRole->fetchAll();
-        $modelProduct = new \Administration\Models\Product($co);
-        $modelProfile = new \Administration\Models\Profile($co);
-
-        if (!empty($_POST)) {
-            $usernameResult = $modelUser->getUserByUsername($_POST['username']);
-            $emailResult = $modelProfile->getUserByMail($_POST['email']);
-            if (!empty($usernameResult)) {
-                $alert = Tools\Alert::render("Tài khoản này đã được sử dụng, vui lòng chọn tài khoản khác!.", "danger");
-                unset($_POST['username']);
-            } elseif (!empty($emailResult)) {
-                $alert = Tools\Alert::render("Email này đã được sử dụng, vui lòng chọn email khác", "danger");
-                unset($_POST['email']);
-            } else {
-                if ($modelUser->insertUser($_POST)) {
-                    $image = $_FILES['image'];
-                    $upload = new \Library\Tools\Upload();
-                    $name = $upload->copy(array(
-                        'file' => $image,
-                        'path' => 'avatar/', //name your optional folder if needed
-                        'name' => time() . '-' . $_POST['username'] // name your file name if needed
-                    ));
-                    $_POST['avatar'] = isset($name) ? $name : 'updatelater.jpg';
-                    if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
-                        $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
-                        header("Refresh:3; url=/admin/user/list", true, 303);
-                    } elseif ($upload->getErrors()) {
-                        $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
-                    } else {
-                        $alert = $alert = Tools\Alert::render('Người dùng mới đã được tao, tuy nhiên hãy kiểm tra lại profile của bạn!', 'warning');
+        $productModel = new \Administration\Models\Product($co);
+        $companyModel = new \Administration\Models\Company($co);
+        $categoryModel = new \Administration\Models\Category($co);
+        $productCollectionModel = new \Administration\Models\ProductCollection($co);
+        $companies = $companyModel->fetchAll();
+        $categories = $categoryModel->fetchAll();
+        if ($_POST) {
+            if (!empty($_POST['title']) && !empty($_POST['company_id']) && !empty($_POST['price'])) {
+                if ($productModel->insertProduct($_POST)) { //need to refactor this :) work well now.
+                    if (!empty($_POST['category'])) {
+                        foreach ($_POST['category'] as $param) {
+                            $productCollectionModel->insertCollection($productModel->insertedId, $param); // oneline :p
+                        }
                     }
+                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
+                    header("Refresh:3; url=/admin/product/list", true, 303);
                 } else {
-                    $alert = Tools\Alert::render('Không thành công! Vui lòng kiểm tra lại thông tin đã nhập!', 'danger');
+                    $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
                 }
+            } else {
+                $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
             }
-            $form = $_POST;
         }
-        //Truyền các biến vào view
         $this->addDataView(array(
-            'viewTitle' => 'Quản trị',
-            'viewSiteName' => 'Thêm Người dùng',
-            'role' => $role,
-            'alert' => (!empty($alert)) ? $alert : '',
-            'form' => (!empty($form) ? $form : '')
-
+            'viewTitle' => 'Sản phẩm',
+            'viewSiteName' => 'Thêm sản phẩm',
+            'form' => $_POST,
+            'companies' => $companies,
+            'categories' => $categories,
+            'alert' => isset($alert) ? $alert : ''
         ));
-
-
-
     }
 
     public function editAction()
     {
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $companyModel = new \Administration\Models\Company($co);
+        $categoryModel = new \Administration\Models\Category($co);
+        $productCollectionModel = new \Administration\Models\ProductCollection($co);
+        $imageModel = new \Administration\Models\Image($co);
+        $productDetail = new \Administration\Models\ProductDetail($co);
+        $product = $productModel->findById($id);
+        $company = $companyModel->fetchAll();
+        $category = $categoryModel->fetchAll();
+        $collection = $productCollectionModel->getCollectionByProductId($id);
 
+        if (isset($_POST['product'])) {
+            if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price'])) {
+                if ($productModel->modifyProduct($_POST['product'], $id)) {
+                    if (!empty($_POST['category'])) {
+                        foreach ($_POST['category'] as $param) {
+                            $productCollectionModel->updateCollection($id, $param);
+                        }
+                    }
+                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
+                    header("Refresh:3; url=/admin/product/list", true, 303);
+                } else {
+                    $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
+                }
+            } else {
+                $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
+            }
+        }
+        $this->addDataView(array(
+            'viewTitle' => 'Sản Phẩm',
+            'viewSiteName' => 'Chỉnh sửa',
+            'fproduct' => $product[0],
+            'fcompany' => $company,
+            'fcategory' => $category,
+            'fcollection' => $collection,
+            'form' => $_POST,
+            'alert' => !empty($alert) ? $alert : ''
+        ));
     }
 
     public function deleteAction()
@@ -107,37 +127,58 @@ class Product extends MainController implements ProductController
 
     public function viewAction()
     {
-
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $result = $productModel->fetchByClause("  join company on company.id = product.company_id  where product.id = $id ", " product.*, company.com_name as cname, company.id as cid ");
+        $result = $result[0];
+        $collectionModel = new \Administration\Models\ProductCollection($co);
+        $collection = $collectionModel->fetchByClause(" join category on category.id = product_collection.category_id where product_collection.product_id = $id ", " product_collection.category_id, category.cat_name  ");
+        $this->addDataView(array(
+            'viewTitle' => 'Sản Phẩm',
+            'viewSiteName' => 'Chi tiết',
+            'product' => $result,
+            'category' => $collection
+        ));
     }
 
     public function add_categoryAction()
     {
         // TODO: Implement add_categoryAction() method.
     }
+
     public function add_companyAction()
     {
         // TODO: Implement add_companyAction() method.
     }
+
     public function add_imageAction()
     {
         // TODO: Implement add_imageAction() method.
     }
+
     public function edit_categoryAction()
     {
         // TODO: Implement edit_categoryAction() method.
     }
+
     public function edit_companyAction()
     {
         // TODO: Implement edit_companyAction() method.
     }
+
     public function imagesAction()
     {
         // TODO: Implement imagesAction() method.
     }
+
     public function list_categoryAction()
     {
         // TODO: Implement list_categoryAction() method.
     }
+
     public function list_companyAction()
     {
         // TODO: Implement list_companyAction() method.

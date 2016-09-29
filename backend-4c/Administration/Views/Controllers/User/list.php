@@ -28,10 +28,10 @@
                 <th class="all">Tùy chỉnh</th>
                 <th class="none">Thời gian đăng nhập</th>
                 <th class="none">Email</th>
-                <th class="none">Phone</th>
-                <th class="none">Address</th>
-                <th class="none">City</th>
-                <th class="none">Country</th>
+                <th class="none">Số điện thoại</th>
+                <th class="none">Địa chỉ</th>
+                <th class="none">Thành phố/Thị trấn</th>
+                <th class="none">Quốc gia</th>
                 <th class="none">Sinh nhật</th>
                 <th class="none">Giới tính</th>
 
@@ -47,7 +47,7 @@
                     <td><?= $user->full_name ?></td>
                     <td> <?= $user->rname ?> </td>
                     <td> <?= $user->created ?> </td>
-                    <td><?= ($user->active == 1) ? '<p style="color: green; font-weight: bolder;">Active</p>' : '<p style="color: red; font-weight: bolder;">Inactive</p>' ?></td>
+                    <td><?= ($user->active == 1) ? '<p style="color: green; font-weight: bolder;">Kích hoạt</p>' : '<p style="color: red; font-weight: bolder;">Không kích hoạt</p>' ?></td>
                     <td>
                         <?php if (isset($_SESSION['User']['role_level']) && $_SESSION['User']['role_level'] == 0) : ?>
                             <a href="admin/user/edit/<?= $user->id ?>" class="btn btn-outline btn-circle btn-sm purple">
