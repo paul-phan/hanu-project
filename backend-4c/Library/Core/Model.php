@@ -105,6 +105,23 @@ interface ProductDetailModel
 
 }
 
+interface EventModel
+{
+    /**
+     * @param array $post
+     * @return boolean
+     */
+    public function insertEvent($post);
+
+    /**
+     * @param array $post
+     * @param int $id
+     * @return boolean
+     */
+    public function modifyEvent($post, $id);
+
+}
+
 abstract class Model
 {
     private $db;
