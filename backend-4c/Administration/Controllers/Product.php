@@ -49,12 +49,10 @@ class Product extends MainController implements ProductController
         $categories = $categoryModel->fetchAll();
         if ($_POST) {
             if (!empty($_POST['title']) && !empty($_POST['company_id']) && !empty($_POST['price'])) {
-                if ($productModel->insertProduct($_POST)) {
-                    foreach ($categories as $v) {
-                        if (array_key_exists($v->params, $_POST)) {
-                            if ($productCollectionModel->insertCollection($productModel->insertedId, $v->id)) {
-                                echo 'đã thêm category';
-                            }
+                if ($productModel->insertProduct($_POST)) { //need to refactor this :) work well now.
+                    if (!empty($_POST['category'])) {
+                        foreach ($_POST['category'] as $param) {
+                            $productCollectionModel->insertCollection($productModel->insertedId, $param); // oneline :p
                         }
                     }
                     $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
@@ -78,7 +76,47 @@ class Product extends MainController implements ProductController
 
     public function editAction()
     {
-
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $companyModel = new \Administration\Models\Company($co);
+        $categoryModel = new \Administration\Models\Category($co);
+        $productCollectionModel = new \Administration\Models\ProductCollection($co);
+        $imageModel = new \Administration\Models\Image($co);
+        $productDetail = new \Administration\Models\ProductDetail($co);
+        $product = $productModel->findById($id);
+        $company = $companyModel->fetchAll();
+        $category = $categoryModel->fetchAll();
+        $collection = $productCollectionModel->getCollectionByProductId($id);
+        if ($_POST['product']) {
+            if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price'])) {
+                if ($productModel->modifyProduct($_POST['product'], $id)) {
+                    if (!empty($_POST['category'])) {
+                        foreach ($_POST['category'] as $param) {
+                            $productCollectionModel->updateCollection($id, $param);
+                        }
+                    }
+                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
+                    header("Refresh:3; url=/admin/product/list", true, 303);
+                } else {
+                    $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
+                }
+            } else {
+                $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
+            }
+        }
+        $this->addDataView(array(
+            'viewTitle' => 'Sản Phẩm',
+            'viewSiteName' => 'Chỉnh sửa',
+            'fproduct' => $product[0],
+            'fcompany' => $company,
+            'fcategory' => $category,
+            'fcollection' => $collection,
+            'form' => $_POST,
+            'alert' => $alert
+        ));
     }
 
     public function deleteAction()
@@ -88,7 +126,21 @@ class Product extends MainController implements ProductController
 
     public function viewAction()
     {
-
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $result = $productModel->fetchByClause("  join company on company.id = product.company_id  where product.id = $id ", " product.*, company.com_name as cname, company.id as cid ");
+        $result = $result[0];
+        $collectionModel = new \Administration\Models\ProductCollection($co);
+        $collection = $collectionModel->fetchByClause(" join category on category.id = product_collection.category_id where product_collection.product_id = $id ", " product_collection.category_id, category.cat_name  ");
+        $this->addDataView(array(
+            'viewTitle' => 'Sản Phẩm',
+            'viewSiteName' => 'Chi tiết',
+            'product' => $result,
+            'category' => $collection
+        ));
     }
 
     public function add_categoryAction()

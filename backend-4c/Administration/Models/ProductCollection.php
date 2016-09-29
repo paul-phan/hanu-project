@@ -26,4 +26,23 @@ class ProductCollection extends MainModel
             'category_id' => $category_id
         ));
     }
+
+    public function getCollectionByProductId($product_id)
+    {
+        return $this->fetchAll(" product_id = '$product_id' ");
+    }
+
+    public function updateCollection($product_id, $category_id)
+    {
+        if ($this->deleteCollectionByProductId($product_id)) {
+            return $this->insertCollection($product_id, $category_id);
+        } else {
+            return false;
+        }
+    }
+
+    private function deleteCollectionByProductId($id)
+    {
+        return $this->massDelete(" product_id = '$id' ");
+    }
 }

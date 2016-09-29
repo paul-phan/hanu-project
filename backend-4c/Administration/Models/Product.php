@@ -40,6 +40,17 @@ class Product extends MainModel implements ProductModel
     public function modifyProduct($post, $id)
     {
         // TODO: Implement modifyProduct() method.
+        return $this->update(array(
+            'company_id' => $post['company_id'],
+            'title' => $post['title'],
+            'count' => $post['count'],
+            'price' => $post['price'],
+            'detail' => $post['detail'],
+            'sale' => $post['sale'],
+            'active' => isset($post['active']) ? $post['active'] : 1,
+            'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
+            'product_year' => isset($post['product_year']) ? $post['product_year'] : ''
+        ), " id = '$id' ");
     }
 
 

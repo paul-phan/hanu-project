@@ -260,7 +260,7 @@ abstract class Model
 
     /**
      * delete() allows you to delete all occurrences
-     * @param type $where
+     * @param string $where
      * @return boolean
      */
     public function massDelete($where)

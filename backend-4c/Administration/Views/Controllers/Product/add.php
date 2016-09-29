@@ -33,7 +33,7 @@
                         <div class="tab-pane active" id="tab1">
                             <h3 class="block">Nhập thông tin sản phẩm:</h3>
                             <div class="form-group">
-                                <label for="dropdown" class="control-label col-md-3">Tên sản phẩm</label>
+                                <label for="dropdown" class="control-label col-md-3">Tên sản phẩm<span class="required"> * </span></label>
                                 <div class="col-md-7">
                                     <input placeholder="Nhập tên sản phẩm..." type="text" class="form-control"
                                            name="title"
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="dropdown" class="control-label col-md-3">Hãng (công ty)</label>
+                                <label for="dropdown" class="control-label col-md-3">Hãng (công ty)<span class="required"> * </span></label>
                                 <div class="col-md-7">
                                     <select class="form-control country_list" name="company_id">
                                         <option value=""></option>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Số lượng
+                                <label class="control-label col-md-3">Số lượng<span class="required"> * </span>
                                 </label>
                                 <div class="col-md-7">
                                     <input type="number" class="form-control" name="count"
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Giá
+                                <label class="control-label col-md-3">Giá<span class="required"> * </span>
                                 </label>
                                 <div class="col-md-6">
                                     <input placeholder="Nhập giá (nghìn đồng)" type="number" class="form-control"
@@ -95,7 +95,7 @@
                                         <?php foreach ($categories as $v) { ?>
                                             <div class="md-checkbox">
                                                 <input
-                                                    name="<?= $v->params ?>" <?= (isset($form[$v->params])) ? 'checked' : '' ?>
+                                                    name="category[]" <?= (isset($form['category']) && in_array($v->id, $form['category'])) ? 'checked' : '' ?>
                                                     type="checkbox" value="<?= $v->id ?>" id="checkbox1_<?= $v->id ?>"
                                                     class="md-check">
                                                 <label for="checkbox1_<?= $v->id ?>">

@@ -29,6 +29,7 @@
     <link href="dashboard/css/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
+    <link href="dashboard/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="dashboard/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
@@ -39,7 +40,16 @@
     <link href="dashboard/css/default.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/custom.min.css" rel="stylesheet" type="text/css"/>
     <!-- END THEME LAYOUT STYLES -->
-
+    <!--BEGIN CORE PLUGIN-->
+    <script src="dashboard/js/jquery.min.js"></script>
+    <script src="dashboard/js/bootstrap.min.js"></script>
+    <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!--END CORE PLUGIN-->
     <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
@@ -1297,21 +1307,16 @@
 </div>
 <!-- END FOOTER -->
 <!-- Javascript files -->
-<!--BEGIN CORE PLUGIN-->
-<script src="dashboard/js/jquery.min.js"></script>
-<script src="dashboard/js/bootstrap.min.js"></script>
-<script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
-<script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="dashboard/js/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="dashboard/js/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
-<!--END CORE PLUGIN-->
+
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="dashboard/js/datatables.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.min.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.bootstrap.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="dashboard/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<script src="dashboard/js/bootstrap-maxlength.min.js" type="text/javascript"></script>
+<script src="dashboard/js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="dashboard/js/plupload.full.min.js" type="text/javascript"></script>
 <script src="dashboard/js/clockface.js" type="text/javascript"></script>
 <script src="dashboard/js/select2.full.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.validate.min.js" type="text/javascript"></script>

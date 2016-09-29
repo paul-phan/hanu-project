@@ -24,7 +24,7 @@
                 <th class="min-tablet">Giá sale</th>
                 <th class="min-tablet">Năm</th>
                 <th class="min-tablet">Cập nhật</th>
-                <th class="min-tablet">Tùy chỉnh</th>
+                <th class="min-tablet" style="width: 27%">Tùy chỉnh</th>
                 <th class="none">Lượng hàng </th>
                 <th class="none">Ảnh</th>
                 <th class="none">Tên công ty</th>
@@ -38,22 +38,20 @@
                         <div class="success"></div>
                         <a href="javascript:;"> <?= $product->title ?> </a>
                     </td>
-                    <td><?= $product->detail ?></td>
+                    <td><?= substr($product->detail, 0, 30) ?></td>
                     <td> <?= number_format($product->price, 0, ",", ".") ?>.000 VNĐ</td>
                     <td> <?= number_format($product->sale, 0, ",", ".") ?>.000 VNĐ</td>
                     <td><?= $product->product_year ?></td>
                     <td><?= $product->updated ?></td>
                     <td>
-                        <?php if (isset($_SESSION['User']['role_level']) && $_SESSION['User']['role_level'] == 0) : ?>
+                        <a href="admin/product/view/<?= $product->id ?>" class="btn btn-outline btn-circle btn-sm blue">
+                            <i class="fa fa-eye"></i> Xem </a>
                             <a href="admin/product/edit/<?= $product->id ?>"
                                class="btn btn-outline btn-circle btn-sm purple">
                                 <i class="fa fa-edit"></i> Sửa </a>
                             <a href="admin/product/delete/<?= $product->id ?>"
                                class="btn btn-outline btn-circle dark btn-sm black">
                                 <i class="fa fa-trash-o"></i> Xóa </a>
-                        <?php endif; ?>
-                        <a href="admin/product/view/<?= $product->id ?>" class="btn btn-outline btn-circle btn-sm blue">
-                            <i class="fa fa-eye"></i> Xem </a>
                     </td>
                     <td><?= $product->count ?></td>
                     <td><?= $product->iurl ?></td>
