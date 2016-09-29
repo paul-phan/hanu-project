@@ -54,7 +54,7 @@
                                 <label for="dropdown" class="control-label col-md-3">Địa chỉ<span class="required"> * </span></label>
                                 <div class="col-md-7">
                                     <input placeholder="Nhập địa chỉ..." type="text" class="form-control"
-                                              name="description"
+                                              name="address"
                                               value="<?= !empty($form['address']) ? $form['address'] : '' ?>"/>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                 <label for="dropdown" class="control-label col-md-3">Số lượng<span class="required"> * </span></label>
                                 <div class="col-md-7">
                                     <input placeholder="Nhập số lượng" type="number" class="form-control"
-                                           name="number" min="1"
+                                           name="ticket" min="1"
                                            value="<?= !empty($form['ticket']) ? $form['ticket'] : '' ?>"/>
                                 </div>
                             </div>

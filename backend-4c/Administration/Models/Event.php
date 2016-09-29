@@ -20,7 +20,7 @@ class Event extends MainModel implements EventModel
         parent::__construct($co);
     }
 
-    public function insertevent($post)
+    public function insertEvent($post)
     {
         return $this->insert(array(
             'title' => isset($post['title']) ? $post['title'] : '',
@@ -38,7 +38,7 @@ class Event extends MainModel implements EventModel
         ));
     }
 
-    public function modifyevent($post, $id)
+    public function modifyEvent($post, $id)
     {
         // TODO: Implement modifyevent() method.
         return $this->update(array(
