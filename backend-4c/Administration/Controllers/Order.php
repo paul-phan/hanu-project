@@ -116,7 +116,7 @@ class Order extends MainController
                 $action = TRUE;
                 header("Refresh:3; url=/admin/order/list", true, 303);
             } else {
-                $alert = Tools\Alert::render('Người dùng này không tồn tại!', 'danger');
+                $alert = Tools\Alert::render('Đơn hàng này không tồn tại!', 'danger');
                 header("Refresh:3; url=/admin/order/list", true, 303);
             }
         }

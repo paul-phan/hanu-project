@@ -21,7 +21,7 @@
                     <tr>
                         <td style="width:25%"> Tên sản phẩm</td>
                         <td>
-                            <p> <?= $product->title ?> </p>
+                            <h4><b> <?= $product->title ?></b> </h4>
                         </td>
                     </tr>
                     <tr>
@@ -57,7 +57,7 @@
                     <tr>
                         <td> Trạng thái</td>
                         <td>
-                            <?= ($product->active == 1) ? '<p style="color: green">Còn hàng</p>' : '<p style="color: darkred">Hết hàng</p>' ?>
+                            <?= ($product->active == 1) ? '<p style="color: green">Được bán</p>' : '<p style="color: darkred">Ngưng bán</p>' ?>
                         </td>
                     </tr>
                     <tr>
