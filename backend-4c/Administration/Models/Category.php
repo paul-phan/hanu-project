@@ -18,4 +18,26 @@ class Category extends MainModel
     {
         parent::__construct($co);
     }
+
+    public function insertCategory($post)
+    {
+        return $this->insert(array(
+            'cat_name' => $post['cat_name'],
+            'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['cat_name']),
+            'position' => !empty($post['position']) ? $post['position'] : 0,
+            'group_name' => 'unordered',
+            'active' => 1,
+            'created' => date("Y-m-d H:i:s")
+        ));
+    }
+
+    public function updateCategory($post, $id)
+    {
+        return $this->update(array(
+            'cat_name' => $post['cat_name'],
+            'position' => !empty($post['position']) ? $post['position'] : 0,
+            'group_name' => isset($post['group_name']) ? $post['group_name'] : 'unordered',
+            'active' => !empty($post['active']) ? 1 : 0,
+        ), " id = '$id' ");
+    }
 }

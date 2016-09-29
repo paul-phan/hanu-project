@@ -39,7 +39,7 @@
                                         <option value=""></option>
                                         <?php foreach ($profiles as $value): ?>
                                             <option
-                                                value="<?php echo $value->id ?>" <?= (!empty($form['profile_id'])) ? 'selected' : '' ?> ><?php echo $value->full_name . ' - ' . $value->email ?></option>
+                                                value="<?php echo $value->id ?>" <?= (!empty($form['profile_id']) && $form['profile_id'] == $value->id) ? 'selected' : '' ?> ><?php echo $value->full_name . ' - ' . $value->email ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -51,7 +51,7 @@
                                         <option value=""></option>
                                         <?php foreach ($products as $value): ?>
                                             <option
-                                                value="<?php echo $value->id ?>" <?= (!empty($form['product_id'])) ? 'selected' : '' ?> ><?php echo $value->title . ' - ' . $value->price . (!empty($value->sale) ? ' - giảm giá: ' . $value->sale : '') . ' (nghìn VNĐ)' ?></option>
+                                                value="<?php echo $value->id ?>" <?= (!empty($form['product_id']) && $form['product_id'] == $value->id) ? 'selected' : '' ?> ><?php echo $value->title . ' - ' . $value->price . (!empty($value->sale) ? ' - giảm giá: ' . $value->sale : '') . ' (nghìn VNĐ)' ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

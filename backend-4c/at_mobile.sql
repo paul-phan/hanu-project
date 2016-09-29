@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2016 at 04:45 PM
+-- Generation Time: Sep 29, 2016 at 11:52 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -47,6 +47,7 @@ CREATE TABLE `category` (
   `id` int(11) UNSIGNED NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
+  `position` int(11) UNSIGNED NOT NULL,
   `group_name` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
@@ -57,9 +58,10 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `cat_name`, `params`, `group_name`, `active`, `created`, `updated`) VALUES
-(1, 'Hàng cũ', 'hang-cu', 'cu-moi', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
-(2, 'Hàng mới', 'hang-moi', 'cu-moi', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51');
+INSERT INTO `category` (`id`, `cat_name`, `params`, `position`, `group_name`, `active`, `created`, `updated`) VALUES
+(1, 'Hàng cũ', 'hang-cu', 2, 'unordered', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
+(2, 'Hàng mới', 'hang-moi', 123, 'unordered', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
+(5, 'Hàng 99%', '2016-09-29-161526-hang-99', 3, 'unordered', 1, '2016-09-29 16:15:26', '2016-09-29 09:15:26');
 
 -- --------------------------------------------------------
 
@@ -83,7 +85,6 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `created`, `updated`) VALUES
 (1, 'Apple', '123-234-erwer-sdqw', 1, 1, '2016-09-28 00:00:00', '2016-09-28 06:47:05'),
-(2, 'Asus', 'qweqwe-234-ada', 2, 1, '2016-09-28 00:00:00', '2016-09-28 06:47:05'),
 (3, 'Xiaomi', 'asdas-qwe-as', 3, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
 (4, 'Sony', 'qweqw-34-aa', 4, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36');
 
@@ -159,11 +160,9 @@ CREATE TABLE `order_product` (
 --
 
 INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
-(26, 21, 140, 30, 2, 20, 80, 'normal', 'minh', 1, 'null', '2016-09-26 16:50:23', '2016-09-26 09:50:23'),
-(27, 19, 45, 99, 5, 12, 507, 'normal', '', 1, 'null', '2016-09-26 17:00:47', '2016-09-26 10:00:47'),
-(29, 20, 49, 123, 5, 123231, 123846, 'normal', '1123', 1, '127.0.0.1', '2016-09-27 11:21:28', '2016-09-27 04:21:28'),
-(30, 23, 50, 999999, 5, 8776, 5008771, 'normal', '', 1, '127.0.0.1', '2016-09-27 11:27:51', '2016-09-27 04:27:51'),
-(31, 23, 45, 99999, 5, 99999, 599994, 'normal', 'asdasdqw', 1, '127.0.0.1', '2016-09-27 19:10:02', '2016-09-27 12:10:02');
+(1, 18, 7, 123123, 123, 12, 15144141, 'normal', 'qweqas', 1, '127.0.0.1', '2016-09-29 16:45:14', '2016-09-29 09:45:14'),
+(2, 10, 9, 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
+(3, 3, 8, 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32');
 
 -- --------------------------------------------------------
 
@@ -217,14 +216,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `company_id`, `title`, `params`, `price`, `count`, `active`, `detail`, `sale`, `product_year`, `tags`, `created`, `updated`) VALUES
-(145, 4, 'RMN3', '', 999, 0, 1, '', 99, 2016, 'no,tag', '2016-09-28 17:32:45', '2016-09-28 10:32:45'),
-(146, 4, 'RMN34', '', 9999, 10, 1, '', 99, 2016, 'no,tag', '2016-09-28 17:34:09', '2016-09-28 10:34:09'),
-(147, 1, 'Phan Thế Minh asasd', 'n-a', 99999999, 0, 1, '', 0, 2016, 'no,tag', '2016-09-28 17:48:16', '2016-09-28 10:48:16'),
-(148, 1, 'Phan Thế Minh asasd', 'n-a', 99999999, 0, 1, '', 0, 2016, 'no,tag', '2016-09-28 17:49:05', '2016-09-28 10:49:05'),
-(149, 4, 'Phan Thế Minh asasd', '', 99999999, 0, 1, '', 0, 2016, 'no,tag', '2016-09-28 17:53:03', '2016-09-28 10:53:03'),
-(150, 4, 'Phan Thế Minh asasd', 'n-a', 99999999, 0, 1, '', 0, 2016, 'no,tag', '2016-09-28 17:54:21', '2016-09-28 10:54:21'),
-(151, 3, 'Phan Thế Minh testingasdas', '1475062998-phan-the-minh-testingasdas', 123123, 0, 1, '', 123, 2016, 'no,tag', '2016-09-28 18:43:18', '2016-09-28 11:43:18'),
-(152, 1, 'minh test hihi', '1475073206-minh-test-hihi', 1111, 1, 1, '', 2222, 2016, 'no,tag', '2016-09-28 21:33:26', '2016-09-28 14:33:26');
+(1, 1, 'phan the61 minh testing', '1475076504-phan-the61-minh-testing', 999, 1, 1, '', 12312, 2016, 'no,tag', '2016-09-28 22:28:24', '2016-09-28 15:28:24'),
+(3, 3, 'phan thế mỉnhqweq', '1475076764-phan-the-minhqweq', 99999, 123, 1, 'asd tr testing', 99999, 2016, 'no,tag', '2016-09-28 22:32:44', '2016-09-28 15:32:44'),
+(5, 1, 'Phan Thế Minh', '1475081779-phan-the-minh', 9999, 1, 1, 'asdas', 99999, 2016, 'no,tag', '2016-09-28 23:56:19', '2016-09-28 16:56:19'),
+(7, 2, '1234123', '1475082248-123123', 234, 12123, 0, '', 123, 2016, 'no,tag', '2016-09-29 00:04:08', '2016-09-28 17:04:08'),
+(8, 4, 'minhrq qwe', '1475083017-minhrq-qwe', 99999, 99, 1, '', 9998, 2016, 'no,tag', '2016-09-29 00:16:57', '2016-09-28 17:16:57'),
+(9, 3, 'tresadas', '1475113751-tresadas', 13, 1, 1, 'qweasd', 34, 2016, 'no,tag', '2016-09-29 08:49:11', '2016-09-29 01:49:11'),
+(11, 4, 'phan thế minh', '1475140337-phan-the-minh', 1231, 1, 1, '', 123, 2016, 'no,tag', '2016-09-29 16:12:17', '2016-09-29 09:12:17');
 
 -- --------------------------------------------------------
 
@@ -244,18 +242,15 @@ CREATE TABLE `product_collection` (
 --
 
 INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) VALUES
-(7, 145, 1, '2016-09-28 10:32:45'),
-(8, 145, 2, '2016-09-28 10:32:45'),
-(9, 146, 1, '2016-09-28 10:34:09'),
-(10, 146, 2, '2016-09-28 10:34:09'),
-(11, 147, 1, '2016-09-28 10:48:16'),
-(12, 147, 2, '2016-09-28 10:48:16'),
-(13, 148, 1, '2016-09-28 10:49:05'),
-(14, 148, 2, '2016-09-28 10:49:05'),
-(15, 149, 2, '2016-09-28 10:53:03'),
-(16, 151, 1, '2016-09-28 11:43:18'),
-(17, 151, 2, '2016-09-28 11:43:18'),
-(18, 152, 2, '2016-09-28 14:33:26');
+(1, 1, 2, '2016-09-28 15:28:24'),
+(3, 3, 2, '2016-09-28 15:32:44'),
+(6, 5, 2, '2016-09-28 16:56:19'),
+(9, 8, 1, '2016-09-28 17:16:57'),
+(10, 8, 2, '2016-09-28 17:16:57'),
+(11, 9, 2, '2016-09-29 01:49:11'),
+(15, 7, 2, '2016-09-29 07:09:52'),
+(19, 11, 1, '2016-09-29 09:12:17'),
+(20, 11, 2, '2016-09-29 09:12:17');
 
 -- --------------------------------------------------------
 
@@ -542,12 +537,12 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -562,7 +557,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `order_status`
 --
@@ -572,12 +567,12 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `product_collection`
 --
 ALTER TABLE `product_collection`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
@@ -608,16 +603,10 @@ ALTER TABLE `user_feedback`
 --
 
 --
--- Constraints for table `company`
---
-ALTER TABLE `company`
-  ADD CONSTRAINT `company_ibfk_1` FOREIGN KEY (`id`) REFERENCES `product` (`company_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `image`
 --
 ALTER TABLE `image`
-  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `order_product`
@@ -631,14 +620,14 @@ ALTER TABLE `order_product`
 -- Constraints for table `product_collection`
 --
 ALTER TABLE `product_collection`
-  ADD CONSTRAINT `product_collection_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `product_collection_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `product_collection_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `product_detail`
 --
 ALTER TABLE `product_detail`
-  ADD CONSTRAINT `product_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `product_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `profile`

@@ -72,13 +72,11 @@ interface ProductController
      */
     public function deleteAction();
 
-    public function list_categoryAction();
+    public function categoriesAction();
 
     public function edit_categoryAction();
 
-    public function add_categoryAction();
-
-    public function list_companyAction();
+    public function companiesAction();
 
     public function add_companyAction();
 
