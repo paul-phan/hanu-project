@@ -19,7 +19,14 @@
 
 </head>
 <body>
-
+<div class="row">
+    <?php echo $alert ?>
+    <!--BEGIN CONTENT-->
+    <div class="col-md-12">
+        <?php echo $viewContent; ?>
+    </div>
+    <!--END CONTENT-->
+</div>
 
 
 
