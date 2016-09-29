@@ -37,7 +37,7 @@ class User extends MainModel implements UserModel
 
     public function getUserLogin($login, $password)
     {
-        $result = $this->fetchAll("username= '$login'");
+        $result = $this->fetchUser("user.username= '$login'");
         foreach ($result as $k => $v) {
             if ($this->validHasher($password, $result[$k]->password)) {
                 return $result[$k];

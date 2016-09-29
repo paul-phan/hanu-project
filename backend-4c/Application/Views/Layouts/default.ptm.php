@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="Anh Tiến Mobile" name="description"/>
-    <meta content="4C-13 HANU" name="author"/>
+    <meta content="Phan Thế Minh" name="author"/>
     <!-- BEGIN Styles -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
@@ -28,7 +28,14 @@
     <!--END CONTENT-->
 </div>
 
-
+<div class="row">
+    <?php echo $alert ?>
+    <!--BEGIN CONTENT-->
+    <div class="col-md-12">
+        <?php echo $viewContent; ?>
+    </div>
+    <!--END CONTENT-->
+</div>
 
 <!-- BEGIN Javascript files -->
 <!-- END Javascript files -->

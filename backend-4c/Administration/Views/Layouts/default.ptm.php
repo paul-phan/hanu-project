@@ -569,6 +569,26 @@
                     </ul>
                 </li>
 
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-calendar"></i>
+                        <span class="title">Sự kiện</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/event/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách sự kiện</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin/event/add" class="nav-link ">
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Thêm sự kiện</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>

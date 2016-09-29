@@ -27,6 +27,19 @@ class Auth extends MainController
             if (!empty($result) && !empty($role)) {
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
+                $_SESSION['User']['active'] = $result->active;
+                $_SESSION['User']['last_login'] = $result->last_login;
+                $_SESSION['User']['created'] = $result->created;
+                $_SESSION['User']['update'] = $result->update;
+                $_SESSION['User']['full_name'] = $result->full_name;
+                $_SESSION['User']['phone'] = $result->phone;
+                $_SESSION['User']['email'] = $result->email;
+                $_SESSION['User']['address'] = $result->address;
+                $_SESSION['User']['city'] = $result->city;
+                $_SESSION['User']['country'] = $result->country;
+                $_SESSION['User']['avatar'] = $result->avatar;
+                $_SESSION['User']['gender'] = $result->gender;
+                $_SESSION['User']['birthday'] = $result->birthday;
                 $_SESSION['User']['role_level'] = $role[0]->level;
                 if ($modelUser->updateToken($token, $result->id)) {
                     setcookie("user", $_SESSION['User']['username'], time() + (86400 * 30), '/');
