@@ -47,7 +47,7 @@ class Product extends MainModel implements ProductModel
             'price' => $post['price'],
             'detail' => $post['detail'],
             'sale' => $post['sale'],
-            'active' => isset($post['active']) ? $post['active'] : 1,
+            'active' => isset($post['active']) ? $post['active'] : 0,
             'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
             'product_year' => isset($post['product_year']) ? $post['product_year'] : ''
         ), " id = '$id' ");

@@ -90,7 +90,8 @@ class Product extends MainController implements ProductController
         $company = $companyModel->fetchAll();
         $category = $categoryModel->fetchAll();
         $collection = $productCollectionModel->getCollectionByProductId($id);
-        if ($_POST['product']) {
+
+        if (isset($_POST['product'])) {
             if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price'])) {
                 if ($productModel->modifyProduct($_POST['product'], $id)) {
                     if (!empty($_POST['category'])) {
@@ -115,7 +116,7 @@ class Product extends MainController implements ProductController
             'fcategory' => $category,
             'fcollection' => $collection,
             'form' => $_POST,
-            'alert' => $alert
+            'alert' => !empty($alert) ? $alert : ''
         ));
     }
 

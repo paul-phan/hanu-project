@@ -1,4 +1,4 @@
-<form class="form-horizontal form-row-seperated" method="post">
+<form class="form-horizontal form-row-seperated" method="post" id="submit_form_5">
     <div class="portlet">
         <div class="portlet-title">
             <div class="caption">
@@ -51,7 +51,7 @@
                     </li>
                     <li>
                         <a href="#tab_reviews" data-toggle="tab"> Xem lại
-<!--                            <span class="badge badge-success"> 3 </span>-->
+                            <!--                            <span class="badge badge-success"> 3 </span>-->
                         </a>
                     </li>
                     <li>
@@ -142,6 +142,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-2">Trạng thái</label>
+                                <div class="col-md-10">
+                                    <input
+                                        name="product[active]" <?= (isset($fproduct->active) && ($fproduct->active == 1)) ? 'checked' : '' ?>
+                                        type="checkbox" class="make-switch"
+                                        data-on-text="&nbsp;Kích hoạt&nbsp;&nbsp;"
+                                        data-off-text="&nbsp;Không kích hoạt&nbsp;">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-md-2 control-label">Thông tin:
                                 </label>
                                 <div class="col-md-10">
@@ -154,7 +164,8 @@
                     <div class="tab-pane" id="tab_meta">
                         <div class="alert alert-success margin-bottom-10">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                            <i class="fa fa-warning fa-lg"></i> Chức năng này đang được cập nhật trong thời gian sớm nhất! Vui lòng quay lại sau.
+                            <i class="fa fa-warning fa-lg"></i> Chức năng này đang được cập nhật trong thời gian sớm
+                            nhất! Vui lòng quay lại sau.
                         </div>
                         <div class="form-body">
                             <div class="form-group">
