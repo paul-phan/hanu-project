@@ -1,14 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: MyPC
+ * event: MyPC
  * Date: 15/09/2016
  * Ti`git pull origin master` me: 5:43 CH
  */
 namespace Administration\Controllers;
 
 use Administration\Controllers\AdminController as MainController;
-use Library\Core\eventController;
+use Library\Core\EventController;
 use Library\Tools;
 
 class event extends MainController implements EventController
@@ -100,7 +100,18 @@ class event extends MainController implements EventController
 
     public function viewAction()
     {
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $eventModel = new \Administration\Models\Event($co);
+        $event = $eventModel->findById($id);
 
+        $this->addDataView(array(
+            'viewTitle' => 'Chi tiết sự kiện',
+            'viewSiteName' => 'Sự kiện',
+            'event' => $event[0],
+        ));
     }
 
 }

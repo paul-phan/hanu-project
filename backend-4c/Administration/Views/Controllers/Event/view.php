@@ -2,7 +2,7 @@
     <div class="portlet-title">
         <div class="caption">
             <i class="icon-settings font-dark"></i>
-            <span class="caption-subject font-dark sbold uppercase">Xem sản phẩm</span>
+            <span class="caption-subject font-dark sbold uppercase">Xem sự kiện</span>
         </div>
         <div class="actions">
             <div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -19,83 +19,81 @@
                 <table id="user" class="table table-bordered table-striped">
                     <tbody>
                     <tr>
-                        <td style="width:25%"> Tên sản phẩm</td>
+                        <td style="width:25%"> Tên sự kiện</td>
                         <td>
-                            <h4><b> <?= $product->title ?></b> </h4>
+                            <h4><b> <?= $event->title ?></b> </h4>
                         </td>
                     </tr>
                     <tr>
-                        <td> Hãng</td>
+                        <td>Params</td>
                         <td>
-                            <p> <?= $product->cname ?> </p>
+                            <p> <?= $event->params ?> </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lịch</td>
+                        <td>
+                            <p> <?= $event->schedule ?> </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ</td>
+                        <td>
+                            <p> <?= $event->address ?> </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ngày bắt đầu</td>
+                        <td>
+                            <p> <?= $event->date_start ?> </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ngày kết thúc</td>
+                        <td>
+                            <p> <?= $event->date_end ?> </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thành phố</td>
+                        <td>
+                            <p> <?= $event->city ?> </p>
                         </td>
                     </tr>
                     <tr>
                         <td> Giá</td>
                         <td>
-                            <p> <?= $product->price ?> </p>
+                            <p> <?= $event->price ?> </p>
                         </td>
                     </tr>
                     <tr>
-                        <td> Giá sale</td>
+                        <td> Số lượng</td>
                         <td>
-                            <p> <?= $product->sale ?> </p>
+                            <p> <?= $event->ticket ?> </p>
                         </td>
                     </tr>
                     <tr>
-                        <td> Số lượng còn lại</td>
+                        <td> Ảnh</td>
                         <td>
-                            <p> <?= $product->count ?> </p>
+                            <img src="<?= $event->image ?>" alt="<?= $event->image ?>" width="300px" height="300px" />
                         </td>
                     </tr>
                     <tr>
-                        <td> Năm sản xuất</td>
+                        <td>Miêu tả</td>
                         <td>
-                            <p> <?= $product->product_year ?> </p>
+                            <p> <?= $event->description ?> </p>
                         </td>
                     </tr>
                     <tr>
-                        <td> Trạng thái</td>
+                        <td>Mã zipcode</td>
                         <td>
-                            <?= ($product->active == 1) ? '<p style="color: green">Được bán</p>' : '<p style="color: darkred">Ngưng bán</p>' ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Phân mục</td>
-                        <td>
-                            <p> <?php foreach ($category as $v) {
-                                    echo $v->cat_name . ', ';
-                                } ?> </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Thông tin</td>
-                        <td>
-                            <p> <?= substr($product->detail, 0, 30) ?> </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Tags</td>
-                        <td>
-                            <p> <?= $product->tags ?> </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Hình ảnh</td>
-                        <td>
-                            <p> Đang cập nhật... </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Thông tin chi tiết</td>
-                        <td>
-                            <p> Đang cập nhật... </p>
+                            <p> <?= $event->zipcode ?> </p>
                         </td>
                     </tr>
                     <tr>
                         <td> Cập nhật</td>
                         <td>
-                            <p> <?= $product->updated ?> </p>
+                            <p> <?= $event->updated ?> </p>
                         </td>
                     </tr>
 
