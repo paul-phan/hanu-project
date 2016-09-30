@@ -7,7 +7,6 @@ namespace Api\Controllers;
 
 use Api\Controllers\ApiController as MainController;
 use Library\Tools;
-use Library\Core\Model;
 
 class Product extends MainController
 {

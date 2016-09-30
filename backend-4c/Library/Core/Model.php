@@ -173,13 +173,15 @@ abstract class Model
      * @param string $fields
      * @return array
      */
-    public function fetchUser($where=1,$fields='*'){
+    public function fetchUser($where = 1, $fields = '*')
+    {
         $q = "SELECT $fields FROM `" . $this->table . "` INNER JOIN profile ON user.id=profile.user_id WHERE $where";
         $sql = $this->db->prepare($q);
         $sql->execute();
         $sql->setFetchMode(PDO::FETCH_OBJ);
         return $sql->fetchAll();
     }
+
     /**
      * function allow to join two tables and fetch data
      * @param string $joinTable
@@ -333,6 +335,7 @@ abstract class Model
             return false;
         }
     }
+
     /**
      * this function is for generate slug url
      * @param string $str

@@ -71,8 +71,7 @@ class Auth extends MainController
         unset($_SESSION['User']);
         setcookie("user", "", 1, '/');
         setcookie("token", "", 1, '/');
-        header("location:/");
-
+        header("location:/admin");
     }
 
 }
