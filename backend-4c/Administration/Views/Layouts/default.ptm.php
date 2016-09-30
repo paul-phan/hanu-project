@@ -1332,7 +1332,6 @@
 <script src="dashboard/js/datatables.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.min.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.bootstrap.js" type="text/javascript"></script>
-<script src="dashboard/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-maxlength.min.js" type="text/javascript"></script>
