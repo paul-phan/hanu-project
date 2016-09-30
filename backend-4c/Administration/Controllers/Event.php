@@ -66,34 +66,29 @@ class event extends MainController implements EventController
 
     public function editAction()
     {
+        Tools\Helper::checkUrlParamsIsNumeric();
         global $connection;
         $co = $connection->getCo();
         $EventModel = new \Administration\Models\Event($co);
-        if(isset($_POST['title'])&&isset($_POST['description'])&&isset($_POST['address'])&&isset($_POST['zipcode'])&&isset($_POST['city'])
-            &&isset($_POST['shcedule'])&&isset($_POST['date_start'])&&isset($_POST['date_end'])&&isset($_POST['ticket'])&&isset($_POST['price'])&&$_POST['id']){
-            $post=array("tile" =>$_POST['tile'],
-                        "description" =>$_POST['description'],
-                        "address"=>$_POST['address'],
-                        "zipcode"=>$_POST['zipcode'],
-                        "shcedule"=>$_POST['shcedule'],
-                        "date_start"=>$_POST['date_start'],
-                        "date_end"=>$_POST['date_end'],
-                        "ticket"=>$_POST['ticket'],
-                        "price"=>$_POST['price'],
-                                );
-            if($EventModel->modifyEvent($post,$_POST['id'])){
-                $alert = Tools\Alert::render('Sửa sự kiện thành công, đang trở lại danh sách...!', 'success');
-                header("Refresh:3; url=/admin/event/list", true, 303);
-            }
+        $event = $EventModel->findById($_GET['params']);
+//        var_dump($event);
+        if ($_POST) {
+//            var_dump($_POST);die;
+            if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['address']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['schedule'])  && isset($_POST['ticket']) && isset($_POST['price'])
+            ) {
+                if ($EventModel->modifyEvent($_POST, $_GET['params'])) {
+                    $alert = Tools\Alert::render('Sửa sự kiện thành công, đang trở lại danh sách...!', 'success');
+                    header("Refresh:3; url=/admin/event/list", true, 303);
+                }
 
-        }
-        else {
-            $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
+            } else {
+                $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
+            }
         }
         $this->addDataView(array(
             'viewTitle' => 'Sự kiện',
             'viewSiteName' => 'Sửa sự kiện',
-            'form' => $_POST,
+            'form' => $event[0],
             'alert' => isset($alert) ? $alert : ''
         ));
     }

@@ -34,7 +34,7 @@ class Event extends MainModel implements EventModel
             'date_end' => isset($post['date_start']) ? $post['date_end'] : '',
             'ticket' => isset($post['ticket']) ? $post['ticket'] : '',
             'price' => isset($post['price']) ? $post['price'] : '',
-            'updated' => date("Y:m:d H:i:s")
+//            'updated' => date("Y:m:d H:i:s") //no need updated because update is timestamp
         ));
     }
 
@@ -52,7 +52,7 @@ class Event extends MainModel implements EventModel
             'date_end' => isset($post['date_start']) ? $post['date_end'] : '',
             'ticket' => isset($post['ticket']) ? $post['ticket'] : '',
             'price' => isset($post['price']) ? $post['price'] : '',
-            'updated' => date("Y:m:d H:i:s")
+//            'updated' => date("Y:m:d H:i:s") //no need updated because update is timestamp
         ), " id = '$id' ");
     }
 
