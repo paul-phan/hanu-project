@@ -12,23 +12,27 @@ use Api\Controllers\ApiController as MainController;
 use Library\Core\Model;
 class Register extends MainController
 {
-    public function registerAction()
+    public function indexAction()
     {
         global $connection;
         $co = $connection->getCo();
         $modelUser = new \Administration\Models\User($co);
         // check nullity of inputs
         if(isset($_POST['username'])&&isset($_POST['password'])){
-            // an array that is used to passed into insrtUser()
-            $post=array("username" =>$_POST['username'],"password"=>$_POST['password']);
             //check existent of user acount
-            if($modelUser->isUserExisted($_POST['username'])){
-                $this->responseApi(110004);
+            $usernameResult = $modelUser->getUserByUsername($_POST['username']);
+            if (!empty($usernameResult)) {
+                $this->responseApi(100004);
             }
             else{
                 // no duplicate
-                $modelUser->insertUser($post);
-                $this->responseApi(0, 'Account Created successfully',$post);
+                $result=$modelUser->insertUser($_POST);
+                if($result){
+                    $this->responseApi(0, 'Account Created successfully',$_POST);
+                }
+                else{
+                    $this->responseApi(110001);
+                }
             }
         }
         else{
