@@ -27,7 +27,7 @@ class Index extends MainController
         $remaining = $date - time();
         $days_remaining = floor($remaining / 86400);
         $hours_remaining = floor(($remaining % 86400) / 3600);
-        echo '<center>Trang web này đang trong giai đoạn xây dựng, nếu bạn là admin, xin mời vào: <a href="/admin/">Admin Page</a> </center>';
+        echo '<center> This is Index page!!<br/>Trang web này đang trong giai đoạn xây dựng, nếu bạn là admin, xin mời vào: <a href="/admin/">Admin Page</a> </center>';
         echo 'This place is for debugging only!';
         var_dump($_GET);
         var_dump($_SESSION);

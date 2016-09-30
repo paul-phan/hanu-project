@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2016 at 11:52 AM
+-- Generation Time: Sep 30, 2016 at 06:11 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -127,6 +127,9 @@ INSERT INTO `event` (`id`, `title`, `params`, `description`, `image`, `address`,
 CREATE TABLE `image` (
   `id` int(11) UNSIGNED NOT NULL,
   `product_id` int(11) UNSIGNED NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `position` int(11) UNSIGNED NOT NULL,
+  `base_image` tinyint(1) UNSIGNED NOT NULL,
   `url` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
@@ -242,15 +245,13 @@ CREATE TABLE `product_collection` (
 --
 
 INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) VALUES
-(1, 1, 2, '2016-09-28 15:28:24'),
 (3, 3, 2, '2016-09-28 15:32:44'),
 (6, 5, 2, '2016-09-28 16:56:19'),
-(9, 8, 1, '2016-09-28 17:16:57'),
-(10, 8, 2, '2016-09-28 17:16:57'),
 (11, 9, 2, '2016-09-29 01:49:11'),
 (15, 7, 2, '2016-09-29 07:09:52'),
-(19, 11, 1, '2016-09-29 09:12:17'),
-(20, 11, 2, '2016-09-29 09:12:17');
+(24, 11, 2, '2016-09-30 03:25:32'),
+(41, 1, 2, '2016-09-30 04:07:33'),
+(43, 8, 2, '2016-09-30 04:08:17');
 
 -- --------------------------------------------------------
 
@@ -323,7 +324,7 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 (7, 64, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com1', 'Ba Vi', 'Hanoi', 'VN', '', 2, '1995-05-06', 1, '2016-09-24 14:26:50', '2016-09-24 07:26:50'),
 (9, 66, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com8', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 0, '2016-09-24 18:37:37', '2016-09-24 11:37:37'),
 (10, 67, 'Minh The Phan', '0914499925', 'phanminh65@gmail.com9', 'Ba Vi', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
-(14, 50, 'hhhhhhhhhhhhhhh', '1111111111111', 'phanminh65@gmail.com15', '02 Phu Cuong', 'Hanoi', 'VN', '1474865347-minhtest10.png', 1, '2016-09-02', 1, '2016-09-24 23:56:03', '2016-09-24 16:56:03'),
+(14, 50, 'Phan Thế Minh 123', '914499925', 'phanminh65@gmail.com12', '02 Phu Cuong', 'Hanoi', 'VN', '', 1, '2016-09-02', 1, '2016-09-24 23:56:03', '2016-09-24 16:56:03'),
 (15, 53, 'qweqwewer', '13123', 'phanminh65@gmail.com16', '02 Phu Cuong', 'Hanoi', 'VN', '1474889354-minhtest11.png', 1, '2016-09-30', 1, '2016-09-25 00:07:07', '2016-09-24 17:07:07'),
 (16, 9, 'Phan Thế Minh', '914499925', 'phanminh65@gmail.com18', '02 Phu Cuong', 'Hanoi', 'VN', '1474739960-minhtest9.png', 1, '1995-05-06', 1, '2016-09-25 00:38:54', '2016-09-24 17:38:54'),
 (18, 69, 'Nguyễn Trung Đức', '12323123123', 'nguyentrungduc2910@gmail.com', 'Hoang  Cau', 'Hanoi', 'VN', '', 1, '1995-05-06', 1, '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
@@ -384,7 +385,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, `last_login`, `created`, `update`) VALUES
 (9, 'minhtest9', '$2a$07$ptmp4szOWxiOv0GqpHbdfukkHqQ3U4d4m7PFEE69vtTM1DiLgEaki', 'ab24dd7efa48a65b5aea845e9e5b5ce9', 1, 5, '2016-09-24 17:34:18', '2016-09-14 01:28:13', '2016-09-24 17:59:20'),
-(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', '2912d35c377b60fe078f53f0a9714474', 1, 1, '2016-09-28 00:00:52', '2016-09-14 01:30:28', '2016-09-27 17:00:52'),
+(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', '2084ce888134fcad91279b836f3582ca', 1, 1, '2016-09-29 21:03:11', '2016-09-14 01:30:28', '2016-09-29 14:03:11'),
 (53, 'minhtest11', '$2a$07$ptmUO4pPC49WpBRuPKxBE.WB5TqSU.MhDpU9IfzxhoS/dQZfbSZ.K', '63be1949df643caba09310500ad0bb15', 1, 2, '2016-09-26 18:34:08', '2016-09-22 11:06:14', '2016-09-26 11:34:08'),
 (59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22'),
 (60, 'minhtest20', '$2a$07$ptmIpU9gBlKF8wRZCosDZefYIJU32uyJ4HjAlYTuXvQEcX2fjerVa', '8ad1e984d254bb75513f987cef3f92e6', 1, 5, '2016-09-25 02:01:47', '2016-09-22 15:47:49', '2016-09-24 19:01:47'),
@@ -542,7 +543,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -572,7 +573,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `product_collection`
 --
 ALTER TABLE `product_collection`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --

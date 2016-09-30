@@ -84,13 +84,28 @@ class Product extends MainController implements ProductController
         $companyModel = new \Administration\Models\Company($co);
         $categoryModel = new \Administration\Models\Category($co);
         $productCollectionModel = new \Administration\Models\ProductCollection($co);
-//        $imageModel = new \Administration\Models\Image($co);
+        $imageModel = new \Administration\Models\Image($co);
 //        $productDetail = new \Administration\Models\ProductDetail($co);
         $product = $productModel->findById($id);
         $company = $companyModel->fetchAll();
         $category = $categoryModel->fetchAll(' active = 1 ');
         $collection = $productCollectionModel->getCollectionByProductId($id);
+        $images = $imageModel->fetchAll(" product_id = $id ");
 
+        if ( !empty($_FILES['imagesUpload'])) {
+            $image = $_FILES['imagesUpload'];
+            $upload = new \Library\Tools\Upload();
+            $name = $upload->copy(array(
+                'file' => $image,
+                'path' => 'product/',
+            ));
+            $_POST['images']['url'] = !empty($name) ? '/product/' . $name : '/product/updatelater.jpg';
+            if ($upload->getErrors()) {
+                $uploadInfo = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
+            } elseif ($imageModel->insertImage($_POST['images'], $id)) {
+                $uploadInfo = \Library\Tools\Alert::render('Thêm ảnh thành công, vui lòng F5 để cập nhật', 'Success');
+            }
+        }
         if (isset($_POST['product'])) {
             if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price'])) {
                 if ($productModel->modifyProduct($_POST['product'], $id)) {
@@ -99,8 +114,16 @@ class Product extends MainController implements ProductController
                             $productCollectionModel->updateCollection($id, $param);
                         }
                     }
-                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
-                    header("Refresh:3; url=/admin/product/list", true, 303);
+                    if (!empty($_POST['image'])) {
+                        foreach ($_POST['image'] as $kimg => $vimg) {
+                            $imageModel->updateImage($_POST['image'][$kimg], $kimg);
+                            if (!empty($_POST['image'][$kimg]['delete'])) {
+                                $imageModel->delete($kimg);
+                            }
+                        }
+                    }
+                    $alert = Tools\Alert::render('Cập nhật sản phẩm thành công. đang cập nhật lại trang web!', 'success');
+                    header("Refresh:3; url=/admin/product/edit/$id", true, 303);
                 } else {
                     $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
                 }
@@ -108,15 +131,18 @@ class Product extends MainController implements ProductController
                 $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
             }
         }
+
         $this->addDataView(array(
             'viewTitle' => 'Sản Phẩm',
             'viewSiteName' => 'Chỉnh sửa',
+            'images' => $images,
             'fproduct' => $product[0],
             'fcompany' => $company,
             'fcategory' => $category,
             'fcollection' => $collection,
             'form' => $_POST,
-            'alert' => !empty($alert) ? $alert : ''
+            'alert' => !empty($alert) ? $alert : '',
+            'uploadInfo' => !empty($uploadInfo) ? $uploadInfo : ''
         ));
     }
 
