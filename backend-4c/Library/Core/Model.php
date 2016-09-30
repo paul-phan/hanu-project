@@ -355,4 +355,24 @@ abstract class Model
         $str = preg_replace('/([\s]+)/', '-', $str);
         return $str;
     }
+    public function isUserExisted($username)
+    {
+        $stmt = $this->db->prepare("SELECT username from user WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            // if there is more than 0 result
+            // username has been created
+            $stmt->close();
+            return true;
+        } else {
+            // if there is no returned result
+            // username has not been created
+            $stmt->close();
+            return false;
+        }
+    }
 }

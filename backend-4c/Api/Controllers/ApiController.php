@@ -19,6 +19,7 @@ abstract class ApiController extends MainController
     protected $api_error = array(
         100001 => 'invalid token or user id',
         100002 => 'invalid params',
+        100004 => 'duplicate username',
         100003 => 'lack of params',
         110001 => 'User Data invalid',
         110002 => 'Save data fail',
