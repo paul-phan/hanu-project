@@ -14,9 +14,9 @@
                 <button class="btn btn-success">
                     <i class="fa fa-check"></i> Lưu lại
                 </button>
-                <button class="btn btn-success">
-                    <i class="fa fa-check-circle"></i> Lưu & Tiếp tục sửa
-                </button>
+                <!--                <button class="btn btn-success">-->
+                <!--                    <i class="fa fa-check-circle"></i> Lưu & Tiếp tục sửa-->
+                <!--                </button>-->
                 <div class="btn-group">
                     <a class="btn btn-success dropdown-toggle" href="javascript:;" data-toggle="dropdown">
                         <i class="fa fa-share"></i> Thêm
@@ -283,8 +283,9 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <a href="javascript:;" class="btn btn-default btn-sm">
-                                            <i class="fa fa-times"></i> Remove </a>
+                                        <input type="checkbox" class="make-switch" data-size="small"
+                                               data-on-color="danger" name="image[<?= $image->id ?>][delete]"
+                                               data-on-text="Xóa" data-off-color="default" data-off-text="Xóa?"/>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -302,7 +303,7 @@
                                                 <div>                   <span class="btn default btn-file">
                                                                 <span class="fileinput-new"> Thêm ảnh </span>
                                                                 <span class="fileinput-exists"> Thay đổi </span>
-                                                                <input type="file" name="images"> </span>
+                                                                <input type="file" name="imagesUpload"> </span>
                                                     <a href="javascript:;" class="btn red fileinput-exists"
                                                        data-dismiss="fileinput"> Xóa </a>
                                                 </div>

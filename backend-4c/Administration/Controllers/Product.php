@@ -92,14 +92,13 @@ class Product extends MainController implements ProductController
         $collection = $productCollectionModel->getCollectionByProductId($id);
         $images = $imageModel->fetchAll(" product_id = $id ");
 
-        if (!empty($_POST['images']) && !empty($_FILES['images'])) {
-            $image = $_FILES['images'];
+        if ( !empty($_FILES['imagesUpload'])) {
+            $image = $_FILES['imagesUpload'];
             $upload = new \Library\Tools\Upload();
             $name = $upload->copy(array(
                 'file' => $image,
                 'path' => 'product/',
             ));
-
             $_POST['images']['url'] = !empty($name) ? '/product/' . $name : '/product/updatelater.jpg';
             if ($upload->getErrors()) {
                 $uploadInfo = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
@@ -118,9 +117,13 @@ class Product extends MainController implements ProductController
                     if (!empty($_POST['image'])) {
                         foreach ($_POST['image'] as $kimg => $vimg) {
                             $imageModel->updateImage($_POST['image'][$kimg], $kimg);
+                            if (!empty($_POST['image'][$kimg]['delete'])) {
+                                $imageModel->delete($kimg);
+                            }
                         }
                     }
-                    $alert = Tools\Alert::render('Cập nhật sản phẩm thành công!', 'success');
+                    $alert = Tools\Alert::render('Cập nhật sản phẩm thành công. đang cập nhật lại trang web!', 'success');
+                    header("Refresh:3; url=/admin/product/edit/$id", true, 303);
                 } else {
                     $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
                 }
