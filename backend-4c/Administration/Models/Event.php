@@ -42,15 +42,17 @@ class Event extends MainModel implements EventModel
     {
         // TODO: Implement modifyevent() method.
         return $this->update(array(
-            'company_id' => $post['company_id'],
-            'title' => $post['title'],
-            'count' => $post['count'],
-            'price' => $post['price'],
-            'detail' => $post['detail'],
-            'sale' => $post['sale'],
-            'active' => isset($post['active']) ? 1 : 0,
-            'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
-            'event_year' => isset($post['event_year']) ? $post['event_year'] : ''
+            'title' => isset($post['title']) ? $post['title'] : '',
+            'description' => isset($post['description']) ? $post['description'] : '',
+            'address' => isset($post['address']) ? $post['address'] : '',
+            'zipcode' => isset($post['zipcode']) ? $post['zipcode'] : '',
+            'city' => isset($post['city']) ? $post['city'] : '',
+            'schedule' => isset($post['schedule']) ? $post['schedule'] : '',
+            'date_start' => isset($post['date_start']) ? $post['date_start'] : '',
+            'date_end' => isset($post['date_start']) ? $post['date_end'] : '',
+            'ticket' => isset($post['ticket']) ? $post['ticket'] : '',
+            'price' => isset($post['price']) ? $post['price'] : '',
+            'updated' => date("Y:m:d H:i:s")
         ), " id = '$id' ");
     }
 
