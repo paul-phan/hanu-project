@@ -31,7 +31,7 @@ class Product extends MainModel implements ProductModel
             'sale' => isset($post['sale']) ? $post['sale'] : '0',
             'created' => date("Y:m:d H:i:s"),
             'active' => 1,
-            'params' => $this->slugify(time() . '-' . $post['title']),
+            'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
             'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',
             'product_year' => isset($post['product_year']) ? $post['product_year'] : ''
         ));
@@ -46,6 +46,7 @@ class Product extends MainModel implements ProductModel
             'count' => $post['count'],
             'price' => $post['price'],
             'detail' => $post['detail'],
+            'params' => $this->slugify($post['params']),
             'sale' => $post['sale'],
             'active' => isset($post['active']) ? 1 : 0,
             'tags' => isset($post['tags']) ? $post['tags'] : 'no,tag',

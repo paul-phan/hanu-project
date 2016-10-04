@@ -8,9 +8,9 @@
                 <a href="admin/product/list" type="button" name="back" class="btn btn-secondary-outline">
                     <i class="fa fa-angle-left"></i> Trở lại
                 </a>
-                <button class="btn btn-secondary-outline">
+                <a class="btn btn-danger" href="admin/product/delete/<?= $_GET['params'] ?>">
                     <i class="fa fa-reply"></i> Xóa
-                </button>
+                </a>
                 <button class="btn btn-success">
                     <i class="fa fa-check"></i> Lưu lại
                 </button>
@@ -142,6 +142,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-2">Đường dẫn
+                                </label>
+                                <div class="col-md-10">
+                                    <input placeholder="Nhập đường dẫn" type="text"
+                                           class="form-control" name="product[params]"
+                                           value="<?= !empty($fproduct->params) ? $fproduct->params : '' ?>"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-2">Trạng thái</label>
                                 <div class="col-md-10">
                                     <input
@@ -265,7 +274,7 @@
                                            data-rel="fancybox-button">
                                             <img class="img-responsive"
                                                  src="<?= UPLOAD_DIR . $image->url ?>"
-                                                 alt="">
+                                                 alt="<?= $image->label ?>">
                                         </a>
                                     </td>
                                     <td>

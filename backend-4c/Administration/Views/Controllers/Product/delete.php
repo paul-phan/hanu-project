@@ -11,8 +11,10 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
+                    <a href="admin/product/list" class="btn btn-sm" >Quay lại</a>
                     <button type="submit" class="btn btn-danger" name="submit" value="delete">Đồng ý</button>
                 </div>
+            </div>
         </form>
     <?php endif; ?>
 </div>

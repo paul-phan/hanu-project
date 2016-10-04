@@ -93,6 +93,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td> Đường dẫn</td>
+                        <td>
+                            <p> <?= $product->params ?> </p>
+                        </td>
+                    </tr>
+                    <tr>
                         <td> Cập nhật</td>
                         <td>
                             <p> <?= $product->updated ?> </p>

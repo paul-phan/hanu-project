@@ -36,6 +36,9 @@ class Company extends MainModel
             'com_name' => $post['com_name'],
             'position' => !empty($post['position']) ? $post['position'] : 0,
             'active' => !empty($post['active']) ? 1 : 0,
+            'params' => $this->slugify($post['params'])
         ), " id = '$id' ");
     }
+
+
 }

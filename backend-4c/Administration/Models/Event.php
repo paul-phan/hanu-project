@@ -24,7 +24,7 @@ class Event extends MainModel implements EventModel
     {
         return $this->insert(array(
             'title' => isset($post['title']) ? $post['title'] : '',
-            'params' => $this->slugify(time() . '-' . $post['title']),
+            'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
             'description' => isset($post['description']) ? $post['description'] : '',
             'address' => isset($post['address']) ? $post['address'] : '',
             'zipcode' => isset($post['zipcode']) ? $post['zipcode'] : '',

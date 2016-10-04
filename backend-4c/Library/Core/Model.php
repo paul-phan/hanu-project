@@ -355,4 +355,12 @@ abstract class Model
         $str = preg_replace('/([\s]+)/', '-', $str);
         return $str;
     }
+
+    /**
+     * @param string $slug
+     * @return array
+     */
+    public function getBySlug($slug) {
+        return $this->fetchAll("params= '$slug' ");
+    }
 }

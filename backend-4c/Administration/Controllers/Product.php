@@ -85,14 +85,14 @@ class Product extends MainController implements ProductController
         $categoryModel = new \Administration\Models\Category($co);
         $productCollectionModel = new \Administration\Models\ProductCollection($co);
         $imageModel = new \Administration\Models\Image($co);
-//        $productDetail = new \Administration\Models\ProductDetail($co);
+        $productDetail = new \Administration\Models\ProductDetail($co);
         $product = $productModel->findById($id);
         $company = $companyModel->fetchAll();
         $category = $categoryModel->fetchAll(' active = 1 ');
         $collection = $productCollectionModel->getCollectionByProductId($id);
         $images = $imageModel->fetchAll(" product_id = $id ");
 
-        if ( !empty($_FILES['imagesUpload'])) {
+        if (!empty($_FILES['imagesUpload'])) {
             $image = $_FILES['imagesUpload'];
             $upload = new \Library\Tools\Upload();
             $name = $upload->copy(array(
@@ -107,8 +107,11 @@ class Product extends MainController implements ProductController
             }
         }
         if (isset($_POST['product'])) {
-            if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price'])) {
-                if ($productModel->modifyProduct($_POST['product'], $id)) {
+            if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price']) && !empty($_POST['product']['params'])) {
+                $paramsResult = $productModel->getBySlug($_POST['product']['params']);
+                if (!empty($paramsResult) && $product[0]->params != $_POST['product']['params']) {
+                    $alert = Tools\Alert::render('Đường dẫn bạn nhập đã tồn tại!', 'danger');
+                } elseif ($productModel->modifyProduct($_POST['product'], $id)) {
                     if (!empty($_POST['category'])) {
                         foreach ($_POST['category'] as $param) {
                             $productCollectionModel->updateCollection($id, $param);
@@ -231,8 +234,11 @@ class Product extends MainController implements ProductController
         $categoryModel = new \Administration\Models\Category($co);
         $category = $categoryModel->findById($_GET['params']);
         if ($_POST) {
-            if (!empty($_POST['cat_name'])) {
-                if ($categoryModel->updateCategory($_POST, $_GET['params'])) {
+            if (!empty($_POST['cat_name']) && !empty($_POST['params'])) {
+                $paramsResult = $categoryModel->getBySlug($_POST['params']);
+                if (!empty($paramsResult) && $_POST['params'] != $category[0]->params) {
+                    $alert = Tools\Alert::render('Đường dẫn này đã được sử dụng, vui lòng thử lại!', 'danger');
+                } elseif ($categoryModel->updateCategory($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa danh mục thành công, đang quay trở lại danh sách!', 'success');
                     header("Refresh:3; url=/admin/product/categories", true, 303);
                 } else {
@@ -345,8 +351,11 @@ class Product extends MainController implements ProductController
         $companyModel = new \Administration\Models\Company($co);
         $company = $companyModel->findById($_GET['params']);
         if ($_POST) {
-            if (!empty($_POST['com_name'])) {
-                if ($companyModel->updateCompany($_POST, $_GET['params'])) {
+            if (!empty($_POST['com_name']) && !empty($_POST['params']) && !empty($_POST['position'])) {
+                $paramsResult = $companyModel->getBySlug($_POST['params']);
+                if (!empty($paramsResult) && $company[0]->params != $_POST['params']) {
+                    $alert = Tools\Alert::render('Đường dẫn này đã được sử dụng, vui lòng nhập đường dận khác!', 'danger');
+                } elseif ($companyModel->updateCompany($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa hãng sản xuất thành công, đang quay trở lại danh sách!', 'success');
                     header("Refresh:3; url=/admin/product/companies", true, 303);
                 } else {

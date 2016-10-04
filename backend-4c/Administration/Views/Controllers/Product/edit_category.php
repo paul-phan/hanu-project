@@ -49,6 +49,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="dropdown" class="control-label col-md-3">Đường dẫn</label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control" name="params"
+                                           value="<?= !empty($form->params) ? $form->params : '' ?>"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-3">Trạng thái</label>
                                 <div class="col-md-7">
                                     <input
