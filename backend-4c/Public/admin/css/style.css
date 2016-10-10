@@ -1,0 +1,136 @@
+body {
+    background: url("../../front/img/background1.jpg");
+}
+#header .row .col-md-4 {
+    font-family: "Segoe UI";
+    font-size: 25px;
+}
+.navbar-default{
+
+    background: linear-gradient(#cf2216,#d8493f);
+    height:40px;
+}
+#header{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.navbar-default .navbar-nav>li>a{
+    color:white;
+}
+span.tab-space {padding-left:10px;}
+.panel-heading {
+    background: linear-gradient(#535353,black);
+    color:white;
+    border-radius: 10px 10px 0px 0px;
+}
+.divider {
+    height: 1px;
+    width:100%;
+    display:block; /* for use on default inline elements like span */
+    margin: 5px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.bestsellingproduct{
+    display: block;
+    padding: 4px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.carousel-control {
+    top: 50%;
+}
+.carousel-control, .carousel-control:hover {
+
+    height: 43px;
+    line-height: 34px;
+    color: #fff;
+}
+.carousel-control {
+    border: 0px;
+    border-radius: 2px;
+}
+.carousel-control.right {
+
+    left: auto;
+}
+.carousel-caption {
+    color: black;
+}
+.row-fluid [class*="span"] {
+    display: block;
+    float: left;
+}
+#newProductCar .carousel-control.right {
+    right: 8px;
+    left: auto;
+}
+#newProductCar .carousel-control {
+    position: absolute;
+    top: -48px;
+    width: 24px;
+    height: 24px;
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5em;
+    color: #ffffff;
+    text-align: center;
+    background: #FFA300;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+#newProductCar .carousel-control.left {
+    right: 38px;
+    left: auto;
+}
+#newProductCar .carousel-control {
+    position: absolute;
+    top: -48px;
+    width: 24px;
+    height: 24px;
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5em;
+    color: #ffffff;
+    text-align: center;
+    background: #FFA300;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+#newProductCar .carousel-control {
+    margin-top: 20px;
+}
+.thumbnail {
+    margin: 0px 20px 10px -10px;
+}
+.footer {
+    background-color: #4f4f4f;
+    color: #eee;
+    padding: 28px 40px 18px 40px;
+    margin-top: 18px;
+}
+.copyright{
+    padding-top: 10px;
+    background-color:#3b3b3b;
+    color: #88979e;
+    margin-top: 10px;
+    font-size: 10pt;
+}
+#bestselling{
+    background: white;
+}
+.panel ul {
+    list-style-type: none;
+}
+.panel {
+    border-radius: 10px;
+}
