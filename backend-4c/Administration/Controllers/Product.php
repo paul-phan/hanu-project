@@ -28,7 +28,7 @@ class Product extends MainController implements ProductController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left JOIN image on image.product_id = product.id where product.active = 1 ', 'product.*, image.url as iurl, company.com_name as ccom_name ');
+        $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id  where product.active = 1  ', ' product.*,  company.com_name as ccom_name ');
 
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
@@ -91,13 +91,13 @@ class Product extends MainController implements ProductController
         $category = $categoryModel->fetchAll(' active = 1 ');
         $collection = $productCollectionModel->getCollectionByProductId($id);
         $images = $imageModel->fetchAll(" product_id = $id ");
-
-        if (!empty($_FILES['imagesUpload'])) {
+        if (!empty($_FILES['imagesUpload']['name'])) {
             $image = $_FILES['imagesUpload'];
             $upload = new \Library\Tools\Upload();
             $name = $upload->copy(array(
                 'file' => $image,
                 'path' => 'product/',
+                'name' => $productModel->slugify(time() . '-' . $_POST['product']['title'])
             ));
             $_POST['images']['url'] = !empty($name) ? '/product/' . $name : '/product/updatelater.jpg';
             if ($upload->getErrors()) {

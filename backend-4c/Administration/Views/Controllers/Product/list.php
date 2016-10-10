@@ -26,7 +26,6 @@
                 <th class="min-tablet">Cập nhật</th>
                 <th class="min-tablet" style="width: 27%">Tùy chỉnh</th>
                 <th class="none">Lượng hàng </th>
-                <th class="none">Ảnh</th>
                 <th class="none">Tên công ty</th>
             </tr>
             </thead>
@@ -54,7 +53,6 @@
                                 <i class="fa fa-trash-o"></i> Xóa </a>
                     </td>
                     <td><?= $product->count ?></td>
-                    <td><?= $product->iurl ?></td>
                     <td><?= $product->ccom_name ?></td>
                 </tr>
             <?php } ?>

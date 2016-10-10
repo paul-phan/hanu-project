@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2016 at 06:11 AM
+-- Generation Time: Oct 10, 2016 at 06:04 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -60,7 +60,7 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `cat_name`, `params`, `position`, `group_name`, `active`, `created`, `updated`) VALUES
 (1, 'Hàng cũ', 'hang-cu', 2, 'unordered', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
-(2, 'Hàng mới', 'hang-moi', 123, 'unordered', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
+(2, 'Hàng mới', 'hang-rat-moi', 123, 'unordered', 1, '2016-09-28 00:00:00', '2016-09-28 06:54:51'),
 (5, 'Hàng 99%', '2016-09-29-161526-hang-99', 3, 'unordered', 1, '2016-09-29 16:15:26', '2016-09-29 09:15:26');
 
 -- --------------------------------------------------------
@@ -85,8 +85,19 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `created`, `updated`) VALUES
 (1, 'Apple', '123-234-erwer-sdqw', 1, 1, '2016-09-28 00:00:00', '2016-09-28 06:47:05'),
-(3, 'Xiaomi', 'asdas-qwe-as', 3, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
-(4, 'Sony', 'qweqw-34-aa', 4, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36');
+(3, 'Xiaomi', 'xiaomi', 3, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
+(4, 'Sony', 'sony', 4, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
+(5, 'Samsung', '2016-10-04-091502-samsung', 5, 1, '2016-10-04 09:15:02', '2016-10-04 02:15:02'),
+(8, 'LG', '2016-10-04-091746-lg', 2, 1, '2016-10-04 09:17:46', '2016-10-04 02:17:46'),
+(9, 'HTC', '2016-10-04-091903-htc', 6, 1, '2016-10-04 09:19:03', '2016-10-04 02:19:03'),
+(10, 'Nokia', '2016-10-04-091916-nokia', 7, 1, '2016-10-04 09:19:16', '2016-10-04 02:19:16'),
+(11, 'Blackberry', '2016-10-04-091929-blackberry', 8, 1, '2016-10-04 09:19:29', '2016-10-04 02:19:29'),
+(12, 'Asus', '2016-10-04-091942-asus', 9, 1, '2016-10-04 09:19:42', '2016-10-04 02:19:42'),
+(13, 'Lenovo', '2016-10-04-091954-lenovo', 10, 1, '2016-10-04 09:19:54', '2016-10-04 02:19:54'),
+(14, 'Motorola', '2016-10-04-092008-motorola', 11, 1, '2016-10-04 09:20:08', '2016-10-04 02:20:08'),
+(15, 'Mobiado', '2016-10-04-092023-mobiado', 12, 1, '2016-10-04 09:20:23', '2016-10-04 02:20:23'),
+(16, 'Vertu', '2016-10-04-092033-vertu', 13, 1, '2016-10-04 09:20:33', '2016-10-04 02:20:33'),
+(17, 'QMobile', '2016-10-04-092045-qmobile', 14, 1, '2016-10-04 09:20:45', '2016-10-04 02:20:45');
 
 -- --------------------------------------------------------
 
@@ -96,27 +107,28 @@ INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `create
 
 CREATE TABLE `event` (
   `id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `params` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `params` varchar(255) NOT NULL,
+  `description` text CHARACTER SET utf8 NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8 NOT NULL,
   `zipcode` int(5) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `schedule` varchar(255) NOT NULL,
+  `city` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `schedule` varchar(255) CHARACTER SET utf8 NOT NULL,
   `date_start` timestamp NULL DEFAULT NULL,
   `date_end` timestamp NULL DEFAULT NULL,
   `ticket` int(11) NOT NULL,
-  `price` varchar(255) NOT NULL,
+  `price` varchar(255) CHARACTER SET utf8 NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id`, `title`, `params`, `description`, `image`, `address`, `zipcode`, `city`, `schedule`, `date_start`, `date_end`, `ticket`, `price`, `updated`) VALUES
-(1, 'evenement test', 'evenement-test', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget sodales risus. Nullam feugiat accumsan aliquam. Suspendisse sagittis commodo feugiat. Cras aliquet et lorem a feugiat. Vestibulum sed ante quam. Duis semper magna egestas egestas scelerisque. Nam pharetra quam nec mauris pulvinar eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam lacinia mollis odio sed euismod. Nullam vestibulum id sem vel tincidunt. Nulla lobortis metus nec viverra porttitor. In eget gravida ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>', '/Public/img/event/nom.jpg', '19 rue jean robert', 75018, 'Paris', ' 17h20', '2014-12-03 23:00:00', '2014-12-03 23:00:00', 50, '', '2014-11-23 09:29:52');
+(1, 'evenement test', 'evenement-test', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget sodales risus. Nullam feugiat accumsan aliquam. Suspendisse sagittis commodo feugiat. Cras aliquet et lorem a feugiat. Vestibulum sed ante quam. Duis semper magna egestas egestas scelerisque. Nam pharetra quam nec mauris pulvinar eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam lacinia mollis odio sed euismod. Nullam vestibulum id sem vel tincidunt. Nulla lobortis metus nec viverra porttitor. In eget gravida ipsum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>', '/Public/img/event/nom.jpg', '19 rue jean robert', 75018, 'Paris', ' 17h20', '2014-12-03 23:00:00', '2014-12-03 23:00:00', 50, '123123', '2016-09-30 06:47:32'),
+(2, '123123', '1475218113-123123', ' 23423wwer121', '', 'qweqwe', 121, 'qwewas', '312', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 12123, '123123', '2016-09-30 06:48:33');
 
 -- --------------------------------------------------------
 
@@ -163,7 +175,7 @@ CREATE TABLE `order_product` (
 --
 
 INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
-(1, 18, 7, 123123, 123, 12, 15144141, 'normal', 'qweqas', 1, '127.0.0.1', '2016-09-29 16:45:14', '2016-09-29 09:45:14'),
+(1, 18, 7, 123123, 123, 12, 15144141, 'normal', 'qweqas', 3, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29 09:45:14'),
 (2, 10, 9, 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
 (3, 3, 8, 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32');
 
@@ -225,7 +237,8 @@ INSERT INTO `product` (`id`, `company_id`, `title`, `params`, `price`, `count`, 
 (7, 2, '1234123', '1475082248-123123', 234, 12123, 0, '', 123, 2016, 'no,tag', '2016-09-29 00:04:08', '2016-09-28 17:04:08'),
 (8, 4, 'minhrq qwe', '1475083017-minhrq-qwe', 99999, 99, 1, '', 9998, 2016, 'no,tag', '2016-09-29 00:16:57', '2016-09-28 17:16:57'),
 (9, 3, 'tresadas', '1475113751-tresadas', 13, 1, 1, 'qweasd', 34, 2016, 'no,tag', '2016-09-29 08:49:11', '2016-09-29 01:49:11'),
-(11, 4, 'phan thế minh', '1475140337-phan-the-minh', 1231, 1, 1, '', 123, 2016, 'no,tag', '2016-09-29 16:12:17', '2016-09-29 09:12:17');
+(11, 4, 'phan thế minh', '1475140337-phan-the-minh', 1231, 1, 1, '', 123, 2016, 'no,tag', '2016-09-29 16:12:17', '2016-09-29 09:12:17'),
+(12, 1, 'I Phone 5', 'i-phone-5', 999, 10, 1, '', 0, 2016, 'no,tag', '2016-09-30 18:39:35', '2016-09-30 11:39:35');
 
 -- --------------------------------------------------------
 
@@ -246,12 +259,13 @@ CREATE TABLE `product_collection` (
 
 INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) VALUES
 (3, 3, 2, '2016-09-28 15:32:44'),
-(6, 5, 2, '2016-09-28 16:56:19'),
 (11, 9, 2, '2016-09-29 01:49:11'),
 (15, 7, 2, '2016-09-29 07:09:52'),
 (24, 11, 2, '2016-09-30 03:25:32'),
 (41, 1, 2, '2016-09-30 04:07:33'),
-(43, 8, 2, '2016-09-30 04:08:17');
+(43, 8, 2, '2016-09-30 04:08:17'),
+(57, 5, 2, '2016-09-30 04:49:37'),
+(74, 12, 5, '2016-10-10 03:49:24');
 
 -- --------------------------------------------------------
 
@@ -331,7 +345,9 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 (19, 70, 'Hoàn Nguyên Khấc', '912312312313123', 'hoannguyenkhac1871995@gmail.com', '12312', 'qweqweqwe', 'VN', '', 1, '1970-01-01', 1, '2016-09-25 21:23:56', '2016-09-25 14:23:56'),
 (20, 71, 'Trần Thị Thu', '123123123', 'Tranthutak10.1@gmail.com', 'Ha Noi', 'Ha Noi', 'VN', '', 0, '1970-01-01', 1, '2016-09-25 21:27:42', '2016-09-25 14:27:42'),
 (21, 72, 'Tiến Trần', '12312323434', 'tien4c@gmail.com', 'qweqwe', '123123', 'VN', '', 1, '1970-01-01', 1, '2016-09-25 21:29:13', '2016-09-25 14:29:13'),
-(23, 73, 'Cầm dz', '01648921193', 'camnh@gmail.com', 'Số nhà 58 ngõ 40 phố Tạ Quang Bửu, Bách Khoa, Hà Nội', 'Hà Nội', 'VN', '1474890810-camnh.png', 1, '1991-07-04', 1, '2016-09-26 18:53:30', '2016-09-26 11:53:30');
+(23, 73, 'Cầm dz', '01648921193', 'camnh@gmail.com', 'Số nhà 58 ngõ 40 phố Tạ Quang Bửu, Bách Khoa, Hà Nội', 'Hà Nội', 'VN', '1474890810-camnh.png', 1, '1991-07-04', 1, '2016-09-26 18:53:30', '2016-09-26 11:53:30'),
+(24, 74, 'Tran Thu', '0914499925', 'thu@gmail.com', '02 Phu Cuong, Hatay', 'Hanoi', 'VN', '1475222511-Tran thi thu.jpg', 0, '1995-05-17', 1, '2016-09-30 15:01:51', '2016-09-30 08:01:51'),
+(25, 75, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com122', 'Ba Vi', 'Hanoi', 'VN', '1475235353-phantheminh.jpg', 1, '1995-05-06', 1, '2016-09-30 18:35:53', '2016-09-30 11:35:53');
 
 -- --------------------------------------------------------
 
@@ -397,7 +413,9 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '0a16530a299151060fac288a5d3f4885', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:23:56', '2016-09-25 14:23:56'),
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '59e350e16badcd013385adc4da8e50e3', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:27:42', '2016-09-25 14:27:42'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', 'f7590ad212a472270cfa7cb53764f7bb', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:29:13', '2016-09-25 14:29:13'),
-(73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51');
+(73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
+(74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '7840570c13a2a14030da75e18eec9318', 1, 4, '0000-00-00 00:00:00', '2016-09-30 15:01:51', '2016-09-30 08:01:51'),
+(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', 'b4bb19b29d0c4347196cee2a357fec6c', 1, 5, '0000-00-00 00:00:00', '2016-09-30 18:35:53', '2016-09-30 11:35:53');
 
 -- --------------------------------------------------------
 
@@ -440,8 +458,10 @@ ALTER TABLE `category`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `position` (`position`),
-  ADD KEY `com_name` (`com_name`(191));
+  ADD UNIQUE KEY `position_3` (`position`),
+  ADD KEY `com_name` (`com_name`(191)),
+  ADD KEY `params` (`params`(191)),
+  ADD KEY `position_2` (`position`);
 
 --
 -- Indexes for table `event`
@@ -543,12 +563,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `image`
 --
@@ -568,12 +588,12 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `product_collection`
 --
 ALTER TABLE `product_collection`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
@@ -583,7 +603,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -593,7 +613,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `user_feedback`
 --
