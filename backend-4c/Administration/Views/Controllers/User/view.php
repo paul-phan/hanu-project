@@ -1,6 +1,6 @@
 <link href="dashboard/css/profile-2.min.css" rel="stylesheet" type="text/css"/>
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title"> <?= $user->username ?>
+<h3 class="page-title"> <?= isset($user->username) ? $user->username : '' ?>
     <small>Trang cá nhân</small>
 </h3>
 <!-- END PAGE TITLE-->

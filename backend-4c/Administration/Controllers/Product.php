@@ -55,8 +55,8 @@ class Product extends MainController implements ProductController
                             $productCollectionModel->insertCollection($productModel->insertedId, $param); // oneline :p
                         }
                     }
-                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, đang trở lại danh sách...!', 'success');
-                    header("Refresh:3; url=/admin/product/list", true, 303);
+                    $alert = Tools\Alert::render('Thêm sản phẩm thành công, xin mời thêm thông tin chi tiết...!', 'success');
+                    header("Refresh:3; url=/admin/product/edit/$productModel->insertedId", true, 303);
                 } else {
                     $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!', 'danger');
                 }

@@ -168,21 +168,6 @@ abstract class Model
     }
 
     /**
-     * return
-     * @param int $where
-     * @param string $fields
-     * @return array
-     */
-    public function fetchUser($where = 1, $fields = '*')
-    {
-        $q = "SELECT $fields FROM `" . $this->table . "` INNER JOIN profile ON user.id=profile.user_id WHERE $where";
-        $sql = $this->db->prepare($q);
-        $sql->execute();
-        $sql->setFetchMode(PDO::FETCH_OBJ);
-        return $sql->fetchAll();
-    }
-
-    /**
      * function allow to join two tables and fetch data
      * @param string $joinTable
      * @param string $joinOn example: $joinOn = 'role.id = user.id_role'
@@ -277,7 +262,7 @@ abstract class Model
 
     /**
      * delete() allows you to delete an occurrence of the table with his id
-     * @param type $value_primary
+     * @param mixed $value_primary
      * @return boolean
      */
     public function delete($value_primary)
@@ -360,7 +345,8 @@ abstract class Model
      * @param string $slug
      * @return array
      */
-    public function getBySlug($slug) {
+    public function getBySlug($slug)
+    {
         return $this->fetchAll("params= '$slug' ");
     }
 }

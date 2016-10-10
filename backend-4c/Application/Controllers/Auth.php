@@ -30,7 +30,6 @@ class Auth extends MainController
             $token = md5(uniqid() . time());
             $modelUser = new \Administration\Models\User($co);
             $result = $modelUser->getUserLogin($_POST['login'], $_POST['password']);
-
             if (!empty($result)) {
                 $roleModel = new \Administration\Models\Role($co);
                 $role = $roleModel->findById($result->id_role);

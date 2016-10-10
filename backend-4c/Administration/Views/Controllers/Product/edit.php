@@ -6,7 +6,7 @@
             </div>
             <div class="actions btn-set">
                 <a href="admin/product/list" type="button" name="back" class="btn btn-secondary-outline">
-                    <i class="fa fa-angle-left"></i> Trở lại
+                    <i class="fa fa-angle-left"></i> Trở lại danh sách
                 </a>
                 <a class="btn btn-danger" href="admin/product/delete/<?= $_GET['params'] ?>">
                     <i class="fa fa-reply"></i> Xóa
@@ -241,18 +241,6 @@
                     </div>
                     <div class="tab-pane" id="tab_images">
                         <?= $uploadInfo ?>
-                        <!--                        <div class="alert alert-success margin-bottom-10">-->
-                        <!--                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>-->
-                        <!--                            <i class="fa fa-warning fa-lg"></i> Chức năng upload qua API/Ajax đang được cập nhật trong-->
-                        <!--                            thời gian sớm nhất! Vui lòng quay lại sau.-->
-                        <!--                        </div>-->
-                        <!--                        <div id="tab_images_uploader_container" class="text-align-reverse margin-bottom-10">-->
-                        <!--                            <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">-->
-                        <!--                                <i class="fa fa-plus"></i> Select Files </a>-->
-                        <!--                            <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">-->
-                        <!--                                <i class="fa fa-share"></i> Upload Files </a>-->
-                        <!--                        </div>-->
-
                         <div class="row">
                             <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"></div>
                         </div>
