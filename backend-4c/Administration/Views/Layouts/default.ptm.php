@@ -14,7 +14,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link href="dashboard/css/font-awesome.min.css" rel="stylesheet">
-      <link href="dashboard/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="dashboard/css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboard/css/uniform.default.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,7 @@
     <link href="dashboard/css/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css"/>
     <link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
-    <link href="dashboard/css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="dashboard/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="dashboard/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
@@ -465,28 +465,6 @@
                         <span class="title">Trang quản lý</span>
                         <span class="arrow"></span>
                     </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item start ">
-                            <a href="/admin" class="nav-link ">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title">Dashboard 1</span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="/admin" class="nav-link ">
-                                <i class="icon-bulb"></i>
-                                <span class="title">Dashboard 2</span>
-                                <span class="badge badge-success">1</span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="/admin" class="nav-link ">
-                                <i class="icon-graph"></i>
-                                <span class="title">Dashboard 3</span>
-                                <span class="badge badge-danger">5</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="heading">
                     <h3 class="uppercase">Các tính năng</h3>
@@ -672,11 +650,11 @@
             <div class="page-bar">
                 <ul class="page-breadcrumb">
                     <li>
-                        <a href="#">Home</a>
+                        <a href="admin">Trang quản trị</a>
                         <i class="fa fa-circle"></i>
                     </li>
                     <li>
-                        <span>User</span>
+                        <span><?= $viewTitle ?></span>
                     </li>
                 </ul>
                 <div class="page-toolbar">

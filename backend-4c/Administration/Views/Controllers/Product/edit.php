@@ -8,8 +8,12 @@
                 <a href="admin/product/list" type="button" name="back" class="btn btn-secondary-outline">
                     <i class="fa fa-angle-left"></i> Trở lại danh sách
                 </a>
+                <a href="admin/product/view/<?= $_GET['params'] ?>" type="button"
+                   class="btn btn-warning">
+                    <i class="fa fa-search"></i> Xem
+                </a>
                 <a class="btn btn-danger" href="admin/product/delete/<?= $_GET['params'] ?>">
-                    <i class="fa fa-reply"></i> Xóa
+                    <i class="fa fa-trash"></i> Xóa
                 </a>
                 <button class="btn btn-success">
                     <i class="fa fa-check"></i> Lưu lại

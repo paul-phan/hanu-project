@@ -207,15 +207,18 @@ class Product extends MainController implements ProductController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
-        $result = $productModel->fetchByClause("  join company on company.id = product.company_id  where product.id = $id ", " product.*, company.com_name as cname, company.id as cid ");
+        $result = $productModel->fetchByClause(" left join product_detail as pdetail on pdetail.product_id = product.id  join company on company.id = product.company_id  where product.id = $id ", " pdetail.*, product.*, company.com_name as cname, company.id as cid ");
         $result = $result[0];
         $collectionModel = new \Administration\Models\ProductCollection($co);
         $collection = $collectionModel->fetchByClause(" join category on category.id = product_collection.category_id where product_collection.product_id = $id ", " product_collection.category_id, category.cat_name  ");
+        $imageModel = new \Administration\Models\Image($co);
+        $images = $imageModel->fetchAll(" product_id = $id ");
         $this->addDataView(array(
             'viewTitle' => 'Sản Phẩm',
             'viewSiteName' => 'Chi tiết',
             'product' => $result,
-            'category' => $collection
+            'category' => $collection,
+            'images' => $images
         ));
     }
 
