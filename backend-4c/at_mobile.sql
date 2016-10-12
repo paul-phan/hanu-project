@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2016 at 06:04 AM
+-- Generation Time: Oct 12, 2016 at 08:51 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -85,6 +85,7 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `created`, `updated`) VALUES
 (1, 'Apple', '123-234-erwer-sdqw', 1, 1, '2016-09-28 00:00:00', '2016-09-28 06:47:05'),
+(2, 'MinhPhone', 'minh-phone', 44, 1, '2016-10-11 00:00:00', '2016-10-11 10:10:13'),
 (3, 'Xiaomi', 'xiaomi', 3, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
 (4, 'Sony', 'sony', 4, 1, '2016-09-28 00:00:00', '2016-09-28 06:49:36'),
 (5, 'Samsung', '2016-10-04-091502-samsung', 5, 1, '2016-10-04 09:15:02', '2016-10-04 02:15:02'),
@@ -238,7 +239,8 @@ INSERT INTO `product` (`id`, `company_id`, `title`, `params`, `price`, `count`, 
 (8, 4, 'minhrq qwe', '1475083017-minhrq-qwe', 99999, 99, 1, '', 9998, 2016, 'no,tag', '2016-09-29 00:16:57', '2016-09-28 17:16:57'),
 (9, 3, 'tresadas', '1475113751-tresadas', 13, 1, 1, 'qweasd', 34, 2016, 'no,tag', '2016-09-29 08:49:11', '2016-09-29 01:49:11'),
 (11, 4, 'phan thế minh', '1475140337-phan-the-minh', 1231, 1, 1, '', 123, 2016, 'no,tag', '2016-09-29 16:12:17', '2016-09-29 09:12:17'),
-(12, 1, 'I Phone 5', 'i-phone-5', 999, 10, 1, '', 0, 2016, 'no,tag', '2016-09-30 18:39:35', '2016-09-30 11:39:35');
+(13, 4, 'Minh', '2016-10-10-183047-minh', 12313, 999, 1, '12312', 123213, 2016, 'no,tag', '2016-10-10 18:30:47', '2016-10-10 11:30:47'),
+(14, 5, 'test33', '2016-10-10-183147-test33', 2131, 1, 1, '', 1213, 2016, 'no,tag', '2016-10-10 18:31:47', '2016-10-10 11:31:47');
 
 -- --------------------------------------------------------
 
@@ -265,7 +267,8 @@ INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) 
 (41, 1, 2, '2016-09-30 04:07:33'),
 (43, 8, 2, '2016-09-30 04:08:17'),
 (57, 5, 2, '2016-09-30 04:49:37'),
-(74, 12, 5, '2016-10-10 03:49:24');
+(75, 13, 2, '2016-10-10 11:30:47'),
+(76, 14, 2, '2016-10-10 11:31:47');
 
 -- --------------------------------------------------------
 
@@ -401,7 +404,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, `last_login`, `created`, `update`) VALUES
 (9, 'minhtest9', '$2a$07$ptmp4szOWxiOv0GqpHbdfukkHqQ3U4d4m7PFEE69vtTM1DiLgEaki', 'ab24dd7efa48a65b5aea845e9e5b5ce9', 1, 5, '2016-09-24 17:34:18', '2016-09-14 01:28:13', '2016-09-24 17:59:20'),
-(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', '2084ce888134fcad91279b836f3582ca', 1, 1, '2016-09-29 21:03:11', '2016-09-14 01:30:28', '2016-09-29 14:03:11'),
+(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', 'e6e69997e1fd4a584109956ddd17c765', 1, 1, '2016-10-10 19:37:20', '2016-09-14 01:30:28', '2016-10-10 12:37:20'),
 (53, 'minhtest11', '$2a$07$ptmUO4pPC49WpBRuPKxBE.WB5TqSU.MhDpU9IfzxhoS/dQZfbSZ.K', '63be1949df643caba09310500ad0bb15', 1, 2, '2016-09-26 18:34:08', '2016-09-22 11:06:14', '2016-09-26 11:34:08'),
 (59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22'),
 (60, 'minhtest20', '$2a$07$ptmIpU9gBlKF8wRZCosDZefYIJU32uyJ4HjAlYTuXvQEcX2fjerVa', '8ad1e984d254bb75513f987cef3f92e6', 1, 5, '2016-09-25 02:01:47', '2016-09-22 15:47:49', '2016-09-24 19:01:47'),
@@ -588,17 +591,17 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `product_collection`
 --
 ALTER TABLE `product_collection`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
 ALTER TABLE `product_detail`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `profile`
 --
@@ -636,6 +639,12 @@ ALTER TABLE `order_product`
   ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `order_product_ibfk_3` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `order_product_ibfk_4` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `product_collection`

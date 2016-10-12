@@ -14,27 +14,6 @@
                 <button class="btn btn-success">
                     <i class="fa fa-check"></i> Lưu lại
                 </button>
-                <!--                <button class="btn btn-success">-->
-                <!--                    <i class="fa fa-check-circle"></i> Lưu & Tiếp tục sửa-->
-                <!--                </button>-->
-                <div class="btn-group">
-                    <a class="btn btn-success dropdown-toggle" href="javascript:;" data-toggle="dropdown">
-                        <i class="fa fa-share"></i> Thêm
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <div class="dropdown-menu pull-right">
-                        <li>
-                            <a href="javascript:;"> Nhân bản </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Xóa </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="javascript:;"> In </a>
-                        </li>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="portlet-body">
@@ -171,70 +150,197 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="tab_meta">
-                        <div class="alert alert-success margin-bottom-10">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                            <i class="fa fa-warning fa-lg"></i> Chức năng này đang được cập nhật trong thời gian sớm
-                            nhất! Vui lòng quay lại sau.
-                        </div>
+                        <?= $alertDetail ?>
                         <div class="form-body">
                             <div class="form-group">
-                                <label class="col-md-2 control-label">SKU:
-                                    <span class="required"> * </span>
+                                <label class="col-md-2 control-label">Chiều dài(mm):
                                 </label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control" name="detail[sku]" placeholder=""></div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[length]"
+                                           value="<?= isset($detail->length) ? $detail->length : '' ?>"></div>
                             </div>
-
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Tax Class:
-                                    <span class="required"> * </span>
+                                <label class="col-md-2 control-label">Chiều rộng(mm):
                                 </label>
-                                <div class="col-md-10">
-                                    <select class="table-group-action-input form-control input-medium"
-                                            name="detail[tax_class]">
-                                        <option value="">Select...</option>
-                                        <option value="1">None</option>
-                                        <option value="0">Taxable Goods</option>
-                                        <option value="0">Shipping</option>
-                                        <option value="0">USA</option>
-                                    </select>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[width]"
+                                           value="<?= isset($detail->width) ? $detail->width : '' ?>">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Status:
-                                    <span class="required"> * </span>
+                                <label class="col-md-2 control-label">Chiều cao(mm):
                                 </label>
-                                <div class="col-md-10">
-                                    <select class="table-group-action-input form-control input-medium"
-                                            name="detail[status]">
-                                        <option value="">Select...</option>
-                                        <option value="1">Published</option>
-                                        <option value="0">Not Published</option>
-                                    </select>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[height]"
+                                           value="<?= isset($detail->height) ? $detail->height : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Trọng lượng:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[weight]"
+                                           value="<?= isset($detail->weight) ? $detail->weight : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Kiểu màn hình:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[screen_type]"
+                                           value="<?= isset($detail->screen_type) ? $detail->screen_type : '' ?>">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Meta Title:</label>
-                                <div class="col-md-10">
-                                    <input type="text" class="form-control maxlength-handler" name="detail[meta_title]"
-                                           maxlength="100" placeholder="">
-                                    <span class="help-block"> max 100 chars </span>
+                                <label class="col-md-2 control-label">Kích thước màn hình:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[screen_size]"
+                                           value="<?= isset($detail->screen_type) ? $detail->screen_type : '' ?>">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Meta Keywords:</label>
-                                <div class="col-md-10">
-                                    <textarea class="form-control maxlength-handler" rows="8"
-                                              name="detail[meta_keywords]" maxlength="1000"></textarea>
-                                    <span class="help-block"> max 1000 chars </span>
+                                <label class="col-md-2 control-label">Độ phân giải:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[screen_resolution]"
+                                           value="<?= isset($detail->screen_resolution) ? $detail->screen_resolution : '' ?>">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Meta Description:</label>
-                                <div class="col-md-10">
-                                    <textarea class="form-control maxlength-handler" rows="8"
-                                              name="detail[meta_description]" maxlength="255"></textarea>
-                                    <span class="help-block"> max 255 chars </span>
+                                <label class="col-md-2 control-label">Các tính năng khác(màn hình):
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[screen_des]"
+                                           value="<?= isset($detail->screen_des) ? $detail->screen_des : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Bộ nhớ trong:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[memory_int]"
+                                           value="<?= isset($detail->memory_int) ? $detail->memory_int : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Bộ nhớ ngoài:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[memory_ext]"
+                                           value="<?= isset($detail->memory_ext) ? $detail->memory_ext : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Loại thẻ nhớ hỗ trợ:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[memory_sup]"
+                                           value="<?= isset($detail->memory_sup) ? $detail->memory_sup : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Mạng hỗ trợ(bandwidth):
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[bandwidth]"
+                                           value="<?= isset($detail->bandwidth) ? $detail->bandwidth : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Kiểu GPS:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[gps_type]"
+                                           value="<?= isset($detail->gps_type) ? $detail->gps_type : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Bluetooth:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[bluetooth]"
+                                           value="<?= isset($detail->bluetooth) ? $detail->bluetooth : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Wifi:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[wifi]"
+                                           value="<?= isset($detail->wifi) ? $detail->wifi : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Hồng ngoại:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[infrared]"
+                                           value="<?= isset($detail->infrared) ? $detail->infrared : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">USB:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[usb]"
+                                           value="<?= isset($detail->usb) ? $detail->usb : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Máy ảnh chính:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[main_camera]"
+                                           value="<?= isset($detail->main_camera) ? $detail->main_camera : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Máy ảnh phụ:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[front_camera]"
+                                           value="<?= isset($detail->front_camera) ? $detail->front_camera : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Sim hỗ trợ:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[sim_support]"
+                                           value="<?= isset($detail->sim_support) ? $detail->sim_support : '' ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Hệ điều hành:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[os]"
+                                           value="<?= isset($detail->os) ? $detail->os : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">CPU:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[cpu]"
+                                           value="<?= isset($detail->cpu) ? $detail->cpu : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">RAM:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[ram]"
+                                           value="<?= isset($detail->ram) ? $detail->ram : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Thông tin Pin:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[battery]"
+                                           value="<?= isset($detail->battery) ? $detail->battery : '' ?>"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Phụ kiện đi kèm:
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="detail[accessory]"
+                                           value="<?= isset($detail->accessory) ? $detail->accessory : '' ?>">
                                 </div>
                             </div>
                         </div>

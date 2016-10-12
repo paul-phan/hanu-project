@@ -86,11 +86,13 @@ class Product extends MainController implements ProductController
         $productCollectionModel = new \Administration\Models\ProductCollection($co);
         $imageModel = new \Administration\Models\Image($co);
         $productDetail = new \Administration\Models\ProductDetail($co);
+        $pDetail = $productDetail->fetchAll(" product_id = $id ");
         $product = $productModel->findById($id);
         $company = $companyModel->fetchAll();
         $category = $categoryModel->fetchAll(' active = 1 ');
         $collection = $productCollectionModel->getCollectionByProductId($id);
         $images = $imageModel->fetchAll(" product_id = $id ");
+        // insert images
         if (!empty($_FILES['imagesUpload']['name'])) {
             $image = $_FILES['imagesUpload'];
             $upload = new \Library\Tools\Upload();
@@ -106,6 +108,7 @@ class Product extends MainController implements ProductController
                 $uploadInfo = \Library\Tools\Alert::render('Thêm ảnh thành công, vui lòng F5 để cập nhật', 'Success');
             }
         }
+        //edit product
         if (isset($_POST['product'])) {
             if (!empty($_POST['product']['title']) && !empty($_POST['product']['company_id']) && !empty($_POST['product']['price']) && !empty($_POST['product']['params'])) {
                 $paramsResult = $productModel->getBySlug($_POST['product']['params']);
@@ -134,6 +137,23 @@ class Product extends MainController implements ProductController
                 $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
             }
         }
+        //edit or add product detail
+        if (isset($_POST['detail']) && !empty($_POST['detail'])) {
+            if (!empty($pDetail[0]) && isset($pDetail)) {
+                if ($productDetail->updateProDetail($_POST['detail'], $id)) {
+                    $alertDetail = Tools\Alert::render('Sửa thông tin chi tiết cho sản phẩm thành công!', 'success');
+                } else {
+                    $alertDetail = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại...!', 'danger');
+                }
+            } else { // if the product don't update detail yet, just insert new detail
+
+                if ($productDetail->insertProDetail($_POST['detail'], $id)) {
+                    $alertDetail = Tools\Alert::render('Thêm thông tin chi tiết cho sản phẩm thành công!', 'success');
+                } else {
+                    $alertDetail = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại...!', 'danger');
+                }
+            }
+        }
 
         $this->addDataView(array(
             'viewTitle' => 'Sản Phẩm',
@@ -141,11 +161,13 @@ class Product extends MainController implements ProductController
             'images' => $images,
             'fproduct' => $product[0],
             'fcompany' => $company,
+            'detail' => isset($pDetail[0]) ? $pDetail[0] : '',
             'fcategory' => $category,
             'fcollection' => $collection,
             'form' => $_POST,
             'alert' => !empty($alert) ? $alert : '',
-            'uploadInfo' => !empty($uploadInfo) ? $uploadInfo : ''
+            'uploadInfo' => !empty($uploadInfo) ? $uploadInfo : '',
+            'alertDetail' => !empty($alertDetail) ? $alertDetail : ''
         ));
     }
 
