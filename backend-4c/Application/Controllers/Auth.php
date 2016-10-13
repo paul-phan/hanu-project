@@ -33,10 +33,11 @@ class Auth extends MainController
             if (!empty($result)) {
                 $roleModel = new \Administration\Models\Role($co);
                 $role = $roleModel->findById($result->id_role);
-                $profileModel = new \Administration\Models\Profile($co);
+                $profileModel = new \Administration\Models\Profile($co);//lay pròile ra ntn
                 $profile = $profileModel->getByUserId($result->id);
+//                var_dump($profile);die;
                 if (!empty($role)) {
-                    $_SESSION['User']['id'] = $result->id;
+                    $_SESSION['User']['id'] = $result->id;// day ms dung la id cua ủe
                     $_SESSION['User']['username'] = $result->username;
                     $_SESSION['User']['role_level'] = $role[0]->level;
                     $_SESSION['User']['role_name'] = $role[0]->name;

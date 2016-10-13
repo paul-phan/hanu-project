@@ -12,7 +12,7 @@ use Api\Controllers\ApiController as MainController;
 
 class Auth extends MainController
 {
-    public function loginAction()
+    public function indexAction()
     {
         global $connection;
         $co = $connection->getCo();
@@ -24,6 +24,8 @@ class Auth extends MainController
             $result = $modelUser->getUserLogin($_GET['login'], $_GET['password']);
             $roleModel = new \Administration\Models\Role($co);
             $role = $roleModel->findById($result->id_role);
+            $profileModel = new \Administration\Models\Profile($co);
+            $profile = $profileModel->getByUserId($result->id);
             if (!empty($result) && !empty($role)) {
                 $_SESSION['User']['id'] = $result->id;
                 $_SESSION['User']['username'] = $result->username;
@@ -31,15 +33,15 @@ class Auth extends MainController
                 $_SESSION['User']['last_login'] = $result->last_login;
                 $_SESSION['User']['created'] = $result->created;
                 $_SESSION['User']['update'] = $result->update;
-                $_SESSION['User']['full_name'] = $result->full_name;
-                $_SESSION['User']['phone'] = $result->phone;
-                $_SESSION['User']['email'] = $result->email;
-                $_SESSION['User']['address'] = $result->address;
-                $_SESSION['User']['city'] = $result->city;
-                $_SESSION['User']['country'] = $result->country;
-                $_SESSION['User']['avatar'] = $result->avatar;
-                $_SESSION['User']['gender'] = $result->gender;
-                $_SESSION['User']['birthday'] = $result->birthday;
+                $_SESSION['User']['full_name'] = $profile[0]->full_name;
+                $_SESSION['User']['phone'] = $profile[0]->phone;
+                $_SESSION['User']['email'] = $profile[0]->email;
+                $_SESSION['User']['address'] = $profile[0]->address;
+                $_SESSION['User']['city'] = $profile[0]->city;
+                $_SESSION['User']['country'] = $profile[0]->country;
+                $_SESSION['User']['avatar'] = $profile[0]->avatar;
+                $_SESSION['User']['gender'] = $profile[0]->gender;
+                $_SESSION['User']['birthday'] = $profile[0]->birthday;
                 $_SESSION['User']['role_level'] = $role[0]->level;
                 if ($modelUser->updateToken($token, $result->id)) {
                     setcookie("user", $_SESSION['User']['username'], time() + (86400 * 30), '/');
@@ -54,13 +56,5 @@ class Auth extends MainController
         } else {
             $this->responseApi(100003);
         }
-    }
-
-    public function logoutAction()
-    {
-        unset($_SESSION['User']);
-        setcookie("user", "", 1);
-        setcookie("token", "", 1);
-        $this->responseApi(0, 'Bạn đã đăng xuất thành công!', $_SESSION);
     }
 }
