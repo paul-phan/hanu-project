@@ -22,9 +22,6 @@ class Index extends MainController
 
     public function indexAction()
     {
-        $this->addDataView(array(
-            'viewTitle' => 'Quản Trị',
-            'viewSiteName' => 'Dashboard'
-        ));
+        header("Refresh:0; url=/admin/dashboard", true, 303);
     }
 }

@@ -28,7 +28,6 @@ abstract class Router
     {
         $controller = (string)($this->getControllerClassName('index'));
         $action = $this->getActionName('index');
-
         if (!empty($url[0])) {
             if (file_exists($this->getControllerPath($url[0])) && class_exists($this->getControllerClassName($url[0]))) {
                 $controller = $this->getControllerClassName($url[0]);
