@@ -90,21 +90,6 @@ interface ProductController
     public function add_imageAction();
 }
 
-interface EventController
-{
-    public function indexAction();
-
-    public function listAction();
-
-    public function addAction();
-
-    public function editAction();
-
-    public function deleteAction();
-
-    public function viewAction();
-}
-
 class Controller
 {
     protected $src_root;

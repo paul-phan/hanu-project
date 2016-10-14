@@ -11,8 +11,6 @@ namespace Administration\Controllers;
 
 use Administration\Controllers\AdminController as MainController;
 
-//use Library\Tools as Tool;
-
 class Index extends MainController
 {
     public function __construct()

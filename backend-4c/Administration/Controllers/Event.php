@@ -8,10 +8,9 @@
 namespace Administration\Controllers;
 
 use Administration\Controllers\AdminController as MainController;
-use Library\Core\EventController;
 use Library\Tools;
 
-class event extends MainController implements EventController
+class Event extends MainController
 {
     public function __construct()
     {
@@ -28,8 +27,7 @@ class event extends MainController implements EventController
         global $connection;
         $co = $connection->getCo();
         $EventModel = new \Administration\Models\Event($co);
-        $result = $EventModel->fetchByClause('  ');
-
+        $result = $EventModel->fetchAll();
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Sự kiện',
