@@ -833,7 +833,7 @@ img {
 	color: #333;
 	display: inline-block;
 	float: none;
-	font-family: "Raleway",sans-serif;
+	font-family: "Times New Roman",sans-serif;
 	font-size: 50px;
 	font-weight: bold;
 	margin-top: 20px;
@@ -2734,7 +2734,7 @@ img {
   margin-bottom: 20px;
 }
 #aa-blog-archive .aa-blog-archive-area .aa-blog-content .aa-blog-content-single h4 a {
-  color: #5555;
+  color: #555555;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
