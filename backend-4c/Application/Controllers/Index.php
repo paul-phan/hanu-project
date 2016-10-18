@@ -22,17 +22,26 @@ class Index extends MainController
 
     public function indexAction()
     {
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left join image on image.product_id = product.id and image.base_image = 1 group by product.id order by created desc limit 8  ', ' product.*,  company.com_name as ccom_name, image.url as iurl, image.label as ilabel ');
+//        var_dump($result);
         $this->addDataView(array(
-            'viewTitle' => 'Anh Tiến',
-            'viewSiteName' => 'Mobile'
+            'viewTitle' => 'AT - Mobile',
+            'viewSiteName' => 'Trang chủ',
+            'product' => $result,
         ));
+
     }
 
-    public function testAction() {
+    public function testAction()
+    {
 //        echo 'hello';
     }
 
-    public function backendAction() {
+    public function backendAction()
+    {
         $this->setLayout('ajax');
     }
 

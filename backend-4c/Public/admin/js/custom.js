@@ -52,11 +52,11 @@ jQuery(function ($) {
      /* ----------------------------------------------------------- */
 
     jQuery('#demo-1 .simpleLens-thumbnails-container img').simpleGallery({
-        loading_image: 'demo/images/loading.gif'
+        loading_image: 'img/view-slider/loading.gif'
     });
 
     jQuery('#demo-1 .simpleLens-big-image').simpleLens({
-        loading_image: 'demo/images/loading.gif'
+        loading_image: 'img/view-slider/loading.gif'
     });
 
     /* ----------------------------------------------------------- */
@@ -366,7 +366,49 @@ jQuery(function ($) {
         fade: true,
         cssEase: 'linear'
     });
-
+    $('#quick-view-modal').on('show.bs.modal', function (e) {
+        var id = $(e.relatedTarget).data('id');
+        $.ajax({
+            dataType: 'json',
+            cache: false,
+            type: 'GET',
+            url: 'restapi/product/get_by_id/' + id,
+            success: function (data) {
+                $('#m-title').html(data.data.title);
+                if (data.data.sale > 0 && data.data.sale != null) {
+                    $('#m-price').html(data.data.sale + '.000 VNĐ')
+                } else {
+                    $('#m-price').html(data.data.price + '.000 VNĐ')
+                }
+                if (data.data.count > 0) {
+                    $('#m-status').html('<span style="color: green">Còn hàng</span>')
+                } else {
+                    $('#m-status').html('Hết hàng')
+                }
+                $('#m-detail').html(data.data.detail)
+                $('#m-view').attr("href", 'san-pham/' + data.data.params + '.html')
+                $('#m-company').html(data.data.cname)
+                if (data.data.iurl != null) {
+                    $('.simpleLens-big-image').attr('src', '/public/upload/' + data.data.iurl)
+                    $('.simpleLens-lens-image').attr('data-lens-image', '/public/upload/' + data.data.iurl)
+                } else {
+                    $('.simpleLens-big-image').attr('src', "img/view-slider/medium/polo-shirt-1.png")
+                    $('.simpleLens-lens-image').attr('data-lens-image', "img/view-slider/medium/polo-shirt-1.png")
+                }
+                if (data.data.images) {
+                    $('.simpleLens-thumbnails-container').empty()
+                    data.data.images.forEach(function (e) {
+                        $('.simpleLens-thumbnails-container').append('<a href="#" class="simpleLens-thumbnail-wrapper" data-lens-image="' + '/public/upload/' + e.url + '" data-big-image="' + '/public/upload/' + e.url + '" > <img width="50px" src="' + '/public/upload/' + e.url + '"> </a>')
+                    });
+                } else {
+                    $('.simpleLens-thumbnails-container').empty()
+                }
+            },
+            error: function () {
+                console.log('error')
+            }
+        });
+    });
 
 });
 

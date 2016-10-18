@@ -22,20 +22,21 @@ class Product extends MainController
 
     public function indexAction()
     {
+//        var_dump($_GET);die;
         $params = $_GET['action'];
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
         $result = $productModel->fetchByClause(" left join product_detail as pdetail on pdetail.product_id = product.id  join company on company.id = product.company_id  where product.params = '$params' ", " pdetail.*, product.*, company.com_name as cname, company.id as cid ");
-//        var_dump($result);
+        var_dump($result);
         $result = $result[0];
         $id = $result->id;
         $collectionModel = new \Administration\Models\ProductCollection($co);
         $collection = $collectionModel->fetchByClause(" join category on category.id = product_collection.category_id where product_collection.product_id = $id ", " product_collection.category_id, category.cat_name  ");
-//        var_dump($collection);
+        var_dump($collection);
         $imageModel = new \Administration\Models\Image($co);
         $images = $imageModel->fetchAll(" product_id = $id ");
-//        var_dump($images);
+        var_dump($images);
         $this->addDataView(array(
             'viewTitle' => 'Sản Phẩm',
             'viewSiteName' => 'Chi tiết',
