@@ -366,6 +366,12 @@ jQuery(function ($) {
         fade: true,
         cssEase: 'linear'
     });
+
+    changeImage = function (ev) {
+        var img = ev.getAttribute('data-lens-image')
+        $('.simpleLens-big-image').attr('src', '/public/upload/' + img)
+        $('.simpleLens-lens-image').attr('data-lens-image', '/public/upload/' + img)
+    }
     $('#quick-view-modal').on('show.bs.modal', function (e) {
         var id = $(e.relatedTarget).data('id');
         $.ajax({
@@ -398,17 +404,18 @@ jQuery(function ($) {
                 if (data.data.images) {
                     $('.simpleLens-thumbnails-container').empty()
                     data.data.images.forEach(function (e) {
-                        $('.simpleLens-thumbnails-container').append('<a href="#" class="simpleLens-thumbnail-wrapper" data-lens-image="' + '/public/upload/' + e.url + '" data-big-image="' + '/public/upload/' + e.url + '" > <img width="50px" src="' + '/public/upload/' + e.url + '"> </a>')
+                        $('.simpleLens-thumbnails-container').append('<a href="javascript:;" onclick="changeImage(this);" data-lens-image="' + e.url + '" class="simpleLens-thumbnail-wrapper"> <img width="50px" src="' + '/public/upload/' + e.url + '"> </a>')
                     });
                 } else {
                     $('.simpleLens-thumbnails-container').empty()
                 }
             },
             error: function () {
-                console.log('error')
+                console.log('error from api')
             }
         });
     });
+
 
 });
 

@@ -28,6 +28,7 @@ function autoload($className)
 // bắt đầu require file cần thiết
     require str_replace('Public/index.php', $fileName, $_SERVER['SCRIPT_FILENAME']);
 }
+
 spl_autoload_register('autoload');
 //Gọi vào file Setting.php để lấy các thông số DEFINED
 $Settings = new Application\Configs\Settings();

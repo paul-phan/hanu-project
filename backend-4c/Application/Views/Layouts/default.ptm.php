@@ -19,7 +19,7 @@
     <!-- price picker slider -->
     <link rel="stylesheet" type="text/css" href="dashboard/css/nouislider.css">
     <!-- Theme color -->
-    <link id="switcher" href="dashboard/css/theme-color/default-theme.css" rel="stylesheet">
+    <link id="switcher" href="dashboard/css/theme-color/green-theme.css" rel="stylesheet">
     <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
 
     <!-- Main style sheet -->
