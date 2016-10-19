@@ -15,5 +15,16 @@ class Order extends MainController
         parent::__construct();
     }
 
+    public function add_orderAction()
+    {
+        $cart = [];
+
+        if ($_POST) {
+            $this->responseApi(0, 'responsed...', $_POST);
+        } else {
+            $this->responseApi(100003);
+        }
+    }
+
 
 }

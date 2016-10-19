@@ -369,8 +369,8 @@ jQuery(function ($) {
 
     changeImage = function (ev) {
         var img = ev.getAttribute('data-lens-image')
-        $('.simpleLens-big-image').attr('src', '/public/upload/' + img)
-        $('.simpleLens-lens-image').attr('data-lens-image', '/public/upload/' + img)
+        $('.simpleLens-big-image').attr('src', '/Public/upload/' + img)
+        $('.simpleLens-lens-image').attr('data-lens-image', '/Public/upload/' + img)
     }
     $('#quick-view-modal').on('show.bs.modal', function (e) {
         var id = $(e.relatedTarget).data('id');
@@ -391,12 +391,13 @@ jQuery(function ($) {
                 } else {
                     $('#m-status').html('Hết hàng')
                 }
+                $('#add-to-cart').attr('data-product-id', data.data.id)
                 $('#m-detail').html(data.data.detail)
                 $('#m-view').attr("href", 'san-pham/' + data.data.params + '.html')
                 $('#m-company').html(data.data.cname)
                 if (data.data.iurl != null) {
-                    $('.simpleLens-big-image').attr('src', '/public/upload/' + data.data.iurl)
-                    $('.simpleLens-lens-image').attr('data-lens-image', '/public/upload/' + data.data.iurl)
+                    $('.simpleLens-big-image').attr('src', '/Public/upload/' + data.data.iurl)
+                    $('.simpleLens-lens-image').attr('data-lens-image', '/Public/upload/' + data.data.iurl)
                 } else {
                     $('.simpleLens-big-image').attr('src', "img/view-slider/medium/polo-shirt-1.png")
                     $('.simpleLens-lens-image').attr('data-lens-image', "img/view-slider/medium/polo-shirt-1.png")
@@ -404,11 +405,12 @@ jQuery(function ($) {
                 if (data.data.images) {
                     $('.simpleLens-thumbnails-container').empty()
                     data.data.images.forEach(function (e) {
-                        $('.simpleLens-thumbnails-container').append('<a href="javascript:;" onclick="changeImage(this);" data-lens-image="' + e.url + '" class="simpleLens-thumbnail-wrapper"> <img width="50px" src="' + '/public/upload/' + e.url + '"> </a>')
+                        $('.simpleLens-thumbnails-container').append('<a href="javascript:;" onclick="changeImage(this);" data-lens-image="' + e.url + '" class="simpleLens-thumbnail-wrapper"> <img width="50px" src="' + '/Public/upload/' + e.url + '"> </a>')
                     });
                 } else {
                     $('.simpleLens-thumbnails-container').empty()
                 }
+
             },
             error: function () {
                 console.log('error from api')
@@ -416,6 +418,28 @@ jQuery(function ($) {
         });
     });
 
+    $('#add-to-cart').click(function (e) {
+        var quantity = $('form #select-quantity').val()
+        var id = this.getAttribute('data-product-id')
+        $.ajax({
+            dataType: 'json',
+            cache: false,
+            type: 'POST',
+            data: {
+                'product_id': id,
+                'count': quantity
+            },
+            url: 'restapi/order/add_order/',
+            success: function (data) {
+                console.log(data)
+                $.notific8('Đang cập nhật nhé bạn ^^.', {life: 5000, heading: 'From Minh:'});
+            },
+            error: function () {
+                console.log('error when adding order')
+            }
+        })
+
+    })
 
 });
 

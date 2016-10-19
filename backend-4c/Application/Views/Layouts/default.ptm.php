@@ -21,10 +21,11 @@
     <!-- Theme color -->
     <link id="switcher" href="dashboard/css/theme-color/green-theme.css" rel="stylesheet">
     <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
-
+    <!--    notification library-->
+    <link rel="stylesheet" type="text/css" href="dashboard/css/jquery.notific8.min.css">
     <!-- Main style sheet -->
     <link href="dashboard/css/style.css" rel="stylesheet">
-
+    <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -37,7 +38,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery library -->
-    <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- wpf loader Two -->
@@ -105,8 +107,8 @@
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
                                 <li><a href="account.html">Tài khoản</a></li>
-                                <li class="hidden-xs"><a href="wishlist.html">Yêu thích</a></li>
-                                <li class="hidden-xs"><a href="cart.html">Giỏ hàng</a></li>
+                                <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
+                                <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
                                 <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
                                 <li><a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
                             </ul>
@@ -290,7 +292,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Phụ kiện</a></li>
-                        <li><a href="#">Liên hệ <span class="caret"></span></a>
+                        <li><a href="lien-he.html">Liên hệ <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Camera</a></li>
                                 <li><a href="#">Mobile</a></li>
@@ -309,36 +311,86 @@
 <div style="clear: both"></div>
 <!--CONTENT-->
 
-    <?= $viewContent ?>
+<?= $viewContent ?>
 
 <!--END CONTENT-->
 <div style="clear: both"></div>
-
-<!-- Client Brand -->
-<section id="aa-client-brand">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="aa-client-brand-area">
-                    <ul class="aa-client-brand-slider">
-                        <li><a href="#"><img src="img/client-brand-java.png" alt="java img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-jquery.png" alt="jquery img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-html5.png" alt="html5 img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-css3.png" alt="css3 img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-wordpress.png" alt="wordPress img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-joomla.png" alt="joomla img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-java.png" alt="java img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-jquery.png" alt="jquery img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-html5.png" alt="html5 img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-css3.png" alt="css3 img"></a></li>
-                        <li><a href="#"><img src="img/client-brand-wordpress.png" alt="wordPress img"></a></li>
-                    </ul>
+<!-- quick view modal -->
+<div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <div class="row">
+                    <!-- Modal view slider -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="aa-product-view-slider">
+                            <div class="simpleLens-gallery-container" id="demo-1">
+                                <div class="simpleLens-container">
+                                    <div class="simpleLens-big-image-container">
+                                        <a class="simpleLens-lens-image" id="m-img1"
+                                           data-lens-image="img/view-slider/large/polo-shirt-1.png">
+                                            <img id="m-img2"
+                                                 src="img/view-slider/medium/polo-shirt-1.png"
+                                                 class="simpleLens-big-image">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="simpleLens-thumbnails-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal view content -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="aa-product-view-content">
+                            <h3 id="m-title">Title</h3>
+                            <div class="aa-price-block">
+                                                            <span id="m-price"
+                                                                  class="aa-product-view-price">$34.99</span>
+                                <p class="aa-product-avilability">Trạng thái: <span
+                                        id="m-status">In stock</span>
+                                </p>
+                            </div>
+                            <p id="m-detail">Some detail here...</p>
+                            <h4>Màu</h4>
+                            <div class="aa-prod-view-size">
+                                <a href="#">Xanh</a>
+                                <a href="#">Đỏ</a>
+                                <a href="#">Tím</a>
+                                <a href="#">Vàng</a>
+                            </div>
+                            <div class="aa-prod-quantity">
+                                <form action="" id="order-quantity">
+                                    <select name="" id="select-quantity">
+                                        <option value="1" selected="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </form>
+                                <p class="aa-prod-category">
+                                    Hãng: <a id="m-company" href="#">Polo T-Shirt</a>
+                                </p>
+                            </div>
+                            <div class="aa-prod-view-bottom">
+                                <a href="javascript:;" data-product-id="" id="add-to-cart"
+                                   class="aa-add-to-cart-btn"><span
+                                        class="fa fa-shopping-cart"></span>Thêm vào giỏ</a>
+                                <a id="m-view" href="#" class="aa-add-to-cart-btn">Xem chi
+                                    tiết</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- / Client Brand -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- / quick view modal -->
+
 
 <!-- Subscribe section -->
 <section id="aa-subscribe">
@@ -492,6 +544,8 @@
 <script type="text/javascript" src="dashboard/js/slick.js"></script>
 <!-- Price picker slider -->
 <script type="text/javascript" src="dashboard/js/nouislider.js"></script>
+<!--notification 8-->
+<script type="text/javascript" src="dashboard/js/jquery.notific8.min.js"></script>
 <!-- Custom js -->
 <script src="dashboard/js/custom.js"></script>
 

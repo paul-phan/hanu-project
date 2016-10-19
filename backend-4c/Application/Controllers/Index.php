@@ -45,4 +45,9 @@ class Index extends MainController
         $this->setLayout('ajax');
     }
 
+    public function contactAction()
+    {
+        global $connection;
+    }
+
 }
