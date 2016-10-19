@@ -35,7 +35,6 @@ class Auth extends MainController
                 $role = $roleModel->findById($result->id_role);
                 $profileModel = new \Administration\Models\Profile($co);//lay pròile ra ntn
                 $profile = $profileModel->getByUserId($result->id);
-//                var_dump($profile);die;
                 if (!empty($role)) {
                     $_SESSION['User']['id'] = $result->id;// day ms dung la id cua ủe
                     $_SESSION['User']['username'] = $result->username;

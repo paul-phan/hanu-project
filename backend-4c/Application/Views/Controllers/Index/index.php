@@ -163,7 +163,8 @@
                                                         width="250px" height="300px"
                                                         src="<?= !empty($p->iurl) ? UPLOAD_DIR . $p->iurl : 'img/man/polo-shirt-2.png' ?>"
                                                         alt="<?= $p->ilabel ?>"></a>
-                                                <a class="aa-add-card-btn" href="#"><span
+                                                <a data-product-id="<?= $p->id ?>" id="add-to-cart-out"
+                                                   class="aa-add-card-btn" href="javascript:;"><span
                                                         class="fa fa-shopping-cart"></span>Thêm vào giỏ</a>
                                                 <figcaption>
                                                     <h4 class="aa-product-title"><a
@@ -201,7 +202,6 @@
                                 <!-- start women product category -->
                                 <div class="tab-pane fade" id="women">
                                     <ul class="aa-product-catg">
-
                                     </ul>
                                     <a class="aa-browse-btn" href="#">Browse all Product <span
                                             class="fa fa-long-arrow-right"></span></a>
@@ -210,14 +210,12 @@
                                 <!-- start sports product category -->
                                 <div class="tab-pane fade" id="sports">
                                     <ul class="aa-product-catg">
-
                                     </ul>
                                     <a class="aa-browse-btn" href="#">Browse all Product <span
                                             class="fa fa-long-arrow-right"></span></a>
                                 </div>
                                 <!-- / electronic product category -->
                             </div>
-
                         </div>
                     </div>
                 </div>

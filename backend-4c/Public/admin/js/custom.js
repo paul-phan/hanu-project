@@ -391,7 +391,7 @@ jQuery(function ($) {
                 } else {
                     $('#m-status').html('Hết hàng')
                 }
-                $('#add-to-cart').attr('data-product-id', data.data.id)
+                $('#add-to-cart-in').attr('data-product-id', data.data.id)
                 $('#m-detail').html(data.data.detail)
                 $('#m-view').attr("href", 'san-pham/' + data.data.params + '.html')
                 $('#m-company').html(data.data.cname)
@@ -413,13 +413,16 @@ jQuery(function ($) {
 
             },
             error: function () {
-                console.log('error from api')
+                $.notific8('Xảy ra lỗi khi tải dữ liệu sản phẩm.', {life: 5000, heading: 'From Minh:'});
             }
         });
     });
 
-    $('#add-to-cart').click(function (e) {
-        var quantity = $('form #select-quantity').val()
+    $('#add-to-cart-in, #add-to-cart-out').click(function (e) {
+        var quantity = 1
+        if (e.target.id == 'add-to-cart-in') {
+            quantity = $('form #select-quantity').val()
+        }
         var id = this.getAttribute('data-product-id')
         $.ajax({
             dataType: 'json',
@@ -432,10 +435,14 @@ jQuery(function ($) {
             url: 'restapi/order/add_order/',
             success: function (data) {
                 console.log(data)
-                $.notific8('Đang cập nhật nhé bạn ^^.', {life: 5000, heading: 'From Minh:'});
+                $.notific8('Đã thêm +' + quantity + ' sản phẩm vào giỏ hàng!', {
+                    life: 5000,
+                    heading: 'From Minh:'
+                });
             },
-            error: function () {
-                console.log('error when adding order')
+            error: function (er) {
+                console.log(er)
+                $.notific8('Xảy ra lỗi khi thêm sản phẩm vào giỏ.', {life: 5000, heading: 'From Minh:'});
             }
         })
 

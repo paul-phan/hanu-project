@@ -377,7 +377,7 @@
                                 </p>
                             </div>
                             <div class="aa-prod-view-bottom">
-                                <a href="javascript:;" data-product-id="" id="add-to-cart"
+                                <a href="javascript:;" data-product-id="" id="add-to-cart-in"
                                    class="aa-add-to-cart-btn"><span
                                         class="fa fa-shopping-cart"></span>Thêm vào giỏ</a>
                                 <a id="m-view" href="#" class="aa-add-to-cart-btn">Xem chi
