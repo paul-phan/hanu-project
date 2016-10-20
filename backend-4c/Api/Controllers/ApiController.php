@@ -23,6 +23,7 @@ abstract class ApiController extends MainController
         100003 => 'lack of params',
         110001 => 'Invalid data',
         110002 => 'Save data fail',
+        110003 => 'No data found!',
         120000 => 'Upload image error',
         130000 => 'abc',
         130001 => 'def',

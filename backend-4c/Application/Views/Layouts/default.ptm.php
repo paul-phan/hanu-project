@@ -110,7 +110,11 @@
                                 <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
                                 <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
                                 <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#login-modal">Đăng nhập</a></li>
+                                <li><?php if (!isset($_SESSION['User'])) { ?><a href="" data-toggle="modal"
+                                                                                data-target="#login-modal">Đăng
+                                        nhập</a> <?php } else {
+                                        ?>Xin chào: <?php echo $_SESSION['User']['username'].' <a href="auth/logout"> (Đăng xuất)</a>';
+                                    } ?></li>
                             </ul>
                         </div>
                     </div>
@@ -142,12 +146,10 @@
                             <a class="aa-cart-link" href="#">
                                 <span class="fa fa-shopping-basket"></span>
                                 <span class="aa-cart-title">GIỎ HÀNG</span>
-                                <span class="aa-cart-notify">2</span>
+                                <span class="aa-cart-notify">0</span>
                             </a>
                             <div class="aa-cartbox-summary">
                                 <ul id="cart-noti">
-
-
                                 </ul>
                                 <ul>
                                     <li>
@@ -161,12 +163,21 @@
                         <!-- / cart box -->
                         <!-- search box -->
                         <div class="aa-search-box">
-                            <form action="">
-                                <input type="text" name="" id="" placeholder="Tìm kiếm sản phẩm vd: 'iphone' ">
+                            <form id="search-form" action="">
+                                <input type="text" name="search" id="search-product"
+                                       placeholder="Tìm kiếm sản phẩm vd: 'iphone' ">
                                 <button type="submit"><span class="fa fa-search"></span></button>
                             </form>
                         </div>
+                        <div style="clear: both"></div>
+                        <div class="aa-search-box-result" id="search-box-result">
+                            <ul id="search-result-title">&nbsp;&nbsp;&nbsp;Kết quả tìm kiếm:</ul>
+                            <ul id="search-result">
+                                <li></li>
+                            </ul>
+                        </div>
                         <!-- / search box -->
+
                     </div>
                 </div>
             </div>
@@ -174,6 +185,9 @@
     </div>
     <!-- / header bottom  -->
 </header>
+<style rel="stylesheet">
+
+</style>
 <!-- / header section -->
 <!-- menu -->
 <section id="menu">
@@ -493,18 +507,19 @@
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Login or Register</h4>
-                <form class="aa-login-form" action="">
-                    <label for="">Username or Email address<span>*</span></label>
-                    <input type="text" placeholder="Username or email">
-                    <label for="">Password<span>*</span></label>
-                    <input type="password" placeholder="Password">
-                    <button class="aa-browse-btn" type="submit">Login</button>
-                    <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me
+                <h4>Đăng nhập hoặc đăng ký</h4>
+                <form method="post" class="aa-login-form" action="auth/login">
+                    <label for="">Tên tài khoản hoặc Email<span>*</span></label>
+                    <input name="login" type="text" placeholder="Tên tài khoản hoặc email">
+                    <label for="">Mật khẩu<span>*</span></label>
+                    <input name="password" type="password" placeholder="Mật khẩu">
+                    <button class="aa-browse-btn" type="submit">Đăng nhập</button>
+                    <label for="rememberme" class="rememberme"><input value="1" name="remember" type="checkbox"
+                                                                      id="rememberme"> Nhớ lần sau
                     </label>
-                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+                    <p class="aa-lost-password"><a href="#">Quên mật khẩu?</a></p>
                     <div class="aa-register-now">
-                        Don't have an account?<a href="account.html">Register now!</a>
+                        Không có tài khoản?<a href="auth/register">Đăng ký!</a>
                     </div>
                 </form>
             </div>

@@ -10,7 +10,7 @@
                     </div>
                     <div class="seq-title">
                         <span data-seq>Tiết kiệm tới 75% </span>
-                        <h2 data-seq>Điện thoại hàng hiệu</h2>
+                        <h2 data-seq>I need a Designer now!!</h2>
                         <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                     </div>

@@ -38,11 +38,9 @@ jQuery(function ($) {
         }
         , function () {
             jQuery(this).find(".aa-cartbox-summary").fadeOut(500);
-        },
-        function () {
-            return updateCart();
         }
     );
+
 
     /* ----------------------------------------------------------- */
     /*  2. TOOLTIP
@@ -427,7 +425,6 @@ jQuery(function ($) {
             quantity = $('form #select-quantity').val()
         }
         var id = this.getAttribute('data-product-id')
-        console.log(id)
         $.ajax({
             dataType: 'json',
             cache: false,
@@ -460,22 +457,65 @@ jQuery(function ($) {
             success: function (data) {
                 var money = 0;
                 $('#cart-noti').empty()
+                q = 0;
                 $.each(data.data, function (i, e) {
+                    q++;
                     $('#cart-noti').append('<li> <a class="aa-cartbox-img" href="gio-hang.html"><img src="Public/upload/' + e.url + '" alt="' + e.label + '"></a><div class="aa-cartbox-info"> <h4><a href="san-pham/' + e.params + '.html">' + e.title + '</a></h4> <p>' + e.order_count + ' x ' + viNumFormat(e.real_price) + '.000 VNĐ</p> </div> <a class="aa-remove-product" data-product-id="' + e.id + '" href="javascript:;"><span class="fa fa-times"></span></a> </li>')
                     money += (e.order_count * e.real_price);
                 })
                 $('.aa-cartbox-total-price').html(viNumFormat(money) + '.000 VNĐ')
+                $('.aa-cart-notify').html(q);
             },
         })
     }
 
     updateCart();
 
+    //SEARCHING PRODUCT
+    jQuery("#search-product").keyup(function () {
+            var keyword = $(this).val()
+            if (keyword.length > 1) {
+                $.ajax({
+                    type: "GET",
+                    url: "restapi/product/search?product=" + keyword,
+                    beforeSend: function () {
+                        $('input#search-product').addClass('loading');
+                    },
+                    success: function (data) {
+                        $(".aa-search-box-result").fadeIn(500);
+                        $('body').click(function (e) {
+                            $(".aa-search-box-result").fadeOut(500);
+                        })
+                        $('.aa-search-box-result, .aa-search-box').click(function (event) {
+                            $(".aa-search-box-result").fadeIn(500);
+                            event.stopPropagation();
+                        });
+                        console.log(data.data)
+                        $('#search-result').empty()
+                        $.each(data.data, function (i, e) {
+                            if (e.url == null) {
+                                e.url = 'updatelater.jpg'
+                            }
+                            $('#search-result').append('<li style="clear: both; display: block"><a  href="san-pham/' + e.params + '.html"> <span style="float: left"><img width="50px" src="Public/upload/' + e.url + '" alt="' + e.label + '"></span> <span> <h4>' + e.title + '</h4> <p>' + viNumFormat(e.price) + '.000 VNĐ</p> </span></a> </li> ')
+                        })
+                        if (Object.keys(data.data).length == 0) {
+                            $('#search-result-title').html(' Không tìm thấy kết quả nào với từ khóa: ' + keyword)
+                        } else {
+                            $('#search-result-title').html(' Kết quả tìm kiếm với từ khóa: ' + keyword);
+                        }
+                    }
+                })
+            }
+        }
+    );
+
 
     //This function is for formating Vietnamese currency
     function viNumFormat(n) {
+        n = parseInt(n)
         return n.toLocaleString('vi-VN', {minimumFractionDigits: 0})
     }
+
 
 });
 
