@@ -163,7 +163,7 @@
                                                         width="250px" height="300px"
                                                         src="<?= !empty($p->iurl) ? UPLOAD_DIR . $p->iurl : 'img/man/polo-shirt-2.png' ?>"
                                                         alt="<?= $p->ilabel ?>"></a>
-                                                <a data-product-id="<?= $p->id ?>" id="add-to-cart-out"
+                                                <a data-product-id="<?= $p->id ?>"
                                                    class="aa-add-card-btn" href="javascript:;"><span
                                                         class="fa fa-shopping-cart"></span>Thêm vào giỏ</a>
                                                 <figcaption>

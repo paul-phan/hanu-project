@@ -28,13 +28,13 @@ class Order extends MainController
                 $product = $productModel->findById($_POST['product_id']);
                 if (!empty($product) && isset($product)) {
                     if (isset($cart[$pro]['id'])) {
-                        foreach ($cart as $k => $v) : // if this product already exists in card then just count++
+                        foreach ($cart as $k => $v) { // if this product already exists in cart then just count++
                             if ($v['id'] == $_POST['product_id']) {
-                                $cart[$pro]['count'] = !empty($_POST['count']) ? ($cart[$pro]['count'] + $_POST['count']) : '';
+                                $cart[$k]['count'] = !empty($_POST['count']) ? ($cart[$k]['count'] + $_POST['count']) : '';
                                 $idExists = true;
                                 break;
                             }
-                        endforeach;
+                        }
                         if (!$idExists) { //if new product add to cart
                             $cart[$pro + 1]['id'] = $_POST['product_id'];
                             $cart[$pro + 1]['count'] = $_POST['count'];
@@ -62,6 +62,28 @@ class Order extends MainController
             $this->responseApi(0, 'Your cart is empty now!', $_COOKIE);
         } else {
             $this->responseApi(12323);
+        }
+    }
+
+    public function retrieveAction()
+    {
+        $data = [];
+        $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : null;
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        if (!empty($cart)) {
+            foreach ($cart as $k => $item) {
+                $product = $productModel->fetchByClause("left join image on image.product_id = product.id and image.base_image = 1 where product.id = $item->id order by created desc", 'product.*, image.url, image.label ');
+                $product = $product[0];
+                $product->order_count = $item->count;
+                $product->real_price = !empty($product->sale) ? $product->sale : $product->price;
+                $product->url = !empty($product->url) ? $product->url : 'updatelater.jpg';
+                $data[$k] = $product;
+            }
+            $this->responseApi(0, 'retrieve ok', $data);
+        } else {
+            $this->responseApi(130002);
         }
     }
 

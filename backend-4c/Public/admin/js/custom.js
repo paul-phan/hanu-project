@@ -38,6 +38,9 @@ jQuery(function ($) {
         }
         , function () {
             jQuery(this).find(".aa-cartbox-summary").fadeOut(500);
+        },
+        function () {
+            return updateCart();
         }
     );
 
@@ -382,9 +385,9 @@ jQuery(function ($) {
             success: function (data) {
                 $('#m-title').html(data.data.title);
                 if (data.data.sale > 0 && data.data.sale != null) {
-                    $('#m-price').html(data.data.sale + '.000 VNĐ')
+                    $('#m-price').html(viNumFormat(data.data.sale) + '.000 VNĐ')
                 } else {
-                    $('#m-price').html(data.data.price + '.000 VNĐ')
+                    $('#m-price').html(viNumFormat(data.data.price) + '.000 VNĐ')
                 }
                 if (data.data.count > 0) {
                     $('#m-status').html('<span style="color: green">Còn hàng</span>')
@@ -418,12 +421,13 @@ jQuery(function ($) {
         });
     });
 
-    $('#add-to-cart-in, #add-to-cart-out').click(function (e) {
+    $('#add-to-cart-in, .aa-add-card-btn').click(function (e) {
         var quantity = 1
         if (e.target.id == 'add-to-cart-in') {
             quantity = $('form #select-quantity').val()
         }
         var id = this.getAttribute('data-product-id')
+        console.log(id)
         $.ajax({
             dataType: 'json',
             cache: false,
@@ -434,7 +438,7 @@ jQuery(function ($) {
             },
             url: 'restapi/order/add_order/',
             success: function (data) {
-                console.log(data)
+                updateCart();
                 $.notific8('Đã thêm +' + quantity + ' sản phẩm vào giỏ hàng!', {
                     life: 5000,
                     heading: 'From Minh:'
@@ -445,8 +449,33 @@ jQuery(function ($) {
                 $.notific8('Xảy ra lỗi khi thêm sản phẩm vào giỏ.', {life: 5000, heading: 'From Minh:'});
             }
         })
-
     })
+
+    function updateCart() {
+        $.ajax({
+            dataType: 'json',
+            cache: false,
+            type: 'GET',
+            url: 'restapi/order/retrieve/',
+            success: function (data) {
+                var money = 0;
+                $('#cart-noti').empty()
+                $.each(data.data, function (i, e) {
+                    $('#cart-noti').append('<li> <a class="aa-cartbox-img" href="gio-hang.html"><img src="Public/upload/' + e.url + '" alt="' + e.label + '"></a><div class="aa-cartbox-info"> <h4><a href="san-pham/' + e.params + '.html">' + e.title + '</a></h4> <p>' + e.order_count + ' x ' + viNumFormat(e.real_price) + '.000 VNĐ</p> </div> <a class="aa-remove-product" data-product-id="' + e.id + '" href="javascript:;"><span class="fa fa-times"></span></a> </li>')
+                    money += (e.order_count * e.real_price);
+                })
+                $('.aa-cartbox-total-price').html(viNumFormat(money) + '.000 VNĐ')
+            },
+        })
+    }
+
+    updateCart();
+
+
+    //This function is for formating Vietnamese currency
+    function viNumFormat(n) {
+        return n.toLocaleString('vi-VN', {minimumFractionDigits: 0})
+    }
 
 });
 
