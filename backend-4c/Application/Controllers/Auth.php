@@ -73,4 +73,62 @@ class Auth extends MainController
         header("location:/");
     }
 
+    public function registerAction()
+    {
+        global $connection;
+        $co = $connection->getCo();
+        if (!empty($_SESSION['User'])) {
+            echo 'Bạn đang trong trạng thái đăng nhập!';
+            header("Refresh:2; url=/", true, 303);
+        }
+        if ($this->retrieveLogin()) {
+            echo 'Bạn đang trong trạng thái đăng nhập!';
+            header("Refresh:2; url=/", true, 303);
+        } else {
+            if ($_POST) {
+                $_POST['id_role'] = 4;
+                $modelUser = new \Administration\Models\User($co);
+                $modelProfile = new \Administration\Models\Profile($co);
+                $usernameResult = $modelUser->getUserByUsername($_POST['username']);
+                $emailResult = $modelProfile->getUserByMail($_POST['email']);
+                if (!empty($usernameResult)) {
+                    $alert = Tools\Alert::render("Tài khoản này đã được sử dụng, vui lòng chọn tài khoản khác!.", "danger");
+                    unset($_POST['username']);
+                } elseif (!empty($emailResult)) {
+                    $alert = Tools\Alert::render("Email này đã được sử dụng, vui lòng chọn email khác", "danger");
+                    unset($_POST['email']);
+                } else {
+                    if ($modelUser->insertUser($_POST)) {
+                        $image = $_FILES['image'];
+                        $upload = new \Library\Tools\Upload();
+                        $name = $upload->copy(array(
+                            'file' => $image,
+                            'path' => 'avatar/', //name your optional folder if needed
+                            'name' => time() . '-' . $_POST['username'] // name your file name if needed
+                        ));
+                        $_POST['avatar'] = isset($name) ? $name : 'updatelater.jpg';
+                        if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
+                            $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
+                            header("Refresh:3; url=/admin/user/list", true, 303);
+                        } elseif ($upload->getErrors()) {
+                            $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
+                        } else {
+                            $alert = $alert = Tools\Alert::render('Người dùng mới đã được tao, tuy nhiên hãy kiểm tra lại profile của bạn!', 'warning');
+                        }
+                    } else {
+                        $alert = Tools\Alert::render('Không thành công! Vui lòng kiểm tra lại thông tin đã nhập!', 'danger');
+                    }
+                }
+                $form = $_POST;
+            }
+        }
+        //Truyền các biến vào view
+        $this->addDataView(array(
+            'viewTitle' => 'AT - Moblie',
+            'viewSiteName' => 'Đăng ký thành viên',
+            'alert' => (!empty($alert)) ? $alert : '',
+            'form' => (!empty($form) ? $form : '')
+        ));
+    }
+
 }

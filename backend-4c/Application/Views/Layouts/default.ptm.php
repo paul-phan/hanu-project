@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> <?= $viewTitle ?> | <?= $viewSiteName ?></title>
     <base href="<?php echo HOST_ROOT; ?>"/>
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="dashboard/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="dashboard/css/plugins-md.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME GLOBAL STYLES -->
     <!-- Font awesome -->
     <link href="dashboard/css/font-awesome.min.css" rel="stylesheet">
     <!-- Bootstrap -->
@@ -38,8 +42,14 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery library -->
-    <script src="http://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="dashboard/js/bootstrap.min.js"></script>
+    <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
 </head>
 <body>
 <!-- wpf loader Two -->
@@ -306,7 +316,7 @@
 <!-- / menu -->
 <div style="clear: both"></div>
 <!--CONTENT-->
-
+<?= $alert ?>
 <?= $viewContent ?>
 
 <!--END CONTENT-->
@@ -529,7 +539,6 @@
 
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="dashboard/js/bootstrap.min.js"></script>
 <!-- SmartMenus jQuery plugin -->
 <script type="text/javascript" src="dashboard/js/jquery.smartmenus.js"></script>
 <!-- SmartMenus jQuery Bootstrap Addon -->
@@ -543,6 +552,8 @@
 <script type="text/javascript" src="dashboard/js/nouislider.js"></script>
 <!--notification 8-->
 <script type="text/javascript" src="dashboard/js/jquery.notific8.min.js"></script>
+
+
 <!-- Custom js -->
 <script src="dashboard/js/custom.js"></script>
 
