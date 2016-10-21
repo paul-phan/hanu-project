@@ -154,13 +154,14 @@
                                     fugiat, minima quaerat necessitatibus? Optio adipisci ab, obcaecati, porro unde
                                     accusantium facilis repudiandae.</p>
                             </div>
+                            <div class="col-md-12"><hr ></div>
+                            <div class="fb-comments" data-href="http://www.hanu4c13.html-5.me/" data-numposts="5"></div>
                             <div
                                 class="fb-like"
                                 data-share="true"
                                 data-width="450"
                                 data-show-faces="true">
                             </div>
-                            <div class="fb-comments" data-href="http://www.hanu4c13.html-5.me/" data-numposts="5"></div>
                             <div class="tab-pane fade " id="review">
                                 <div class="aa-product-review-area">
                                     <h4>2 Reviews for T-Shirt</h4>
