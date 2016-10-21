@@ -10,7 +10,7 @@
                     </div>
                     <div class="seq-title">
                         <span data-seq>Tiết kiệm tới 75% </span>
-                        <h2 data-seq>I need a Designer now!!</h2>
+                        <h2 data-seq>Hello world!!!</h2>
                         <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                     </div>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 40% Off</span>
-                        <h2 data-seq>Wristwatch Collection</h2>
+                        <h2 data-seq>Welcome to MinhSoftware</h2>
                         <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                     </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 75% Off</span>
-                        <h2 data-seq>Jeans Collection</h2>
+                        <h2 data-seq>Hello world!!!</h2>
                         <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                     </div>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 75% Off</span>
-                        <h2 data-seq>Exclusive Shoes</h2>
+                        <h2 data-seq>Full-stack developer!</h2>
                         <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                     </div>

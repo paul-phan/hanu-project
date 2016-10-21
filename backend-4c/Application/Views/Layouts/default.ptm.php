@@ -42,8 +42,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery library -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+            <script src="dashboard/js/jquery.min.js"></script>
     <script src="dashboard/js/bootstrap.min.js"></script>
     <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
     <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
