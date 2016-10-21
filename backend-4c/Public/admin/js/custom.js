@@ -516,6 +516,50 @@ jQuery(function ($) {
         return n.toLocaleString('vi-VN', {minimumFractionDigits: 0})
     }
 
+    $('#switcher').attr('href', Cookies.get('theme'))
+    //Theme swicher
+    $('#switcher-bridge-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/bridge-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/bridge-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-dark-red-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/dark-red-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/dark-red-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-default-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/default-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/default-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-green-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/green-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/green-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-lite-blue-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/lite-blue-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/lite-blue-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-orange-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/orange-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/orange-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-pink-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/pink-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/pink-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-purple-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/purple-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/purple-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-red-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/red-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/red-theme.css', { path: '/', expires: 365 });
+    })
+    $('#switcher-yellow-theme').click(function () {
+        $('#switcher').attr('href','dashboard/css/theme-color/yellow-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/yellow-theme.css', { path: '/', expires: 365 });
+    })
+
+
 
 });
 

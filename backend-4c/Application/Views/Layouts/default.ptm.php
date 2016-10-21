@@ -23,7 +23,7 @@
     <!-- price picker slider -->
     <link rel="stylesheet" type="text/css" href="dashboard/css/nouislider.css">
     <!-- Theme color -->
-    <link id="switcher" href="dashboard/css/theme-color/green-theme.css" rel="stylesheet">
+    <link id="switcher" href="dashboard/css/theme-color/default-theme.css" rel="stylesheet">
     <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!--    notification library-->
     <link rel="stylesheet" type="text/css" href="dashboard/css/jquery.notific8.min.css">
@@ -42,7 +42,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery library -->
-    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="dashboard/js/bootstrap.min.js"></script>
     <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
     <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -116,6 +117,7 @@
                         <!-- / header top left -->
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
+                                <li><a href="bai-viet.html">Bài viết</a></li>
                                 <li><a href="account.html">Tài khoản</a></li>
                                 <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
                                 <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
@@ -123,8 +125,30 @@
                                 <li><?php if (!isset($_SESSION['User'])) { ?><a href="" data-toggle="modal"
                                                                                 data-target="#login-modal">Đăng
                                         nhập</a> <?php } else {
-                                        ?>Xin chào: <?php echo $_SESSION['User']['username'].' <a href="auth/logout"> (Đăng xuất)</a>';
+                                        ?>Xin chào: <?php echo $_SESSION['User']['username'] . ' <a href="auth/logout"> (Đăng xuất)</a>';
                                     } ?></li>
+                                <li>
+                                    <div class="dropdown" id="theme-swicher">
+                                        <a class="btn dropdown-toggle" href="#" type="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Màu
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="#" id="switcher-bridge-theme" style="background-color: #a5d549;"></a></li>
+                                            <li><a href="#" id="switcher-dark-red-theme" style="background-color: #970001;"></a></li>
+                                            <li><a href="#" id="switcher-default-theme" style="background-color: #ff6666;"></a></li>
+                                            <li><a href="#" id="switcher-green-theme" style="background-color: #3fc35f;"></a></li>
+                                            <li><a href="#" id="switcher-lite-blue-theme" style="background-color: #37c6f5;"></a></li>
+                                            <br/>
+                                            <li><a href="#" id="switcher-orange-theme" style="background-color: #ff871c;"></a></li>
+                                            <li><a href="#" id="switcher-pink-theme" style="background-color: #ff2851;"></a></li>
+                                            <li><a href="#" id="switcher-purple-theme" style="background-color: #c762cb;"></a></li>
+                                            <li><a href="#" id="switcher-red-theme" style="background-color: #ee4532;"></a></li>
+                                            <li><a href="#" id="switcher-yellow-theme" style="background-color: #ffff00;"></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

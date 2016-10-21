@@ -75,6 +75,7 @@
                                         <a href="#" class="aa-color-pink"></a>
                                         <a href="#" class="aa-color-black"></a>
                                         <a href="#" class="aa-color-white"></a>
+                                        <a class="aa-color-olive"></a>
                                     </div>
                                     <div class="aa-prod-quantity">
                                         <form action="">
