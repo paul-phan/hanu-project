@@ -1,3 +1,4 @@
+<body>
 <div class="portlet light portlet-fit bordered">
     <div class="portlet-title">
         <div class="caption">
