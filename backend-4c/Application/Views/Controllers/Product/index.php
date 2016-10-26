@@ -1,17 +1,20 @@
 <body>
 <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
         FB.init({
-            appId      : '340915906262846',
-            xfbml      : true,
-            version    : 'v2.8'
+            appId: '340915906262846',
+            xfbml: true,
+            version: 'v2.8'
         });
     };
 
-    (function(d, s, id){
+    (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
@@ -155,15 +158,19 @@
                                     fugiat, minima quaerat necessitatibus? Optio adipisci ab, obcaecati, porro unde
                                     accusantium facilis repudiandae.</p>
                             </div>
-                            <div class="col-md-12"><hr ></div>
-                            <div class="fb-comments" data-href="http://www.hanu4c13.html-5.me/" data-numposts="5"></div>
-                            <div
-                                class="fb-like"
-                                data-share="true"
-                                data-width="450"
-                                data-show-faces="true">
+
+                            <div class="col-md-12">
+                                <hr>
                             </div>
                             <div class="tab-pane fade " id="review">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <!--                            FACEBOOK COMMENT-->
+                                    <div class="fb-comments"
+                                         data-href="http://<?= $_SERVER['HTTP_HOST'] . strtok($_SERVER["REQUEST_URI"], '?') ?>"
+                                         data-numposts="5"></div>
+                                    <div class="fb-like" data-share="true" data-width="999"
+                                         data-show-faces="true"></div>
+                                </div>
                                 <div class="aa-product-review-area">
                                     <h4>2 Reviews for T-Shirt</h4>
                                     <ul class="aa-review-nav">
@@ -222,21 +229,26 @@
                                         <a href="#"><span class="fa fa-star-o"></span></a>
                                     </div>
                                     <!-- review form -->
-                                    <form action="" class="aa-review-form">
+
+                                    <form action="../../../Controllers/Feedback.php" method="post" class="aa-review-form">
+
                                         <div class="form-group">
-                                            <label for="message">Your Review</label>
-                                            <textarea class="form-control" rows="3" id="message"></textarea>
+                                            <label for="title">Tiêu đề</label>
+                                            <input class="form-control" name="title" rows="3" id="title" />
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="content">Your Review</label>
+                                            <textarea class="form-control" rows="3" name="content" id="content"></textarea>
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Name">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email"
-                                                   placeholder="example@gmail.com">
-                                        </div>
-
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="example@gmail.com"></div>
                                         <button type="submit" class="btn btn-default aa-review-submit">Submit</button>
                                     </form>
                                 </div>

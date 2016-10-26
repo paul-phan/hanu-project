@@ -122,6 +122,10 @@ interface EventModel
 
 }
 
+interface FeedbackModel{
+    public function insertFeedback($post);
+}
+
 abstract class Model
 {
     private $db;

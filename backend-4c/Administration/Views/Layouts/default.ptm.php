@@ -57,8 +57,15 @@
     <div class="page-header-inner ">
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="/admin"><h3>AT - Mobile</h3>
-            </a>
+
+                <!-- Text based logo -->
+                <a href="index.html" style="font-size: x-large">
+                    <span class="fa fa-mobile"></span>
+                   <span > AT<strong>Mobile</strong></span>
+                </a>
+                <!-- img based logo -->
+                <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+
             <div class="menu-toggler sidebar-toggler"></div>
         </div>
         <!-- END LOGO -->

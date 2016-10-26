@@ -169,8 +169,8 @@
                         <div class="aa-logo">
                             <!-- Text based logo -->
                             <a href="index.html">
-                                <span class="fa fa-shopping-cart"></span>
-                                <p>AT<strong>Mobile</strong> <span>Your Shopping Partner</span></p>
+                                <span class="fa fa-mobile"></span>
+                                <p>SV<strong>Mobile</strong> <span>Your Shopping Partner</span></p>
                             </a>
                             <!-- img based logo -->
                             <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
