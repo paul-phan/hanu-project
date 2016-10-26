@@ -1,189 +1,586 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $viewTitle . ' | ' . $viewSiteName ?></title>
-    <base href="<?php echo HOST_ROOT; ?>"/>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="Anh Tiến Mobile" name="description"/>
-    <meta content="Phan Thế Minh" name="author"/>
-    <!-- BEGIN Styles -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-          type="text/css"/>
-    <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
-    <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> <?= $viewTitle ?> | <?= $viewSiteName ?></title>
+    <base href="<?php echo HOST_ROOT; ?>"/>
+    <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="dashboard/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
     <link href="dashboard/css/plugins-md.min.css" rel="stylesheet" type="text/css"/>
-    <link href="dashboard/css/style.css" rel="stylesheet" type="text/css"/>
-    <!-- END Styles -->
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- Font awesome -->
+    <link href="dashboard/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="dashboard/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href="dashboard/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href="dashboard/css/jquery.simpleLens.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="dashboard/css/slick.css">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href="dashboard/css/nouislider.css">
+    <!-- Theme color -->
+    <link id="switcher" href="dashboard/css/theme-color/default-theme.css" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
+    <!--    notification library-->
+    <link rel="stylesheet" type="text/css" href="dashboard/css/jquery.notific8.min.css">
+    <!-- Main style sheet -->
+    <link href="dashboard/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery library -->
+    <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+            <script src="dashboard/js/jquery.min.js"></script>
+    <script src="dashboard/js/bootstrap.min.js"></script>
+    <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="container">
-    <div id="header">
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#"> <img src="front/img/logo.png" alt="logo"> </a>
-            </div>
-            <div class="col-md-4">
-                <img src="front/img/icon_call.png">
-                <p class="inline">Call Us: +84 123456789</p>
-            </div>
-            <div class="col-md-3" style="word-spacing:5px;padding-top:10px;">
-                <img src="front/img/lock.png">
-                <a href="" class="inline">LOGIN</a>
-                <img src="front/img/divider.png">
-                <img src="front/img/user.png">
-                <a href="" class="inline">REGISTER</a>
-            </div>
-            <div class="col-md-1">
-                <div class="pull-right">
-                    <a href="#"><img src="front/img/shoppingcart.png"></a>
+<!-- wpf loader Two -->
+<div id="wpf-loader-two">
+    <div class="wpf-loader-two-inner">
+        <span>Đang tải...</span>
+    </div>
+</div>
+<!-- / wpf loader Two -->
+<!-- SCROLL TOP BUTTON -->
+<a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+<!-- END SCROLL TOP BUTTON -->
+
+
+<!-- Start header section -->
+<header id="aa-header">
+    <!-- start header top  -->
+    <div class="aa-header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-top-area">
+                        <!-- start header top left -->
+                        <div class="aa-header-top-left">
+                            <!-- start language -->
+                            <div class="aa-language">
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <img src="dashboard/img/flags/vn.png" alt="english flag">VIETNAM
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#"><img src="dashboard/img/flags/england.png" alt="">ENGLISH</a>
+                                        </li>
+                                        <li><a href="#"><img src="dashboard/img/flags/vn.png" alt="">VIETNAM</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- / language -->
+
+                            <!-- start currency -->
+                            <div class="aa-currency">
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        ~VNĐ~
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="#"><i class="fa fa-usd"></i>USD</a></li>
+                                        <li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>
+                                        <li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- / currency -->
+                            <!-- start cellphone -->
+                            <div class="cellphone hidden-xs">
+                                <p><span class="fa fa-phone"></span>+84-914-499-925</p>
+                            </div>
+                            <!-- / cellphone -->
+                        </div>
+                        <!-- / header top left -->
+                        <div class="aa-header-top-right">
+                            <ul class="aa-head-top-nav-right">
+                                <li><a href="bai-viet.html">Bài viết</a></li>
+                                <li><a href="account.html">Tài khoản</a></li>
+                                <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
+                                <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
+                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                                <li><?php if (!isset($_SESSION['User'])) { ?><a href="" data-toggle="modal"
+                                                                                data-target="#login-modal">Đăng
+                                        nhập</a> <?php } else {
+                                        ?>Xin chào: <?php echo $_SESSION['User']['username'] . ' <a href="auth/logout"> (Đăng xuất)</a>';
+                                    } ?></li>
+                                <li>
+                                    <div class="dropdown" id="theme-swicher">
+                                        <a class="btn dropdown-toggle" href="#" type="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Màu
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                            <li><a href="#" id="switcher-bridge-theme" style="background-color: #a5d549;"></a></li>
+                                            <li><a href="#" id="switcher-dark-red-theme" style="background-color: #970001;"></a></li>
+                                            <li><a href="#" id="switcher-default-theme" style="background-color: #ff6666;"></a></li>
+                                            <li><a href="#" id="switcher-green-theme" style="background-color: #3fc35f;"></a></li>
+                                            <li><a href="#" id="switcher-lite-blue-theme" style="background-color: #37c6f5;"></a></li>
+                                            <br/>
+                                            <li><a href="#" id="switcher-orange-theme" style="background-color: #ff871c;"></a></li>
+                                            <li><a href="#" id="switcher-pink-theme" style="background-color: #ff2851;"></a></li>
+                                            <li><a href="#" id="switcher-purple-theme" style="background-color: #c762cb;"></a></li>
+                                            <li><a href="#" id="switcher-red-theme" style="background-color: #ee4532;"></a></li>
+                                            <li><a href="#" id="switcher-yellow-theme" style="background-color: #ffff00;"></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="navbar">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li><a href="#"><img src="front/img/home.png"></a></li>
-                    <li><a href="">Service</a></li>
-                    <li><a href="">Service</a></li>
-                    <li><a href="">Service</a></li>
-                    <li><a href="">Service</a></li>
-                    <li><a href="">Service</a></li>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default"><img src="front/img/search.png"></button>
-                </form>
-            </div>
-        </nav>
-    </div>
+    <!-- / header top  -->
 
-    <div id="sidebar">
-        <div class="col-md-3">
-            <div class="panel">
-                <div class="panel-heading" style="font-size: 15pt;text-align: center;">Best Selling</div>
-                <ul class="panel-body">
-                    <li>
-                        <a href=""><img src="front/img/ip1.png" style="width: 80px;height: 70px;float:left;">Apple
-                            Iphone
-                            10</a>
-                        <p style="color:red;">$999 <a href=""><img src="front/img/icon_shopingcart.png"
-                                                                   style="float:right;"></a>
-                        </p>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href=""><img src="front/img/ip1.png" style="width: 80px;height: 70px;float:left;">Apple
-                            Iphone
-                            10</a>
-                        <p style="color:red;">$999 <a href=""> <img src="front/img/icon_shopingcart.png"
-                                                                    style="float:right;"></a>
-                        </p>
-                    </li>
-                    <li class="divider"></li>
-                    <p style="float:right;"><a href="">View More >></a></p>
-                </ul>
-            </div>
-            <div class="panel">
-                <div class="panel-heading" style="font-size: 15pt;text-align: center;">Category</div>
-                <ul class="panel-body">
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>Apple</a></li>
-                    <li class="divider"></li>
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>Samsung</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>HTC</a></li>
-                    <li class="divider"></li>
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>Sony</a></li>
-                    <li class="divider"></li>
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>Nokia</a></li>
-                    <li class="divider"></li>
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>Xiaomi</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href=""><img src="front/img/icon_redcircle.png"><span class="tab-space"></span>China,lol</a>
-                    </li>
-                    <li style="border:0"> &nbsp;</li>
-                </ul>
-            </div>
-            <div class="well well-small alert alert-warning cntr">
-                <h2>50% Discount</h2>
-                <p>Every promotion event is here! </p>
-                <p>...............................</p>
-                <p style="float:right;"><a href="#">View More >> </a></p>
-                <br>
-            </div>
-        </div>
-    </div>
-    <?php echo $alert ?>
-    <!--BEGIN CONTENT-->
-    <?php echo $viewContent; ?>
-    <!--END CONTENT-->
-    <div style="clear:both;"></div>
-    <footer class="footer">
-        <div class="row">
-            <div class="col-md-2">
-                <h4>Your Account</h4>
-                <a href="#">YOUR ACCOUNT</a><br>
-                <a href="#">PERSONAL INFORMATION</a><br>
-                <a href="#">ADDRESSES</a><br>
-                <a href="#">DISCOUNT</a><br>
-                <a href="#">ORDER HISTORY</a><br>
-            </div>
-            <div class="col-md-2">
-                <h4>Information</h4>
-                <a href="contact.html">CONTACT</a><br>
-                <a href="#">SITEMAP</a><br>
-                <a href="#">LEGAL NOTICE</a><br>
-                <a href="#">TERMS AND CONDITIONS</a><br>
-                <a href="#">ABOUT US</a><br>
-            </div>
-            <div class="col-md-2">
-                <h4>Our Offer</h4>
-                <a href="#">NEW PRODUCTS</a> <br>
-                <a href="#">TOP SELLERS</a><br>
-                <a href="#">SPECIALS</a><br>
-                <a href="#">MANUFACTURERS</a><br>
-                <a href="#">SUPPLIERS</a> <br/>
-            </div>
-            <div class="col-md-6">
-                <form class="mail">
-                    <div class="form-group">
-                        <h4>SIGN UP FOR NEWSLETTER: </h4><textarea class="form-control" rows="3"></textarea>
-                    </div>
-                    <button type="submit" style="float:right;"><img src="front/img/button_mail.png"></button>
-                </form>
-            </div>
-        </div>
-    </footer>
-    <div class="copyright">
+    <!-- start header bottom  -->
+    <div class="aa-header-bottom">
         <div class="container">
-            <p class="pull-right">
-                <a href="#"><img src="front/img/facebook.png"></a>
-                <a href="#"><img src="front/img/tweeter.png"></a>
-                <a href="#"><img src="front/img/flick.png"></a>
-            </p>
-            <span>Copyright &copy; 2016<br>4c-13 Company: KM 9 Nguyen Trai Sreet</span>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-bottom-area">
+                        <!-- logo  -->
+                        <div class="aa-logo">
+                            <!-- Text based logo -->
+                            <a href="index.html">
+                                <span class="fa fa-shopping-cart"></span>
+                                <p>AT<strong>Mobile</strong> <span>Your Shopping Partner</span></p>
+                            </a>
+                            <!-- img based logo -->
+                            <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+                        </div>
+                        <!-- / logo  -->
+                        <!-- cart box -->
+                        <div class="aa-cartbox">
+                            <a class="aa-cart-link" href="#">
+                                <span class="fa fa-shopping-basket"></span>
+                                <span class="aa-cart-title">GIỎ HÀNG</span>
+                                <span class="aa-cart-notify">0</span>
+                            </a>
+                            <div class="aa-cartbox-summary">
+                                <ul id="cart-noti">
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <span class="aa-cartbox-total-title">Tổng</span>
+                                        <span class="aa-cartbox-total-price">0 VNĐ</span>
+                                    </li>
+                                </ul>
+                                <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                            </div>
+                        </div>
+                        <!-- / cart box -->
+                        <!-- search box -->
+                        <div class="aa-search-box">
+                            <form id="search-form" action="">
+                                <input type="text" name="search" id="search-product"
+                                       placeholder="Tìm kiếm sản phẩm vd: 'iphone' ">
+                                <button type="submit"><span class="fa fa-search"></span></button>
+                            </form>
+                        </div>
+                        <div style="clear: both"></div>
+                        <div class="aa-search-box-result" id="search-box-result">
+                            <ul id="search-result-title">&nbsp;&nbsp;&nbsp;Kết quả tìm kiếm:</ul>
+                            <ul id="search-result">
+                                <li></li>
+                            </ul>
+                        </div>
+                        <!-- / search box -->
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+    <!-- / header bottom  -->
+</header>
+<style rel="stylesheet">
+
+</style>
+<!-- / header section -->
+<!-- menu -->
+<section id="menu">
+    <div class="container">
+        <div class="menu-area">
+            <!-- Navbar -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!-- Left nav -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="#">Apple <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Iphone 6</a></li>
+                                <li><a href="#">Thêm.. <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Iphone 6</a></li>
+                                        <li><a href="#">Iphone 6</a></li>
+                                        <li><a href="#">Iphone 6</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">SAMSUNG <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Galaxy Note 7</a></li>
+                                <li><a href="#">Thêm.. <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Galaxy Note 7</a></li>
+                                        <li><a href="#">Galaxy Note 7</a></li>
+                                        <li><a href="#">Galaxy Note 7</a></li>
+                                        <li><a href="#">Thêm.. <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                                <li><a href="#">Galaxy Note 7</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Xiaomi <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Redmi Note 3 Pro</a></li>
+                                <li><a href="#">Thêm.. <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Redmi Note 3 Pro</a></li>
+                                        <li><a href="#">Redmi Note 3 Pro</a></li>
+                                        <li><a href="#">Redmi Note 3 Pro</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Phụ kiện</a></li>
+                        <li><a href="lien-he.html">Liên hệ <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Camera</a></li>
+                                <li><a href="#">Mobile</a></li>
+                                <li><a href="#">Tablet</a></li>
+                                <li><a href="#">Laptop</a></li>
+                                <li><a href="#">Accesories</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / menu -->
+<div style="clear: both"></div>
+<!--CONTENT-->
+<?= $alert ?>
+<?= $viewContent ?>
+
+<!--END CONTENT-->
+<div style="clear: both"></div>
+<!-- quick view modal -->
+<div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <div class="row">
+                    <!-- Modal view slider -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="aa-product-view-slider">
+                            <div class="simpleLens-gallery-container" id="demo-1">
+                                <div class="simpleLens-container">
+                                    <div class="simpleLens-big-image-container">
+                                        <a class="simpleLens-lens-image" id="m-img1"
+                                           data-lens-image="img/view-slider/large/polo-shirt-1.png">
+                                            <img id="m-img2"
+                                                 src="img/view-slider/medium/polo-shirt-1.png"
+                                                 class="simpleLens-big-image">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="simpleLens-thumbnails-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal view content -->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="aa-product-view-content">
+                            <h3 id="m-title">Title</h3>
+                            <div class="aa-price-block">
+                                                            <span id="m-price"
+                                                                  class="aa-product-view-price">$34.99</span>
+                                <p class="aa-product-avilability">Trạng thái: <span
+                                        id="m-status">In stock</span>
+                                </p>
+                            </div>
+                            <p id="m-detail">Some detail here...</p>
+                            <h4>Màu</h4>
+                            <div class="aa-prod-view-size">
+                                <a href="#">Xanh</a>
+                                <a href="#">Đỏ</a>
+                                <a href="#">Tím</a>
+                                <a href="#">Vàng</a>
+                            </div>
+                            <div class="aa-prod-quantity">
+                                <form action="" id="order-quantity">
+                                    <select name="" id="select-quantity">
+                                        <option value="1" selected="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </form>
+                                <p class="aa-prod-category">
+                                    Hãng: <a id="m-company" href="#">Polo T-Shirt</a>
+                                </p>
+                            </div>
+                            <div class="aa-prod-view-bottom">
+                                <a href="javascript:;" data-product-id="" id="add-to-cart-in"
+                                   class="aa-add-to-cart-btn"><span
+                                        class="fa fa-shopping-cart"></span>Thêm vào giỏ</a>
+                                <a id="m-view" href="#" class="aa-add-to-cart-btn">Xem chi
+                                    tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- / quick view modal -->
 
 
+<!-- Subscribe section -->
+<section id="aa-subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-subscribe-area">
+                    <h3>Subscribe our newsletter </h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
+                    <form action="" class="aa-subscribe-form">
+                        <input type="email" name="" id="" placeholder="Enter your Email">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Subscribe section -->
+
+<!-- footer -->
+<footer id="aa-footer">
+    <!-- footer bottom -->
+    <div class="aa-footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-footer-top-area">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="aa-footer-widget">
+                                    <h3>Main Menu</h3>
+                                    <ul class="aa-footer-nav">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Our Services</a></li>
+                                        <li><a href="#">Our Products</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="aa-footer-widget">
+                                    <div class="aa-footer-widget">
+                                        <h3>Knowledge Base</h3>
+                                        <ul class="aa-footer-nav">
+                                            <li><a href="#">Delivery</a></li>
+                                            <li><a href="#">Returns</a></li>
+                                            <li><a href="#">Services</a></li>
+                                            <li><a href="#">Discount</a></li>
+                                            <li><a href="#">Special Offer</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="aa-footer-widget">
+                                    <div class="aa-footer-widget">
+                                        <h3>Useful Links</h3>
+                                        <ul class="aa-footer-nav">
+                                            <li><a href="#">Site Map</a></li>
+                                            <li><a href="#">Search</a></li>
+                                            <li><a href="#">Advanced Search</a></li>
+                                            <li><a href="#">Suppliers</a></li>
+                                            <li><a href="#">FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <div class="aa-footer-widget">
+                                    <div class="aa-footer-widget">
+                                        <h3>Contact Us</h3>
+                                        <address>
+                                            <p> Km9, Nguyen Trai - Thanh Xuan, Hanoi</p>
+                                            <p><span class="fa fa-phone"></span>+84 914-499-925</p>
+                                            <p><span class="fa fa-envelope"></span>phanminh65@gmail.com</p>
+                                        </address>
+                                        <div class="aa-footer-social">
+                                            <a href="#"><span class="fa fa-facebook"></span></a>
+                                            <a href="#"><span class="fa fa-twitter"></span></a>
+                                            <a href="#"><span class="fa fa-google-plus"></span></a>
+                                            <a href="#"><span class="fa fa-youtube"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-bottom -->
+    <div class="aa-footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-footer-bottom-area">
+                        <p>Copyright 2016 &copy; <a href="http://www.facebook.com/gangstar.a2/">MinhSoftware</a></p>
+                        <div class="aa-footer-payment">
+                            <span class="fa fa-cc-mastercard"></span>
+                            <span class="fa fa-cc-visa"></span>
+                            <span class="fa fa-paypal"></span>
+                            <span class="fa fa-cc-discover"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- / footer -->
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4>Đăng nhập hoặc đăng ký</h4>
+                <form method="post" class="aa-login-form" action="auth/login">
+                    <label for="">Tên tài khoản hoặc Email<span>*</span></label>
+                    <input name="login" type="text" placeholder="Tên tài khoản hoặc email">
+                    <label for="">Mật khẩu<span>*</span></label>
+                    <input name="password" type="password" placeholder="Mật khẩu">
+                    <button class="aa-browse-btn" type="submit">Đăng nhập</button>
+                    <label for="rememberme" class="rememberme"><input value="1" name="remember" type="checkbox"
+                                                                      id="rememberme"> Nhớ lần sau
+                    </label>
+                    <p class="aa-lost-password"><a href="#">Quên mật khẩu?</a></p>
+                    <div class="aa-register-now">
+                        Không có tài khoản?<a href="auth/register">Đăng ký!</a>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div>
-<!-- BEGIN Javascript files -->
-<script src="dashboard/js/jquery.min.js"></script>
-<script src="dashboard/js/bootstrap.min.js"></script>
-<!-- END Javascript files -->
+
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- SmartMenus jQuery plugin -->
+<script type="text/javascript" src="dashboard/js/jquery.smartmenus.js"></script>
+<!-- SmartMenus jQuery Bootstrap Addon -->
+<script type="text/javascript" src="dashboard/js/jquery.smartmenus.bootstrap.js"></script>
+<!-- Product view slider -->
+<script type="text/javascript" src="dashboard/js/jquery.simpleGallery.js"></script>
+<script type="text/javascript" src="dashboard/js/jquery.simpleLens.js"></script>
+<!-- slick slider -->
+<script type="text/javascript" src="dashboard/js/slick.js"></script>
+<!-- Price picker slider -->
+<script type="text/javascript" src="dashboard/js/nouislider.js"></script>
+<!--notification 8-->
+<script type="text/javascript" src="dashboard/js/jquery.notific8.min.js"></script>
+
+
+<!-- Custom js -->
+<script src="dashboard/js/custom.js"></script>
+
 </body>
 </html>

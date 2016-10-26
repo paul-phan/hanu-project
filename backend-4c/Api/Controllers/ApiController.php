@@ -21,8 +21,9 @@ abstract class ApiController extends MainController
         100002 => 'invalid params',
         100004 => 'duplicate username',
         100003 => 'lack of params',
-        110001 => 'User Data invalid',
+        110001 => 'Invalid data',
         110002 => 'Save data fail',
+        110003 => 'No data found!',
         120000 => 'Upload image error',
         130000 => 'abc',
         130001 => 'def',
@@ -59,7 +60,7 @@ abstract class ApiController extends MainController
         } else {
             $this->setHeader(400);
             if (!$message) {
-                $message = isset($this->api_error[$code]) ? $this->api_error[$code] : '';
+                $message = isset($this->api_error[$code]) ? $this->api_error[$code] : 'Unexpected error!';
             }
             echo json_encode(array(
                     'code' => $code,

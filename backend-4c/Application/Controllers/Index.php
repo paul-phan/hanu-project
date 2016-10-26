@@ -22,20 +22,32 @@ class Index extends MainController
 
     public function indexAction()
     {
-
-        // $date = strtotime("December 3, 2014 2:00 PM");
-        // $remaining = $date - time();
-        // $days_remaining = floor($remaining / 86400);
-        // $hours_remaining = floor(($remaining % 86400) / 3600);
-        // echo '<center> This is Index page!!<br/>Trang web này đang trong giai đoạn xây dựng, nếu bạn là admin, xin mời vào: <a href="/admin/">Admin Page</a> </center>';
-        // echo 'This place is for debugging only!';
-        // var_dump($_GET);
-        // var_dump($_SESSION);
-        // var_dump($_COOKIE);
+        global $connection;
+        $co = $connection->getCo();
+        $productModel = new \Administration\Models\Product($co);
+        $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left join image on image.product_id = product.id and image.base_image = 1 group by product.id order by created desc limit 8  ', ' product.*,  company.com_name as ccom_name, image.url as iurl, image.label as ilabel ');
+//        var_dump($result);
         $this->addDataView(array(
-            'viewTitle' => 'Anh Tiến',
-            'viewSiteName' => 'Mobile'
+            'viewTitle' => 'AT - Mobile',
+            'viewSiteName' => 'Trang chủ',
+            'product' => $result,
         ));
+
+    }
+
+    public function testAction()
+    {
+//        echo 'hello';
+    }
+
+    public function backendAction()
+    {
+        $this->setLayout('ajax');
+    }
+
+    public function contactAction()
+    {
+        global $connection;
     }
 
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2016 at 08:51 AM
+-- Generation Time: Oct 19, 2016 at 04:46 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -149,6 +149,16 @@ CREATE TABLE `image` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`id`, `product_id`, `label`, `position`, `base_image`, `url`, `active`, `created`, `updated`) VALUES
+(1, 13, 'Chưa đặt tên', 0, 0, '/product/1476258924-minh.jpg', 0, '2016-10-12 14:55:24', '2016-10-12 07:55:24'),
+(2, 13, 'Chưa đặt tên', 0, 1, '/product/1476258942-minh.jpg', 0, '2016-10-12 14:55:42', '2016-10-12 07:55:42'),
+(3, 15, 'Chưa đặt tên', 0, 1, '/product/1476794697-new-pro.jpg', 0, '2016-10-18 19:44:57', '2016-10-18 12:44:57'),
+(4, 15, 'Chưa đặt tên', 0, 1, '/product/1476807537-new-pro.png', 0, '2016-10-18 23:18:57', '2016-10-18 16:18:57');
+
 -- --------------------------------------------------------
 
 --
@@ -159,6 +169,7 @@ CREATE TABLE `order_product` (
   `id` int(11) UNSIGNED NOT NULL,
   `profile_id` int(11) UNSIGNED NOT NULL,
   `product_id` int(11) UNSIGNED NOT NULL,
+  `product_detail` varchar(255) NOT NULL,
   `item_count` int(11) NOT NULL,
   `to_price` int(20) NOT NULL,
   `ship_price` int(20) NOT NULL,
@@ -175,10 +186,10 @@ CREATE TABLE `order_product` (
 -- Dumping data for table `order_product`
 --
 
-INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
-(1, 18, 7, 123123, 123, 12, 15144141, 'normal', 'qweqas', 3, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29 09:45:14'),
-(2, 10, 9, 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
-(3, 3, 8, 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32');
+INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `product_detail`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
+(1, 18, 7, '', 123123, 123, 12, 15144141, 'normal', 'qweqas', 3, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29 09:45:14'),
+(2, 10, 9, '', 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
+(3, 3, 8, '', 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32');
 
 -- --------------------------------------------------------
 
@@ -240,7 +251,7 @@ INSERT INTO `product` (`id`, `company_id`, `title`, `params`, `price`, `count`, 
 (9, 3, 'tresadas', '1475113751-tresadas', 13, 1, 1, 'qweasd', 34, 2016, 'no,tag', '2016-09-29 08:49:11', '2016-09-29 01:49:11'),
 (11, 4, 'phan thế minh', '1475140337-phan-the-minh', 1231, 1, 1, '', 123, 2016, 'no,tag', '2016-09-29 16:12:17', '2016-09-29 09:12:17'),
 (13, 4, 'Minh', '2016-10-10-183047-minh', 12313, 999, 1, '12312', 123213, 2016, 'no,tag', '2016-10-10 18:30:47', '2016-10-10 11:30:47'),
-(14, 5, 'test33', '2016-10-10-183147-test33', 2131, 1, 1, '', 1213, 2016, 'no,tag', '2016-10-10 18:31:47', '2016-10-10 11:31:47');
+(15, 2, 'new pro', '2016-10-18-110032-new-pro', 212, 1, 1, 'assd', 3123, 2016, 'no,tag', '2016-10-18 11:00:32', '2016-10-18 04:00:32');
 
 -- --------------------------------------------------------
 
@@ -267,8 +278,8 @@ INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) 
 (41, 1, 2, '2016-09-30 04:07:33'),
 (43, 8, 2, '2016-09-30 04:08:17'),
 (57, 5, 2, '2016-09-30 04:49:37'),
-(75, 13, 2, '2016-10-10 11:30:47'),
-(76, 14, 2, '2016-10-10 11:31:47');
+(94, 15, 2, '2016-10-18 16:18:57'),
+(95, 13, 2, '2016-10-19 01:10:01');
 
 -- --------------------------------------------------------
 
@@ -306,6 +317,14 @@ CREATE TABLE `product_detail` (
   `accessory` varchar(255) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_detail`
+--
+
+INSERT INTO `product_detail` (`id`, `product_id`, `length`, `width`, `height`, `weight`, `screen_type`, `screen_size`, `screen_resolution`, `screen_des`, `memory_int`, `memory_ext`, `memory_sup`, `bandwidth`, `gps_type`, `bluetooth`, `wifi`, `infrared`, `usb`, `main_camera`, `front_camera`, `sim_support`, `os`, `cpu`, `ram`, `battery`, `accessory`, `updated`) VALUES
+(2, 13, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-12 07:55:24'),
+(3, 15, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-18 12:44:57');
 
 -- --------------------------------------------------------
 
@@ -404,8 +423,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, `last_login`, `created`, `update`) VALUES
 (9, 'minhtest9', '$2a$07$ptmp4szOWxiOv0GqpHbdfukkHqQ3U4d4m7PFEE69vtTM1DiLgEaki', 'ab24dd7efa48a65b5aea845e9e5b5ce9', 1, 5, '2016-09-24 17:34:18', '2016-09-14 01:28:13', '2016-09-24 17:59:20'),
-(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', 'e6e69997e1fd4a584109956ddd17c765', 1, 1, '2016-10-10 19:37:20', '2016-09-14 01:30:28', '2016-10-10 12:37:20'),
-(53, 'minhtest11', '$2a$07$ptmUO4pPC49WpBRuPKxBE.WB5TqSU.MhDpU9IfzxhoS/dQZfbSZ.K', '63be1949df643caba09310500ad0bb15', 1, 2, '2016-09-26 18:34:08', '2016-09-22 11:06:14', '2016-09-26 11:34:08'),
+(50, 'minhtest10', '$2a$07$ptmyE8rvtgg6vIPXuMfmAOsW0nhxlhT.rp5N2HFCer18xQ/I89hou', '4da1098b31d45a1aa26777ce285b0df4', 1, 1, '2016-10-18 10:36:36', '2016-09-14 01:30:28', '2016-10-18 03:36:36'),
+(53, 'minhtest11', '$2a$07$ptmUO4pPC49WpBRuPKxBE.WB5TqSU.MhDpU9IfzxhoS/dQZfbSZ.K', '25cbf95aa45c0c06e0409ed99451ed0c', 1, 2, '2016-10-14 13:56:08', '2016-09-22 11:06:14', '2016-10-14 06:56:08'),
 (59, 'minhtest14', '$2a$07$ptmrVHQNpLFNaTfySRctBuDdmzuUgSE9frOn0pZZJuPDIoGGIcWZu', 'cb72ef2ac64955e33f873f1c6ac7235c', 1, 1, '0000-00-00 00:00:00', '2016-09-22 14:34:22', '2016-09-22 07:34:22'),
 (60, 'minhtest20', '$2a$07$ptmIpU9gBlKF8wRZCosDZefYIJU32uyJ4HjAlYTuXvQEcX2fjerVa', '8ad1e984d254bb75513f987cef3f92e6', 1, 5, '2016-09-25 02:01:47', '2016-09-22 15:47:49', '2016-09-24 19:01:47'),
 (61, 'minhtest21', '$2a$07$ptmcYTYEM97OnTrH692wPOHsFUpEBmxhJzzfC/dPnpe2NFU6IkQ9e', '46f13c233604674d335995663d8e1af1', 1, 8, '0000-00-00 00:00:00', '2016-09-22 16:16:16', '2016-09-22 09:16:16'),
@@ -417,7 +436,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '59e350e16badcd013385adc4da8e50e3', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:27:42', '2016-09-25 14:27:42'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', 'f7590ad212a472270cfa7cb53764f7bb', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:29:13', '2016-09-25 14:29:13'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
-(74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '7840570c13a2a14030da75e18eec9318', 1, 4, '0000-00-00 00:00:00', '2016-09-30 15:01:51', '2016-09-30 08:01:51'),
+(74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
 (75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', 'b4bb19b29d0c4347196cee2a357fec6c', 1, 5, '0000-00-00 00:00:00', '2016-09-30 18:35:53', '2016-09-30 11:35:53');
 
 -- --------------------------------------------------------
@@ -503,7 +522,8 @@ ALTER TABLE `product`
   ADD KEY `price` (`price`),
   ADD KEY `company_id` (`company_id`),
   ADD KEY `company_id_2` (`company_id`),
-  ADD KEY `params` (`params`(191));
+  ADD KEY `params` (`params`(191)),
+  ADD KEY `params_2` (`params`(191));
 
 --
 -- Indexes for table `product_collection`
@@ -576,7 +596,7 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `order_product`
 --
@@ -591,17 +611,17 @@ ALTER TABLE `order_status`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `product_collection`
 --
 ALTER TABLE `product_collection`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 --
 -- AUTO_INCREMENT for table `product_detail`
 --
 ALTER TABLE `product_detail`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `profile`
 --

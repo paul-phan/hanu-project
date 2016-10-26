@@ -427,8 +427,8 @@
                                            value="0"></td>
                                 <td>
                                     <label>
-                                        <input type="radio" name="images[base_image]"
-                                               value="1">
+                                        <input type="hidden" name="images[base_image]"
+                                               value="0">
                                     </label>
                                 </td>
                                 <td>
