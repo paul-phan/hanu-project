@@ -1,23 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 3.5.8.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 19, 2016 at 04:46 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Host: sql210.byethost11.com
+-- Generation Time: Oct 26, 2016 at 11:06 PM
+-- Server version: 5.6.32-78.0
+-- PHP Version: 5.3.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `at_mobile`
+-- Database: `b11_19014693_at`
 --
 
 -- --------------------------------------------------------
@@ -26,16 +26,20 @@ SET time_zone = "+00:00";
 -- Table structure for table `bill`
 --
 
-CREATE TABLE `bill` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `profile_id` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `order_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `bill` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `profile_id` int(11) unsigned NOT NULL,
+  `user_id` int(11) unsigned NOT NULL,
+  `order_id` int(11) unsigned NOT NULL,
   `per_cash` int(20) NOT NULL,
   `total_cash` int(20) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `profile_id` (`profile_id`),
+  KEY `user_id` (`user_id`),
+  KEY `order_id` (`order_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -43,16 +47,18 @@ CREATE TABLE `bill` (
 -- Table structure for table `category`
 --
 
-CREATE TABLE `category` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
-  `position` int(11) UNSIGNED NOT NULL,
+  `position` int(11) unsigned NOT NULL,
   `group_name` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `cat_name` (`cat_name`(191))
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `category`
@@ -69,15 +75,20 @@ INSERT INTO `category` (`id`, `cat_name`, `params`, `position`, `group_name`, `a
 -- Table structure for table `company`
 --
 
-CREATE TABLE `company` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `company` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `com_name` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
   `position` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `position_3` (`position`),
+  KEY `com_name` (`com_name`(191)),
+  KEY `params` (`params`(191)),
+  KEY `position_2` (`position`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `company`
@@ -106,8 +117,8 @@ INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `create
 -- Table structure for table `event`
 --
 
-CREATE TABLE `event` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `event` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `params` varchar(255) NOT NULL,
   `description` text CHARACTER SET utf8 NOT NULL,
@@ -120,8 +131,9 @@ CREATE TABLE `event` (
   `date_end` timestamp NULL DEFAULT NULL,
   `ticket` int(11) NOT NULL,
   `price` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `event`
@@ -137,17 +149,19 @@ INSERT INTO `event` (`id`, `title`, `params`, `description`, `image`, `address`,
 -- Table structure for table `image`
 --
 
-CREATE TABLE `image` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `product_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `image` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) unsigned NOT NULL,
   `label` varchar(255) NOT NULL,
-  `position` int(11) UNSIGNED NOT NULL,
-  `base_image` tinyint(1) UNSIGNED NOT NULL,
+  `position` int(11) unsigned NOT NULL,
+  `base_image` tinyint(1) unsigned NOT NULL,
   `url` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `image`
@@ -157,7 +171,14 @@ INSERT INTO `image` (`id`, `product_id`, `label`, `position`, `base_image`, `url
 (1, 13, 'Chưa đặt tên', 0, 0, '/product/1476258924-minh.jpg', 0, '2016-10-12 14:55:24', '2016-10-12 07:55:24'),
 (2, 13, 'Chưa đặt tên', 0, 1, '/product/1476258942-minh.jpg', 0, '2016-10-12 14:55:42', '2016-10-12 07:55:42'),
 (3, 15, 'Chưa đặt tên', 0, 1, '/product/1476794697-new-pro.jpg', 0, '2016-10-18 19:44:57', '2016-10-18 12:44:57'),
-(4, 15, 'Chưa đặt tên', 0, 1, '/product/1476807537-new-pro.png', 0, '2016-10-18 23:18:57', '2016-10-18 16:18:57');
+(4, 15, 'Chưa đặt tên', 0, 1, '/product/1476807537-new-pro.png', 0, '2016-10-18 23:18:57', '2016-10-18 16:18:57'),
+(5, 16, 'Iphone 4s', 0, 1, '/product/1477136991-iphone-4s.png', 0, '2016-10-22 18:49:51', '2016-10-22 11:56:12'),
+(6, 17, 'Ch?a ??t tên', 0, 1, '/product/1477139925-iphone-5.jpg', 0, '2016-10-22 19:38:45', '2016-10-22 12:45:06'),
+(7, 18, 'Ch?a ??t tên', 0, 1, '/product/1477399909-samsung-s7.png', 0, '2016-10-25 19:51:49', '2016-10-25 12:58:19'),
+(8, 19, 'Iphone 6', 0, 1, '/product/1477445427-iphone-6.jpg', 0, '2016-10-26 08:30:27', '2016-10-26 01:36:58'),
+(9, 20, 'Iphone 7', 0, 1, '/product/1477446113-iphone-7.jpg', 0, '2016-10-26 08:41:53', '2016-10-26 01:48:24'),
+(10, 21, 'Ch?a ??t tên', 0, 1, '/product/1477446268-iphone-6s.png', 0, '2016-10-26 08:44:28', '2016-10-26 01:51:00'),
+(11, 22, 'Iphone 5s', 0, 1, '/product/1477446416-iphone-5s.jpg', 0, '2016-10-26 08:46:56', '2016-10-26 01:53:27');
 
 -- --------------------------------------------------------
 
@@ -165,10 +186,10 @@ INSERT INTO `image` (`id`, `product_id`, `label`, `position`, `base_image`, `url
 -- Table structure for table `order_product`
 --
 
-CREATE TABLE `order_product` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `profile_id` int(11) UNSIGNED NOT NULL,
-  `product_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `order_product` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `profile_id` int(11) unsigned NOT NULL,
+  `product_id` int(11) unsigned NOT NULL,
   `product_detail` varchar(255) NOT NULL,
   `item_count` int(11) NOT NULL,
   `to_price` int(20) NOT NULL,
@@ -176,11 +197,15 @@ CREATE TABLE `order_product` (
   `total_price` int(20) NOT NULL,
   `order_type` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `status` tinyint(2) UNSIGNED NOT NULL,
+  `status` tinyint(2) unsigned NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `profile_id` (`profile_id`),
+  KEY `product_id` (`product_id`),
+  KEY `status` (`status`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `order_product`
@@ -197,12 +222,13 @@ INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `product_detail`,
 -- Table structure for table `order_status`
 --
 
-CREATE TABLE `order_status` (
-  `id` tinyint(2) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `order_status` (
+  `id` tinyint(2) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `note` text NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `order_status`
@@ -222,21 +248,28 @@ INSERT INTO `order_status` (`id`, `name`, `note`, `updated`) VALUES
 -- Table structure for table `product`
 --
 
-CREATE TABLE `product` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `company_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `company_id` int(11) unsigned NOT NULL,
   `title` varchar(255) NOT NULL COMMENT 'tên sp',
   `params` varchar(255) NOT NULL COMMENT 'link param trên url',
-  `price` int(20) UNSIGNED NOT NULL,
+  `price` int(20) unsigned NOT NULL,
   `count` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `detail` text NOT NULL COMMENT 'thông tin',
-  `sale` int(20) UNSIGNED NOT NULL COMMENT 'giá sale',
+  `sale` int(20) unsigned NOT NULL COMMENT 'giá sale',
   `product_year` year(4) NOT NULL COMMENT 'ngày sản xuất',
   `tags` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `title` (`title`(191)),
+  KEY `price` (`price`),
+  KEY `company_id` (`company_id`),
+  KEY `company_id_2` (`company_id`),
+  KEY `params` (`params`(191)),
+  KEY `params_2` (`params`(191))
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `product`
@@ -251,7 +284,14 @@ INSERT INTO `product` (`id`, `company_id`, `title`, `params`, `price`, `count`, 
 (9, 3, 'tresadas', '1475113751-tresadas', 13, 1, 1, 'qweasd', 34, 2016, 'no,tag', '2016-09-29 08:49:11', '2016-09-29 01:49:11'),
 (11, 4, 'phan thế minh', '1475140337-phan-the-minh', 1231, 1, 1, '', 123, 2016, 'no,tag', '2016-09-29 16:12:17', '2016-09-29 09:12:17'),
 (13, 4, 'Minh', '2016-10-10-183047-minh', 12313, 999, 1, '12312', 123213, 2016, 'no,tag', '2016-10-10 18:30:47', '2016-10-10 11:30:47'),
-(15, 2, 'new pro', '2016-10-18-110032-new-pro', 212, 1, 1, 'assd', 3123, 2016, 'no,tag', '2016-10-18 11:00:32', '2016-10-18 04:00:32');
+(15, 2, 'new pro', '2016-10-18-110032-new-pro', 212, 1, 1, 'assd', 3123, 2016, 'no,tag', '2016-10-18 11:00:32', '2016-10-18 04:00:32'),
+(16, 1, 'Iphone 4s', '2016-10-22-182322-iphone-4s', 3000, 10, 1, 'Iphone 4s like new 99%', 0, 2011, 'no,tag', '2016-10-22 18:23:22', '2016-10-22 11:29:43'),
+(17, 1, 'Iphone 5', '2016-10-22-190753-iphone-5', 5000, 1, 1, 'Iphone 5s new', 4000, 2013, 'no,tag', '2016-10-22 19:07:53', '2016-10-22 12:14:14'),
+(18, 5, 'Samsung S7', 'samsung-s7-new', 999, 1, 1, '', 0, 2016, 'no,tag', '2016-10-25 19:50:48', '2016-10-25 12:57:18'),
+(19, 1, 'Iphone 6', '2016-10-26-082421-iphone-6', 13000, 8, 1, '', 0, 2014, 'no,tag', '2016-10-26 08:24:21', '2016-10-26 01:30:53'),
+(20, 1, 'Iphone 7', '2016-10-26-084058-iphone-7', 20000, 1, 1, '', 0, 2016, 'no,tag', '2016-10-26 08:40:58', '2016-10-26 01:47:29'),
+(21, 1, 'Iphone 6s', '2016-10-26-084314-iphone-6s', 16000, 1, 1, '', 17000, 2015, 'no,tag', '2016-10-26 08:43:14', '2016-10-26 01:49:45'),
+(22, 1, 'Iphone 5s', '2016-10-26-084609-iphone-5s', 5000, 99, 0, '', 4500, 2012, 'no,tag', '2016-10-26 08:46:09', '2016-10-26 01:52:41');
 
 -- --------------------------------------------------------
 
@@ -259,12 +299,15 @@ INSERT INTO `product` (`id`, `company_id`, `title`, `params`, `price`, `count`, 
 -- Table structure for table `product_collection`
 --
 
-CREATE TABLE `product_collection` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `product_id` int(11) UNSIGNED NOT NULL,
-  `category_id` int(11) UNSIGNED NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS `product_collection` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) unsigned NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=115 ;
 
 --
 -- Dumping data for table `product_collection`
@@ -279,7 +322,14 @@ INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) 
 (43, 8, 2, '2016-09-30 04:08:17'),
 (57, 5, 2, '2016-09-30 04:49:37'),
 (94, 15, 2, '2016-10-18 16:18:57'),
-(95, 13, 2, '2016-10-19 01:10:01');
+(95, 13, 2, '2016-10-19 01:10:01'),
+(99, 16, 1, '2016-10-22 11:57:13'),
+(101, 17, 2, '2016-10-22 12:45:06'),
+(104, 18, 2, '2016-10-25 12:59:51'),
+(106, 19, 2, '2016-10-26 01:36:58'),
+(114, 20, 2, '2016-10-26 01:54:21'),
+(110, 21, 5, '2016-10-26 01:51:00'),
+(113, 22, 5, '2016-10-26 01:53:54');
 
 -- --------------------------------------------------------
 
@@ -287,9 +337,9 @@ INSERT INTO `product_collection` (`id`, `product_id`, `category_id`, `updated`) 
 -- Table structure for table `product_detail`
 --
 
-CREATE TABLE `product_detail` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `product_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `product_detail` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) unsigned NOT NULL,
   `length` varchar(255) NOT NULL,
   `width` varchar(255) NOT NULL,
   `height` varchar(255) NOT NULL,
@@ -315,8 +365,10 @@ CREATE TABLE `product_detail` (
   `ram` varchar(255) NOT NULL,
   `battery` varchar(255) NOT NULL,
   `accessory` varchar(255) NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `product_detail`
@@ -324,7 +376,14 @@ CREATE TABLE `product_detail` (
 
 INSERT INTO `product_detail` (`id`, `product_id`, `length`, `width`, `height`, `weight`, `screen_type`, `screen_size`, `screen_resolution`, `screen_des`, `memory_int`, `memory_ext`, `memory_sup`, `bandwidth`, `gps_type`, `bluetooth`, `wifi`, `infrared`, `usb`, `main_camera`, `front_camera`, `sim_support`, `os`, `cpu`, `ram`, `battery`, `accessory`, `updated`) VALUES
 (2, 13, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-12 07:55:24'),
-(3, 15, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-18 12:44:57');
+(3, 15, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-18 12:44:57'),
+(4, 16, '115.2 ', '58.6', '9.3', '180grams', 'Rentina ', '', '960x640', 'multi-touch', '32GB', 'không có ', '', '', '', 'Blutooth 4.0 wireless', '802.11b/g/n Wi-Fi (802.11n 2.4GHz)', '', '', '', '', '', 'IOS 6.1', 'Chip A5', '', '512MB', 'cáp s?c, tai nghe', '2016-10-22 11:37:46'),
+(5, 17, '123.8', '58.6', '7.6', '112 grams', 'Rentina', '', '1136x640', 'Multi-Touch', '16GB', 'không có', 'không có', '', '', 'Bluetooth 4.0 wireless', '802.11a/b/g/n Wi-Fi (802.11n 2.4GHz và 5GHz)', '', '', '', '', '', 'IOS 8', 'Chip A7 64bit', '1GB', ' Li-Po 1560 mAh battery (5.92 Wh)', 'Cáp s?c, tai nghe, ?p', '2016-10-22 12:45:06'),
+(6, 18, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-25 12:58:19'),
+(7, 19, '138.1', '67.0', '6.9', '129 grams', 'Rentina', '', '1334x750', 'Multi?Touch ', '', '', '', '', '', '', '', '', '', '8.0 Megapixel', '5.0 Megapixel', '', 'IOS 10', 'Apple A8', '1GB', '', 'cáp s?c, tai nghe', '2016-10-26 01:36:58'),
+(8, 20, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-26 01:48:24'),
+(9, 21, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-26 01:51:00'),
+(10, 22, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-10-26 01:53:27');
 
 -- --------------------------------------------------------
 
@@ -332,9 +391,9 @@ INSERT INTO `product_detail` (`id`, `product_id`, `length`, `width`, `height`, `
 -- Table structure for table `profile`
 --
 
-CREATE TABLE `profile` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `profile` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
   `full_name` varchar(255) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -346,8 +405,10 @@ CREATE TABLE `profile` (
   `birthday` date NOT NULL,
   `active` tinyint(1) DEFAULT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `profile`
@@ -369,7 +430,8 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 (21, 72, 'Tiến Trần', '12312323434', 'tien4c@gmail.com', 'qweqwe', '123123', 'VN', '', 1, '1970-01-01', 1, '2016-09-25 21:29:13', '2016-09-25 14:29:13'),
 (23, 73, 'Cầm dz', '01648921193', 'camnh@gmail.com', 'Số nhà 58 ngõ 40 phố Tạ Quang Bửu, Bách Khoa, Hà Nội', 'Hà Nội', 'VN', '1474890810-camnh.png', 1, '1991-07-04', 1, '2016-09-26 18:53:30', '2016-09-26 11:53:30'),
 (24, 74, 'Tran Thu', '0914499925', 'thu@gmail.com', '02 Phu Cuong, Hatay', 'Hanoi', 'VN', '1475222511-Tran thi thu.jpg', 0, '1995-05-17', 1, '2016-09-30 15:01:51', '2016-09-30 08:01:51'),
-(25, 75, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com122', 'Ba Vi', 'Hanoi', 'VN', '1475235353-phantheminh.jpg', 1, '1995-05-06', 1, '2016-09-30 18:35:53', '2016-09-30 11:35:53');
+(25, 75, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com122', 'Ba Vi', 'Hanoi', 'VN', '1475235353-phantheminh.jpg', 1, '1995-05-06', 1, '2016-09-30 18:35:53', '2016-09-30 11:35:53'),
+(26, 76, 'Hau Do Van', '012345678', 'phanminh123@gmail.com', 'Hanoi', 'Hanoi', 'VN', '1477399290-haudovan.png', 1, '1995-05-06', 1, '2016-10-25 19:41:30', '2016-10-25 12:47:59');
 
 -- --------------------------------------------------------
 
@@ -377,12 +439,14 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 -- Table structure for table `role`
 --
 
-CREATE TABLE `role` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `level` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_role` (`level`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `role`
@@ -405,17 +469,19 @@ INSERT INTO `role` (`id`, `level`, `name`, `update`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL,
-  `id_role` int(11) UNSIGNED NOT NULL,
+  `id_role` int(11) unsigned NOT NULL,
   `last_login` datetime NOT NULL,
   `created` datetime NOT NULL,
-  `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id_role` (`id_role`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `user`
@@ -432,12 +498,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (66, 'minhtest28', '$2a$07$ptm5E5KghlSiwu3yJ9cEteSooGDfITFM8V.6ScFZCwQTZB1xe7i26', 'a798282573839191b3e928b4578971e5', 0, 1, '0000-00-00 00:00:00', '2016-09-24 18:37:37', '2016-09-26 11:38:57'),
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
 (69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '8e843b14eb01fc8793b0f5ac457119ca', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
-(70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '0a16530a299151060fac288a5d3f4885', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:23:56', '2016-09-25 14:23:56'),
-(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '59e350e16badcd013385adc4da8e50e3', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:27:42', '2016-09-25 14:27:42'),
-(72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', 'f7590ad212a472270cfa7cb53764f7bb', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:29:13', '2016-09-25 14:29:13'),
+(70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
+(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '11ba360626ccde6513927371c5251e17', 1, 1, '2016-10-25 19:46:38', '2016-09-25 21:27:42', '2016-10-25 12:53:08'),
+(72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
 (74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
-(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', 'b4bb19b29d0c4347196cee2a357fec6c', 1, 5, '0000-00-00 00:00:00', '2016-09-30 18:35:53', '2016-09-30 11:35:53');
+(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', 'cd4ef415657da2082c4808a0c6b69be4', 1, 5, '2016-10-26 18:03:59', '2016-09-30 18:35:53', '2016-10-26 11:10:32'),
+(76, 'haudovan', '$2a$07$ptmqOp6VabC5rltTRDPr9eKnfj1x/iUMBeW5NPhWNwBH2WhNImEmy', 'a93bc9a9f100d0e533015b6977117328', 1, 4, '2016-10-25 19:42:10', '2016-10-25 19:41:30', '2016-10-25 12:48:40');
 
 -- --------------------------------------------------------
 
@@ -445,257 +512,17 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 -- Table structure for table `user_feedback`
 --
 
-CREATE TABLE `user_feedback` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `user_feedback` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
   `title` text NOT NULL,
   `message` text NOT NULL,
   `reported_in` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `bill`
---
-ALTER TABLE `bill`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `profile_id` (`profile_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `order_id` (`order_id`);
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cat_name` (`cat_name`(191));
-
---
--- Indexes for table `company`
---
-ALTER TABLE `company`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `position_3` (`position`),
-  ADD KEY `com_name` (`com_name`(191)),
-  ADD KEY `params` (`params`(191)),
-  ADD KEY `position_2` (`position`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `image`
---
-ALTER TABLE `image`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `order_product`
---
-ALTER TABLE `order_product`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `profile_id` (`profile_id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `status` (`status`);
-
---
--- Indexes for table `order_status`
---
-ALTER TABLE `order_status`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `product`
---
-ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `title` (`title`(191)),
-  ADD KEY `price` (`price`),
-  ADD KEY `company_id` (`company_id`),
-  ADD KEY `company_id_2` (`company_id`),
-  ADD KEY `params` (`params`(191)),
-  ADD KEY `params_2` (`params`(191));
-
---
--- Indexes for table `product_collection`
---
-ALTER TABLE `product_collection`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `category_id` (`category_id`);
-
---
--- Indexes for table `product_detail`
---
-ALTER TABLE `product_detail`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product_id` (`product_id`);
-
---
--- Indexes for table `profile`
---
-ALTER TABLE `profile`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_role` (`level`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_role` (`id_role`);
-
---
--- Indexes for table `user_feedback`
---
-ALTER TABLE `user_feedback`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `bill`
---
-ALTER TABLE `bill`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `company`
---
-ALTER TABLE `company`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `event`
---
-ALTER TABLE `event`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `image`
---
-ALTER TABLE `image`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `order_product`
---
-ALTER TABLE `order_product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `order_status`
---
-ALTER TABLE `order_status`
-  MODIFY `id` tinyint(2) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `product`
---
-ALTER TABLE `product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `product_collection`
---
-ALTER TABLE `product_collection`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
---
--- AUTO_INCREMENT for table `product_detail`
---
-ALTER TABLE `product_detail`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `profile`
---
-ALTER TABLE `profile`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT for table `role`
---
-ALTER TABLE `role`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
---
--- AUTO_INCREMENT for table `user_feedback`
---
-ALTER TABLE `user_feedback`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `image`
---
-ALTER TABLE `image`
-  ADD CONSTRAINT `image_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `order_product`
---
-ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `order_product_ibfk_3` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `order_product_ibfk_4` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `product`
---
-ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `product_collection`
---
-ALTER TABLE `product_collection`
-  ADD CONSTRAINT `product_collection_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `product_collection_ibfk_3` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `product_detail`
---
-ALTER TABLE `product_detail`
-  ADD CONSTRAINT `product_detail_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `profile`
---
-ALTER TABLE `profile`
-  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `user_feedback`
---
-ALTER TABLE `user_feedback`
-  ADD CONSTRAINT `user_feedback_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
