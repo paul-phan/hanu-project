@@ -45,8 +45,34 @@ class Account extends MainController
         ]);
     }
 
-    public function viewAction()
+    public function editAction()
     {
+        global $connection;
+        $co = $connection->getCo();
+        if (!isset($_SESSION['User'])) {
+            header('location:/auth/login');
+        }
+        $id = $_SESSION['User']['id'];
+        $userModel = new \Administration\Models\User($co);
+        $profileModel = new \Administration\Models\Profile($co);
+        $roleModel = new \Administration\Models\Role($co);
+        $user = $userModel->findById($id);
+        $profile = $profileModel->getByUserId($id);
+        if (!empty($user[0]->id_role)) {
+            $role = $roleModel->findById($user[0]->id_role);
+        }
 
+        if ($_POST) {
+            var_dump($_POST);
+        }
+
+
+        $this->addDataView([
+            'viewTitle' => 'AT-Mobile',
+            'viewSiteName' => 'Trang cá nhân',
+            'user' => $user[0],
+            'profile' => $profile[0],
+            'role' => !empty($role[0]) ? $role[0] : ''
+        ]);
     }
 }

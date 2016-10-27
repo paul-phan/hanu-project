@@ -1,14 +1,4 @@
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<link href="dashboard/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/select2.min.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/clockface.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
-<link href="dashboard/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
-<!-- END PAGE LEVEL PLUGINS -->
+
 
 
 <div class="row">
@@ -621,6 +611,18 @@
     </div>
 </div>
 
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<link href="dashboard/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/select2.min.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/clockface.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/morris.css" rel="stylesheet" type="text/css"/>
+<link href="dashboard/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+<!-- END PAGE LEVEL PLUGINS -->
 <script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-maxlength.min.js" type="text/javascript"></script>

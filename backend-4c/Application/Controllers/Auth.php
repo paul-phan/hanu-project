@@ -47,7 +47,7 @@ class Auth extends MainController
                         setcookie("token", "$token", time() + (86400 * 30), '/');
                     }
                     $modelUser->updateLastLogin(date("Y:m:d H:i:s"), $result->id);
-                    if ($role[0]->level < 2) {
+                    if ($role[0]->level == 0) {
                         header('location:/admin/');
                     } else {
                         header('location:/');

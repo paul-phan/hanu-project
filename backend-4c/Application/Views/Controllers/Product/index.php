@@ -1,12 +1,12 @@
 <body>
 <script>
-//    window.fbAsyncInit = function () {
-//        FB.init({
-//            appId: '340915906262846',
-//            xfbml: true,
-//            version: 'v2.8'
-//        });
-//    };
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '340915906262846',
+            xfbml: true,
+            version: 'v2.8'
+        });
+    };
 //
 //    (function (d, s, id) {
 //        var js, fjs = d.getElementsByTagName(s)[0];
