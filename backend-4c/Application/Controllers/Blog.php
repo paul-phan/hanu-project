@@ -29,4 +29,8 @@ class Blog extends MainController
     {
 
     }
+
+    public function listAction() {
+
+    }
 }
