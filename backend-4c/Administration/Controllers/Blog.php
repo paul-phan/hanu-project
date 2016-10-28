@@ -26,7 +26,7 @@ class Blog extends MainController
     {
         global $connection;
         $co = $connection->getCo();
-        $blogModel = new \Administration\Models\blog($co);
+        $blogModel = new \Administration\Models\Blog($co);
         $result = $blogModel->fetchAll();
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
@@ -39,9 +39,9 @@ class Blog extends MainController
     {
         global $connection;
         $co = $connection->getCo();
-        $blogModel = new \Administration\Models\blog($co);
+        $blogModel = new \Administration\Models\Blog($co);
         if ($_POST) {
-            if (!empty($_POST['title']) && !empty($_POST['price'])) {
+            if (!empty($_POST['title']) && !empty($_POST['body'])) {
                 if ($blogModel->insertBlog($_POST)) { //need to refactor this :) work well now.
 
                     $alert = Tools\Alert::render('Thêm bài viết thành công, đang trở lại danh sách...!', 'success');
@@ -67,13 +67,12 @@ class Blog extends MainController
         Tools\Helper::checkUrlParamsIsNumeric();
         global $connection;
         $co = $connection->getCo();
-        $blogModel = new \Administration\Models\blog($co);
+        $blogModel = new \Administration\Models\Blog($co);
         $blog = $blogModel->findById($_GET['params']);
 //        var_dump($blog);
         if ($_POST) {
 //            var_dump($_POST);die;
-            if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['address']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['schedule'])  && isset($_POST['ticket']) && isset($_POST['price'])
-            ) {
+            if (isset($_POST['title']) && isset($_POST['body'])){
                 if ($blogModel->modifyblog($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa bài viết thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/blog/list", true, 303);

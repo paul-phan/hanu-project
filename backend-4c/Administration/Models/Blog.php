@@ -26,7 +26,7 @@ class Blog extends MainModel implements BlogModel
             'title' => isset($post['title']) ? $post['title'] : '',
             'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
             'body' => isset($post['body']) ? $post['body'] : '',
-            'created' => date("Y-m-d H:i:s")
+            'created' => isset($post['created']) ? $post['created'] : date("Y-m-d H:i:s")
         ));
     }
 
@@ -36,7 +36,7 @@ class Blog extends MainModel implements BlogModel
             'title' => isset($post['title']) ? $post['title'] : '',
             'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
             'body' => isset($post['body']) ? $post['body'] : '',
-            'created' => date("Y-m-d H:i:s")
+            'created' => isset($post['created']) ? $post['created'] : date("Y-m-d H:i:s")
         ), " id = '$id' ");
     }
 
