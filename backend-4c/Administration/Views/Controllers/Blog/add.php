@@ -45,7 +45,7 @@
                                 <label for="dropdown" class="control-label col-md-3">Nội dung<span class="required"> * </span></label>
                                 <div class="col-md-7">
                                     <textarea class="form-control"
-                                              name="description"
+                                              name="body"
                                               value="<?= !empty($form['body']) ? $form['body'] : '' ?>"> </textarea>
                                 </div>
                             </div>

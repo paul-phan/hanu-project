@@ -42,7 +42,7 @@ class Blog extends MainController
         $blogModel = new \Administration\Models\Blog($co);
         if ($_POST) {
             if (!empty($_POST['title']) && !empty($_POST['body'])) {
-                if ($blogModel->insertBlog($_POST)) { //need to refactor this :) work well now.
+                if ($blogModel->insertBlog($_POST)) {
 
                     $alert = Tools\Alert::render('Thêm bài viết thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/blog/list", true, 303);
@@ -96,7 +96,7 @@ class Blog extends MainController
         Tools\Helper::checkUrlParamsIsNumeric();
         global $connection;
         $co = $connection->getCo();
-        $blogModel = new \Administration\Models\blog($co);
+        $blogModel = new \Administration\Models\Blog($co);
         if (!empty($_POST['submit'])) {
             if ($blogModel->findById($_GET['params'])) {
                 if ($blogModel->delete($_GET['params'])) {

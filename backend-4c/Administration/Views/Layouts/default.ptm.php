@@ -573,7 +573,7 @@
                 <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="fa fa-sticky-note "></i>
-                        <span class="title">Sự kiện</span>
+                        <span class="title">Bài viết</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">

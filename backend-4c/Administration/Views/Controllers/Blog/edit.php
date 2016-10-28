@@ -46,7 +46,7 @@
                                         class="required"> * </span></label>
                                 <div class="col-md-7">
                                     <textarea class="form-control"
-                                              name="description" cols="5"
+                                              name="body" cols="5"
                                     ><?= isset($form->body) ? $form->body : '' ?></textarea>
                                 </div>
                             </div>
