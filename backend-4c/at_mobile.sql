@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2016 at 05:37 AM
+-- Generation Time: Oct 28, 2016 at 06:29 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -401,7 +401,8 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 (23, 73, 'Cầm dz', '01648921193', 'camnh@gmail.com', 'Số nhà 58 ngõ 40 phố Tạ Quang Bửu, Bách Khoa, Hà Nội', 'Hà Nội', 'VN', '1474890810-camnh.png', 1, '1991-07-04', 1, '2016-09-26 18:53:30', '2016-09-26 11:53:30'),
 (24, 74, 'Tran Thu', '0914499925', 'thu@gmail.com', '02 Phu Cuong, Hatay', 'Hanoi', 'VN', '1475222511-Tran thi thu.jpg', 0, '1995-05-17', 1, '2016-09-30 15:01:51', '2016-09-30 08:01:51'),
 (25, 75, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com122', 'Ba Vi', 'Hanoi', 'VN', '1475235353-phantheminh.jpg', 1, '1995-05-06', 1, '2016-09-30 18:35:53', '2016-09-30 11:35:53'),
-(26, 76, 'Hau Do Van', '012345678', 'phanminh123@gmail.com', 'Hanoi', 'Hanoi', 'VN', '1477399290-haudovan.png', 1, '1995-05-06', 1, '2016-10-25 19:41:30', '2016-10-25 12:47:59');
+(26, 76, 'Hau Do Van', '012345678', 'phanminh123@gmail.com', 'Hanoi', 'Hanoi', 'VN', '1477399290-haudovan.png', 1, '1995-05-06', 1, '2016-10-25 19:41:30', '2016-10-25 12:47:59'),
+(27, 77, 'test minh', '123243', 'test1@g.co', '4234', '3456', 'VN', '1477624580-test1.jpg', 1, '1995-05-06', 1, '2016-10-28 00:58:39', '2016-10-27 17:58:39');
 
 -- --------------------------------------------------------
 
@@ -430,6 +431,25 @@ INSERT INTO `role` (`id`, `level`, `name`, `update`) VALUES
 (7, 1, 'Android Developer', '2016-09-20 06:15:00'),
 (8, 1, 'BA & Quality Assurance', '2016-09-20 06:15:00'),
 (9, 1, 'Solution Developer', '2016-09-20 06:15:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subcribe`
+--
+
+CREATE TABLE `subcribe` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `subcribe`
+--
+
+INSERT INTO `subcribe` (`id`, `email`, `updated`) VALUES
+(1, 'phanminh65@gmail.com', '2016-10-28 04:16:31');
 
 -- --------------------------------------------------------
 
@@ -465,12 +485,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
 (69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '8e843b14eb01fc8793b0f5ac457119ca', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
-(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '11ba360626ccde6513927371c5251e17', 1, 1, '2016-10-25 19:46:38', '2016-09-25 21:27:42', '2016-10-25 12:53:08'),
+(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', 'fa3b83c4bd4a5ccf9b8f3154cb207bd1', 1, 1, '2016-10-27 16:07:14', '2016-09-25 21:27:42', '2016-10-27 09:07:14'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
 (74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
-(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', 'cd4ef415657da2082c4808a0c6b69be4', 1, 5, '2016-10-26 18:03:59', '2016-09-30 18:35:53', '2016-10-26 11:10:32'),
-(76, 'haudovan', '$2a$07$ptmqOp6VabC5rltTRDPr9eKnfj1x/iUMBeW5NPhWNwBH2WhNImEmy', 'a93bc9a9f100d0e533015b6977117328', 1, 4, '2016-10-25 19:42:10', '2016-10-25 19:41:30', '2016-10-25 12:48:40');
+(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', '06b8450893ff3b5d8b4b4845d2c28932', 1, 5, '2016-10-27 16:06:41', '2016-09-30 18:35:53', '2016-10-27 09:06:41'),
+(76, 'haudovan', '$2a$07$ptmqOp6VabC5rltTRDPr9eKnfj1x/iUMBeW5NPhWNwBH2WhNImEmy', 'a93bc9a9f100d0e533015b6977117328', 1, 4, '2016-10-25 19:42:10', '2016-10-25 19:41:30', '2016-10-25 12:48:40'),
+(77, 'test1', '$2a$07$ptmiArUmBp4szOWxiOv0GeQBSxiwsjP5x9DzjoXm2BDwigzcPqgsi', 'ddc57a1cf5c50a344b6d18534a05e684', 1, 4, '2016-10-28 00:59:12', '2016-10-28 00:58:39', '2016-10-28 03:35:13');
 
 -- --------------------------------------------------------
 
@@ -588,6 +609,12 @@ ALTER TABLE `role`
   ADD KEY `id_role` (`level`);
 
 --
+-- Indexes for table `subcribe`
+--
+ALTER TABLE `subcribe`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -659,17 +686,22 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT for table `subcribe`
+--
+ALTER TABLE `subcribe`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT for table `user_feedback`
 --
