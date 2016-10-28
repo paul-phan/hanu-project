@@ -440,8 +440,8 @@
                     <div class="aa-subscribe-area">
                         <h3>Subscribe our newsletter </h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
-                        <form action="" class="aa-subscribe-form">
-                            <input type="email" name="" id="" placeholder="Enter your Email">
+                        <form method="post" action="account/subcribe" class="aa-subscribe-form">
+                            <input type="email" name="subcribe" id="" placeholder="Enter your Email">
                             <input type="submit" value="Subscribe">
                         </form>
                     </div>

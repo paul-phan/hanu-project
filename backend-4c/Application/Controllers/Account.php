@@ -118,14 +118,32 @@ class Account extends MainController
                 }
             }
         }
-
-
         $this->addDataView([
             'viewTitle' => 'AT-Mobile',
             'viewSiteName' => 'Trang cá nhân',
             'user' => $user[0],
             'profile' => $profile[0],
             'role' => !empty($role[0]) ? $role[0] : '',
+            'alert' => !empty($alert) ? $alert : ''
+        ]);
+    }
+
+    public function subcribeAction()
+    {
+        global $connection;
+        $co = $connection->getCo();
+        $sModel = new \Administration\Models\Subcribe($co);
+        if (isset($_POST['subcribe'])) {
+            if (!empty($_POST['subcribe']) && filter_var($_POST['subcribe'], FILTER_VALIDATE_EMAIL)) {
+                $sModel->insert(['email' => $_POST['subcribe']]);
+                $alert = Tools\Alert::render('Cảm ơn bạn, chúng tôi sẽ gửi mail cho bạn ngay khi có sản phẩm mới <3', 'success');
+            } else {
+                $alert = Tools\Alert::render('Email bạn vừa nhập không hợp lệ!', 'warning');
+            }
+        }
+        $this->addDataView([
+            'viewTitle' => 'AT-Mobile',
+            'viewSiteName' => 'Đăng ký theo dõi',
             'alert' => !empty($alert) ? $alert : ''
         ]);
     }
