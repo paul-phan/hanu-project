@@ -129,7 +129,7 @@ interface FeedbackModel{
 
 interface BlogModel{
     public function insertBlog($post);
-    public function modifyBlog($post);
+    public function modifyBlog($post, $id);
 }
 abstract class Model
 {

@@ -47,10 +47,6 @@
                            class="btn btn-outline btn-circle dark btn-sm black">
                             <i class="fa fa-trash-o"></i> Xóa </a>
                     </td>
-                    <td><?= $blog->ticket ?></td>
-                    <td><img src="<?= $blog->image ?>" alt="<?= $blog->image ?>" width="300px" height="300px" /></td>
-                    <td><?= $blog->description ?></td>
-                    <td><?= $blog->zipcode ?></td>
 
                 </tr>
             <?php } ?>
