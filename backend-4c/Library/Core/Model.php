@@ -126,6 +126,11 @@ interface FeedbackModel{
     public function insertFeedback($post);
 }
 
+
+interface BlogModel{
+    public function insertBlog($post);
+    public function modifyBlog($post);
+}
 abstract class Model
 {
     private $db;

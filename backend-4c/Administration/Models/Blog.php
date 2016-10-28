@@ -10,7 +10,7 @@ namespace Administration\Models;
 use Library\Core\Model as MainModel;
 use Library\Core\BlogModel;
 
-class blog extends MainModel implements BlogModel
+class Blog extends MainModel implements BlogModel
 {
     protected $table = 'blog';
     protected $primary = 'id';
@@ -32,7 +32,6 @@ class blog extends MainModel implements BlogModel
 
     public function modifyBlog($post, $id)
     {
-        // TODO: Implement modifyblog() method.
         return $this->update(array(
             'title' => isset($post['title']) ? $post['title'] : '',
             'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
