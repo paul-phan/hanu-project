@@ -73,7 +73,7 @@ class Blog extends MainController
         if ($_POST) {
 //            var_dump($_POST);die;
             if (isset($_POST['title']) && isset($_POST['body'])){
-                if ($blogModel->modifyblog($_POST, $_GET['params'])) {
+                if ($blogModel->modifyBlog($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa bài viết thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/blog/list", true, 303);
                 }
