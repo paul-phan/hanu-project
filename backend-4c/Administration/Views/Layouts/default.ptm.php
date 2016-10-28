@@ -570,6 +570,26 @@
                     </ul>
                 </li>
 
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-sticky-note "></i>
+                        <span class="title">Bài viết</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/blog/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách bài viết</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="/admin/blog/add" class="nav-link ">
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Thêm bài viết</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>
