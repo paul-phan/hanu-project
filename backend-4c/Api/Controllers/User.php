@@ -28,15 +28,24 @@ class User extends MainController
 
     public function modifyAction()
     {
-        global $connection;
-        $co = $connection->getCo();
-        $userModel = new \Administration\Models\User($co);
-        $profileModel = new \Administration\Models\Profile($co);
+//        global $connection;
+//        $co = $connection->getCo();
+//        $userModel = new \Administration\Models\User($co);
+//        $profileModel = new \Administration\Models\Profile($co);
+//
+//        if ($_POST) {
+//            if ($_POST['Profile']) {
+//                $dataP = $_POST['Profile'];
+//                if (!empty($dataP['full_name']) || !empty($dataP['email']) || !empty($dataP['full_name'])) {
+//
+//                } else {
+//                    $this->responseApi(100003);
+//                }
+//            }
+//        } else {
+//            $this->responseApi(100003);
+//        }
 
-        if ($_POST) {
-
-        }
-        $this->responseApi(100003);
     }
 
 }

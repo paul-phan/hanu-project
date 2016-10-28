@@ -47,6 +47,31 @@ class User extends MainModel implements UserModel
         return null;
     }
 
+    /**
+     * @param int $id
+     * @param string $old
+     * @param string $new
+     * @param string $renew
+     * @return mixed
+     */
+    public function updatePassword($id, $old, $new, $renew)
+    {
+        $user = $this->findById($id);
+        if ($new === $renew) {
+            if ($this->validHasher($old, $user[0]->password)) {
+                if ($this->update(['password' => $this->blowfishHasher($new)], "id = $id")) {
+                    return true;
+                } else {
+                    return 'Xảy ra lỗi khi cập nhật mật khẩu';
+                }
+            } else {
+                return 'Mật khẩu cũ không đúng';
+            }
+        } else {
+            return 'Mật khẩu mới không trùng khớp';
+        }
+    }
+
 
     public function retrieveLoginByToken($token)
     {

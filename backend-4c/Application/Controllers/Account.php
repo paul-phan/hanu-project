@@ -11,7 +11,7 @@
 namespace Application\Controllers;
 
 use Application\Controllers\AppController as MainController;
-
+use Library\Tools;
 
 class Account extends MainController
 {
@@ -63,7 +63,60 @@ class Account extends MainController
         }
 
         if ($_POST) {
-            var_dump($_POST);
+            if (isset($_POST['Profile']) && !empty($_POST['Profile'])) {
+                $pData = $_POST['Profile'];
+                if (!empty($pData['full_name']) && !empty($pData['email']) && !empty($pData['phone']) && !empty($pData['address']) && !empty($pData['city'])) {
+                    $cmail = $profileModel->getUserByMail($pData['email']);
+                    if (!empty($cmail) && $profile[0]->email != $pData['email']) {
+                        $alert = Tools\Alert::render('Email này đã được sử dụng, vui lòng nhập lại!', 'danger');
+                    } elseif ($profileModel->editProfile($pData, $id)) {
+                        $alert = Tools\Alert::render('Cập nhật thông tin thành công, đang tải lại!', 'success');
+                        header("Refresh:3");
+                    } else {
+                        $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại!', 'warning');
+                    }
+                } else {
+                    $alert = Tools\Alert::render('Vui lòng điền đầy đủ thông tin!', 'danger');
+                }
+            }
+
+            //reset password
+            if (isset($_POST['cpw']) && !empty($_POST['cpw'])) {
+                $pw = $_POST['cpw'];
+                if (!empty($pw['password']) && !empty($pw['npassword']) && !empty($pw['rnpassword'])) {
+                    $status = $userModel->updatePassword($id, $pw['password'], $pw['npassword'], $pw['rnpassword']);
+                    if ($status === true) {
+                        $alert = Tools\Alert::render('Cập nhật mật khẩu thành công, đang tải lại!', 'success');
+                        header("Refresh:3");
+                    } else {
+                        $alert = Tools\Alert::render($status, 'danger');
+                    }
+                } else {
+                    $alert = Tools\Alert::render('Vui lòng điền đầy đủ thông tin!', 'danger');
+                }
+            }
+        }
+        if (isset($_FILES['avatar'])) {
+            $avatar = $_FILES['avatar'];
+            if (!empty($avatar)) {
+                $upload = new \Library\Tools\Upload();
+                $name = $upload->copy(array(
+                    'file' => $avatar,
+                    'path' => 'avatar/',
+                    'name' => time() . '-' . $user[0]->username
+                ));
+                if ($upload->getErrors()) {
+                    $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
+                } else {
+                    if ($profileModel->updateAvatar($name, $id)) {
+                        $_SESSION['User']['avatar'] = $name;
+                        $alert = Tools\Alert::render('Cập nhật ảnh đại diện thành công, đang tải lại!', 'success');
+                        header("Refresh:3");
+                    } else {
+                        $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại!', 'warning');
+                    }
+                }
+            }
         }
 
 
@@ -72,7 +125,8 @@ class Account extends MainController
             'viewSiteName' => 'Trang cá nhân',
             'user' => $user[0],
             'profile' => $profile[0],
-            'role' => !empty($role[0]) ? $role[0] : ''
+            'role' => !empty($role[0]) ? $role[0] : '',
+            'alert' => !empty($alert) ? $alert : ''
         ]);
     }
 }

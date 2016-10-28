@@ -349,7 +349,7 @@
 <!-- / menu -->
 <div style="clear: both"></div>
 <!--CONTENT-->
-<?= $alert ?>
+
 <?= $viewContent ?>
 
 <!--END CONTENT-->
@@ -587,10 +587,21 @@
 <script type="text/javascript" src="dashboard/js/nouislider.js"></script>
 <!--notification 8-->
 <script type="text/javascript" src="dashboard/js/jquery.notific8.min.js"></script>
-
-
 <!-- Custom js -->
 <script src="dashboard/js/custom.js"></script>
+<?php if (!empty($alert)) {
+    echo '<div id="alerting" data-alert="'.$alert.'"></div>';
+} ?>
+<script>
+    a = $('#alerting').attr('data-alert')
+    if (a) {
+        $.notific8(a, {
+            life: 5000,
+            heading: 'From Minh:',
+            height: 100
+        });
+    }
+</script>
 
 </body>
 </html>

@@ -109,7 +109,7 @@ class Auth extends MainController
                         $_POST['avatar'] = isset($name) ? $name : 'updatelater.jpg';
                         if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
                             $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
-                            header("Refresh:3; url=/admin/user/list", true, 303);
+                            header("Refresh:3; url=/admin/", true, 303);
                         } elseif ($upload->getErrors()) {
                             $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
                         } else {

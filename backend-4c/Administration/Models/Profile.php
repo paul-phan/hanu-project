@@ -54,6 +54,28 @@ class Profile extends MainModel implements ProfileModel
         ), " user_id = " . $id);
     }
 
+    //Modify profile user from front-end (customer)
+    public function editProfile($post, $id)
+    {
+        return $this->update(array(
+            'full_name' => $post['full_name'],
+            'gender' => isset($post['gender']) ? 1 : 0,
+            'phone' => $post['phone'],
+            'address' => $post['address'],
+            'email' => $post['email'],
+            'city' => $post['city'],
+            'birthday' => date('Y-m-d', strtotime($post['birthday'])),
+            'country' => $post['country'],
+        ), " user_id = " . $id);
+    }
+
+    public function updateAvatar($name, $id)
+    {
+        return $this->update(array(
+            'avatar' => $name
+        ), " user_id = " . $id);
+    }
+
 
     public function getUserByMail($mail)
     {

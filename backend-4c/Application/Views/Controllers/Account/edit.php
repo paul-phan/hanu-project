@@ -123,25 +123,30 @@
                                         <div class="tab-content">
                                             <!-- PERSONAL INFO TAB -->
                                             <div class="tab-pane active" id="tab_1_1">
-                                                <form role="form" action="#">
+                                                <form role="form" method="post">
                                                     <div class="form-group">
-                                                        <label class="control-label">Họ và Tên</label>
-                                                        <input name="Profile[fullname]" type="text"
+                                                        <label class="control-label">Họ và Tên<span
+                                                                class="required"> * </span></label>
+                                                        <input name="Profile[full_name]" type="text"
                                                                value="<?= $profile->full_name ?>" class="form-control"/>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Email</label>
-                                                        <input type="text" value="<?= $profile->email ?>"
+                                                        <label class="control-label">Email<span
+                                                                class="required"> * </span></label>
+                                                        <input name="Profile[email]" type="text"
+                                                               value="<?= $profile->email ?>"
                                                                class="form-control"/></div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Số điện thoại</label>
-                                                        <input type="text" value="<?= $profile->phone ?>"
+                                                        <label class="control-label">Số điện thoại<span
+                                                                class="required"> * </span></label>
+                                                        <input name="Profile[phone]" type="text"
+                                                               value="<?= $profile->phone ?>"
                                                                class="form-control"/></div>
                                                     <div class="form-group">
                                                         <label class="control-label">Giới tính
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
                                                         <input <?= (isset($profile->gender) && ($profile->gender == 1)) ? 'checked' : '' ?>
-                                                            name="gender" type="checkbox" class="make-switch"
+                                                            name="Profile[gender]" type="checkbox" class="make-switch"
                                                             data-on-text="Nam"
                                                             data-off-text="Nữ" data-on-color="success"
                                                             data-off-color="warning">
@@ -153,7 +158,8 @@
                                                         <span
                                                             class="input-group input-medium date date-picker col-md-offset-1"
                                                             data-date-format="yyyy-mm-dd">
-                                                            <input type="text" class="form-control" name="birthday"
+                                                            <input type="text" class="form-control"
+                                                                   name="Profile[birthday]"
                                                                    value="<?= isset($profile->birthday) ? $profile->birthday : '' ?>">
                                                             <span class="input-group-btn">
                                                             <button class="btn default" type="button">
@@ -163,16 +169,21 @@
                                                         </span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Địa chỉ</label>
-                                                        <input type="text" value="<?= $profile->address ?>"
+                                                        <label class="control-label">Địa chỉ<span
+                                                                class="required"> * </span></label>
+                                                        <input name="Profile[address]" type="text"
+                                                               value="<?= $profile->address ?>"
                                                                class="form-control"/></div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Thành phố</label>
-                                                        <input type="text" value="<?= $profile->city ?>"
+                                                        <label class="control-label">Thành phố<span
+                                                                class="required"> * </span></label>
+                                                        <input name="Profile[city]" type="text"
+                                                               value="<?= $profile->city ?>"
                                                                class="form-control"/></div>
                                                     <div class="form-group">
                                                         <label class="control-label">Quốc gia</label>
-                                                        <select name="country" class="form-control country_list">
+                                                        <select name="Profile[country]"
+                                                                class="form-control country_list">
                                                             <option
                                                                 value="<?= $profile->country ?>"><?= $profile->country ?></option>
                                                             <option value="AF">Afghanistan</option>
@@ -420,7 +431,7 @@
                                                     </div>
 
                                                     <div class="margiv-top-10">
-                                                        <a id="update-user-info" class="btn green"> Lưu lại </a>
+                                                        <button type="submit" class="btn green"> Lưu lại</button>
                                                         <a href="account.html" class="btn default"> Hủy </a>
                                                     </div>
                                                 </form>
@@ -428,59 +439,52 @@
                                             <!-- END PERSONAL INFO TAB -->
                                             <!-- CHANGE AVATAR TAB -->
                                             <div class="tab-pane" id="tab_1_2">
-                                                <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                                    terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-                                                    skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                                    eiusmod. </p>
-                                                <form action="#" role="form">
+                                                <p> Thay đổi ảnh đại điện của bạn. </p>
+                                                <form method="post" role="form" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                                             <div class="fileinput-new thumbnail"
                                                                  style="width: 200px; height: 150px;">
                                                                 <img
-                                                                    src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+                                                                    src="<?= !empty($profile->avatar) ? UPLOAD_DIR . 'avatar/' . $profile->avatar : UPLOAD_DIR . 'avatar/updatelater.jpg' ?>"
                                                                     alt=""/></div>
                                                             <div class="fileinput-preview fileinput-exists thumbnail"
                                                                  style="max-width: 200px; max-height: 150px;"></div>
                                                             <div>
                                                                         <span class="btn default btn-file">
                                                                             <span
-                                                                                class="fileinput-new"> Select image </span>
+                                                                                class="fileinput-new"> Chọn ảnh </span>
                                                                             <span
-                                                                                class="fileinput-exists"> Change </span>
-                                                                            <input type="file" name="..."> </span>
+                                                                                class="fileinput-exists"> Thay đổi </span>
+                                                                            <input value="" type="file" name="avatar"> </span>
                                                                 <a href="javascript:;"
                                                                    class="btn default fileinput-exists"
-                                                                   data-dismiss="fileinput"> Remove </a>
+                                                                   data-dismiss="fileinput"> Xóa </a>
                                                             </div>
-                                                        </div>
-                                                        <div class="clearfix margin-top-10">
-                                                            <span class="label label-danger">NOTE! </span>
-                                                            <span>Attached image thumbnail is supported in Latest Firefox, Chrome, Opera, Safari and Internet Explorer 10 only </span>
                                                         </div>
                                                     </div>
                                                     <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn green"> Submit </a>
-                                                        <a href="javascript:;" class="btn default"> Cancel </a>
+                                                        <button type="submit" class="btn green"> Lưu lại </button>
+                                                        <a href="account.html" class="btn default"> Hủy </a>
                                                     </div>
                                                 </form>
                                             </div>
                                             <!-- END CHANGE AVATAR TAB -->
                                             <!-- CHANGE PASSWORD TAB -->
                                             <div class="tab-pane" id="tab_1_3">
-                                                <form action="#">
+                                                <form method="post">
                                                     <div class="form-group">
-                                                        <label class="control-label">Current Password</label>
-                                                        <input type="password" class="form-control"/></div>
+                                                        <label class="control-label">Mật khẩu hiện tại</label>
+                                                        <input name="cpw[password]" type="password" class="form-control"/></div>
                                                     <div class="form-group">
-                                                        <label class="control-label">New Password</label>
-                                                        <input type="password" class="form-control"/></div>
+                                                        <label class="control-label">Mật khẩu mới</label>
+                                                        <input name="cpw[npassword]" type="password" class="form-control"/></div>
                                                     <div class="form-group">
-                                                        <label class="control-label">Re-type New Password</label>
-                                                        <input type="password" class="form-control"/></div>
+                                                        <label class="control-label">Nhập lại mật khẩu mới</label>
+                                                        <input name="cpw[rnpassword]" type="password" class="form-control"/></div>
                                                     <div class="margin-top-10">
-                                                        <a href="javascript:;" class="btn green"> Change Password </a>
-                                                        <a href="javascript:;" class="btn default"> Cancel </a>
+                                                        <button type="submit" class="btn green"> Đổi mật khẩu </button>
+                                                        <a href="javascript:;" class="btn default"> Hủy </a>
                                                     </div>
                                                 </form>
                                             </div>
