@@ -6,8 +6,8 @@
             <div class="aa-catg-head-banner-content">
                 <h2>Checkout Page</h2>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active">Checkout</li>
+                    <li><a href="index.html"><?= $viewTitle ?></a></li>
+                    <li class="active"><?= $viewSiteName ?></li>
                 </ol>
             </div>
         </div>
@@ -32,14 +32,14 @@
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordion"
                                                        href="#collapseOne">
-                                                        Have a Coupon?
+                                                        Bạn có mã giảm giá?
                                                     </a>
                                                 </h4>
                                             </div>
                                             <div id="collapseOne" class="panel-collapse collapse in">
                                                 <div class="panel-body">
-                                                    <input type="text" placeholder="Coupon Code" class="aa-coupon-code">
-                                                    <input type="submit" value="Apply Coupon" class="aa-browse-btn">
+                                                    <input type="text" placeholder="Nhập mã giảm giá.." class="aa-coupon-code">
+                                                    <input type="submit" value="Áp dụng mã giảm giá" class="aa-browse-btn">
                                                 </div>
                                             </div>
                                         </div>
@@ -49,21 +49,19 @@
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordion"
                                                        href="#collapseTwo">
-                                                        Client Login
+                                                        Khách hàng đăng nhập
                                                     </a>
                                                 </h4>
                                             </div>
                                             <div id="collapseTwo" class="panel-collapse collapse">
                                                 <div class="panel-body">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat
-                                                        voluptatibus modi pariatur qui reprehenderit asperiores fugiat
-                                                        deleniti praesentium enim incidunt.</p>
-                                                    <input type="text" placeholder="Username or email">
-                                                    <input type="password" placeholder="Password">
-                                                    <button type="submit" class="aa-browse-btn">Login</button>
+                                                    <p>Lorem ipsum.</p>
+                                                    <input type="text" placeholder="Tên đăng nhập">
+                                                    <input type="password" placeholder="Mật khẩu">
+                                                    <button type="submit" class="aa-browse-btn">Đăng nhập</button>
                                                     <label for="rememberme"><input type="checkbox" id="rememberme">
-                                                        Remember me </label>
-                                                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+                                                        Ghi nhớ </label>
+                                                    <p class="aa-lost-password"><a href="#">Quên mật khẩu?</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,7 +71,7 @@
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordion"
                                                        href="#collapseThree">
-                                                        Billing Details
+                                                        Thông tin đơn hàng
                                                     </a>
                                                 </h4>
                                             </div>
@@ -82,38 +80,38 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="First Name*">
+                                                                <input type="text" placeholder="Tên*">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="Last Name*">
+                                                                <input type="text" placeholder="Họ*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="Company name">
+                                                                <input type="text" placeholder="Tên công ty">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="email" placeholder="Email Address*">
+                                                                <input type="email" placeholder="Email*">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="tel" placeholder="Phone*">
+                                                                <input type="tel" placeholder="Số điện thoại*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
-                                                                <textarea cols="8" rows="3">Address*</textarea>
+                                                                <textarea cols="8" rows="3">Điạ chỉ*</textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -121,8 +119,8 @@
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
                                                                 <select>
-                                                                    <option value="0">Select Your Country</option>
-                                                                    <option value="1">Australia</option>
+                                                                    <option value="0">Chọn quốc gia</option>
+                                                                    <option value="1">Vietnam</option>
                                                                     <option value="2">Afganistan</option>
                                                                     <option value="3">Bangladesh</option>
                                                                     <option value="4">Belgium</option>
@@ -150,14 +148,14 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="City / Town*">
+                                                                <input type="text" placeholder="Thành phố / Thị trấn*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="District*">
+                                                                <input type="text" placeholder="Quận / Huyện*">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -175,7 +173,7 @@
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" data-parent="#accordion"
                                                        href="#collapseFour">
-                                                        Shippping Address
+                                                        Địa chỉ giao hàng
                                                     </a>
                                                 </h4>
                                             </div>
@@ -184,38 +182,38 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="First Name*">
+                                                                <input type="text" placeholder="Tên*">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="Last Name*">
+                                                                <input type="text" placeholder="Họ*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="Company name">
+                                                                <input type="text" placeholder="Công ty">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="email" placeholder="Email Address*">
+                                                                <input type="email" placeholder="Email*">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="tel" placeholder="Phone*">
+                                                                <input type="tel" placeholder="Số điện thoại*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
-                                                                <textarea cols="8" rows="3">Address*</textarea>
+                                                                <textarea cols="8" rows="3">Địa chỉ*</textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -223,8 +221,8 @@
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
                                                                 <select>
-                                                                    <option value="0">Select Your Country</option>
-                                                                    <option value="1">Australia</option>
+                                                                    <option value="0">Quốc gia</option>
+                                                                    <option value="1">Vietnam</option>
                                                                     <option value="2">Afganistan</option>
                                                                     <option value="3">Bangladesh</option>
                                                                     <option value="4">Belgium</option>
@@ -252,14 +250,14 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="City / Town*">
+                                                                <input type="text" placeholder="Thành phố / Thị trấn*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="aa-checkout-single-bill">
-                                                                <input type="text" placeholder="District*">
+                                                                <input type="text" placeholder="Quận / Huyện*">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -271,7 +269,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="aa-checkout-single-bill">
-                                                                <textarea cols="8" rows="3">Special Notes</textarea>
+                                                                <textarea cols="8" rows="3">Ghi chú</textarea>
                                                             </div>
                                                         </div>
                                                     </div>

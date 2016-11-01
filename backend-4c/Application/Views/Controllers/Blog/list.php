@@ -37,9 +37,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -55,9 +60,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -73,9 +83,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -91,9 +106,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -109,9 +129,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -127,9 +152,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -145,9 +175,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -163,9 +198,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -223,21 +263,24 @@
                                     <div class="aa-recently-views">
                                         <ul>
                                             <li>
-                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
+                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg"
+                                                                                        alt="img"></a>
                                                 <div class="aa-cartbox-info">
                                                     <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
                                                     <p>March 26th 2016</p>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
+                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg"
+                                                                                        alt="img"></a>
                                                 <div class="aa-cartbox-info">
                                                     <h4><a href="#">Lorem ipsum dolor.</a></h4>
                                                     <p>March 26th 2016</p>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
+                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg"
+                                                                                        alt="img"></a>
                                                 <div class="aa-cartbox-info">
                                                     <h4><a href="#">Lorem ipsum dolor.</a></h4>
                                                     <p>March 26th 2016</p>
@@ -294,9 +337,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -312,9 +360,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -330,9 +383,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -348,9 +406,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -366,9 +429,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -384,9 +452,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -402,9 +475,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -420,9 +498,14 @@
                                                 </figcaption>
                                             </figure>
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit dicta enim repellendus animi. Expedita quas reprehenderit incidunt, voluptates corporis.</p>
-                                                <a class="aa-read-mor-btn" href="#">Read more <span class="fa fa-long-arrow-right"></span></a>
+                                                <h3 class="aa-blog-title"><a href="#">Lorem ipsum dolor sit amet</a>
+                                                </h3>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+                                                    ad? Autem quos natus nisi aperiam, beatae, fugiat odit vel impedit
+                                                    dicta enim repellendus animi. Expedita quas reprehenderit incidunt,
+                                                    voluptates corporis.</p>
+                                                <a class="aa-read-mor-btn" href="#">Read more <span
+                                                        class="fa fa-long-arrow-right"></span></a>
                                             </div>
                                         </article>
                                     </div>
@@ -480,21 +563,24 @@
                                     <div class="aa-recently-views">
                                         <ul>
                                             <li>
-                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
+                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg"
+                                                                                        alt="img"></a>
                                                 <div class="aa-cartbox-info">
                                                     <h4><a href="#">Lorem ipsum dolor sit amet.</a></h4>
                                                     <p>March 26th 2016</p>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
+                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg"
+                                                                                        alt="img"></a>
                                                 <div class="aa-cartbox-info">
                                                     <h4><a href="#">Lorem ipsum dolor.</a></h4>
                                                     <p>March 26th 2016</p>
                                                 </div>
                                             </li>
                                             <li>
-                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
+                                                <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg"
+                                                                                        alt="img"></a>
                                                 <div class="aa-cartbox-info">
                                                     <h4><a href="#">Lorem ipsum dolor.</a></h4>
                                                     <p>March 26th 2016</p>

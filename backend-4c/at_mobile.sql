@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2016 at 10:24 AM
+-- Generation Time: Nov 01, 2016 at 05:10 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -47,6 +47,8 @@ CREATE TABLE `blog` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `body` text NOT NULL,
+  `tags` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
   `user_id` int(11) UNSIGNED NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -501,11 +503,11 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
 (69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '8e843b14eb01fc8793b0f5ac457119ca', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
-(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', 'd9fceb0d0443a072a97f576fdbb9f1fc', 1, 1, '2016-10-28 15:17:26', '2016-09-25 21:27:42', '2016-10-28 08:17:26'),
+(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '037ff159912ff004a014797ace049640', 1, 1, '2016-11-01 10:03:19', '2016-09-25 21:27:42', '2016-11-01 03:03:19'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
 (74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
-(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', '06b8450893ff3b5d8b4b4845d2c28932', 1, 5, '2016-10-27 16:06:41', '2016-09-30 18:35:53', '2016-10-27 09:06:41'),
+(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', '9b43c4f00b4c46fc7a949f78cf8e41c1', 1, 5, '2016-11-01 11:04:19', '2016-09-30 18:35:53', '2016-11-01 04:04:19'),
 (76, 'haudovan', '$2a$07$ptmqOp6VabC5rltTRDPr9eKnfj1x/iUMBeW5NPhWNwBH2WhNImEmy', 'a93bc9a9f100d0e533015b6977117328', 1, 4, '2016-10-25 19:42:10', '2016-10-25 19:41:30', '2016-10-25 12:48:40'),
 (77, 'test1', '$2a$07$ptmiArUmBp4szOWxiOv0GeQBSxiwsjP5x9DzjoXm2BDwigzcPqgsi', 'ddc57a1cf5c50a344b6d18534a05e684', 1, 4, '2016-10-28 00:59:12', '2016-10-28 00:58:39', '2016-10-28 03:35:13');
 

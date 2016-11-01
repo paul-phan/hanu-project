@@ -122,7 +122,7 @@
                                 <li><a href="account.html">Tài khoản</a></li>
                                 <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
                                 <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
-                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                                <li class="hidden-xs"><a href="gio-hang/checkout.html">Checkout</a></li>
                                 <li><?php if (!isset($_SESSION['User'])) { ?><a href="" data-toggle="modal"
                                                                                 data-target="#login-modal">Đăng
                                         nhập</a> <?php } else {

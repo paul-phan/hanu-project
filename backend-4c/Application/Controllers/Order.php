@@ -27,7 +27,10 @@ class Order extends MainController
 
     public function checkoutAction()
     {
-        echo 'updating...';
+        $this->addDataView([
+           'viewTitle' => 'Giỏ hàng',
+            'viewSiteName' => 'Checkout!'
+        ]);
     }
 
 }
