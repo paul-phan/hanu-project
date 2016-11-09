@@ -45,9 +45,7 @@ abstract class Router
             array_splice($url, 0, 1);
         }
 
-        //Truyền data vào controller
         call_user_func_array(array($controller, $action), $url);
-        //truyền data vào controler , action = renderView tham số là mảng giá trị $controller, $action, $type
         call_user_func(array($controller, "renderView"), array('controller' => get_class($controller), 'action' => $action, 'type' => $type));
     }
 
