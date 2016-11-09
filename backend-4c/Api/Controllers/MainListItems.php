@@ -1,19 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Phan Minh
+ * User: Hoan
+ * Date: 11/3/2016
+ * Time: 10:10 AM
  */
-namespace Api\Controllers;
 
+namespace Api\Controllers;
 use Api\Controllers\ApiController as MainController;
 
-class Test extends MainController
+class MainListItems extends  MainController
 {
     public function __construct()
     {
         parent::__construct();
     }
-
     public function indexAction()
     {
         global $connection;

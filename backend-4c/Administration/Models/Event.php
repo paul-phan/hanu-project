@@ -66,5 +66,29 @@ class Event extends MainModel implements EventModel
         WHERE title LIKE '%$value%'";
         return $sql;
     }
+    public function pagination($page){
+        $colunm=$this->primary;
+        //start from the 1st row
+        $start=0;
+        //maximum value to be returned each query
+        $limit=3;
+        // get total records
+        $totalRows=$this->getRowCount($colunm);
+        //pages limit
+        $totalPages=ceil($totalRows/$limit);
+        // if the page number is larger than the page limit-> do nothing
+        if($page<=$totalPages){
+            // Caculating the start element of the database for every pages
+            $start=($page-1)*$limit;
+            //query the real data starting from $start position
+            $sql="SELECT * FROM event LIMIT $start,$limit";
+            $rs=$this->fetchMatchedFields($sql);
+            return $rs;
+        }
+        else{
+            $er="out of bound exception";
+            return $er;
+        }
+    }
 
 }
