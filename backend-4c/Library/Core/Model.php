@@ -358,4 +358,10 @@ abstract class Model
     {
         return $this->fetchAll("params= '$slug' ");
     }
+    public function getRowCount($column){
+        $sql="SELECT count('$column') FROM $this->table";
+        $rows=$this->db->query($sql);
+        $rs=$rows->fetchColumn();
+        return $rs;
+    }
 }
