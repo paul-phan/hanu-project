@@ -28,15 +28,14 @@ class Product extends MainController
         $productModel = new \Administration\Models\Product($co);
         $result = $productModel->fetchByClause(" left join product_detail as pdetail on pdetail.product_id = product.id  join company on company.id = product.company_id left join image on image.product_id = product.id and image.base_image = 1  where product.params = '$params' ", " pdetail.*, product.*, company.com_name, company.id as cid, image.url ");
         $result = $result[0];
-        if (!empty($result)) {
+        if (!isset($result) || empty($result)) {
+            header('Location: /404');
+        }
             $id = $result->id;
             $collectionModel = new \Administration\Models\ProductCollection($co);
             $collection = $collectionModel->fetchByClause(" join category on category.id = product_collection.category_id where product_collection.product_id = $id ", " product_collection.category_id, category.cat_name  ");
             $imageModel = new \Administration\Models\Image($co);
             $images = $imageModel->fetchAll(" product_id = $id ");
-        } else {
-            header('Location: /404');
-        }
         $this->addDataView(array(
             'viewTitle' => 'Sản Phẩm',
             'viewSiteName' => 'Chi tiết',

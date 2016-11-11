@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2016 at 05:10 AM
+-- Generation Time: Nov 10, 2016 at 02:38 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -420,7 +420,8 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 (24, 74, 'Tran Thu', '0914499925', 'thu@gmail.com', '02 Phu Cuong, Hatay', 'Hanoi', 'VN', '1475222511-Tran thi thu.jpg', 0, '1995-05-17', 1, '2016-09-30 15:01:51', '2016-09-30 08:01:51'),
 (25, 75, 'Phan Thế Minh', '0914499925', 'phanminh65@gmail.com122', 'Ba Vi', 'Hanoi', 'VN', '1475235353-phantheminh.jpg', 1, '1995-05-06', 1, '2016-09-30 18:35:53', '2016-09-30 11:35:53'),
 (26, 76, 'Hau Do Van', '012345678', 'phanminh123@gmail.com', 'Hanoi', 'Hanoi', 'VN', '1477399290-haudovan.png', 1, '1995-05-06', 1, '2016-10-25 19:41:30', '2016-10-25 12:47:59'),
-(27, 77, 'test minh', '123243', 'test1@g.co', '4234', '3456', 'VN', '1477624580-test1.jpg', 1, '1995-05-06', 1, '2016-10-28 00:58:39', '2016-10-27 17:58:39');
+(27, 77, 'test minh', '123243', 'test1@g.co', '4234', '3456', 'VN', '1477624580-test1.jpg', 1, '1995-05-06', 1, '2016-10-28 00:58:39', '2016-10-27 17:58:39'),
+(28, 78, 'Phan Thế Minh', '914499925', 'phanminh65@gmail.com78', '02 Phu Cuong', 'Hanoi', 'VN', '1478002252-minhthephan.jpg', 1, '1995-05-06', 1, '2016-11-01 19:10:52', '2016-11-01 12:10:52');
 
 -- --------------------------------------------------------
 
@@ -503,13 +504,14 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
 (69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '8e843b14eb01fc8793b0f5ac457119ca', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
-(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '037ff159912ff004a014797ace049640', 1, 1, '2016-11-01 10:03:19', '2016-09-25 21:27:42', '2016-11-01 03:03:19'),
+(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
 (74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
-(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', '9b43c4f00b4c46fc7a949f78cf8e41c1', 1, 5, '2016-11-01 11:04:19', '2016-09-30 18:35:53', '2016-11-01 04:04:19'),
+(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', '56018a1a6c6e46b2a48ab3da81742d92', 1, 5, '2016-11-01 19:03:18', '2016-09-30 18:35:53', '2016-11-01 12:03:18'),
 (76, 'haudovan', '$2a$07$ptmqOp6VabC5rltTRDPr9eKnfj1x/iUMBeW5NPhWNwBH2WhNImEmy', 'a93bc9a9f100d0e533015b6977117328', 1, 4, '2016-10-25 19:42:10', '2016-10-25 19:41:30', '2016-10-25 12:48:40'),
-(77, 'test1', '$2a$07$ptmiArUmBp4szOWxiOv0GeQBSxiwsjP5x9DzjoXm2BDwigzcPqgsi', 'ddc57a1cf5c50a344b6d18534a05e684', 1, 4, '2016-10-28 00:59:12', '2016-10-28 00:58:39', '2016-10-28 03:35:13');
+(77, 'test1', '$2a$07$ptmiArUmBp4szOWxiOv0GeQBSxiwsjP5x9DzjoXm2BDwigzcPqgsi', 'ddc57a1cf5c50a344b6d18534a05e684', 1, 4, '2016-10-28 00:59:12', '2016-10-28 00:58:39', '2016-10-28 03:35:13'),
+(78, 'minhthephan', '$2a$07$ptmYMZOUb8B0tbx0DHSNUe2nxEMBMEt9abkT6dkLtB6kX4uMhHZaq', 'd71eb244e5d175604a91cf3ed46974df', 1, 4, '2016-11-01 19:11:59', '2016-11-01 19:10:52', '2016-11-01 12:11:59');
 
 -- --------------------------------------------------------
 
@@ -716,7 +718,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -731,7 +733,7 @@ ALTER TABLE `subcribe`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `user_feedback`
 --
