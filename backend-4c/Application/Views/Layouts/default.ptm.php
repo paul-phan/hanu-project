@@ -331,7 +331,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Phụ kiện</a></li>
-                        <li><a href="lien-he.html">Liên hệ <span class="caret"></span></a>
+                        <li><a href="contact">Liên hệ <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Camera</a></li>
                                 <li><a href="#">Mobile</a></li>
@@ -469,7 +469,7 @@
                                         <li><a href="#">Our Services</a></li>
                                         <li><a href="#">Our Products</a></li>
                                         <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="Contact">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
