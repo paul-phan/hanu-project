@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2016 at 10:21 PM
+-- Generation Time: Nov 21, 2016 at 02:04 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -128,6 +128,7 @@ CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `message` text NOT NULL,
+  `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -136,12 +137,14 @@ CREATE TABLE `contact` (
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`id`, `title`, `message`, `email`, `date`) VALUES
-(1, 'hello admin ??p zai', 'sdsd', 'nguyentrungduc2910@gmail.com', '2016-11-16 20:52:22'),
-(2, 'sdfsdf', 'dsfsdfdsf', 'nguyentrungduc2910@gmail.com', '2016-11-16 20:54:25'),
-(3, 'sdfsdfsdf', 'sdfsdfsdf', 'sdfsdfsd@gmail.com', '2016-11-16 20:57:19'),
-(4, '1232132sdasda', '?âsd', 'nguyentrungduc2910@gmail.com', '2016-11-16 20:59:05'),
-(5, 'dfsf', 'sdfsdf', 'sdfsdfsd@gmail.com', '2016-11-16 21:20:24');
+INSERT INTO `contact` (`id`, `title`, `message`, `name`, `email`, `date`) VALUES
+(1, 'hello admin ??p zai', 'sdsd', '0', 'nguyentrungduc2910@gmail.com', '2016-11-16 20:52:22'),
+(2, 'sdfsdf', 'dsfsdfdsf', '0', 'nguyentrungduc2910@gmail.com', '2016-11-16 20:54:25'),
+(3, 'sdfsdfsdf', 'sdfsdfsdf', '0', 'sdfsdfsd@gmail.com', '2016-11-16 20:57:19'),
+(4, '1232132sdasda', '?âsd', '0', 'nguyentrungduc2910@gmail.com', '2016-11-16 20:59:05'),
+(5, 'dfsf', 'sdfsdf', '0', 'sdfsdfsd@gmail.com', '2016-11-16 21:20:24'),
+(6, 'dfsdf', 'ádsad', 'trung ??c', 'nguyentrungduc2910@gmail.com', '2016-11-16 21:51:38'),
+(8, 'hello admin ??p zai', 'sdfsdfsd', 'thu', 'nguyentrungduc2910@gmail.com', '2016-11-21 10:37:37');
 
 -- --------------------------------------------------------
 
@@ -527,7 +530,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (64, 'minhtest23', '$2a$07$ptmbCg9OO3LxQ9kRCFBvUOCMuqL1H4P9fInP/CTWlXPS7hKSuojPW', 'd1c37763e184ce1e3e4037ebf2c71eda', 1, 1, '0000-00-00 00:00:00', '2016-09-24 14:26:50', '2016-09-24 07:26:50'),
 (66, 'minhtest28', '$2a$07$ptm5E5KghlSiwu3yJ9cEteSooGDfITFM8V.6ScFZCwQTZB1xe7i26', 'a798282573839191b3e928b4578971e5', 0, 1, '0000-00-00 00:00:00', '2016-09-24 18:37:37', '2016-09-26 11:38:57'),
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
-(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '380ee7106746f7aab853c7ee832156e3', 1, 1, '2016-11-17 04:02:04', '2016-09-25 21:12:31', '2016-11-16 21:02:04'),
+(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '6f884550665b43d6a041e03655872f0a', 1, 1, '2016-11-21 17:54:30', '2016-09-25 21:12:31', '2016-11-21 10:54:30'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
@@ -714,7 +717,7 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `event`
 --
