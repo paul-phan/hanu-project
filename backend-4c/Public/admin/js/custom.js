@@ -460,7 +460,7 @@ jQuery(function ($) {
                 q = 0;
                 $.each(data.data, function (i, e) {
                     q++;
-                    $('#cart-noti').append('<li> <a class="aa-cartbox-img" href="gio-hang.html"><img src="Public/upload/' + e.url + '" alt="' + e.label + '"></a><div class="aa-cartbox-info"> <h4><a href="san-pham/' + e.params + '.html">' + e.title + '</a></h4> <p>' + e.order_count + ' x ' + viNumFormat(e.real_price) + '.000 VNĐ</p> </div> <a class="aa-remove-product" data-product-id="' + e.id + '" href="javascript:;"><span class="fa fa-times"></span></a> </li>')
+                    $('#cart-noti').append('<li> <a class="aa-cartbox-img" href="gio-hang.html"><img src="Public/upload/' + e.url + '" alt="' + e.label + '"></a><div class="aa-cartbox-info"> <h4><a href="san-pham/' + e.params + '.html">' + e.title + '</a></h4> <p>' + e.order_count + ' x ' + viNumFormat(e.real_price) + '.000 VNĐ</p> </div> <a class="aa-remove-product" href="/order/update_cart/' + e.id + '"><span class="fa fa-times"></span></a> </li>')
                     money += (e.order_count * e.real_price);
                 })
                 $('.aa-cartbox-total-price').html(viNumFormat(money) + '.000 VNĐ')
@@ -519,46 +519,45 @@ jQuery(function ($) {
     $('#switcher').attr('href', Cookies.get('theme'))
     //Theme swicher
     $('#switcher-bridge-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/bridge-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/bridge-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/bridge-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/bridge-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-dark-red-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/dark-red-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/dark-red-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/dark-red-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/dark-red-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-default-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/default-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/default-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/default-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/default-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-green-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/green-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/green-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/green-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/green-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-lite-blue-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/lite-blue-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/lite-blue-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/lite-blue-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/lite-blue-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-orange-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/orange-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/orange-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/orange-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/orange-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-pink-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/pink-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/pink-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/pink-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/pink-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-purple-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/purple-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/purple-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/purple-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/purple-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-red-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/red-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/red-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/red-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/red-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-yellow-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/yellow-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/yellow-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/yellow-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/yellow-theme.css', {path: '/', expires: 365});
     })
-
 
 
 });
