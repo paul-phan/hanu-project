@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2016 at 02:38 AM
+-- Generation Time: Nov 21, 2016 at 05:33 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -194,7 +194,6 @@ CREATE TABLE `order_product` (
   `id` int(11) UNSIGNED NOT NULL,
   `profile_id` int(11) UNSIGNED NOT NULL,
   `product_id` int(11) UNSIGNED NOT NULL,
-  `product_detail` varchar(255) NOT NULL,
   `item_count` int(11) NOT NULL,
   `to_price` int(20) NOT NULL,
   `ship_price` int(20) NOT NULL,
@@ -211,10 +210,14 @@ CREATE TABLE `order_product` (
 -- Dumping data for table `order_product`
 --
 
-INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `product_detail`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
-(1, 18, 7, '', 123123, 123, 12, 15144141, 'normal', 'qweqas', 3, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29 09:45:14'),
-(2, 10, 9, '', 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
-(3, 3, 8, '', 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32');
+INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
+(1, 18, 7, 123123, 123, 12, 15144141, 'normal', 'qweqas', 3, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29 09:45:14'),
+(2, 10, 9, 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
+(3, 3, 8, 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32'),
+(4, 20, 21, 1, 17000, 0, 17000, 'Cash on Delivery', 'hasasdasd', 1, '127.0.0.1', '2016-11-21 23:29:36', '2016-11-21 16:29:36'),
+(5, 20, 22, 1, 4500, 0, 4500, 'Cash on Delivery', 'hasasdasd', 1, '127.0.0.1', '2016-11-21 23:29:36', '2016-11-21 16:29:36'),
+(6, 20, 20, 3, 20000, 0, 60000, 'Cash on Delivery', 'hasasdasd', 1, '127.0.0.1', '2016-11-21 23:29:36', '2016-11-21 16:29:36'),
+(7, 20, 15, 1, 3123, 0, 3123, 'Cash on Delivery', '', 1, '127.0.0.1', '2016-11-21 23:31:50', '2016-11-21 16:31:50');
 
 -- --------------------------------------------------------
 
@@ -504,7 +507,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
 (69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '8e843b14eb01fc8793b0f5ac457119ca', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
-(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
+(71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '1c959764bad80942b71c3d7948890971', 1, 1, '2016-11-21 22:11:17', '2016-09-25 21:27:42', '2016-11-21 15:11:17'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
 (74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
@@ -693,7 +696,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `order_status`
 --

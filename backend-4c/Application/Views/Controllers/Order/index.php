@@ -57,8 +57,8 @@
                                     <tr>
                                         <td colspan="6" class="aa-cart-view-bottom">
                                             <div class="aa-cart-coupon">
-                                                <input name="coupoun" class="aa-coupon-code" type="text" placeholder="Mã giảm giá">
-                                                <input name="use_coupoun" class="aa-cart-view-btn" type="submit" value="Dùng mã giảm giá">
+                                                <input name="coupon" class="aa-coupon-code" type="text" placeholder="Mã giảm giá">
+                                                <input name="use_coupon" class="aa-cart-view-btn" type="submit" value="Dùng mã giảm giá">
                                             </div>
                                             <input name="update_cart" class="aa-cart-view-btn" type="submit" value="Cập nhật giỏ hàng">
                                         </td>

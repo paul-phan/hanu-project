@@ -67,6 +67,9 @@ class Order extends MainController
                     }
                 }
             }
+            if (!empty($_POST['use_coupon']) && !empty($_POST['coupon'])) {
+                $_SESSION['coupon'] = $_POST['coupon'];
+            }
         }
         setcookie("cart", json_encode($cart), time() + (86400 * 30), '/');
         header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -75,9 +78,60 @@ class Order extends MainController
 
     public function checkoutAction()
     {
+
+        $products = [];
+        $total = 0;
+        global $connection;
+        $co = $connection->getCo();
+        $orderModel = new \Administration\Models\Order($co);
+        $userModel = new \Administration\Models\User($co);
+        $profileModel = new \Administration\Models\Profile($co);
+        $productModel = new \Administration\Models\Product($co);
+        $cart = isset($_COOKIE['cart']) ? json_decode($_COOKIE['cart']) : [];
+        foreach ($cart as $k => $v) {
+            $product = $productModel->fetchByClause("  join company on company.id = product.company_id  left join image on image.product_id = product.id and image.base_image = 1 where product.id = $v->id ", "  product.*, company.com_name as cname, image.url as iurl, image.label as ilabel ")[0];
+            $product->quantity = $v->count;
+            $products[] = $product;
+            $total += $v->count * (($product->sale > 0) ? $product->sale : $product->price);
+        }
+        //get user data
+        if (!empty($_SESSION['User']['id'])) {
+            $id = $_SESSION['User']['id'];
+            $user = $userModel->findById($id);
+            $profile = $profileModel->getByUserId($id);
+        }
+
+        //ordering
+        if ($_POST) {
+            if (!empty($_POST['submit_order']) && !empty($_POST['product_id'])) {
+
+                foreach ($_POST['product_id'] as $k => $pid) {
+                    $_POST['order']['product_id'] = $pid;
+                    $_POST['order']['item_count'] = $_POST['product_quantity'][$k];
+                    $_POST['order']['to_price'] = $_POST['product_price'][$k];
+                    $_POST['order']['ship_price'] = 0;
+//                    var_dump($_POST['order']);
+                    if ($orderModel->addOrder($_POST['order'])) {
+                        $alert = Tools\Alert::render('Chúc mừng, bạn đã đặt hàng thành công!', 'success');
+                        setcookie("cart", "", 1, '/');
+                        header("Refresh:3; url=/", true, 303);
+                    } else {
+                        $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại :(', 'danger');
+                    }
+                }
+            }
+
+
+        }
+
         $this->addDataView([
             'viewTitle' => 'Giỏ hàng',
-            'viewSiteName' => 'Checkout!'
+            'viewSiteName' => 'Checkout!',
+            'products' => $products,
+            'total' => $total,
+            'user' => !empty($user[0]) ? $user[0] : '',
+            'profile' => !empty($profile[0]) ? $profile[0] : '',
+            'alert' => !empty($alert) ? $alert : ''
         ]);
     }
 

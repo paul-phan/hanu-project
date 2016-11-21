@@ -200,7 +200,7 @@
                                         <span class="aa-cartbox-total-price">0 VNĐ</span>
                                     </li>
                                 </ul>
-                                <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                                <a class="aa-cartbox-checkout aa-primary-btn" href="/gio-hang/checkout.html">Checkout</a>
                             </div>
                         </div>
                         <!-- / cart box -->
