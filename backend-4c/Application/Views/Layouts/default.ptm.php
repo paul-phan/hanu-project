@@ -44,7 +44,7 @@
     <!-- jQuery library -->
     <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
-            <script src="dashboard/js/jquery.min.js"></script>
+    <script src="dashboard/js/jquery.min.js"></script>
     <script src="dashboard/js/bootstrap.min.js"></script>
     <script src="dashboard/js/js.cookie.min.js" type="text/javascript"></script>
     <script src="dashboard/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -122,7 +122,7 @@
                                 <li><a href="account.html">Tài khoản</a></li>
                                 <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
                                 <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
-                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                                <li class="hidden-xs"><a href="gio-hang/checkout.html">Checkout</a></li>
                                 <li><?php if (!isset($_SESSION['User'])) { ?><a href="" data-toggle="modal"
                                                                                 data-target="#login-modal">Đăng
                                         nhập</a> <?php } else {
@@ -130,23 +130,31 @@
                                     } ?></li>
                                 <li>
                                     <div class="dropdown" id="theme-swicher">
-                                        <a class="btn dropdown-toggle" href="#" type="button"
+                                        <a class="btn dropdown-toggle" type="button"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                             Màu
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                            <li><a href="#" id="switcher-bridge-theme" style="background-color: #a5d549;"></a></li>
-                                            <li><a href="#" id="switcher-dark-red-theme" style="background-color: #970001;"></a></li>
-                                            <li><a href="#" id="switcher-default-theme" style="background-color: #ff6666;"></a></li>
-                                            <li><a href="#" id="switcher-green-theme" style="background-color: #3fc35f;"></a></li>
-                                            <li><a href="#" id="switcher-lite-blue-theme" style="background-color: #37c6f5;"></a></li>
+                                            <li><a id="switcher-bridge-theme" style="background-color: #a5d549;"></a>
+                                            </li>
+                                            <li><a id="switcher-dark-red-theme" style="background-color: #970001;"></a>
+                                            </li>
+                                            <li><a id="switcher-default-theme" style="background-color: #ff6666;"></a>
+                                            </li>
+                                            <li><a id="switcher-green-theme" style="background-color: #3fc35f;"></a>
+                                            </li>
+                                            <li><a id="switcher-lite-blue-theme" style="background-color: #37c6f5;"></a>
+                                            </li>
                                             <br/>
-                                            <li><a href="#" id="switcher-orange-theme" style="background-color: #ff871c;"></a></li>
-                                            <li><a href="#" id="switcher-pink-theme" style="background-color: #ff2851;"></a></li>
-                                            <li><a href="#" id="switcher-purple-theme" style="background-color: #c762cb;"></a></li>
-                                            <li><a href="#" id="switcher-red-theme" style="background-color: #ee4532;"></a></li>
-                                            <li><a href="#" id="switcher-yellow-theme" style="background-color: #ffff00;"></a></li>
+                                            <li><a id="switcher-orange-theme" style="background-color: #ff871c;"></a>
+                                            </li>
+                                            <li><a id="switcher-pink-theme" style="background-color: #ff2851;"></a></li>
+                                            <li><a id="switcher-purple-theme" style="background-color: #c762cb;"></a>
+                                            </li>
+                                            <li><a id="switcher-red-theme" style="background-color: #ee4532;"></a></li>
+                                            <li><a id="switcher-yellow-theme" style="background-color: #ffff00;"></a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -323,7 +331,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Phụ kiện</a></li>
-                        <li><a href="lien-he.html">Liên hệ <span class="caret"></span></a>
+                        <li><a href="contact">Liên hệ <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Camera</a></li>
                                 <li><a href="#">Mobile</a></li>
@@ -341,7 +349,7 @@
 <!-- / menu -->
 <div style="clear: both"></div>
 <!--CONTENT-->
-<?= $alert ?>
+
 <?= $viewContent ?>
 
 <!--END CONTENT-->
@@ -424,24 +432,26 @@
 
 
 <!-- Subscribe section -->
-<section id="aa-subscribe">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="aa-subscribe-area">
-                    <h3>Subscribe our newsletter </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
-                    <form action="" class="aa-subscribe-form">
-                        <input type="email" name="" id="" placeholder="Enter your Email">
-                        <input type="submit" value="Subscribe">
-                    </form>
+<?php if (!isset($_SESSION['User'])) { ?>
+    <section id="aa-subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-subscribe-area">
+                        <h3>Subscribe our newsletter </h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
+                        <form method="post" action="account/subcribe" class="aa-subscribe-form">
+                            <input type="email" name="subcribe" id="" placeholder="Enter your Email">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php } ?>
 <!-- / Subscribe section -->
-
+<div style="clear: both"></div>
 <!-- footer -->
 <footer id="aa-footer">
     <!-- footer bottom -->
@@ -459,7 +469,7 @@
                                         <li><a href="#">Our Services</a></li>
                                         <li><a href="#">Our Products</a></li>
                                         <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="Contact">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -577,10 +587,21 @@
 <script type="text/javascript" src="dashboard/js/nouislider.js"></script>
 <!--notification 8-->
 <script type="text/javascript" src="dashboard/js/jquery.notific8.min.js"></script>
-
-
 <!-- Custom js -->
 <script src="dashboard/js/custom.js"></script>
+<?php if (!empty($alert)) {
+    echo '<div id="alerting" data-alert="'.$alert.'"></div>';
+} ?>
+<script>
+    a = $('#alerting').attr('data-alert')
+    if (a) {
+        $.notific8(a, {
+            life: 5000,
+            heading: 'From Minh:',
+            height: 100
+        });
+    }
+</script>
 
 </body>
 </html>

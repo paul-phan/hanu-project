@@ -18,7 +18,7 @@
                 <!-- single slide item -->
                 <li>
                     <div class="seq-model">
-                        <img data-seq src="img/slider/2.jpg" alt="Wristwatch slide img"/>
+                        <img data-seq src="img/slider/1.jpg" alt="Wristwatch slide img"/>
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 40% Off</span>
@@ -30,7 +30,7 @@
                 <!-- single slide item -->
                 <li>
                     <div class="seq-model">
-                        <img data-seq src="img/slider/3.jpg" alt="Women Jeans slide img"/>
+                        <img data-seq src="img/slider/1.jpg" alt="Women Jeans slide img"/>
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 75% Off</span>
@@ -42,7 +42,7 @@
                 <!-- single slide item -->
                 <li>
                     <div class="seq-model">
-                        <img data-seq src="img/slider/4.jpg" alt="Shoes slide img"/>
+                        <img data-seq src="img/slider/1.jpg" alt="Shoes slide img"/>
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 75% Off</span>
@@ -54,7 +54,7 @@
                 <!-- single slide item -->
                 <li>
                     <div class="seq-model">
-                        <img data-seq src="img/slider/5.jpg" alt="Male Female slide img"/>
+                        <img data-seq src="img/slider/1.jpg" alt="Male Female slide img"/>
                     </div>
                     <div class="seq-title">
                         <span data-seq>Save Up to 50% Off</span>

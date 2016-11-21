@@ -131,6 +131,15 @@ interface BlogModel{
     public function insertBlog($post);
     public function modifyBlog($post, $id);
 }
+
+interface ContactModel{
+    public function insertContact($post);
+}
+
+interface LienHeModel{
+
+}
+
 abstract class Model
 {
     private $db;
@@ -357,5 +366,11 @@ abstract class Model
     public function getBySlug($slug)
     {
         return $this->fetchAll("params= '$slug' ");
+    }
+    public function getRowCount($column){
+        $sql="SELECT count('$column') FROM $this->table";
+        $rows=$this->db->query($sql);
+        $rs=$rows->fetchColumn();
+        return $rs;
     }
 }
