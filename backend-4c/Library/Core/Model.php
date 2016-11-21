@@ -131,6 +131,11 @@ interface BlogModel{
     public function insertBlog($post);
     public function modifyBlog($post, $id);
 }
+
+interface ContactModel{
+    public function insertContact($post);
+}
+
 abstract class Model
 {
     private $db;
