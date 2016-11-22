@@ -25,6 +25,7 @@ class Contact extends MainModel implements ContactModel
         return $this->insert(array(
             'title' => isset($post['title']) ? $post['title'] : '',
             'message' => isset($post['message']) ? $post['message'] : '',
+            'name' => isset($post['name']) ? $post['name'] : '',
             'email' => isset($post['email']) ? $post['email'] : '',
             'date' => date("Y:m:d H:i:s")
         ));

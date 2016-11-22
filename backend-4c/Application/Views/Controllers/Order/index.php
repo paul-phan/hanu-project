@@ -22,7 +22,7 @@
             <div class="col-md-12">
                 <div class="cart-view-area">
                     <div class="cart-view-table">
-                        <form action="/order/update_cart" method="post">
+                        <form action="">
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -36,31 +36,37 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach ($products as $product) { ?>
-                                        <tr>
-                                            <td><a class="remove" href="order/update_cart/<?= $product->id ?>">
-                                                    <i class="fa fa-close"></i>
-                                                </a></td>
-                                            <td><a href="#"><img src="<?= UPLOAD_DIR . $product->iurl ?>" alt="img"></a>
-                                            </td>
-                                            <td><a class="aa-cart-title" href="#"><?= $product->title ?></a></td>
-                                            <td><?= number_format(($product->sale > 0) ? $product->sale : $product->price, 0, ",", ".") ?>
-                                                .000 VNĐ
-                                            </td>
-                                            <td><input name="<?= $product->id ?>" class="aa-cart-quantity" type="number"
-                                                       value="<?= $product->quantity ?>"></td>
-                                            <td><?= number_format((($product->sale > 0) ? $product->sale : $product->price) * $product->quantity, 0, ",", ".") ?>
-                                                .000 VNĐ
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
+                                    <tr>
+                                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
+                                        <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
+                                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
+                                        <td>$250</td>
+                                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
+                                        <td>$250</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
+                                        <td><a href="#"><img src="img/man/polo-shirt-2.png" alt="img"></a></td>
+                                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
+                                        <td>$150</td>
+                                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
+                                        <td>$150</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
+                                        <td><a href="#"><img src="img/man/polo-shirt-3.png" alt="img"></a></td>
+                                        <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
+                                        <td>$50</td>
+                                        <td><input class="aa-cart-quantity" type="number" value="1"></td>
+                                        <td>$50</td>
+                                    </tr>
                                     <tr>
                                         <td colspan="6" class="aa-cart-view-bottom">
                                             <div class="aa-cart-coupon">
-                                                <input name="coupon" class="aa-coupon-code" type="text" placeholder="Mã giảm giá">
-                                                <input name="use_coupon" class="aa-cart-view-btn" type="submit" value="Dùng mã giảm giá">
+                                                <input class="aa-coupon-code" type="text" placeholder="Coupon">
+                                                <input class="aa-cart-view-btn" type="submit" value="Apply Coupon">
                                             </div>
-                                            <input name="update_cart" class="aa-cart-view-btn" type="submit" value="Cập nhật giỏ hàng">
+                                            <input class="aa-cart-view-btn" type="submit" value="Update Cart">
                                         </td>
                                     </tr>
                                     </tbody>
@@ -74,15 +80,15 @@
                                 <tbody>
                                 <tr>
                                     <th>Subtotal</th>
-                                    <td><?= number_format($total, 0, ",", ".") ?>.000 VNĐ</td>
+                                    <td>$450</td>
                                 </tr>
                                 <tr>
                                     <th>Total</th>
-                                    <td><?= number_format($total, 0, ",", ".") ?>.000 VNĐ</td>
+                                    <td>$450</td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <a href="/gio-hang/checkout.html" class="aa-cart-view-btn">Thanh toán</a>
+                            <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
                         </div>
                     </div>
                 </div>

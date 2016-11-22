@@ -590,6 +590,36 @@
                     </ul>
                 </li>
 
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-phone"></i>
+                        <span class="title">Liên hệ</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/LienHe/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách liên hệ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-comment "></i>
+                        <span class="title">Phản hồi</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/PhanHoi/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách phản hồi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>

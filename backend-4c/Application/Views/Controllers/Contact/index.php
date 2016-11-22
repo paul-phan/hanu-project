@@ -19,6 +19,11 @@
             </div>
 
             <div class="form-group">
+                <label for="name">Tên</label>
+                <input class="form-control" type="text" name="name" placeholder="Nhập tên bạn vào đây..."></input><br/>
+            </div>
+
+            <div class="form-group">
                 <label for="email">Email</label>
                 <input class="form-control" type="email" name="email" placeholder="Nhập email vào đây..."/> <br/>
             </div>
@@ -32,7 +37,6 @@
                     window.history.back();
                 }
             </script>
-            </div>
 
         </form>
     </div>

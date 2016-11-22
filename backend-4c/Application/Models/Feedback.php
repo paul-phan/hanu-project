@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: ntdha
- * Date: 10/25/2016
- * Time: 9:06 PM
+ * Date: 11/22/2016
+ * Time: 6:24 PM
  */
 namespace Application\Models;
 
@@ -12,7 +12,7 @@ use Library\Core\FeedbackModel;
 
 class Feedback extends MainModel implements FeedbackModel
 {
-    protected $table = 'feedback';
+    protected $table = 'comment';
     protected $primary = 'id';
 
     public function __construct($co)
@@ -23,12 +23,11 @@ class Feedback extends MainModel implements FeedbackModel
     public function insertFeedback($post)
     {
         return $this->insert(array(
-            'product_id' => isset($post['title']) ? $post['title'] : '',
-            'title' => isset($post['title']) ? $post['title'] : '',
-            'content' => isset($post['content']) ? $post['content'] : '',
-            'date' => date("Y-m-d H:i:s"),
+            'name' => isset($post['name']) ? $post['name'] : '',
+            'message' => isset($post['message']) ? $post['message'] : '',
             'email' => isset($post['email']) ? $post['email'] : '',
-            'name' => isset($post['name']) ? $post['name'] : ''
+            'date' => date("Y-m-d H:i:s"),
+            'product_id' => isset($post['product_id']) ? $post['product_id'] : '',
         ));
     }
 }
