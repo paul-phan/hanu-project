@@ -49,6 +49,7 @@
     <script src="dashboard/js/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
     <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/moment.min.js" type="text/javascript"></script>
     <!--END CORE PLUGIN-->
     <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
 </head>

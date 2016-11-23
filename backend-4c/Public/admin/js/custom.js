@@ -361,12 +361,20 @@ jQuery(function ($) {
      /* ----------------------------------------------------------- */
 
     jQuery('.seq-canvas').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 800,
         fade: true,
         cssEase: 'linear'
     });
+
+
+
+
+
+
 
     changeImage = function (ev) {
         var img = ev.getAttribute('data-lens-image')
@@ -526,14 +534,14 @@ jQuery(function ($) {
             return;
 
         return day_diff == 0 && (
-            diff < 60 && "just now" ||
-            diff < 120 && "1 minute ago" ||
-            diff < 3600 && Math.floor(diff / 60) + " minutes ago" ||
-            diff < 7200 && "1 hour ago" ||
-            diff < 86400 && Math.floor(diff / 3600) + " hours ago") ||
-            day_diff == 1 && "Yesterday" ||
-            day_diff < 7 && day_diff + " days ago" ||
-            day_diff < 31 && Math.ceil(day_diff / 7) + " weeks ago";
+            diff < 60 && "vừa xong" ||
+            diff < 120 && "1 phút trước" ||
+            diff < 3600 && Math.floor(diff / 60) + " phút trước" ||
+            diff < 7200 && "1 giờ trước" ||
+            diff < 86400 && Math.floor(diff / 3600) + " giờ trước") ||
+            day_diff == 1 && "Hôm qua" ||
+            day_diff < 7 && day_diff + " ngày trước" ||
+            day_diff < 31 && Math.ceil(day_diff / 7) + " tuần trước";
     }
 
 // If jQuery is included in the page, adds a jQuery plugin to handle it as well

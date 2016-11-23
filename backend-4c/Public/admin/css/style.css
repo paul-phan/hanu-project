@@ -462,7 +462,7 @@ img {
     background-color: #f2f2f2;
     opacity: 0.95;
     border: solid #fff 1px;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 500px;
     width: 490px;
     top: 53px;
@@ -578,6 +578,8 @@ img {
     top: 100%;
     width: 300px;
     z-index: 9999;
+    max-height: 600px;
+    overflow-y: auto;
 }
 
 #aa-header .aa-header-bottom .aa-cartbox .aa-cartbox-summary:after, #aa-header .aa-header-bottom .aa-cartbox .aa-cartbox-summary:before {

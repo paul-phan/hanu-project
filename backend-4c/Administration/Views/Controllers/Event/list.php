@@ -60,7 +60,8 @@
                             <i class="fa fa-trash-o"></i> Xóa </a>
                     </td>
                     <td><?= $event->ticket ?></td>
-                    <td><img src="<?= $event->image ?>" alt="<?= $event->image ?>" width="300px" height="300px" /></td>
+                    <td><img src="<?= UPLOAD_DIR . '/event/' . $event->image ?>" alt="<?= $event->title ?>"
+                             width="150px" /></td>
                     <td><?= $event->description ?></td>
                     <td><?= $event->zipcode ?></td>
 

@@ -590,7 +590,7 @@
 <!-- Custom js -->
 <script src="dashboard/js/custom.js"></script>
 <?php if (!empty($alert)) {
-    echo '<div id="alerting" data-alert="'.$alert.'"></div>';
+    echo '<div id="alerting" data-alert="' . $alert . '"></div>';
 } ?>
 <script>
     a = $('#alerting').attr('data-alert')
