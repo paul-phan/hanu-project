@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2016 at 05:33 PM
+-- Generation Time: Nov 23, 2016 at 02:33 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -117,6 +117,34 @@ INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `create
 (15, 'Mobiado', '2016-10-04-092023-mobiado', 12, 1, '2016-10-04 09:20:23', '2016-10-04 02:20:23'),
 (16, 'Vertu', '2016-10-04-092033-vertu', 13, 1, '2016-10-04 09:20:33', '2016-10-04 02:20:33'),
 (17, 'QMobile', '2016-10-04-092045-qmobile', 14, 1, '2016-10-04 09:20:45', '2016-10-04 02:20:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `title` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `message` text CHARACTER SET latin1 NOT NULL,
+  `name` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `email` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `title`, `message`, `name`, `email`, `date`) VALUES
+(1, 'hello admin ??p zai', 'sdsd', '0', 'nguyentrungduc2910@gmail.com', '2016-11-16 13:52:22'),
+(2, 'sdfsdf', 'dsfsdfdsf', '0', 'nguyentrungduc2910@gmail.com', '2016-11-16 13:54:25'),
+(3, 'sdfsdfsdf', 'sdfsdfsdf', '0', 'sdfsdfsd@gmail.com', '2016-11-16 13:57:19'),
+(4, '1232132sdasda', '?âsd', '0', 'nguyentrungduc2910@gmail.com', '2016-11-16 13:59:05'),
+(5, 'dfsf', 'sdfsdf', '0', 'sdfsdfsd@gmail.com', '2016-11-16 14:20:24'),
+(6, 'dfsdf', 'ádsad', 'trung ??c', 'nguyentrungduc2910@gmail.com', '2016-11-16 14:51:38'),
+(8, 'hello admin ??p zai', 'sdfsdfsd', 'thu', 'nguyentrungduc2910@gmail.com', '2016-11-21 03:37:37');
 
 -- --------------------------------------------------------
 

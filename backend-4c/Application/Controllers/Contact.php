@@ -5,6 +5,7 @@ namespace Application\Controllers;
 use Application\Controllers\AppController as MainController;
 
 use Library\Tools;
+
 class Contact extends MainController
 {
     public function __construct()
@@ -18,8 +19,8 @@ class Contact extends MainController
         $co = $connection->getCo();
         $ContactModel = new \Application\Models\Contact($co);
 
-        if($_POST){
-            if (!empty($_POST['title']) && !empty($_POST['message']) && !empty($_POST['email'])) {
+        if ($_POST) {
+            if (!empty($_POST['title']) && !empty($_POST['message']) && !empty($_POST['name']) && !empty($_POST['email'])) {
                 if ($ContactModel->insertContact($_POST)) {
 
                     $alert = Tools\Alert::render('Đã gửi liên lạc tới admin...!');

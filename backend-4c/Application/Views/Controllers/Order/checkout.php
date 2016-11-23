@@ -40,10 +40,9 @@
                                             <div id="collapseOne"
                                                  class="panel-collapse collapse ">
                                                 <div class="panel-body">
-                                                    <input type="text" placeholder="Nhập mã giảm giá.."
-                                                           class="aa-coupon-code">
-                                                    <input type="submit" value="Áp dụng mã giảm giá"
-                                                           class="aa-browse-btn">
+
+                                                    <input type="text" placeholder="Nhập mã giảm giá.." class="aa-coupon-code">
+                                                    <input type="submit" value="Áp dụng mã giảm giá" class="aa-browse-btn">
                                                 </div>
                                             </div>
                                         </div>
@@ -466,6 +465,7 @@
                                                                 value="<?= (!empty($profile->city)) ? $profile->city : '' ?>"
                                                                 type="text" name="profile[city]"
                                                                 placeholder="Thành phố / Thị trấn*">
+
                                                         </div>
                                                     </div>
 

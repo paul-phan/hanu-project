@@ -136,6 +136,7 @@ interface ContactModel{
     public function insertContact($post);
 }
 
+
 abstract class Model
 {
     private $db;
