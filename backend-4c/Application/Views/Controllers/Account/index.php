@@ -200,7 +200,7 @@
                                         </div>
                                         <ul class="nav nav-tabs">
                                             <li class="active">
-                                                <a href="#tab_1_1" data-toggle="tab"> System </a>
+                                                <a href="#tab_1_1" data-toggle="tab"> Lịch sử mua hàng </a>
                                             </li>
                                             <li>
                                                 <a href="#tab_1_2" data-toggle="tab"> Activities </a>
@@ -214,17 +214,18 @@
                                                 <div class="scroller" style="height: 320px;" data-always-visible="1"
                                                      data-rail-visible1="0" data-handle-color="#D7DCE2">
                                                     <ul class="feeds">
+                                                        <?php foreach ($orders as $k => $order):  ?>
                                                         <li>
                                                             <div class="col1">
                                                                 <div class="cont">
                                                                     <div class="cont-col1">
                                                                         <div class="label label-sm label-success">
-                                                                            <i class="fa fa-bell-o"></i>
+                                                                            <i class="fa fa-shopping-cart"></i>
                                                                         </div>
                                                                     </div>
                                                                     <div class="cont-col2">
-                                                                        <div class="desc"> You have 4 pending tasks.
-                                                                            <span class="label label-sm label-info"> Take action
+                                                                        <div class="desc"> <?= $order->ptitle ?>
+                                                                            <span class="label label-sm label-info"> <?= $order->osname ?>
                                                                                         <i class="fa fa-share"></i>
                                                                                     </span>
                                                                         </div>
@@ -232,9 +233,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col2">
-                                                                <div class="date"> Just now</div>
+                                                                <div id="order-created" class="date order-created"> <?= $order->created ?></div>
                                                             </div>
                                                         </li>
+                                                        <?php endforeach; ?>
                                                         <li>
                                                             <a href="javascript:;">
                                                                 <div class="col1">

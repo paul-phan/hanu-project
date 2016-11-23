@@ -31,8 +31,12 @@ class Account extends MainController
         $userModel = new \Administration\Models\User($co);
         $profileModel = new \Administration\Models\Profile($co);
         $roleModel = new \Administration\Models\Role($co);
+        $orderModel = new \Administration\Models\Order($co);
         $user = $userModel->findById($id);
         $profile = $profileModel->getByUserId($id);
+        $pid = $profile[0]->id;
+        $orders = $orderModel->fetchByClause(" JOIN order_status ON order_product.status = order_status.id JOIN product ON product.id = order_product.product_id  WHERE profile_id = $pid ORDER BY created DESC ", " order_product.*, order_status.name as osname, product.title as ptitle ");
+//        var_dump($orders);
         if (!empty($user[0]->id_role)) {
             $role = $roleModel->findById($user[0]->id_role);
         }
@@ -41,7 +45,8 @@ class Account extends MainController
             'viewSiteName' => 'Trang cá nhân',
             'user' => $user[0],
             'profile' => $profile[0],
-            'role' => !empty($role[0]) ? $role[0] : ''
+            'role' => !empty($role[0]) ? $role[0] : '',
+            'orders' => $orders
         ]);
     }
 
