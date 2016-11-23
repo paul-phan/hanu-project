@@ -7,7 +7,7 @@
                 <?php foreach ($events as $e): ?>
                     <li>
                         <div class="seq-model">
-                            <img style="max-height: 446px" data-seq src="<?= UPLOAD_DIR . '/event/' . $e->image ?>"
+                            <img style="max-height: 400px" data-seq src="<?= UPLOAD_DIR . '/event/' . $e->image ?>"
                                  alt="<?= $e->description ?>"/>
                         </div>
                         <div class="seq-title">
