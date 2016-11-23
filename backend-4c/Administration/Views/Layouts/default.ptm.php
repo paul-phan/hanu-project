@@ -58,13 +58,13 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
 
-                <!-- Text based logo -->
-                <a href="index.html" style="font-size: x-large">
-                    <span class="fa fa-mobile"></span>
-                   <span > AT<strong>Mobile</strong></span>
-                </a>
-                <!-- img based logo -->
-                <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+            <!-- Text based logo -->
+            <a href="index.html" style="font-size: x-large">
+                <span class="fa fa-mobile"></span>
+                <span> AT<strong>Mobile</strong></span>
+            </a>
+            <!-- img based logo -->
+            <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
 
             <div class="menu-toggler sidebar-toggler"></div>
         </div>
@@ -604,7 +604,20 @@
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-comment "></i>
+                        <span class="title">Phản hồi</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/PhanHoi/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách phản hồi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>

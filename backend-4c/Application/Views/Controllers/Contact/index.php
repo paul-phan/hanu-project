@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
     <title>Contact admin</title>
 </head>
@@ -19,9 +17,8 @@
         </div>
 
         <div class="form-group">
-
             <label for="name">Tên</label>
-            <input class="form-control" type="text" name="name" placeholder="Nhập tên bạn vào đây..."></input><br/>
+            <input class="form-control" type="text" name="name" placeholder="Nhập tên bạn vào đây..."><br/>
         </div>
 
         <div class="form-group">
@@ -38,10 +35,7 @@
                 window.history.back();
             }
         </script>
-</div>
 
-</form>
+    </form>
 </div>
 <div class="col-md-3"></div>
-</body>
-</html>

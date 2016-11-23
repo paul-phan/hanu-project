@@ -7,17 +7,17 @@
             version: 'v2.8'
         });
     };
-//
-//    (function (d, s, id) {
-//        var js, fjs = d.getElementsByTagName(s)[0];
-//        if (d.getElementById(id)) {
-//            return;
-//        }
-//        js = d.createElement(s);
-//        js.id = id;
-//        js.src = "//connect.facebook.net/en_US/sdk.js";
-//        fjs.parentNode.insertBefore(js, fjs);
-//    }(document, 'script', 'facebook-jssdk'));
+    //
+    //    (function (d, s, id) {
+    //        var js, fjs = d.getElementsByTagName(s)[0];
+    //        if (d.getElementById(id)) {
+    //            return;
+    //        }
+    //        js = d.createElement(s);
+    //        js.id = id;
+    //        js.src = "//connect.facebook.net/en_US/sdk.js";
+    //        fjs.parentNode.insertBefore(js, fjs);
+    //    }(document, 'script', 'facebook-jssdk'));
 </script>
 <!-- catg header banner section -->
 <section id="aa-catg-head-banner">
@@ -168,10 +168,11 @@
                                 <div class="">
                                     <!--                            FACEBOOK COMMENT-->
                                     <div id="fb-root"></div>
-                                    <script>(function(d, s, id) {
+                                    <script>(function (d, s, id) {
                                             var js, fjs = d.getElementsByTagName(s)[0];
                                             if (d.getElementById(id)) return;
-                                            js = d.createElement(s); js.id = id;
+                                            js = d.createElement(s);
+                                            js.id = id;
                                             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
                                             fjs.parentNode.insertBefore(js, fjs);
                                         }(document, 'script', 'facebook-jssdk'));
@@ -183,172 +184,15 @@
                                     <div class="fb-like" data-share="true" data-width="999"
                                          data-show-faces="true"></div>
                                 </div>
-<!--                                <div class="aa-product-review-area">-->
-<!--                                    <h4>2 Reviews for T-Shirt</h4>-->
-<!--                                    <ul class="aa-review-nav">-->
-<!--                                        <li>-->
-<!--                                            <div class="media">-->
-<!--                                                <div class="media-left">-->
-<!--                                                    <a href="#">-->
-<!--                                                        <img class="media-object" src="img/testimonial-img-3.jpg"-->
-<!--                                                             alt="girl image">-->
-<!--                                                    </a>-->
-<!--                                                </div>-->
-<!--                                                <div class="media-body">-->
-<!--                                                    <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span>-->
-<!--                                                    </h4>-->
-<!--                                                    <div class="aa-product-rating">-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star-o"></span>-->
-<!--                                                    </div>-->
-<!--                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </li>-->
-<!--                                        <li>-->
-<!--                                            <div class="media">-->
-<!--                                                <div class="media-left">-->
-<!--                                                    <a href="#">-->
-<!--                                                        <img class="media-object" src="img/testimonial-img-3.jpg"-->
-<!--                                                             alt="girl image">-->
-<!--                                                    </a>-->
-<!--                                                </div>-->
-<!--                                                <div class="media-body">-->
-<!--                                                    <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span>-->
-<!--                                                    </h4>-->
-<!--                                                    <div class="aa-product-rating">-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star"></span>-->
-<!--                                                        <span class="fa fa-star-o"></span>-->
-<!--                                                    </div>-->
-<!--                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                    <h4>Add a review</h4>-->
-<!--                                    <div class="aa-your-rating">-->
-<!--                                        <p>Your Rating</p>-->
-<!--                                        <a href="#"><span class="fa fa-star-o"></span></a>-->
-<!--                                        <a href="#"><span class="fa fa-star-o"></span></a>-->
-<!--                                        <a href="#"><span class="fa fa-star-o"></span></a>-->
-<!--                                        <a href="#"><span class="fa fa-star-o"></span></a>-->
-<!--                                        <a href="#"><span class="fa fa-star-o"></span></a>-->
-<!--                                    </div>-->
-<!--                                    <!-- review form -->
-<!---->
-<!--                                    <form action="../../../Controllers/Feedback.php" method="post" class="aa-review-form">-->
-<!---->
-<!--                                        <div class="form-group">-->
-<!--                                            <label for="title">Tiêu đề</label>-->
-<!--                                            <input class="form-control" name="title" rows="3" id="title" />-->
-<!--                                        </div>-->
-<!---->
-<!--                                        <div class="form-group">-->
-<!--                                            <label for="content">Your Review</label>-->
-<!--                                            <textarea class="form-control" rows="3" name="content" id="content"></textarea>-->
-<!--                                        </div>-->
-<!---->
-<!--                                        <div class="form-group">-->
-<!--                                            <label for="name">Name</label>-->
-<!--                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">-->
-<!--                                        </div>-->
-<!--                                        <div class="form-group">-->
-<!--                                            <label for="email">Email</label>-->
-<!--                                            <input type="email" class="form-control" name="email" id="email" placeholder="example@gmail.com"></div>-->
-<!--                                        <button type="submit" class="btn btn-default aa-review-submit">Submit</button>-->
-<!--                                    </form>-->
-<!--                                </div>-->
-
-                                <!-- cái này phải nhớ -->
-                                <div class="aa-product-review-area">
-                                    <h4>2 Reviews for T-Shirt</h4>
-                                    <ul class="aa-review-nav">
-                                        <li>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <a href="#">
-                                                        <img class="media-object" src="img/testimonial-img-3.jpg"
-                                                             alt="girl image">
-                                                    </a>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span>
-                                                    </h4>
-                                                    <div class="aa-product-rating">
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star-o"></span>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="media">
-                                                <div class="media-left">
-                                                    <a href="#">
-                                                        <img class="media-object" src="img/testimonial-img-3.jpg"
-                                                             alt="girl image">
-                                                    </a>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span>
-                                                    </h4>
-                                                    <div class="aa-product-rating">
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star-o"></span>
-                                                    </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <h4>Add a review</h4>
-                                    <div class="aa-your-rating">
-                                        <p>Your Rating</p>
-                                        <a href="#"><span class="fa fa-star-o"></span></a>
-                                        <a href="#"><span class="fa fa-star-o"></span></a>
-                                        <a href="#"><span class="fa fa-star-o"></span></a>
-                                        <a href="#"><span class="fa fa-star-o"></span></a>
-                                        <a href="#"><span class="fa fa-star-o"></span></a>
-                                    </div>
 
 
-                                    <form action="../../../Controllers/Feedback.php" method="post" class="aa-review-form">
+                                <?php
+                                $_SESSION['product_id'] = $product->id;
+                                $_SESSION['product_name'] = $product->title;
+                                ?>
+                                <a class="btn btn-warning" type="button" href="Feedback/add">Thêm phản hồi</a>
+                                <a class="btn btn-info" type="button" href="Feedback/list">Xem phản hồi</a>
 
-                                        <div class="form-group">
-                                            <label for="title">Tiêu đề</label>
-                                            <input class="form-control" name="title" rows="3" id="title" />
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="content">Your Review</label>
-                                            <textarea class="form-control" rows="3" name="content" id="content"></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="example@gmail.com"></div>
-                                        <button type="submit" class="btn btn-default aa-review-submit">Submit</button>
-                                    </form>
-                                </div>
-
-                                <!-- cái này phải nhớ -->
                             </div>
                         </div>
                     </div>
@@ -558,5 +402,7 @@
 <style rel="stylesheet">
     .fb_iframe_widget,
     .fb_iframe_widget span,
-    .fb_iframe_widget iframe[style]  {width: 100% !important;}
+    .fb_iframe_widget iframe[style] {
+        width: 100% !important;
+    }
 </style>
