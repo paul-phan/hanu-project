@@ -22,6 +22,7 @@ class Mmail
     {
         $mail = new \PHPMailer();
         $mail->isSMTP();
+        $mail->CharSet = 'UTF-8';
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'ptm4c13@gmail.com';                 // SMTP username

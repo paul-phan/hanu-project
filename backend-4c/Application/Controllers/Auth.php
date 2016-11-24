@@ -7,7 +7,7 @@
 namespace Application\Controllers;
 
 use Application\Controllers\AppController as MainController;
-use Library\Tools as Tools;
+use Library\Tools;
 
 class Auth extends MainController
 {
@@ -110,6 +110,11 @@ class Auth extends MainController
                         $_POST['avatar'] = isset($name) ? $name : 'updatelater.jpg';
                         if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
                             $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
+                            Tools\Mmail::send(
+                                $_POST['subcribe'],
+                                'Cảm ơn bạn đã gia nhập <3',
+                                'Cảm ơn bạn, chúng tôi sẽ gửi mail cho bạn ngay khi có sản phẩm mới <3'
+                            );
                             header("Refresh:3; url=/admin/", true, 303);
                         } elseif ($upload->getErrors()) {
                             $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');

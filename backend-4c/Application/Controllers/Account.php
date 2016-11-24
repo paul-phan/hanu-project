@@ -141,6 +141,11 @@ class Account extends MainController
         if (isset($_POST['subcribe'])) {
             if (!empty($_POST['subcribe']) && filter_var($_POST['subcribe'], FILTER_VALIDATE_EMAIL)) {
                 $sModel->insert(['email' => $_POST['subcribe']]);
+                Tools\Mmail::send(
+                    $_POST['subcribe'],
+                    'Cảm ơn bạn đã Subscribe <3',
+                    'Cảm ơn bạn, chúng tôi sẽ gửi mail cho bạn ngay khi có sản phẩm mới <3'
+                );
                 $alert = Tools\Alert::render('Cảm ơn bạn, chúng tôi sẽ gửi mail cho bạn ngay khi có sản phẩm mới <3', 'success');
             } else {
                 $alert = Tools\Alert::render('Email bạn vừa nhập không hợp lệ!', 'warning');
