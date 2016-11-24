@@ -9,6 +9,7 @@
  */
 
 namespace Library\Tools;
+
 class Alert
 {
     /**
