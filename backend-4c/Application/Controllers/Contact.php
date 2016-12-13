@@ -24,7 +24,7 @@ class Contact extends MainController
                 if ($ContactModel->insertContact($_POST)) {
 
                     $alert = Tools\Alert::render('Đã gửi liên lạc tới admin...!');
-                    header("Refresh:3; url=index", true, 303);
+                    header("Refresh:3; url=index", true, 200);
                 } else {
                     $alert = Tools\Alert::render('Không thành công, vui lòng thử lại...!');
                 }

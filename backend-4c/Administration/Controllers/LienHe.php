@@ -19,7 +19,7 @@ class LienHe extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/LienHe/list", true, 303);
+        header("Refresh:1; url=/admin/LienHe/list", true, 200);
     }
 
     public function listAction()
@@ -47,13 +47,13 @@ class LienHe extends MainController
                 if ($lienHeModel->delete($_GET['params'])) {
                     $alert = Tools\Alert::render('Xóa liên hệ thành công!', 'success');
                     $action = TRUE;
-                    header("Refresh:3; url=/admin/LienHe/list", true, 303);
+                    header("Refresh:3; url=/admin/LienHe/list", true, 200);
                 } else {
                     $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại!', 'danger');
                 }
             } else {
                 $alert = Tools\Alert::render('liên hệ này không tồn tại!', 'danger');
-                header("Refresh:3; url=/admin/LienHe/list", true, 303);
+                header("Refresh:3; url=/admin/LienHe/list", true, 200);
             }
         }
         $this->addDataView(array(

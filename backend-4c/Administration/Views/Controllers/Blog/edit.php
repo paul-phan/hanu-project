@@ -51,6 +51,37 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="dropdown" class="control-label col-md-3">Tags<span
+                                            class="required"> * </span></label>
+                                <div class="col-md-9">
+                                    <input placeholder="Nhập tags..." type="text" class="form-control"
+                                           name="tags"
+                                           value="<?= !empty($form->tags) ? $form->tags : '' ?>"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Ảnh bìa </label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="<?=!empty($form->image) ? UPLOAD_DIR.'/blog/'.$form->image : UPLOAD_DIR.'/avatar/updatelater.jpg' ?>"
+                                                 alt=""/></div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                             style="max-width: 200px; max-height: 150px;"></div>
+                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Chon ảnh </span>
+                                                                <span class="fileinput-exists"> Thay đổi </span>
+                                                                <input type="file" name="image"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists"
+                                               data-dismiss="fileinput"> Xóa </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-action">
                                 <div class="row">
                                     <div class="col-md-offset-3 col-md-9">

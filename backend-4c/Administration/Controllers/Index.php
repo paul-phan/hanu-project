@@ -24,6 +24,6 @@ class Index extends MainController
 //        var_dump(Tools\Mmail::send('', '', '', ''));
 
 
-        header("Refresh:0; url=/admin/dashboard", true, 303);
+        header("Refresh:0; url=/admin/dashboard", true, 200);
     }
 }

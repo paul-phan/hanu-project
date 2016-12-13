@@ -80,11 +80,11 @@ class Auth extends MainController
         $co = $connection->getCo();
         if (!empty($_SESSION['User'])) {
             echo 'Bạn đang trong trạng thái đăng nhập!';
-            header("Refresh:2; url=/", true, 303);
+            header("Refresh:2; url=/", true, 200);
         }
         if ($this->retrieveLogin()) {
             echo 'Bạn đang trong trạng thái đăng nhập!';
-            header("Refresh:2; url=/", true, 303);
+            header("Refresh:2; url=/", true, 200);
         } else {
             if ($_POST) {
                 $_POST['id_role'] = 4;
@@ -115,7 +115,7 @@ class Auth extends MainController
                                 'Cảm ơn bạn đã gia nhập <3',
                                 'Cảm ơn bạn, chúng tôi sẽ gửi mail cho bạn ngay khi có sản phẩm mới <3'
                             );
-                            header("Refresh:3; url=/admin/", true, 303);
+                            header("Refresh:3; url=/admin/", true, 200);
                         } elseif ($upload->getErrors()) {
                             $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
                         } else {

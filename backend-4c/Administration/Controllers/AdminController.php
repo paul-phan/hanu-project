@@ -35,8 +35,9 @@ abstract class AdminController extends MainController
             echo ', you are logged in as ';
             echo isset($_SESSION['User']['role_name']) ? $_SESSION['User']['role_name'] : 'Anonymous';
             echo ' please logout and signin with admin account!';
-            header("Refresh:2; url=/", true, 303);
+            header("Refresh:2; url=/", true, 200);
             die;
+
         }
     }
 

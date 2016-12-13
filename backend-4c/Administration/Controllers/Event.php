@@ -23,7 +23,7 @@ class Event extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/event/list", true, 303);
+        header("Refresh:1; url=/admin/event/list", true, 200);
     }
 
     public function listAction()

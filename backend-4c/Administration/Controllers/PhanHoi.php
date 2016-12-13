@@ -19,7 +19,7 @@ class PhanHoi extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/phanHoi/list", true, 303);
+        header("Refresh:1; url=/admin/phanHoi/list", true, 200);
     }
 
     public function listAction()
@@ -47,7 +47,7 @@ class PhanHoi extends MainController
                 if ($phanHoiModel->delete($_GET['params'])) {
                     $alert = Tools\Alert::render('Xóa phản hồi thành công!', 'success');
                     $action = TRUE;
-                    header("Refresh:3; url=/admin/phanHoi/list", true, 303);
+                    header("Refresh:3; url=/admin/phanHoi/list", true, 200);
                 } else {
                     $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại!', 'danger');
                 }

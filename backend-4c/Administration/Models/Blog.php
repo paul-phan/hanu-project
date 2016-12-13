@@ -30,9 +30,11 @@ class Blog extends MainModel implements BlogModel
         return $this->insert(array(
             'title' => isset($post['title']) ? $post['title'] : '',
             'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
+            'tags' => !empty($post['tags']) ? $post['tags'] : 'no tag',
+            'image' => $post['image'],
             'body' => isset($post['body']) ? $post['body'] : '',
-            'user_id' => isset($post['user_id']) ? $post['body'] : '9',
-            'created' => isset($post['created']) ? $post['created'] : date("Y-m-d H:i:s")
+            'user_id' => $_SESSION['User']['id'],
+            'created' => date("Y-m-d H:i:s")
         ));
     }
 
@@ -41,16 +43,10 @@ class Blog extends MainModel implements BlogModel
         return $this->update(array(
             'title' => isset($post['title']) ? $post['title'] : '',
             'params' => $this->slugify(date("Y-m-d H:i:s") . '-' . $post['title']),
+            'tags' => !empty($post['tags'] ? $post['tags'] : 'no tag'),
+            'image' => $post['image'],
             'body' => isset($post['body']) ? $post['body'] : '',
-            'user_id' => isset($post['user_id']) ? $post['body'] : '9',
-            'created' => isset($post['created']) ? $post['created'] : date("Y-m-d H:i:s")
+            'user_id' => $_SESSION['User']['id']
         ), " id = '$id' ");
-    }
-
-    public function conStructSQL($value)
-    {
-        $sql = "SELECT title FROM blog
-        WHERE title LIKE '%$value%'";
-        return $sql;
     }
 }
