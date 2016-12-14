@@ -183,7 +183,7 @@ abstract class Model
 
     /**
      * fetchAll() return all element of table with selected criteria
-     * @param string $where
+     * @param mixed $where
      * @param string $fields
      * @return array
      */
