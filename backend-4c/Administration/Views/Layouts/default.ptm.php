@@ -392,7 +392,7 @@
                                 <i class="icon-user"></i> Trang cá nhân </a>
                         </li>
                         <li>
-                            <a href="calendar">
+                            <a href="admin/schedule">
                                 <i class="icon-calendar"></i> Lịch </a>
                         </li>
                         <li>
@@ -749,10 +749,10 @@
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
             <div class="row">
-                <?php echo $alert ?>
+				<?php echo $alert ?>
                 <!--BEGIN CONTENT-->
                 <div class="col-md-12">
-                    <?php echo $viewContent; ?>
+					<?php echo $viewContent; ?>
                 </div>
                 <!--END CONTENT-->
             </div>
@@ -1090,7 +1090,7 @@
                                     <div class="cont-col2">
                                         <div class="desc"> New order received with
                                             <span
-                                                class="label label-sm label-success"> Reference Number: DR23923 </span>
+                                                    class="label label-sm label-success"> Reference Number: DR23923 </span>
                                         </div>
                                     </div>
                                 </div>
@@ -1227,7 +1227,7 @@
                                     <div class="cont-col2">
                                         <div class="desc"> New order received with
                                             <span
-                                                class="label label-sm label-success"> Reference Number: DR23923 </span>
+                                                    class="label label-sm label-success"> Reference Number: DR23923 </span>
                                         </div>
                                     </div>
                                 </div>
