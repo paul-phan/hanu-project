@@ -206,10 +206,10 @@
                         <!-- / cart box -->
                         <!-- search box -->
                         <div class="aa-search-box">
-                            <form id="search-form" action="">
+                            <form id="search-form">
                                 <input type="text" name="search" id="search-product"
                                        placeholder="Tìm kiếm sản phẩm vd: 'iphone' ">
-                                <button type="submit"><span class="fa fa-search"></span></button>
+                                <button disabled><span class="fa fa-search"></span></button>
                             </form>
                         </div>
                         <div style="clear: both"></div>

@@ -371,11 +371,6 @@ jQuery(function ($) {
     });
 
 
-
-
-
-
-
     changeImage = function (ev) {
         var img = ev.getAttribute('data-lens-image')
         $('.simpleLens-big-image').attr('src', '/Public/upload/' + img)
@@ -458,7 +453,6 @@ jQuery(function ($) {
 
     function updateCart() {
         $.ajax({
-            dataType: 'json',
             cache: false,
             type: 'GET',
             url: 'restapi/order/retrieve/',
@@ -474,6 +468,9 @@ jQuery(function ($) {
                 $('.aa-cartbox-total-price').html(viNumFormat(money) + '.000 VNĐ')
                 $('.aa-cart-notify').html(q);
             },
+            error: function (e) {
+                console.error(e);
+            }
         })
     }
 
@@ -481,6 +478,7 @@ jQuery(function ($) {
 
     //SEARCHING PRODUCT
     jQuery("#search-product").keyup(function () {
+
             var keyword = $(this).val()
             if (keyword.length > 1) {
                 $.ajax({
