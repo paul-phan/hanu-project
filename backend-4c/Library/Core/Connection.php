@@ -39,6 +39,7 @@ class Connection
             $this->co = new PDO('mysql:host=' . $host . ';dbname=' . $dbname, $user, $password);
             $this->co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             $this->co->exec("SET CHARACTER SET $charset");
+            $this->co->exec("set names utf8");
 //          $this->co->exec("SET time_zone = '$offset';"); // TurnOn only if in other country/religion, default is Vietnam GMT+7
         } catch (\PDOException $e) {
             die($e);

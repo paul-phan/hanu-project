@@ -1,4 +1,11 @@
-
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 17, 2016 at 05:46 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -165,9 +172,34 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `title`, `message`, `name`, `email`, `date`) VALUES
-
 (1, '??c ??p trai', 'sadasd', '?das', 'nguyentrungduc2910@gmail.com', '2016-11-22 08:42:23'),
 (2, 'dad', 'dasdas', '', 'asdasd@gmail.com', '2016-11-22 18:01:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `employee_name` varchar(255) NOT NULL,
+  `params` int(11) NOT NULL,
+  `dob` date NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `authentication` int(6) NOT NULL,
+  `gender` int(1) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `employee_name`, `params`, `dob`, `address`, `authentication`, `gender`, `phone`, `image`, `created`) VALUES
+(1, 'tranthu', 2016, '2016-12-20', 'hung yen', 313153, 0, 968778965, '/Public/upload/employee/1481982063-tranthu.jpg', '2016-12-17 13:41:03');
 
 -- --------------------------------------------------------
 
@@ -530,6 +562,33 @@ INSERT INTO `role` (`id`, `level`, `name`, `update`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `salary`
+--
+
+CREATE TABLE `salary` (
+  `id` int(11) NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `year` int(4) NOT NULL,
+  `month` int(2) NOT NULL,
+  `day` int(2) NOT NULL,
+  `total_salary` int(11) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `salary`
+--
+
+INSERT INTO `salary` (`id`, `employee_id`, `year`, `month`, `day`, `total_salary`, `created`) VALUES
+(1, 1, 2016, 1, 31, 1550000, '2016-12-17 13:41:54'),
+(2, 1, 2016, 1, 25, 1250000, '2016-12-17 13:55:40'),
+(3, 1, 2016, 2, 20, 2000000, '2016-12-17 14:49:47'),
+(4, 1, 2016, 2, 23, 2300000, '2016-12-17 14:50:13'),
+(5, 1, 2016, 2, 30, 3000000, '2016-12-17 15:02:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subcribe`
 --
 
@@ -578,7 +637,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (64, 'minhtest23', '$2a$07$ptmbCg9OO3LxQ9kRCFBvUOCMuqL1H4P9fInP/CTWlXPS7hKSuojPW', 'd1c37763e184ce1e3e4037ebf2c71eda', 1, 1, '0000-00-00 00:00:00', '2016-09-24 14:26:50', '2016-09-24 07:26:50'),
 (66, 'minhtest28', '$2a$07$ptm5E5KghlSiwu3yJ9cEteSooGDfITFM8V.6ScFZCwQTZB1xe7i26', 'a798282573839191b3e928b4578971e5', 0, 1, '0000-00-00 00:00:00', '2016-09-24 18:37:37', '2016-09-26 11:38:57'),
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
-(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', 'c469778659675fa0b082fd5ee1e2923a', 1, 1, '2016-11-22 19:58:35', '2016-09-25 21:12:31', '2016-11-22 12:58:35'),
+(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '64a90bacc0e863c9f5b5c1233d1a6fd7', 1, 1, '2016-12-17 20:40:23', '2016-09-25 21:12:31', '2016-12-17 13:40:23'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
@@ -653,6 +712,12 @@ ALTER TABLE `company`
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -732,6 +797,13 @@ ALTER TABLE `role`
   ADD KEY `id_role` (`level`);
 
 --
+-- Indexes for table `salary`
+--
+ALTER TABLE `salary`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `employee_id` (`employee_id`);
+
+--
 -- Indexes for table `subcribe`
 --
 ALTER TABLE `subcribe`
@@ -786,6 +858,11 @@ ALTER TABLE `company`
 ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
@@ -835,6 +912,11 @@ ALTER TABLE `reply`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `salary`
+--
+ALTER TABLE `salary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `subcribe`
 --
@@ -910,6 +992,12 @@ ALTER TABLE `profile`
 --
 ALTER TABLE `reply`
   ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`);
+
+--
+-- Constraints for table `salary`
+--
+ALTER TABLE `salary`
+  ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

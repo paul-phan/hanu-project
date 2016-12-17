@@ -107,20 +107,20 @@ interface ProductDetailModel
 
 interface EventModel
 {
-    /**
-     * @param array $post
-     * @return boolean
-     */
     public function insertEvent($post);
 
-    /**
-     * @param array $post
-     * @param int $id
-     * @return boolean
-     */
     public function modifyEvent($post, $id);
-
 }
+
+interface EmployeeModel
+{
+    public function insertEmployee($post);
+
+    public function modifyEmployee($post, $id);
+
+    public function insertSalary($post);
+}
+
 
 interface PhanHoiModel
 {

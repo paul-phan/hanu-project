@@ -619,6 +619,28 @@
                         </li>
                     </ul>
                 </li>
+
+                <!--For EBZ only-->
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-users"></i>
+                        <span class="title">Nhân viên</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/employee/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách nhân viên</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/admin/employee/add" class="nav-link ">
+                                <i class="fa fa-plus-square-o"></i> <span class="title">Thêm nhân viên</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>
