@@ -19,13 +19,13 @@ class Revenue extends MainController
 
     public function indexAction()
     {
-        if (isset($_GET['startInterval']) && isset($_GET['endInterval'])) {
+        if (isset($_GET['month'])) {
             global $connection;
             $co = $connection->getCo();
             $revenueModel = new \Administration\Models\Revenue($co);
-            $sum = $revenueModel->Revenue($_GET['startInterval'], $_GET['endInterval']);
+            $sum = $revenueModel->revenue($_GET['month']);
             if (!empty($sum)) {
-                return $this->responseApi(0, "successful ", $sum);
+                return $this->responseApi(0, "successful", $sum);
             } else {
                 return $this->responseApi(110003);
             }
