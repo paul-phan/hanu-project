@@ -20,14 +20,20 @@ class Revenue extends MainController
     public function indexAction()
     {
         if (isset($_GET['month'])) {
-            global $connection;
-            $co = $connection->getCo();
-            $revenueModel = new \Administration\Models\Revenue($co);
-            $sum = $revenueModel->revenue($_GET['month']);
-            if (!empty($sum)) {
-                return $this->responseApi(0, "successful", $sum);
-            } else {
-                return $this->responseApi(110003);
+            $month=$_GET['month'];
+            if(1<=$month&&$month<=12) {
+                global $connection;
+                $co = $connection->getCo();
+                $revenueModel = new \Administration\Models\Revenue($co);
+                $sum = $revenueModel->revenue($month);
+                if (!empty($sum)) {
+                    return $this->responseApi(0, "successful", $sum);
+                } else {
+                    return $this->responseApi(110003);
+                }
+            }
+            else{
+                return $this->responseApi(100002);
             }
         } else {
             return $this->responseApi(100003);
