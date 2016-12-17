@@ -34,7 +34,7 @@
                             <h3 class="block">Nhập thông tin bài viết:</h3>
                             <div class="form-group">
                                 <label for="dropdown" class="control-label col-md-3">Tên bài viết<span class="required"> * </span></label>
-                                <div class="col-md-7">
+                                <div class="col-md-9">
                                     <input placeholder="Nhập tên bài viết..." type="text" class="form-control"
                                            name="title"
                                            value="<?= !empty($form['title']) ? $form['title'] : '' ?>"/>
@@ -42,11 +42,42 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dropdown" class="control-label col-md-3">Nội dung<span class="required"> * </span></label>
-                                <div class="col-md-7">
+                                <label for="dropdown" class="control-label col-md-3">Nội dung<span
+                                            class="required"> * </span></label>
+                                <div class="col-md-9">
                                     <textarea class="form-control"
                                               name="body"
                                               value="<?= !empty($form['body']) ? $form['body'] : '' ?>"> </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dropdown" class="control-label col-md-3">Tags<span
+                                            class="required"> * </span></label>
+                                <div class="col-md-9">
+                                    <input placeholder="Nhập tags..." type="text" class="form-control"
+                                           name="tags"
+                                           value="<?= !empty($form['tags']) ? $form['tags'] : '' ?>"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group last">
+                                <label class="control-label col-md-3">Ảnh bìa </label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+                                                 alt=""/></div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                             style="max-width: 200px; max-height: 150px;"></div>
+                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Chon ảnh </span>
+                                                                <span class="fileinput-exists"> Thay đổi </span>
+                                                                <input type="file" name="image"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists"
+                                               data-dismiss="fileinput"> Xóa </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -56,7 +87,8 @@
                                         <a href="admin/event/list" class="btn default button-previous">
                                             <i class="fa fa-angle-left"></i> Quay lại </a>
                                         </a>
-                                        <button type="submit" class="btn green button-submit" id="bsubmit"> Thêm bài viết
+                                        <button type="submit" class="btn green button-submit" id="bsubmit"> Thêm bài
+                                            viết
                                             <i class="fa fa-check"></i>
                                         </button>
                                     </div>

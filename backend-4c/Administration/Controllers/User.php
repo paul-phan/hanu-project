@@ -64,7 +64,7 @@ class User extends MainController implements UserController
             } else {
                 if ($modelUser->insertUser($_POST)) {
                     $image = $_FILES['image'];
-                    $upload = new \Library\Tools\Upload();
+                    $upload = new Tools\Upload();
                     $name = $upload->copy(array(
                         'file' => $image,
                         'path' => 'avatar/', //name your optional folder if needed

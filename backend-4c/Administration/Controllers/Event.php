@@ -23,7 +23,7 @@ class Event extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/event/list", true, 303);
+        header("Refresh:1; url=/admin/event/list", true, 200);
     }
 
     public function listAction()
@@ -46,7 +46,17 @@ class Event extends MainController
         $EventModel = new \Administration\Models\Event($co);
         if ($_POST) {
             if (!empty($_POST['title']) && !empty($_POST['price'])) {
-                if ($EventModel->insertEvent($_POST)) { //need to refactor this :) work well now.
+                if ($_FILES) {
+                    $image = $_FILES['image'];
+                    $upload = new \Library\Tools\Upload();
+                    $name = $upload->copy(array(
+                        'file' => $image,
+                        'path' => 'event/',
+                        'name' => time() . '-' . $EventModel->slugify($_POST['title'])
+                    ));
+                    $_POST['image'] = isset($name) ? $name : 'updatelater.jpg';
+                }
+                if ($EventModel->insertEvent($_POST)) {
 
                     $alert = Tools\Alert::render('Thêm sự kiện thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/event/list", true, 303);
@@ -73,16 +83,25 @@ class Event extends MainController
         $co = $connection->getCo();
         $EventModel = new \Administration\Models\Event($co);
         $event = $EventModel->findById($_GET['params']);
-//        var_dump($event);
         if ($_POST) {
-//            var_dump($_POST);die;
-            if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['address']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['schedule'])  && isset($_POST['ticket']) && isset($_POST['price'])
+            if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['address']) && isset($_POST['zipcode']) && isset($_POST['city']) && isset($_POST['schedule']) && isset($_POST['ticket']) && isset($_POST['price'])
             ) {
+
+                if ($_FILES) {
+                    $image = $_FILES['image'];
+                    $upload = new \Library\Tools\Upload();
+                    $name = $upload->copy(array(
+                        'file' => $image,
+                        'path' => 'event/',
+                        'name' => time() . '-' . $EventModel->slugify($_POST['title'])
+                    ));
+                    $_POST['image'] = isset($name) ? $name : 'updatelater.jpg';
+                }
+
                 if ($EventModel->modifyEvent($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa sự kiện thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/event/list", true, 303);
                 }
-
             } else {
                 $alert = Tools\Alert::render('Vui lòng nhập đầy đủ thông tin...!', 'warning');
             }

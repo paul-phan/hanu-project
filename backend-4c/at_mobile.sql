@@ -1,11 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Nov 10, 2016 at 02:38 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -84,6 +77,40 @@ INSERT INTO `category` (`id`, `cat_name`, `params`, `position`, `group_name`, `a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `product_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `name`, `message`, `email`, `date`, `product_id`) VALUES
+(2, 'sdfsdfs', 'fsdfsf', 'sdfsdfs@gmail.com', '2016-11-22 12:00:02', 22),
+(3, 'sdfs', 'sdfsdf', 'nguyentrungduc2910@gmail.com', '2016-11-22 12:00:40', 21),
+(5, 'asdsada', 'asdasd', 'asdasd@gmail.com', '2016-11-22 13:49:24', 20),
+(6, 'fsdf', 'sdsd', 'nguyentrungduc2910@gmail.com', '2016-11-22 13:51:47', 20),
+(9, 'dsds', 'sd', 'nguyentrungduc2910@gmail.com', '2016-11-22 14:04:24', 21),
+(10, 'trung ??c', 'dsfsdf', 'nguyentrungduc2910@gmail.com', '2016-11-22 14:06:02', 21),
+(11, 'df', 'sf', 'nguyentrungduc2910@gmail.com', '2016-11-22 16:10:31', 20),
+(12, 'thu tran', 'gia bao nhieu  vay?', 'Tranthu@gmail.com', '2016-11-22 16:17:38', 20),
+(13, 'fsdfsf', 'fsdfsd', 'sdfsdfs@gmail.com', '2016-11-22 16:20:39', 20),
+(14, 'trung ??c', 'gdf', 'Tranthu@gmail.com', '2016-11-22 16:47:39', 20),
+(15, 'trung ??c', 'dssd', 'nguyentrungduc2910@gmail.com', '2016-11-22 17:15:55', 21),
+(16, 'duc nguyen', 'duc dep zai', 'nguyentrungduc2910@gmail.com', '2016-11-22 17:18:39', 20),
+(17, 'thu béo', 'nh? cc', 'sdfsdfsd@gmail.com', '2016-11-22 17:21:21', 17);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `company`
 --
 
@@ -117,6 +144,30 @@ INSERT INTO `company` (`id`, `com_name`, `params`, `position`, `active`, `create
 (15, 'Mobiado', '2016-10-04-092023-mobiado', 12, 1, '2016-10-04 09:20:23', '2016-10-04 02:20:23'),
 (16, 'Vertu', '2016-10-04-092033-vertu', 13, 1, '2016-10-04 09:20:33', '2016-10-04 02:20:33'),
 (17, 'QMobile', '2016-10-04-092045-qmobile', 14, 1, '2016-10-04 09:20:45', '2016-10-04 02:20:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
+  `message` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_german2_ci NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `title`, `message`, `name`, `email`, `date`) VALUES
+
+(1, '??c ??p trai', 'sadasd', '?das', 'nguyentrungduc2910@gmail.com', '2016-11-22 08:42:23'),
+(2, 'dad', 'dasdas', '', 'asdasd@gmail.com', '2016-11-22 18:01:00');
 
 -- --------------------------------------------------------
 
@@ -426,6 +477,31 @@ INSERT INTO `profile` (`id`, `user_id`, `full_name`, `phone`, `email`, `address`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reply`
+--
+
+CREATE TABLE `reply` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comment_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`id`, `name`, `content`, `date`, `comment_id`) VALUES
+(2, '', 'ádasda', '2016-11-22 13:25:00', 2),
+(3, '69', 'nhu lon', '2016-11-22 13:29:10', 3),
+(4, 'trungducng', 'nhu loz', '2016-11-22 13:29:51', 3),
+(5, 'trungducng', 'sdsfsd', '2016-11-22 13:51:29', 2),
+(6, 'trungducng', 'dfsdfsd', '2016-11-22 14:30:39', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `role`
 --
 
@@ -502,7 +578,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (64, 'minhtest23', '$2a$07$ptmbCg9OO3LxQ9kRCFBvUOCMuqL1H4P9fInP/CTWlXPS7hKSuojPW', 'd1c37763e184ce1e3e4037ebf2c71eda', 1, 1, '0000-00-00 00:00:00', '2016-09-24 14:26:50', '2016-09-24 07:26:50'),
 (66, 'minhtest28', '$2a$07$ptm5E5KghlSiwu3yJ9cEteSooGDfITFM8V.6ScFZCwQTZB1xe7i26', 'a798282573839191b3e928b4578971e5', 0, 1, '0000-00-00 00:00:00', '2016-09-24 18:37:37', '2016-09-26 11:38:57'),
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
-(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '8e843b14eb01fc8793b0f5ac457119ca', 1, 1, '0000-00-00 00:00:00', '2016-09-25 21:12:31', '2016-09-25 14:12:31'),
+(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', 'c469778659675fa0b082fd5ee1e2923a', 1, 1, '2016-11-22 19:58:35', '2016-09-25 21:12:31', '2016-11-22 12:58:35'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
@@ -557,6 +633,13 @@ ALTER TABLE `category`
   ADD KEY `cat_name` (`cat_name`(191));
 
 --
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
@@ -565,6 +648,12 @@ ALTER TABLE `company`
   ADD KEY `com_name` (`com_name`(191)),
   ADD KEY `params` (`params`(191)),
   ADD KEY `position_2` (`position`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `event`
@@ -629,6 +718,13 @@ ALTER TABLE `profile`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `reply`
+--
+ALTER TABLE `reply`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_id` (`comment_id`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -675,10 +771,20 @@ ALTER TABLE `blog`
 ALTER TABLE `category`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -720,6 +826,11 @@ ALTER TABLE `product_detail`
 ALTER TABLE `profile`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
+-- AUTO_INCREMENT for table `reply`
+--
+ALTER TABLE `reply`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
@@ -748,6 +859,12 @@ ALTER TABLE `user_feedback`
 --
 ALTER TABLE `blog`
   ADD CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Constraints for table `image`
@@ -787,6 +904,12 @@ ALTER TABLE `product_detail`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `reply`
+--
+ALTER TABLE `reply`
+  ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`);
 
 --
 -- Constraints for table `user`

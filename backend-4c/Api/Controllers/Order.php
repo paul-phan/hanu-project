@@ -6,7 +6,6 @@
 namespace Api\Controllers;
 
 use Api\Controllers\ApiController as MainController;
-use Library\Tools;
 
 class Order extends MainController
 {

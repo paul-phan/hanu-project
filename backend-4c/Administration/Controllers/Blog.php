@@ -19,7 +19,7 @@ class Blog extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/blog/list", true, 303);
+        header("Refresh:1; url=/admin/blog/list", true, 200);
     }
 
     public function listAction()
@@ -41,6 +41,17 @@ class Blog extends MainController
         $co = $connection->getCo();
         $blogModel = new \Administration\Models\Blog($co);
         if ($_POST) {
+            if($_FILES) {
+                $image = $_FILES['image'];
+                $upload = new Tools\Upload();
+                $name = $upload->copy(array(
+                    'file' => $image,
+                    'path' => 'blog/',
+                    'name' => $blogModel->slugify(time() . '-' . $_POST['title'])
+                ));
+            }
+
+            $_POST['image'] = isset($name) ? $name : 'updatelater.jpg';
             if (!empty($_POST['title']) && !empty($_POST['body'])) {
                 if ($blogModel->insertBlog($_POST)) {
 
@@ -69,9 +80,17 @@ class Blog extends MainController
         $co = $connection->getCo();
         $blogModel = new \Administration\Models\Blog($co);
         $blog = $blogModel->findById($_GET['params']);
-//        var_dump($blog);
         if ($_POST) {
-//            var_dump($_POST);die;
+            if($_FILES) {
+                $image = $_FILES['image'];
+                $upload = new Tools\Upload();
+                $name = $upload->copy(array(
+                    'file' => $image,
+                    'path' => 'blog/',
+                    'name' => $blogModel->slugify(time() . '-' . $_POST['title'])
+                ));
+            }
+            $_POST['image'] = isset($name) ? $name : 'updatelater.jpg';
             if (isset($_POST['title']) && isset($_POST['body'])){
                 if ($blogModel->modifyBlog($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa bài viết thành công, đang trở lại danh sách...!', 'success');

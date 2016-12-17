@@ -25,12 +25,17 @@ class Index extends MainController
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
+        $eventModel = new \Administration\Models\Event($co);
         $result = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left join image on image.product_id = product.id and image.base_image = 1 group by product.id order by created desc limit 8  ', ' product.*,  company.com_name as ccom_name, image.url as iurl, image.label as ilabel ');
-//        var_dump($result);
+        //query promotion event banners
+        $time = date("Y-m-d H:i:s");
+        $events = $eventModel->fetchByClause(" WHERE date_start < '$time' and date_end > '$time' ");
+
         $this->addDataView(array(
             'viewTitle' => 'AT - Mobile',
             'viewSiteName' => 'Trang chủ',
             'product' => $result,
+            'events' => $events
         ));
 
     }

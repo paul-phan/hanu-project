@@ -200,16 +200,16 @@
                                         <span class="aa-cartbox-total-price">0 VNĐ</span>
                                     </li>
                                 </ul>
-                                <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                                <a class="aa-cartbox-checkout aa-primary-btn" href="gio-hang/checkout.html">Checkout</a>
                             </div>
                         </div>
                         <!-- / cart box -->
                         <!-- search box -->
                         <div class="aa-search-box">
-                            <form id="search-form" action="">
+                            <form id="search-form">
                                 <input type="text" name="search" id="search-product"
                                        placeholder="Tìm kiếm sản phẩm vd: 'iphone' ">
-                                <button type="submit"><span class="fa fa-search"></span></button>
+                                <button disabled><span class="fa fa-search"></span></button>
                             </form>
                         </div>
                         <div style="clear: both"></div>
@@ -331,7 +331,7 @@
                             </ul>
                         </li>
                         <li><a href="#">Phụ kiện</a></li>
-                        <li><a href="lien-he.html">Liên hệ <span class="caret"></span></a>
+                        <li><a href="contact">Liên hệ <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Camera</a></li>
                                 <li><a href="#">Mobile</a></li>
@@ -469,7 +469,7 @@
                                         <li><a href="#">Our Services</a></li>
                                         <li><a href="#">Our Products</a></li>
                                         <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="Contact">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -590,7 +590,7 @@
 <!-- Custom js -->
 <script src="dashboard/js/custom.js"></script>
 <?php if (!empty($alert)) {
-    echo '<div id="alerting" data-alert="'.$alert.'"></div>';
+    echo '<div id="alerting" data-alert="' . $alert . '"></div>';
 } ?>
 <script>
     a = $('#alerting').attr('data-alert')

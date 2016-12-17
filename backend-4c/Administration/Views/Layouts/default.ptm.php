@@ -49,6 +49,7 @@
     <script src="dashboard/js/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
     <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="dashboard/js/moment.min.js" type="text/javascript"></script>
     <!--END CORE PLUGIN-->
     <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
 </head>
@@ -58,13 +59,13 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
 
-                <!-- Text based logo -->
-                <a href="index.html" style="font-size: x-large">
-                    <span class="fa fa-mobile"></span>
-                   <span > AT<strong>Mobile</strong></span>
-                </a>
-                <!-- img based logo -->
-                <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+            <!-- Text based logo -->
+            <a href="index.html" style="font-size: x-large">
+                <span class="fa fa-mobile"></span>
+                <span> AT<strong>Mobile</strong></span>
+            </a>
+            <!-- img based logo -->
+            <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
 
             <div class="menu-toggler sidebar-toggler"></div>
         </div>
@@ -391,7 +392,7 @@
                                 <i class="icon-user"></i> Trang cá nhân </a>
                         </li>
                         <li>
-                            <a href="calendar">
+                            <a href="admin/schedule">
                                 <i class="icon-calendar"></i> Lịch </a>
                         </li>
                         <li>
@@ -590,6 +591,34 @@
                     </ul>
                 </li>
 
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-phone"></i>
+                        <span class="title">Liên hệ</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/LienHe/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách liên hệ</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-comment "></i>
+                        <span class="title">Phản hồi</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/PhanHoi/list" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Danh sách phản hồi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-folder"></i>
@@ -720,10 +749,10 @@
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
             <div class="row">
-                <?php echo $alert ?>
+				<?php echo $alert ?>
                 <!--BEGIN CONTENT-->
                 <div class="col-md-12">
-                    <?php echo $viewContent; ?>
+					<?php echo $viewContent; ?>
                 </div>
                 <!--END CONTENT-->
             </div>
@@ -1061,7 +1090,7 @@
                                     <div class="cont-col2">
                                         <div class="desc"> New order received with
                                             <span
-                                                class="label label-sm label-success"> Reference Number: DR23923 </span>
+                                                    class="label label-sm label-success"> Reference Number: DR23923 </span>
                                         </div>
                                     </div>
                                 </div>
@@ -1198,7 +1227,7 @@
                                     <div class="cont-col2">
                                         <div class="desc"> New order received with
                                             <span
-                                                class="label label-sm label-success"> Reference Number: DR23923 </span>
+                                                    class="label label-sm label-success"> Reference Number: DR23923 </span>
                                         </div>
                                     </div>
                                 </div>

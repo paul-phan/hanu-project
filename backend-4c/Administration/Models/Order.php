@@ -30,7 +30,7 @@ class Order extends MainModel
             'product_id' => $post['product_id'],
             'item_count' => $post['item_count'],
             'to_price' => $post['to_price'],
-            'ship_price' => $post['ship_price'],
+            'ship_price' => isset($post['ship_price']) ? $post['ship_price'] : 0,
             'total_price' => intval(intval($post['to_price']) * intval($post['item_count']) + intval($post['ship_price'])),
             'order_type' => isset($post['order_type']) ? $post['order_type'] : 'normal',
             'description' => $post['description'],

@@ -34,11 +34,11 @@ class Event extends MainModel implements EventModel
             'zipcode' => isset($post['zipcode']) ? $post['zipcode'] : '',
             'city' => isset($post['city']) ? $post['city'] : '',
             'schedule' => isset($post['schedule']) ? $post['schedule'] : '',
-            'date_start' => isset($post['date_start']) ? $post['date_start'] : '',
-            'date_end' => isset($post['date_start']) ? $post['date_end'] : '',
+            'date_start' => isset($post['date_start']) ? date("Y-m-d H:i:s", strtotime($post['date_start'])) : '',
+            'date_end' => isset($post['date_end']) ? date("Y-m-d H:i:s", strtotime($post['date_end'])) : '',
             'ticket' => isset($post['ticket']) ? $post['ticket'] : '',
             'price' => isset($post['price']) ? $post['price'] : '',
-//            'updated' => date("Y:m:d H:i:s") //no need updated because update is timestamp
+            'image' => $post['image']
         ));
     }
 
@@ -52,11 +52,11 @@ class Event extends MainModel implements EventModel
             'zipcode' => isset($post['zipcode']) ? $post['zipcode'] : '',
             'city' => isset($post['city']) ? $post['city'] : '',
             'schedule' => isset($post['schedule']) ? $post['schedule'] : '',
-            'date_start' => isset($post['date_start']) ? $post['date_start'] : '',
-            'date_end' => isset($post['date_start']) ? $post['date_end'] : '',
+            'date_start' => isset($post['date_start']) ? date("Y-m-d H:i:s", strtotime($post['date_start'])) : '',
+            'date_end' => isset($post['date_end']) ? date("Y-m-d H:i:s", strtotime($post['date_end'])) : '',
             'ticket' => isset($post['ticket']) ? $post['ticket'] : '',
             'price' => isset($post['price']) ? $post['price'] : '',
-//            'updated' => date("Y:m:d H:i:s") //no need updated because update is timestamp
+            'image' => $post['image']
         ), " id = '$id' ");
     }
 
@@ -66,27 +66,28 @@ class Event extends MainModel implements EventModel
         WHERE title LIKE '%$value%'";
         return $sql;
     }
-    public function pagination($page){
-        $colunm=$this->primary;
+
+    public function pagination($page)
+    {
+        $colunm = $this->primary;
         //start from the 1st row
-        $start=0;
+        $start = 0;
         //maximum value to be returned each query
-        $limit=3;
+        $limit = 3;
         // get total records
-        $totalRows=$this->getRowCount($colunm);
+        $totalRows = $this->getRowCount($colunm);
         //pages limit
-        $totalPages=ceil($totalRows/$limit);
+        $totalPages = ceil($totalRows / $limit);
         // if the page number is larger than the page limit-> do nothing
-        if($page<=$totalPages){
+        if ($page <= $totalPages) {
             // Caculating the start element of the database for every pages
-            $start=($page-1)*$limit;
+            $start = ($page - 1) * $limit;
             //query the real data starting from $start position
-            $sql="SELECT * FROM event LIMIT $start,$limit";
-            $rs=$this->fetchMatchedFields($sql);
+            $sql = "SELECT * FROM event LIMIT $start,$limit";
+            $rs = $this->fetchMatchedFields($sql);
             return $rs;
-        }
-        else{
-            $er="out of bound exception";
+        } else {
+            $er = "out of bound exception";
             return $er;
         }
     }

@@ -10,6 +10,7 @@
 namespace Administration\Controllers;
 
 use Administration\Controllers\AdminController as MainController;
+use Library\Tools;
 
 class Index extends MainController
 {
@@ -20,6 +21,9 @@ class Index extends MainController
 
     public function indexAction()
     {
-        header("Refresh:0; url=/admin/dashboard", true, 303);
+//        var_dump(Tools\Mmail::send('', '', '', ''));
+
+
+        header("Refresh:0; url=/admin/dashboard", true, 200);
     }
 }

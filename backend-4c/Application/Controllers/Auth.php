@@ -7,7 +7,7 @@
 namespace Application\Controllers;
 
 use Application\Controllers\AppController as MainController;
-use Library\Tools as Tools;
+use Library\Tools;
 
 class Auth extends MainController
 {
@@ -80,11 +80,11 @@ class Auth extends MainController
         $co = $connection->getCo();
         if (!empty($_SESSION['User'])) {
             echo 'Bạn đang trong trạng thái đăng nhập!';
-            header("Refresh:2; url=/", true, 303);
+            header("Refresh:2; url=/", true, 200);
         }
         if ($this->retrieveLogin()) {
             echo 'Bạn đang trong trạng thái đăng nhập!';
-            header("Refresh:2; url=/", true, 303);
+            header("Refresh:2; url=/", true, 200);
         } else {
             if ($_POST) {
                 $_POST['id_role'] = 4;
@@ -110,7 +110,12 @@ class Auth extends MainController
                         $_POST['avatar'] = isset($name) ? $name : 'updatelater.jpg';
                         if ($modelProfile->insertProfile($_POST, $modelUser->insertedId)) {
                             $alert = Tools\Alert::render('Người dùng mới đã thêm thành công!', 'success');
-                            header("Refresh:3; url=/admin/", true, 303);
+                            Tools\Mmail::send(
+                                $_POST['subcribe'],
+                                'Cảm ơn bạn đã gia nhập <3',
+                                'Cảm ơn bạn, chúng tôi sẽ gửi mail cho bạn ngay khi có sản phẩm mới <3'
+                            );
+                            header("Refresh:3; url=/admin/", true, 200);
                         } elseif ($upload->getErrors()) {
                             $alert = \Library\Tools\Alert::render($upload->getErrors()[0], 'warning');
                         } else {

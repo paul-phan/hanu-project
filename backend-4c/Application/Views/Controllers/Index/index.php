@@ -4,29 +4,21 @@
         <div id="sequence" class="seq">
             <ul class="seq-canvas">
                 <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img data-seq src="img/slider/1.jpg" alt="Men slide img"/>
-                    </div>
-                    <div class="seq-title">
-                        <span data-seq>Tiết kiệm tới 75% </span>
-                        <h2 data-seq>Hello world!!!</h2>
-                        <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                        <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img data-seq src="img/slider/1.jpg" alt="Wristwatch slide img"/>
-                    </div>
-                    <div class="seq-title">
-                        <span data-seq>Save Up to 40% Off</span>
-                        <h2 data-seq>Welcome to MinhSoftware</h2>
-                        <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                        <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-                    </div>
-                </li>
+                <?php foreach ($events as $e): ?>
+                    <li>
+                        <div class="seq-model">
+                            <img style="max-height: 400px" data-seq src="<?= UPLOAD_DIR . '/event/' . $e->image ?>"
+                                 alt="<?= $e->description ?>"/>
+                        </div>
+                        <div class="seq-title">
+                            <span data-seq>Until <?= date("d/m/Y", strtotime($e->date_end)); ?> </span>
+                            <h2 data-seq><?= $e->title ?></h2>
+                            <p data-seq><?= substr($e->description, 0, 30) ?>...</p>
+                            <a data-seq href="event/<?= $e->params ?>.html" class="aa-shop-now-btn aa-secondary-btn">ENTER
+                                NOW</a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
                 <!-- single slide item -->
                 <li>
                     <div class="seq-model">
@@ -35,30 +27,6 @@
                     <div class="seq-title">
                         <span data-seq>Save Up to 75% Off</span>
                         <h2 data-seq>Hello world!!!</h2>
-                        <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                        <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img data-seq src="img/slider/1.jpg" alt="Shoes slide img"/>
-                    </div>
-                    <div class="seq-title">
-                        <span data-seq>Save Up to 75% Off</span>
-                        <h2 data-seq>Full-stack developer!</h2>
-                        <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
-                        <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img data-seq src="img/slider/1.jpg" alt="Male Female slide img"/>
-                    </div>
-                    <div class="seq-title">
-                        <span data-seq>Save Up to 50% Off</span>
-                        <h2 data-seq>Best Collection</h2>
                         <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>
                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                     </div>

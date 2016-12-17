@@ -37,6 +37,7 @@ abstract class AdminController extends MainController
             echo ' please logout and signin with admin account!';
             header("Refresh:2; url=/", true, 303);
             die;
+
         }
     }
 

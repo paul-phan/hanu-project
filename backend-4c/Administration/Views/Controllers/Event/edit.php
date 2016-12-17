@@ -92,8 +92,8 @@
 
 
                             <div class="form-group">
-                                <label class="control-label col-md-3">Ngày bắt đầu</label><span
-                                    class="required"> * </span>
+                                <label class="control-label col-md-3">Ngày bắt đầu<span
+                                        class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <div class="input-group date form_datetime" data-date="2016-05-06T15:25:00Z">
                                         <input type="text" size="16" name="date_start"
@@ -111,8 +111,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Ngày kết thúc</label><span
-                                    class="required"> * </span>
+                                <label class="control-label col-md-3">Ngày kết thúc<span
+                                        class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <div class="input-group date form_datetime" data-date="2016-05-06T15:25:00Z">
                                         <input type="text" size="16" name="date_end"
@@ -126,6 +126,28 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </button>
                                                         </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Banner </label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img
+                                                src="<?= isset($form->image) ? UPLOAD_DIR . '/event/' . $form->image : 'updatelater.jpg' ?>"
+                                                alt=""/></div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                             style="max-width: 200px; max-height: 150px;"></div>
+                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Chon ảnh </span>
+                                                                <span class="fileinput-exists"> Thay đổi </span>
+                                                                <input type="file" name="image"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists"
+                                               data-dismiss="fileinput"> Xóa </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -151,26 +173,6 @@
                                 <span class="help-block"> .000 VNĐ </span>
                             </div>
 
-                            <div class="form-group ">
-                                <label class="control-label col-md-3">Ảnh</label>
-                                <div class="col-md-9">
-                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                            <img
-                                                src="<?= !empty($form->image) ? UPLOAD_DIR . 'image/' . $form->image : UPLOAD_DIR . 'avatar/updatelater.jpg' ?>"
-                                                alt=""/></div>
-                                        <div class="fileinput-preview fileinput-exists thumbnail"
-                                             style="max-width: 400px; max-height: 300px;"></div>
-                                        <div>                   <span class="btn default btn-file">
-                                                                <span class="fileinput-new"> Chon ảnh </span>
-                                                                <span class="fileinput-exists"> Thay đổi </span>
-                                                                <input type="file" name="image"> </span>
-                                            <a href="javascript:;" class="btn red fileinput-exists"
-                                               data-dismiss="fileinput"> Xóa </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-action">
                                 <div class="row">

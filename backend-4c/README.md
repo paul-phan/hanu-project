@@ -29,3 +29,5 @@ Open your host file(C:\Windows\System32\drivers\etc\hosts) and add: <br/>
 
 If got any problem, please Google by yourself to configure your vhosts.
 
+[Demo page is now available here: http://www.hanu4c13.html-5.me] (http://www.hanu4c13.html-5.me)
+

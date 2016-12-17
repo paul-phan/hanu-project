@@ -361,12 +361,15 @@ jQuery(function ($) {
      /* ----------------------------------------------------------- */
 
     jQuery('.seq-canvas').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
         dots: false,
         infinite: true,
-        speed: 500,
+        speed: 800,
         fade: true,
         cssEase: 'linear'
     });
+
 
     changeImage = function (ev) {
         var img = ev.getAttribute('data-lens-image')
@@ -450,7 +453,6 @@ jQuery(function ($) {
 
     function updateCart() {
         $.ajax({
-            dataType: 'json',
             cache: false,
             type: 'GET',
             url: 'restapi/order/retrieve/',
@@ -460,12 +462,15 @@ jQuery(function ($) {
                 q = 0;
                 $.each(data.data, function (i, e) {
                     q++;
-                    $('#cart-noti').append('<li> <a class="aa-cartbox-img" href="gio-hang.html"><img src="Public/upload/' + e.url + '" alt="' + e.label + '"></a><div class="aa-cartbox-info"> <h4><a href="san-pham/' + e.params + '.html">' + e.title + '</a></h4> <p>' + e.order_count + ' x ' + viNumFormat(e.real_price) + '.000 VNĐ</p> </div> <a class="aa-remove-product" data-product-id="' + e.id + '" href="javascript:;"><span class="fa fa-times"></span></a> </li>')
+                    $('#cart-noti').append('<li> <a class="aa-cartbox-img" href="gio-hang.html"><img src="Public/upload/' + e.url + '" alt="' + e.label + '"></a><div class="aa-cartbox-info"> <h4><a href="san-pham/' + e.params + '.html">' + e.title + '</a></h4> <p>' + e.order_count + ' x ' + viNumFormat(e.real_price) + '.000 VNĐ</p> </div> <a class="aa-remove-product" href="/order/update_cart/' + e.id + '"><span class="fa fa-times"></span></a> </li>')
                     money += (e.order_count * e.real_price);
                 })
                 $('.aa-cartbox-total-price').html(viNumFormat(money) + '.000 VNĐ')
                 $('.aa-cart-notify').html(q);
             },
+            error: function (e) {
+                console.error(e);
+            }
         })
     }
 
@@ -473,6 +478,7 @@ jQuery(function ($) {
 
     //SEARCHING PRODUCT
     jQuery("#search-product").keyup(function () {
+
             var keyword = $(this).val()
             if (keyword.length > 1) {
                 $.ajax({
@@ -508,6 +514,43 @@ jQuery(function ($) {
             }
         }
     );
+    $(document).ready(function () {
+        var adate = document.getElementsByClassName('order-created');
+        [].slice.call(adate).forEach(function (d) {
+            d.innerHTML = prettyDate(d.innerHTML)
+        })
+    });
+
+    // Takes an ISO time and returns a string representing how
+    // long ago the date represents.
+    function prettyDate(time) {
+        var date = new Date((time || "").replace(/-/g, "/").replace(/[TZ]/g, " ")),
+            diff = (((new Date()).getTime() - date.getTime()) / 1000),
+            day_diff = Math.floor(diff / 86400);
+
+        if (isNaN(day_diff) || day_diff < 0 || day_diff >= 31)
+            return;
+
+        return day_diff == 0 && (
+            diff < 60 && "vừa xong" ||
+            diff < 120 && "1 phút trước" ||
+            diff < 3600 && Math.floor(diff / 60) + " phút trước" ||
+            diff < 7200 && "1 giờ trước" ||
+            diff < 86400 && Math.floor(diff / 3600) + " giờ trước") ||
+            day_diff == 1 && "Hôm qua" ||
+            day_diff < 7 && day_diff + " ngày trước" ||
+            day_diff < 31 && Math.ceil(day_diff / 7) + " tuần trước";
+    }
+
+// If jQuery is included in the page, adds a jQuery plugin to handle it as well
+    if (typeof jQuery != "undefined")
+        jQuery.fn.prettyDate = function () {
+            return this.each(function () {
+                var date = prettyDate(this.title);
+                if (date)
+                    jQuery(this).text(date);
+            });
+        };
 
 
     //This function is for formating Vietnamese currency
@@ -519,46 +562,45 @@ jQuery(function ($) {
     $('#switcher').attr('href', Cookies.get('theme'))
     //Theme swicher
     $('#switcher-bridge-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/bridge-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/bridge-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/bridge-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/bridge-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-dark-red-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/dark-red-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/dark-red-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/dark-red-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/dark-red-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-default-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/default-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/default-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/default-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/default-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-green-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/green-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/green-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/green-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/green-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-lite-blue-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/lite-blue-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/lite-blue-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/lite-blue-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/lite-blue-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-orange-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/orange-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/orange-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/orange-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/orange-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-pink-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/pink-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/pink-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/pink-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/pink-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-purple-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/purple-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/purple-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/purple-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/purple-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-red-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/red-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/red-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/red-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/red-theme.css', {path: '/', expires: 365});
     })
     $('#switcher-yellow-theme').click(function () {
-        $('#switcher').attr('href','dashboard/css/theme-color/yellow-theme.css')
-        Cookies.set('theme', 'dashboard/css/theme-color/yellow-theme.css', { path: '/', expires: 365 });
+        $('#switcher').attr('href', 'dashboard/css/theme-color/yellow-theme.css')
+        Cookies.set('theme', 'dashboard/css/theme-color/yellow-theme.css', {path: '/', expires: 365});
     })
-
 
 
 });

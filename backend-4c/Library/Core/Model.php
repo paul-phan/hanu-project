@@ -122,15 +122,35 @@ interface EventModel
 
 }
 
-interface FeedbackModel{
+interface PhanHoiModel
+{
+    public function insertPhanHoi($post);
+}
+
+interface FeedbackModel
+{
     public function insertFeedback($post);
 }
 
 
-interface BlogModel{
+interface BlogModel
+{
     public function insertBlog($post);
+
     public function modifyBlog($post, $id);
 }
+
+interface ContactModel
+{
+    public function insertContact($post);
+}
+
+
+interface LienHeModel
+{
+
+}
+
 abstract class Model
 {
     private $db;
@@ -163,7 +183,7 @@ abstract class Model
 
     /**
      * fetchAll() return all element of table with selected criteria
-     * @param string $where
+     * @param mixed $where
      * @param string $fields
      * @return array
      */
@@ -358,10 +378,35 @@ abstract class Model
     {
         return $this->fetchAll("params= '$slug' ");
     }
-    public function getRowCount($column){
-        $sql="SELECT count('$column') FROM $this->table";
-        $rows=$this->db->query($sql);
-        $rs=$rows->fetchColumn();
+
+    public function getRowCount($column)
+    {
+        $sql = "SELECT count('$column') FROM $this->table";
+        $rows = $this->db->query($sql);
+        $rs = $rows->fetchColumn();
         return $rs;
+    }
+
+    public function themData($data)
+    {
+        $fieldsList = '';
+        $valuesList = '';
+
+        foreach ($data as $k => $v) {
+            $fieldsList .= "`$k`, ";
+            $valuesList .= $this->db->quote($v) . ", ";
+        }
+        $fieldsList = substr($fieldsList, 0, -2);
+        $valuesList = substr($valuesList, 0, -2);
+
+        $query = "INSERT INTO `" . $this->table2 . "` ($fieldsList) VALUES ($valuesList)";
+        $sql = $this->db->prepare($query);
+        $sql->execute();
+        if ($sql) {
+            $this->insertedId = $this->db->lastInsertId();
+            return true;
+        } else {
+            return false;
+        }
     }
 }
