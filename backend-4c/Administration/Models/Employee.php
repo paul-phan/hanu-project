@@ -63,7 +63,7 @@ class Employee extends MainModel implements EmployeeModel
             "SELECT employee.id, employee.employee_name, employee.image, salary.year, salary.month, salary.day, 
                      salary.total_salary, salary.id, salary.created
                     FROM employee
-             JOIN salary ON salary.employee_id=employee.id GROUP BY salary.year, salary.month
+             JOIN salary ON salary.employee_id=employee.id GROUP BY employee.employee_name, salary.year, salary.monthgit 
         ");
     }
 
