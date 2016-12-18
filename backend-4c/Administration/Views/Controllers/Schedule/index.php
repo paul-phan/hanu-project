@@ -49,4 +49,4 @@
 <script src="dashboard/js/moment.min.js" type="text/javascript"></script>
 <script src="dashboard/js/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="dashboard/js/calendar.min.js" type="text/javascript"></script>
+<script src="dashboard/js/calendar.js" type="text/javascript"></script>

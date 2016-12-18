@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2016 at 02:36 PM
+-- Generation Time: Dec 18, 2016 at 05:57 PM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -54,6 +54,31 @@ CREATE TABLE `blog` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar`
+--
+
+CREATE TABLE `calendar` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime NOT NULL,
+  `backgroundColor` varchar(11) NOT NULL,
+  `allDay` tinyint(1) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_id` int(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `calendar`
+--
+
+INSERT INTO `calendar` (`id`, `title`, `start`, `end`, `backgroundColor`, `allDay`, `url`, `updated`, `user_id`) VALUES
+(1, 'Test calendar 1', '2016-12-18 00:00:00', '2016-12-19 00:00:00', 'red', 1, 'null', '2016-12-18 15:41:54', 10);
 
 -- --------------------------------------------------------
 
@@ -636,7 +661,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
 (73, 'camnh', '$2a$07$ptm5UciYPFG6ydsJFNdEyez.py2L7/GGcH2xAgLcCBzOOVZVMQeAG', 'b7e4e3ebfe95d1a91c6d9a12edfc7c68', 1, 1, '2016-09-26 18:54:51', '2016-09-26 18:53:30', '2016-09-26 11:54:51'),
 (74, 'Tran thi thu', '$2a$07$ptmTqZ6SeTYKSOQ5klufpuEyu94vDCYmRcyFqMNCYwRsjbyZud56O', '8fe8b4af498b2694125be9077236e7e4', 1, 4, '2016-10-14 13:39:20', '2016-09-30 15:01:51', '2016-10-14 06:39:20'),
-(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', '56018a1a6c6e46b2a48ab3da81742d92', 1, 5, '2016-11-01 19:03:18', '2016-09-30 18:35:53', '2016-11-01 12:03:18'),
+(75, 'phantheminh', '$2a$07$ptmquLvRwYhT2JajDAkweua0gODIA54JpC4C2y0oPVxxbaTHMptGy', 'da132e41401df8ea1eefc4ae14fa9ca9', 1, 5, '2016-12-18 22:20:27', '2016-09-30 18:35:53', '2016-12-18 15:20:27'),
 (76, 'haudovan', '$2a$07$ptmqOp6VabC5rltTRDPr9eKnfj1x/iUMBeW5NPhWNwBH2WhNImEmy', 'a93bc9a9f100d0e533015b6977117328', 1, 4, '2016-10-25 19:42:10', '2016-10-25 19:41:30', '2016-10-25 12:48:40'),
 (77, 'test1', '$2a$07$ptmiArUmBp4szOWxiOv0GeQBSxiwsjP5x9DzjoXm2BDwigzcPqgsi', 'ddc57a1cf5c50a344b6d18534a05e684', 1, 4, '2016-10-28 00:59:12', '2016-10-28 00:58:39', '2016-10-28 03:35:13'),
 (78, 'minhthephan', '$2a$07$ptmYMZOUb8B0tbx0DHSNUe2nxEMBMEt9abkT6dkLtB6kX4uMhHZaq', 'd71eb244e5d175604a91cf3ed46974df', 1, 4, '2016-11-01 19:11:59', '2016-11-01 19:10:52', '2016-11-01 12:11:59');
@@ -674,6 +699,13 @@ ALTER TABLE `bill`
 -- Indexes for table `blog`
 --
 ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `calendar`
+--
+ALTER TABLE `calendar`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
@@ -830,6 +862,11 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `blog`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `calendar`
+--
+ALTER TABLE `calendar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `category`
 --
