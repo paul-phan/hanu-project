@@ -26,20 +26,21 @@
                             <div class="aa-blog-content">
                                 <?php foreach($blogs as $value): ?>
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-4">
+                                    <div class="col-md-5 col-sm-5">
                                         <article class="aa-latest-blog-single">
                                             <figure class="aa-blog-img">
-                                                <a href="#"><img alt="img" src="<?= $value->image ?>"></a>
+                                                <a href="blog/view/<?= $value->id ?>"><img alt="img" src="<?= $value->image ?>"></a>
                                                 <figcaption class="aa-blog-img-caption">
-                                                    <span href="#"><i class="fa fa-eye"></i>5K</span>
-                                                    <a href="#"><i class="fa fa-thumbs-o-up"></i>426</a>
-                                                    <a href="#"><i class="fa fa-comment-o"></i>20</a>
+                                                    <span href="#"> <a href="https://www.facebook.com/sinhvienIT/?fref=ts"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
                                                     <span href="#"><i class="fa fa-clock-o"></i><?= $value->created ?></span>
                                                 </figcaption>
                                             </figure>
 
                                             <div class="aa-blog-info">
-                                                <h3 class="aa-blog-title"><a href="#"><?= $value->title ?></a>
+                                                <h3 class="aa-blog-title"><a href="blog/view/<?= $value->id ?>"><?= $value->title ?></a>
                                                 </h3>
                                                 <p><?= $value->body ?></p>
                                                 <a class="aa-read-mor-btn" href="blog/view/<?= $value->id ?>">Read more <span
@@ -51,46 +52,42 @@
                                 <?php endforeach; ?>
                             </div>
                             <!-- Blog Pagination -->
-                            <div class="aa-blog-archive-pagination">
-                                <nav>
-                                    <ul class="pagination">
-                                        <li>
-                                            <a aria-label="Previous" href="#">
-                                                <span aria-hidden="true">«</span>
-                                            </a>
-                                        </li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a aria-label="Next" href="#">
-                                                <span aria-hidden="true">»</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
+<!--                            <div class="aa-blog-archive-pagination">-->
+<!--                                <nav>-->
+<!--                                    <ul class="pagination">-->
+<!--                                        <li>-->
+<!--                                            <a aria-label="Previous" href="#">-->
+<!--                                                <span aria-hidden="true">«</span>-->
+<!--                                            </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="active"><a href="#">1</a></li>-->
+<!--                                        <li><a href="#">2</a></li>-->
+<!--                                        <li><a href="#">3</a></li>-->
+<!--                                        <li><a href="#">4</a></li>-->
+<!--                                        <li><a href="#">5</a></li>-->
+<!--                                        <li>-->
+<!--                                            <a aria-label="Next" href="#">-->
+<!--                                                <span aria-hidden="true">»</span>-->
+<!--                                            </a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </nav>-->
+<!--                            </div>-->
+                        </div>
+                        <div class="aa-blog-navigation">
+                            <a class="btn btn-danger btn-large" href=""><span class="fa fa-arrow-left"></span>QUAY LẠI</a>
                         </div>
                         <div class="col-md-3">
                             <aside class="aa-blog-sidebar">
-                                <div class="aa-sidebar-widget">
 
-                                </div>
-                                <div class="aa-sidebar-widget">
-
-                                </div>
-                                <div class="aa-sidebar-widget">
-
-                                </div>
                             </aside>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
+
     </div>
 </section>
 <!-- / Blog Archive --><!-- catg header banner section -->
