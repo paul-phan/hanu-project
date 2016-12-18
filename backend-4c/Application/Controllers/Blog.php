@@ -12,6 +12,7 @@ namespace Application\Controllers;
 
 use Application\Controllers\AppController as MainController;
 
+use Library\Tools;
 
 class Blog extends MainController
 {
@@ -22,15 +23,34 @@ class Blog extends MainController
 
     public function indexAction()
     {
-
+        header("Refresh:1; url=blog/list", true, 200);
     }
 
     public function viewAction()
     {
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
+        global $connection;
+        $co = $connection->getCo();
+        $blogModel = new \Administration\Models\blog($co);
+        $blog = $blogModel->findById($id);
 
+        $this->addDataView(array(
+            'viewTitle' => 'Chi tiết bài viết',
+            'viewSiteName' => 'Bài viết',
+            'blog' => $blog[0],
+        ));
     }
 
     public function listAction() {
-
+        global $connection;
+        $co = $connection->getCo();
+        $blogModel = new \Administration\Models\Blog($co);
+        $result = $blogModel->fetchAll();
+        $this->addDataView(array(
+            'viewTitle' => 'Quản lý',
+            'viewSiteName' => 'Bài viết',
+            'blogs' => $result
+        ));
     }
 }

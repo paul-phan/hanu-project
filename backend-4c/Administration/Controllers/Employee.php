@@ -87,7 +87,6 @@ class Employee extends MainController
                     $_POST['image'] = "/Public/upload/employee/" . $name;
                 }
 
-
                 if ($EmployeeModel->modifyEmployee($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa nhân viên thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/employee/list", true, 303);

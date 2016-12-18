@@ -41,17 +41,17 @@ class Blog extends MainController
         $co = $connection->getCo();
         $blogModel = new \Administration\Models\Blog($co);
         if ($_POST) {
-            if($_FILES) {
+            if ($_FILES) {
                 $image = $_FILES['image'];
-                $upload = new Tools\Upload();
+                $upload = new \Library\Tools\Upload();
                 $name = $upload->copy(array(
                     'file' => $image,
                     'path' => 'blog/',
-                    'name' => $blogModel->slugify(time() . '-' . $_POST['title'])
+                    'name' => time() . '-' . $blogModel->slugify($_POST['title'])
                 ));
+                $_POST['image'] = "/Public/upload/blog/" . $name;
             }
 
-            $_POST['image'] = isset($name) ? $name : 'updatelater.jpg';
             if (!empty($_POST['title']) && !empty($_POST['body'])) {
                 if ($blogModel->insertBlog($_POST)) {
 
@@ -81,16 +81,16 @@ class Blog extends MainController
         $blogModel = new \Administration\Models\Blog($co);
         $blog = $blogModel->findById($_GET['params']);
         if ($_POST) {
-            if($_FILES) {
+            if ($_FILES) {
                 $image = $_FILES['image'];
-                $upload = new Tools\Upload();
+                $upload = new \Library\Tools\Upload();
                 $name = $upload->copy(array(
                     'file' => $image,
                     'path' => 'blog/',
-                    'name' => $blogModel->slugify(time() . '-' . $_POST['title'])
+                    'name' => time() . '-' . $blogModel->slugify($_POST['title'])
                 ));
+                $_POST['image'] = "/Public/upload/blog/" . $name;
             }
-            $_POST['image'] = isset($name) ? $name : 'updatelater.jpg';
             if (isset($_POST['title']) && isset($_POST['body'])){
                 if ($blogModel->modifyBlog($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa bài viết thành công, đang trở lại danh sách...!', 'success');

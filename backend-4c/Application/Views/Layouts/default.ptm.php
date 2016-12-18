@@ -118,7 +118,7 @@
                         <!-- / header top left -->
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
-                                <li><a href="bai-viet.html">Bài viết</a></li>
+                                <li><a href="blog/list">Bài viết</a></li>
                                 <li><a href="account.html">Tài khoản</a></li>
                                 <li class="hidden-xs"><a href="san-pham/yeu-thich.html">Yêu thích</a></li>
                                 <li class="hidden-xs"><a href="gio-hang.html">Giỏ hàng</a></li>
