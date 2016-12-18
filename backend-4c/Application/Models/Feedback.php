@@ -30,4 +30,10 @@ class Feedback extends MainModel implements FeedbackModel
             'product_id' => isset($post['product_id']) ? $post['product_id'] : '',
         ));
     }
+
+    public function displayComment(){
+        $giaTri=$_SESSION['product_id'];
+        return $a=$this->fetchMatchedFields("SELECT cm.id, cm.name, cm.message, cm.email, cm.date, r.name, r.content, r.ngay
+                                  FROM comment as cm JOIN reply as r ON cm.id=r.comment_id WHERE cm.product_id=$giaTri");
+    }
 }

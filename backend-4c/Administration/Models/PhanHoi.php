@@ -26,7 +26,7 @@ class PhanHoi extends MainModel implements PhanHoiModel
         return $this->themData(array(
             'name' => isset($_SESSION['User']['username']) ? $_SESSION['User']['username'] : '',
             'content' => isset($post['message']) ? $post['message'] : '',
-            'date' => date("Y-m-d H:i:s"),
+            'ngay' => date("Y-m-d H:i:s"),
             'comment_id' => isset($post['comment_id']) ? $post['comment_id'] : '',
         ));
     }

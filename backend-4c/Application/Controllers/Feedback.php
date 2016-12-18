@@ -12,11 +12,9 @@ use Library\Tools;
 
 class Feedback extends MainController
 {
-    public $a;
     public function __construct()
     {
         parent::__construct();
-        $this->a=isset($_SESSION['product_id']) ? $_SESSION['product_id'] : '';
     }
 
     public function indexAction(){
@@ -58,12 +56,11 @@ class Feedback extends MainController
         global $connection;
         $co = $connection->getCo();
         $FeedbackModel = new \Application\Models\Feedback($co);
-        $giaTri=$this->a;
-        $result = $FeedbackModel->fetchMatchedFields("SELECT comment.id, comment.name, comment.message, comment.email, comment.date, comment.product_id, reply.content FROM comment JOIN reply ON reply.comment_id=comment_id WHERE comment.product_id='$giaTri'");
+        $comment = $FeedbackModel->displayComment();
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
             'viewSiteName' => 'Phản hồi',
-            'feedbacks' => $result,
+            'comment' => $comment,
         ));
     }
 

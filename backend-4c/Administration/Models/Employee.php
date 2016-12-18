@@ -60,11 +60,9 @@ class Employee extends MainModel implements EmployeeModel
 
     public function displaySalary(){
         return $this->fetchMatchedFields(
-            "SELECT employee.id, employee.employee_name, employee.image, salary.year, salary.month, salary.day, 
-                     salary.total_salary, salary.id, salary.created
-                    FROM employee
-             JOIN salary ON salary.employee_id=employee.id GROUP BY employee.employee_name, salary.year, salary.monthgit 
-        ");
+            "SELECT employee.id, employee.employee_name, employee.image, salary.year, salary.month, salary.day, salary.total_salary, salary.id, salary.created
+                        FROM employee
+                 JOIN salary ON salary.employee_id=employee.id GROUP BY employee.employee_name, salary.year, salary.month");
     }
 
     public function conStructSQL($value)
