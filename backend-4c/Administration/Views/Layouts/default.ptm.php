@@ -620,7 +620,6 @@
                     </ul>
                 </li>
 
-                <!--For EBZ only-->
                 <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="fa fa-users"></i>
@@ -636,6 +635,26 @@
                         <li class="nav-item ">
                             <a href="/admin/employee/add" class="nav-link ">
                                 <i class="fa fa-plus-square-o"></i> <span class="title">Thêm nhân viên</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item  ">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-percent"></i>
+                        <span class="title">Doanh thu</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/revenue/view" class="nav-link ">
+                                <i class="fa fa-list-ul"></i> <span class="title">Xem doanh thu</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="/admin/revenue/monthlySales" class="nav-link ">
+                                <i class="fa fa-calculator"></i> <span class="title">Tính doanh thu</span>
                             </a>
                         </li>
                     </ul>

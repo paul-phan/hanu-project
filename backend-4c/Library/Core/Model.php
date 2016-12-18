@@ -151,6 +151,11 @@ interface LienHeModel
 
 }
 
+interface RevenueModel
+{
+
+}
+
 abstract class Model
 {
     private $db;
