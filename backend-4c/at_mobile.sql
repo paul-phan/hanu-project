@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2016 at 05:46 PM
+-- Generation Time: Dec 18, 2016 at 02:36 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -101,19 +101,10 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id`, `name`, `message`, `email`, `date`, `product_id`) VALUES
-(2, 'sdfsdfs', 'fsdfsf', 'sdfsdfs@gmail.com', '2016-11-22 12:00:02', 22),
-(3, 'sdfs', 'sdfsdf', 'nguyentrungduc2910@gmail.com', '2016-11-22 12:00:40', 21),
-(5, 'asdsada', 'asdasd', 'asdasd@gmail.com', '2016-11-22 13:49:24', 20),
-(6, 'fsdf', 'sdsd', 'nguyentrungduc2910@gmail.com', '2016-11-22 13:51:47', 20),
-(9, 'dsds', 'sd', 'nguyentrungduc2910@gmail.com', '2016-11-22 14:04:24', 21),
-(10, 'trung ??c', 'dsfsdf', 'nguyentrungduc2910@gmail.com', '2016-11-22 14:06:02', 21),
-(11, 'df', 'sf', 'nguyentrungduc2910@gmail.com', '2016-11-22 16:10:31', 20),
-(12, 'thu tran', 'gia bao nhieu  vay?', 'Tranthu@gmail.com', '2016-11-22 16:17:38', 20),
-(13, 'fsdfsf', 'fsdfsd', 'sdfsdfs@gmail.com', '2016-11-22 16:20:39', 20),
-(14, 'trung ??c', 'gdf', 'Tranthu@gmail.com', '2016-11-22 16:47:39', 20),
-(15, 'trung ??c', 'dssd', 'nguyentrungduc2910@gmail.com', '2016-11-22 17:15:55', 21),
-(16, 'duc nguyen', 'duc dep zai', 'nguyentrungduc2910@gmail.com', '2016-11-22 17:18:39', 20),
-(17, 'thu béo', 'nh? cc', 'sdfsdfsd@gmail.com', '2016-11-22 17:21:21', 17);
+(2, 'zexi123', 'cũng dược đấy', 'ntd.hanu@gmail.com', '2016-12-18 12:38:12', 20),
+(3, 'ducnt', 'tôi muốn mua ông ơi', 'nguyentrungduc2910@gmail.com', '2016-12-18 13:22:30', 20),
+(4, 'trungducng', 'admin đẹp zai vãi', 'ntd.hanu@gmail.com', '2016-12-18 13:28:40', 20),
+(5, 'quiz-perl', 'cũng được đấy nhỉ', 'nguyentrungduc2910@gmail.com', '2016-12-18 13:35:12', 19);
 
 -- --------------------------------------------------------
 
@@ -183,23 +174,24 @@ INSERT INTO `contact` (`id`, `title`, `message`, `name`, `email`, `date`) VALUES
 
 CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
-  `employee_name` varchar(255) NOT NULL,
+  `employee_name` varchar(255) CHARACTER SET latin1 NOT NULL,
   `params` int(11) NOT NULL,
   `dob` date NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `address` varchar(255) CHARACTER SET latin1 NOT NULL,
   `authentication` int(6) NOT NULL,
   `gender` int(1) NOT NULL,
   `phone` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) CHARACTER SET latin1 NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`id`, `employee_name`, `params`, `dob`, `address`, `authentication`, `gender`, `phone`, `image`, `created`) VALUES
-(1, 'tranthu', 2016, '2016-12-20', 'hung yen', 313153, 0, 968778965, '/Public/upload/employee/1481982063-tranthu.jpg', '2016-12-17 13:41:03');
+(1, 'tranthu', 2016, '2016-12-20', 'hung yen', 313153, 0, 968778965, '/Public/upload/employee/1481982063-tranthu.jpg', '2016-12-17 13:41:03'),
+(2, 'trungducng', 2016, '2016-12-13', 'ha noi', 631351, 0, 2147483647, '/Public/upload/employee/1481996596-trungducng.jpg', '2016-12-17 17:43:16');
 
 -- --------------------------------------------------------
 
@@ -516,7 +508,7 @@ CREATE TABLE `reply` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ngay` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `comment_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -524,12 +516,10 @@ CREATE TABLE `reply` (
 -- Dumping data for table `reply`
 --
 
-INSERT INTO `reply` (`id`, `name`, `content`, `date`, `comment_id`) VALUES
-(2, '', 'ádasda', '2016-11-22 13:25:00', 2),
-(3, '69', 'nhu lon', '2016-11-22 13:29:10', 3),
-(4, 'trungducng', 'nhu loz', '2016-11-22 13:29:51', 3),
-(5, 'trungducng', 'sdsfsd', '2016-11-22 13:51:29', 2),
-(6, 'trungducng', 'dfsdfsd', '2016-11-22 14:30:39', 2);
+INSERT INTO `reply` (`id`, `name`, `content`, `ngay`, `comment_id`) VALUES
+(3, 'trungducng', 'ok gửi tiền đi', '2016-12-18 13:23:19', 3),
+(4, 'trungducng', 'cám ơn bạn', '2016-12-18 13:31:39', 4),
+(5, 'trungducng', 'bây h mới biết thi hơi muộn đấy', '2016-12-18 13:35:35', 5);
 
 -- --------------------------------------------------------
 
@@ -573,7 +563,7 @@ CREATE TABLE `salary` (
   `day` int(2) NOT NULL,
   `total_salary` int(11) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `salary`
@@ -584,7 +574,10 @@ INSERT INTO `salary` (`id`, `employee_id`, `year`, `month`, `day`, `total_salary
 (2, 1, 2016, 1, 25, 1250000, '2016-12-17 13:55:40'),
 (3, 1, 2016, 2, 20, 2000000, '2016-12-17 14:49:47'),
 (4, 1, 2016, 2, 23, 2300000, '2016-12-17 14:50:13'),
-(5, 1, 2016, 2, 30, 3000000, '2016-12-17 15:02:58');
+(5, 1, 2016, 2, 30, 3000000, '2016-12-17 15:02:58'),
+(6, 2, 2016, 1, 2, 200000, '2016-12-17 17:43:33'),
+(7, 1, 2016, 1, 13, 1300000, '2016-12-17 19:27:33'),
+(8, 2, 2016, 2, 10, 1000000, '2016-12-18 11:53:55');
 
 -- --------------------------------------------------------
 
@@ -637,7 +630,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (64, 'minhtest23', '$2a$07$ptmbCg9OO3LxQ9kRCFBvUOCMuqL1H4P9fInP/CTWlXPS7hKSuojPW', 'd1c37763e184ce1e3e4037ebf2c71eda', 1, 1, '0000-00-00 00:00:00', '2016-09-24 14:26:50', '2016-09-24 07:26:50'),
 (66, 'minhtest28', '$2a$07$ptm5E5KghlSiwu3yJ9cEteSooGDfITFM8V.6ScFZCwQTZB1xe7i26', 'a798282573839191b3e928b4578971e5', 0, 1, '0000-00-00 00:00:00', '2016-09-24 18:37:37', '2016-09-26 11:38:57'),
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
-(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '64a90bacc0e863c9f5b5c1233d1a6fd7', 1, 1, '2016-12-17 20:40:23', '2016-09-25 21:12:31', '2016-12-17 13:40:23'),
+(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', 'e691aa0917ed480a230df53182e98707', 1, 1, '2016-12-18 18:40:09', '2016-09-25 21:12:31', '2016-12-18 11:40:09'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
@@ -846,7 +839,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `company`
 --
@@ -861,7 +854,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `event`
 --
@@ -906,7 +899,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -916,7 +909,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `salary`
 --
 ALTER TABLE `salary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `subcribe`
 --
@@ -946,7 +939,7 @@ ALTER TABLE `blog`
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `image`
@@ -991,7 +984,7 @@ ALTER TABLE `profile`
 -- Constraints for table `reply`
 --
 ALTER TABLE `reply`
-  ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`);
+  ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `salary`
