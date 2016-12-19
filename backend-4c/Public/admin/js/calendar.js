@@ -1,3 +1,8 @@
+var date = new Date();
+var d = date.getDate();
+var m = date.getMonth();
+var y = date.getFullYear();
+var h = {};
 var AppCalendar = function () {
 
     return {
@@ -12,12 +17,6 @@ var AppCalendar = function () {
                 return;
             }
 
-            var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
-
-            var h = {};
 
             if (App.isRTL()) {
                 if ($('#calendar').parents(".portlet").width() <= 720) {
@@ -93,86 +92,75 @@ var AppCalendar = function () {
             addEvent("My Event 4");
             addEvent("My Event 5");
             addEvent("My Event 6");
-
-            $('#calendar').fullCalendar('destroy'); // destroy the calendar
-            $('#calendar').fullCalendar({ //re-initialize the calendar
-                header: h,
-                defaultView: 'month', // change default view with available options from http://arshaw.com/fullcalendar/docs/views/Available_Views/ 
-                slotMinutes: 15,
-                editable: true,
-                droppable: true, // this allows things to be dropped onto the calendar !!!
-                drop: function (date, allDay) { // this function is called when something is dropped
-
-                    // retrieve the dropped element's stored Event Object
-                    var originalEventObject = $(this).data('eventObject');
-                    // we need to copy it, so that multiple events don't have a reference to the same object
-                    var copiedEventObject = $.extend({}, originalEventObject);
-
-                    // assign it the date that was reported
-                    copiedEventObject.start = date;
-                    copiedEventObject.allDay = allDay;
-                    copiedEventObject.className = $(this).attr("data-class");
-
-                    // render the event on the calendar
-                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-                    // is the "remove after drop" checkbox checked?
-                    if ($('#drop-remove').is(':checked')) {
-                        // if so, remove the element from the "Draggable Events" list
-                        $(this).remove();
-                    }
-                },
-                events: [{
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1),
-                    backgroundColor: App.getBrandColor('yellow')
-                }, {
-                    title: 'Long Event',
-                    start: new Date(y, m, d - 5),
-                    end: new Date(y, m, d - 2),
-                    backgroundColor: App.getBrandColor('green')
-                }, {
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d - 3, 16, 0),
-                    allDay: false,
-                    backgroundColor: App.getBrandColor('red')
-                }, {
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d + 4, 16, 0),
-                    allDay: false,
-                    backgroundColor: App.getBrandColor('green')
-                }, {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false,
-                }, {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    backgroundColor: App.getBrandColor('grey'),
-                    allDay: false,
-                }, {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    backgroundColor: App.getBrandColor('purple'),
-                    allDay: false,
-                }, {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
-                    backgroundColor: App.getBrandColor('yellow'),
-                    url: 'http://google.com/',
-                }]
-            });
-
         }
 
     };
-
 }();
+function updateEvents(data) {
+    $('#calendar').fullCalendar('destroy'); // destroy the calendar
+    $('#calendar').fullCalendar({
+        header: h,
+        defaultView: 'month', // change default view with available options from http://arshaw.com/fullcalendar/docs/views/Available_Views/
+        slotMinutes: 15,
+        editable: true,
+        droppable: true, // this allows things to be dropped onto the calendar !!!
+        drop: function (date, allDay) { // this function is called when something is dropped
+
+            // retrieve the dropped element's stored Event Object
+            var originalEventObject = $(this).data('eventObject');
+            // we need to copy it, so that multiple events don't have a reference to the same object
+            var copiedEventObject = $.extend({}, originalEventObject);
+            console.log(copiedEventObject);
+
+            // assign it the date that was reported
+            copiedEventObject.start = date;
+            copiedEventObject.allDay = allDay;
+            copiedEventObject.className = $(this).attr("data-class");
+            console.log(copiedEventObject);
+            // render the event on the calendar
+            // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+            $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+            // is the "remove after drop" checkbox checked?
+            if ($('#drop-remove').is(':checked')) {
+                // if so, remove the element from the "Draggable Events" list
+                $(this).remove();
+            }
+        },
+        events: data
+    })
+}
+
+function initCalendar() {
+    $.ajax({
+        type: "GET",
+        url: '/restapi/calendar',
+        dataType: 'json',
+        cache: false,
+        success: function (data) {
+            console.log(data.data);
+            var ro = [];
+            $.each(data.data, function (i, v) {
+                var event = {
+                    title: v.title,
+                    start: new Date(v.start),
+                    end: new Date(v.end),
+                    allDay: (v.allDay == 1),
+                    backgroundColor: App.getBrandColor(v.backgroundColor),
+                    url: v.url
+                };
+                ro.push(event)
+            });
+            updateEvents(ro);
+        },
+        error: function (err) {
+            console.error(err);
+            updateEvents([])
+        }
+    })
+}
 
 jQuery(document).ready(function () {
     AppCalendar.init();
+    initCalendar();
 });
