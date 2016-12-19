@@ -105,7 +105,7 @@
                                                             <span class="btn default btn-file">
                                                                 <span class="fileinput-new"> Chon ảnh </span>
                                                                 <span class="fileinput-exists"> Thay đổi </span>
-                                                                <input type="file" name="image"> </span>
+                                                                <input type="file" name="image" value="<?php echo isset($form->image) ? $form->image : 'updatelater.jpg' ?>"> </span>
                                             <a href="javascript:;" class="btn red fileinput-exists"
                                                data-dismiss="fileinput"> Xóa </a>
                                         </div>
