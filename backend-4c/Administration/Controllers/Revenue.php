@@ -18,7 +18,7 @@ class Revenue extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/Revenue/monthlySales", true, 200);
+        header("Refresh:1; url=/admin/Revenue/view", true, 200);
     }
 
     /**
@@ -32,7 +32,7 @@ class Revenue extends MainController
             $month=$_GET['month'];
             $revenue=$revenueModel->revenue($month);
             if(!empty($revenue)) {
-                header("Refresh:3; url=/admin/revenue/view", true, 303);
+//                header("Refresh:3; url=/admin/revenue/view", true, 303);
                 $this->addDataView(array(
                     'viewTitle' => 'Doanh Thu Tháng ' + $month,
                     'viewSiteName' => 'Doanh Thu',

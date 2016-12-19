@@ -9,7 +9,7 @@
                 <div class='form-row'>
                     <div class='col-xs-12 form-group required'>
                         <label class='control-label'>Tháng</label>
-                        <select class="form-control" name="year">
+                        <select class="form-control" name="month">
 
                             <?php  $now = time();
                             $month = date('m', $now);
