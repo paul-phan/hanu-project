@@ -52,7 +52,7 @@ class Blog extends MainController
                 $_POST['image'] = "/Public/upload/blog/" . $name;
             }
 
-            if (!empty($_POST['title']) && !empty($_POST['body'])) {
+            if (!empty($_POST['title']) && !empty($_POST['body']) && !empty($_POST['topic_id'])) {
                 if ($blogModel->insertBlog($_POST)) {
 
                     $alert = Tools\Alert::render('Thêm bài viết thành công, đang trở lại danh sách...!', 'success');
@@ -91,7 +91,7 @@ class Blog extends MainController
                 ));
                 $_POST['image'] = "/Public/upload/blog/" . $name;
             }
-            if (isset($_POST['title']) && isset($_POST['body'])){
+            if (isset($_POST['title']) && isset($_POST['body']) && !empty($_POST['topic_id'])){
                 if ($blogModel->modifyBlog($_POST, $_GET['params'])) {
                     $alert = Tools\Alert::render('Sửa bài viết thành công, đang trở lại danh sách...!', 'success');
                     header("Refresh:3; url=/admin/blog/list", true, 303);

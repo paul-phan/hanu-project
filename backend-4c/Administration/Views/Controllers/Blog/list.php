@@ -19,9 +19,10 @@
             <thead>
             <tr>
                 <th class="all">Tên bài viết</th>
-                <th class="min-phone-l">Params</th>
+                <th class="min-phone-l">Ảnh</th>
                 <th class="min-tablet">Nội dung</th>
-                <th class="min-tablet">Ngày tạo</th>
+                <th class="min-tablet">Ngày viết</th>
+                <th class="min-tablet">Chủ đề</th>
                 <th class="min-tablet" style="width: 27%">Tùy chỉnh</th>
 
             </tr>
@@ -34,9 +35,32 @@
                         <div class="success"></div>
                         <a href="javascript:;"> <?= $blog->title ?> </a>
                     </td>
-                    <td><?= $blog->params ?></td>
+                    <td><img src="<?= $blog->image ?>" height="100px" width="100px" /></td>
                     <td><?= $blog->body ?></td>
                     <td><?= $blog->created ?></td>
+                    <td><?php
+                        switch($blog->topic_id){
+                            case 1:
+                                echo "Công nghệ";
+                                break;
+
+                            case 2:
+                                echo "Về chúng tôi";
+                                break;
+
+                            case 3:
+                                echo "Sản phẩm mới";
+                                break;
+
+                            case 4:
+                                echo "Mẹo vặt";
+                                break;
+
+                            case 5:
+                                echo "Chuyện trò linh tinh";
+                                break;
+                        }
+                        ?></td>
                     <td>
                         <a href="admin/blog/view/<?= $blog->id ?>" class="btn btn-outline btn-circle btn-sm blue">
                             <i class="fa fa-eye"></i> Xem </a>

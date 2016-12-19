@@ -50,9 +50,23 @@
                                               value="<?= !empty($form['body']) ? $form['body'] : '' ?>"> </textarea>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label for="dropdown" class="control-label col-md-3">Tags<span
-                                            class="required"> * </span></label>
+                                <label for="dropdown" class="control-label col-md-3">Chủ đề<span
+                                        class="required"> * </span></label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="topic_id">
+                                        <option value="1">Công Nghệ</option>
+                                        <option value="2">Về chúng tôi</option>
+                                        <option value="3">Sản phẩm mới</option>
+                                        <option value="4">Mẹo vặt</option>
+                                        <option value="5">Chuyện trò linh tinh</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dropdown" class="control-label col-md-3">Tags</span></label>
                                 <div class="col-md-9">
                                     <input placeholder="Nhập tags..." type="text" class="form-control"
                                            name="tags"
