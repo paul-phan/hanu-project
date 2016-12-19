@@ -7,6 +7,7 @@
  */
 
 namespace Administration\Models;
+
 use Library\Core\Model as MainModel;
 
 class Schedule extends MainModel
@@ -26,11 +27,12 @@ class Schedule extends MainModel
      * @param array $tasks
      * @return array
      */
-    public function incomingTask($tasks=array()){
-        $registerdTasks=array();
-        for($i=0;$i<sizeof($tasks);$i++){
-            $date=strtotime($tasks[$i]);
-            array_push($registerdTasks,$date);
+    public function incomingTask($tasks = array())
+    {
+        $registerdTasks = array();
+        for ($i = 0; $i < sizeof($tasks); $i++) {
+            $date = strtotime($tasks[$i]);
+            array_push($registerdTasks, $date);
         }
         return $registerdTasks;
     }
@@ -44,28 +46,26 @@ class Schedule extends MainModel
      * if the now is before the given date
      *              return -1;
      */
-    public function alertIncomingTask($givenDate){
-        $now=time();
-        $nowYear=date('Y',$now);
-        $nowMonth=date('m',$now);
-        $nowDay=date('d',$now);
-        $givenDateYear=date('Y',$givenDate);
-        $givenDateMonth=date('m',$givenDate);
-        $givenDateDay=date('d',$givenDate);
-        $sub=$givenDateDay-$nowDay;
-        if($givenDateYear==$nowYear&&$givenDateMonth==$nowMonth){
-            if($sub>0){
+    public function alertIncomingTask($givenDate)
+    {
+        $now = time();
+        $nowYear = date('Y', $now);
+        $nowMonth = date('m', $now);
+        $nowDay = date('d', $now);
+        $givenDateYear = date('Y', $givenDate);
+        $givenDateMonth = date('m', $givenDate);
+        $givenDateDay = date('d', $givenDate);
+        $sub = $givenDateDay - $nowDay;
+        if ($givenDateYear == $nowYear && $givenDateMonth == $nowMonth) {
+            if ($sub > 0) {
                 return 1;
-            }
-            elseif($sub<0){
+            } elseif ($sub < 0) {
                 return -1;
-            }
-            else{
+            } else {
                 return 0;
             }
-        }
-        else{
-            $error="year or month no match";
+        } else {
+            $error = "year or month no match";
             return $error;
         }
     }

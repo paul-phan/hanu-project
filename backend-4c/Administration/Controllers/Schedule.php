@@ -18,6 +18,10 @@ class Schedule extends AdminController
 
 	public function indexAction()
 	{
+        $this->addDataView([
+            "viewTitle" => "Quản trị",
+            "viewSiteName" => "Thời gian biểu"
+        ]);
 
 	}
 }
