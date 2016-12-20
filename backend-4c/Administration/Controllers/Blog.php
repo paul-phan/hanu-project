@@ -43,7 +43,7 @@ class Blog extends MainController
         if ($_POST) {
             if ($_FILES) {
                 $image = $_FILES['image'];
-                $upload = new \Library\Tools\Upload();
+                $upload = new Tools\Upload();
                 $name = $upload->copy(array(
                     'file' => $image,
                     'path' => 'blog/',
