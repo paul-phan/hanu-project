@@ -22,6 +22,13 @@
                         <div id="external-events">
                             <form class="inline-form">
                                 <textarea class="form-control" placeholder="Event Title..." id="event_title"></textarea>
+                                <label>Start:</label>
+                                <div class='input-group date datetimepicker'>
+                                    <input id="event-start" type='text' class="form-control"/>
+                                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                                </div>
                                 <br/>
                                 <a href="javascript:;" id="event_add" class="btn green"> Add Event </a>
                             </form>
@@ -50,3 +57,6 @@
 <script src="dashboard/js/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="dashboard/js/calendar.js" type="text/javascript"></script>
+<script>
+
+</script>

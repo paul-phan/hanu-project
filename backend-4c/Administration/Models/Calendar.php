@@ -20,4 +20,17 @@ class Calendar extends Model
     {
         parent::__construct($co);
     }
+
+    public function addCalendar($post)
+    {
+        return $this->insert([
+            "title" => $post['title'],
+            "start" => isset($post['start']) ? date("Y-m-d H:i:s", strtotime($post['start'])) : date("Y-m-d H:i:s"),
+            "end" => isset($post['end']) ? date("Y-m-d H:i:s", strtotime($post['end'])) : date("Y-m-d H:i:s", strtotime($post['start']) + 86400),
+            "backgroundColor" => array_rand(["black" => 5, "red" => 1, "green" => 2, "blue" => 3, "yellow" => 4]),
+            "allDay" => isset($post['allDay']) ? 1 : 0,
+            "url" => !empty($post['url']) ? $post['url'] : "#",
+            "user_id" => $_SESSION['User']['id']
+        ]);
+    }
 }

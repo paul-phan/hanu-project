@@ -68,9 +68,11 @@ var AppCalendar = function () {
                 });
             };
 
-            var addEvent = function (title) {
+            var addEvent = function (title, start) {
+
                 title = title.length === 0 ? "Untitled Event" : title;
-                var html = $('<div class="external-event label label-default">' + title + '</div>');
+                start = new Date(start);
+                var html = $('<div class="external-event label label-default" data-start="' + start + '">' + title + '</div>');
                 jQuery('#event_box').append(html);
                 initDrag(html);
             };
@@ -81,55 +83,93 @@ var AppCalendar = function () {
 
             $('#event_add').unbind('click').click(function () {
                 var title = $('#event_title').val();
-                addEvent(title);
+                var start = $('#event-start').val();
+                addEvent(title, start);
             });
 
             //predefined events
             $('#event_box').html("");
-            addEvent("My Event 1");
-            addEvent("My Event 2");
-            addEvent("My Event 3");
-            addEvent("My Event 4");
-            addEvent("My Event 5");
-            addEvent("My Event 6");
         }
 
     };
 }();
+
 function updateEvents(data) {
     $('#calendar').fullCalendar('destroy'); // destroy the calendar
     $('#calendar').fullCalendar({
         header: h,
         defaultView: 'month', // change default view with available options from http://arshaw.com/fullcalendar/docs/views/Available_Views/
         slotMinutes: 15,
-        editable: true,
         droppable: true, // this allows things to be dropped onto the calendar !!!
-        drop: function (date, allDay) { // this function is called when something is dropped
+        drop: function () { // this function is called when something is dropped
 
             // retrieve the dropped element's stored Event Object
             var originalEventObject = $(this).data('eventObject');
             // we need to copy it, so that multiple events don't have a reference to the same object
             var copiedEventObject = $.extend({}, originalEventObject);
-            console.log(copiedEventObject);
 
+            console.log($(this).text());
             // assign it the date that was reported
-            copiedEventObject.start = date;
-            copiedEventObject.allDay = allDay;
-            copiedEventObject.className = $(this).attr("data-class");
-            console.log(copiedEventObject);
+            copiedEventObject.title = $(this).text();
+            copiedEventObject.allDay = true;
+            copiedEventObject.start = ($(this).attr("data-start") == "Invalid Date") ? new Date(y, m, d) : $(this).attr("data-start");
             // render the event on the calendar
             // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-            $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
+            $.ajax({
+                type: "POST",
+                url: "/restapi/calendar/add",
+                dataType: "json",
+                cache: false,
+                data: copiedEventObject,
+                success: function (data) {
+                    console.log(data);
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
             // is the "remove after drop" checkbox checked?
-            if ($('#drop-remove').is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
-                $(this).remove();
+
+        },
+        events: data,
+        editable: true,
+        eventResize: function (event, delta, revertFunc) {
+
+            alert(event.title + " end is now " + event.end.format());
+
+            if (!confirm("is this okay?")) {
+                revertFunc();
+            }
+
+        },
+        eventDrop: function (event, delta, revertFunc) {
+
+            alert(event.title + " was dropped on " + event.start.format());
+
+            if (!confirm("Are you sure about this change?")) {
+                revertFunc();
             }
         },
-        events: data
+        eventRender: function (event, element, revertFunc) {
+            element.append("<span class='closeon'>X</span>");
+            element.find(".closeon").click(function (e) {
+                e.preventDefault();
+                console.log(event);
+                if (!confirm("Are you sure to delete?")) {
+                    revertFunc();
+                }
+                $('#calendar').fullCalendar('removeEvents', event._id);
+            });
+
+        }
     })
 }
+
 
 function initCalendar() {
     $.ajax({
@@ -138,10 +178,10 @@ function initCalendar() {
         dataType: 'json',
         cache: false,
         success: function (data) {
-            console.log(data.data);
             var ro = [];
             $.each(data.data, function (i, v) {
                 var event = {
+                    id: v.id,
                     title: v.title,
                     start: new Date(v.start),
                     end: new Date(v.end),
