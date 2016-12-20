@@ -49,8 +49,8 @@ class Revenue extends MainController
         global $connection;
         $co = $connection->getCo();
         $revenueModel = new \Administration\Models\Revenue($co);
-        if(isset($_GET['monthlySales'])){
-            $month=$_GET['monthlySales'];
+        if(isset($_GET['month'])){
+            $month=$_GET['month'];
             $monthlySales=$revenueModel->monthlySales($month);
             if(!empty($monthlySales)) {
                 //header("Refresh:3; url=/admin/revenue/view", true, 303);

@@ -3,8 +3,27 @@
         <div class='col-md-4'></div>
         <div class='col-md-4'>
             <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
-            <form id="payment-form" method="GET"><div style="margin:0;padding:0;display:inline"></div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="text-left">Mặt hàng</th>
+                    <th class="text-left">Số lượng</th>
+                </tr>
+                </thead>
+                <tbody class="table-hover">
+                <?php
+                if(isset($revenue)):
+                    foreach ($revenue as $value):     ?>
+                        <tr>
+                            <td class="text-left"><?= $value->title ?></td>
+                            <td class="text-left"> <?= $value->total ?></td>
+                        </tr>
+                    <?php endforeach; endif; ?>
+                </tbody>
 
+            </table>
+
+            <form id="payment-form" method="GET"><div style="margin:0;padding:0;display:inline"></div>
                 <!--1-12 BUTTON-->
                 <div class='form-row'>
                     <div class='col-xs-12 form-group required'>
@@ -35,6 +54,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
         <div class='col-md-4'></div>
     </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2016 at 06:46 PM
+-- Generation Time: Dec 20, 2016 at 04:58 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -61,7 +61,7 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `title`, `body`, `tags`, `image`, `params`, `user_id`, `topic_id`, `created`, `updated`) VALUES
-(1, 'abc', 'sdafdfggsbsgb', 'PHP', '/Public/upload/blog/ctlt.jpg', '', 67, 1, '2016-12-19 22:01:26', '2016-12-19 15:01:26'),
+(1, 'abc', 'sdafdfggsbsgb', '1', '/Public/upload/blog/', '2016-12-20-020729-abc', 69, 1, '2016-12-19 22:01:26', '2016-12-19 15:01:26'),
 (5, 'Trên tay Macbook Pro 13', 'Macbook Pro 13" mới màu xám không gian quá đẹp và hoàn hảo khi lần đầu tiên bạn nhìn thấy nó. Tiếp theo là cảm giác mỏng hơn, nhỏ gọn hơn không chỉ do màu mà do kích thước thực tế được giảm đi đáng kể. Bàn phím mỏng hơn, màn hình mỏng hơn, trackpad to quá, to hơn mình tưởng tượng luôn. Xung quanh chỉ còn 2 cổng USB-C và 1 lỗ cắm tai nghe 3.5 nên nhìn máy mượt và đơn giản đi. Hai cạnh hai bên của màn hình mỏng đi nhiều so với Macbook 13 cũ.\r\nChiếc máy này có cấu hình thấp nhất trong những máy mà Apple giới thiệu rạng sáng hôm qua. Đây cũng là chiếc mà Apple bán ngay sau khi giới thiệu. Những chiếc bán ra sau 2 đến 3 tuần sau thì mới có trang bị Touch Bar và TouchID. Vĩnh Phát Mobile bán Macbook Pro 13" Late 2016 cấu hình cơ bản này giá 36 triệu đồng.\r\n', '1', '/Public/upload/blog/1482166827-tren-tay-macbook-pro-13.jpg', '2016-12-20-000027-tren-tay-macbook-pro-13', 69, 1, '2016-12-19 22:31:25', '2016-12-19 15:31:25'),
 (6, 'Vinamilk ra mắt sản phẩm sữa tươi 100% organic sản xuất tại Việt Nam', 'Vinamilk là công ty sữa đầu tiên tại Việt Nam sản xuất sữa tươi Vinamilk 100% Organic cao cấp theo tiêu chuẩn hữu cơ Châu Âu.\r\n\r\nViệc cho ra đời sản phẩm Sữa tươi Vinamilk 100% Organic cũng đánh dấu một bước chuyển mình của Vinamilk trên hành trình hội nhập với thị trường sữa thế giới, tiên phong mở lối cho xu hướng Organic tại thị trường Việt Nam.\r\n\r\nLà công ty sữa hàng đầu tại Việt Nam với các sản phẩm dinh dưỡng theo tiêu chuẩn chất lượng quốc tế, Vinamilk đã tiên phong cho ra đời dòng sản phẩm Sữa tươi Vinamilk 100% Organic cao cấp theo tiêu chuẩn hữu cơ Châu Âu lần đầu tiên được sản xuất ngay tại Việt Nam. Đây là thành quả từ việc xây dựng trang trại bò sữa Vinamilk Organic Đà Lạt - trang trại bò sữa đầu tiên tại Việt Nam đạt tiêu chuẩn hữu cơ Châu Âu do tổ chức uy tín thế giới Control Union (Hà Lan) chứng nhận. Control Union là một mạng lưới toàn cầu về các hoạt động kiểm định hàng hóa và quản lý chất lượng, chuyên giám định và giám sát độc lập hàng hóa với tiêu chuẩn quốc tế trên phạm vi toàn cầu.', '1', '/Public/upload/blog/1482166871-vinamilk-ra-mat-san-pham-sua-tuoi-100-organic-san-xuat-tai-viet-nam.jpg', '2016-12-20-000111-vinamilk-ra-mat-san-pham-sua-tuoi-100-organic-san-xuat-tai-viet-nam', 69, 1, '2016-12-19 23:47:41', '2016-12-19 16:47:41');
 
@@ -225,7 +225,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `employee_name`, `params`, `dob`, `address`, `authentication`, `gender`, `phone`, `image`, `created`) VALUES
-(1, 'tranthu', 2016, '2016-12-20', 'hung yen', 313153, 0, 968778965, '/Public/upload/employee/1481982063-tranthu.jpg', '2016-12-17 13:41:03'),
+(1, 'tranthu', 2016, '2016-12-20', 'hung yen', 313153, 0, 968778965, '/Public/upload/employee/', '2016-12-19 19:10:40'),
 (2, 'trungducng', 2016, '2016-12-13', 'ha noi', 631351, 0, 2147483647, '/Public/upload/employee/1481996596-trungducng.jpg', '2016-12-17 17:43:16');
 
 -- --------------------------------------------------------
@@ -314,7 +314,7 @@ CREATE TABLE `order_product` (
   `status` tinyint(2) UNSIGNED NOT NULL,
   `ip_address` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
-  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -322,9 +322,9 @@ CREATE TABLE `order_product` (
 --
 
 INSERT INTO `order_product` (`id`, `profile_id`, `product_id`, `product_detail`, `item_count`, `to_price`, `ship_price`, `total_price`, `order_type`, `description`, `status`, `ip_address`, `created`, `updated`) VALUES
-(1, 18, 7, '', 123123, 123, 12, 15144141, 'normal', 'qweqas', 3, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29 09:45:14'),
-(2, 10, 9, '', 999, 34, 887, 34853, 'normal', '123123', 1, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29 09:47:17'),
-(3, 3, 8, '', 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29 09:48:32');
+(1, 18, 7, '', 123123, 123, 12, 15144141, 'normal', 'qweqas', 5, '127.0.0.1', '2016-09-30 18:44:27', '2016-09-29'),
+(2, 10, 9, '', 999, 34, 887, 34853, 'normal', '123123', 5, '127.0.0.1', '2016-09-29 16:47:17', '2016-09-29'),
+(3, 3, 8, '', 2123, 9998, 34345, 21260099, 'normal', '2324234', 1, '127.0.0.1', '2016-09-29 16:48:32', '2016-09-29');
 
 -- --------------------------------------------------------
 
@@ -690,7 +690,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `token`, `active`, `id_role`, 
 (64, 'minhtest23', '$2a$07$ptmbCg9OO3LxQ9kRCFBvUOCMuqL1H4P9fInP/CTWlXPS7hKSuojPW', 'd1c37763e184ce1e3e4037ebf2c71eda', 1, 1, '0000-00-00 00:00:00', '2016-09-24 14:26:50', '2016-09-24 07:26:50'),
 (66, 'minhtest28', '$2a$07$ptm5E5KghlSiwu3yJ9cEteSooGDfITFM8V.6ScFZCwQTZB1xe7i26', 'a798282573839191b3e928b4578971e5', 0, 1, '0000-00-00 00:00:00', '2016-09-24 18:37:37', '2016-09-26 11:38:57'),
 (67, 'minhtest29', '$2a$07$ptmzpHoMdv5nmDVDDPS2S.SqnQ5YfFbHx5XSuFWkQ4fs8M5NzAE2O', '89ccb7f9b0527a212a7073659b73206e', 1, 5, '0000-00-00 00:00:00', '2016-09-24 18:40:24', '2016-09-24 11:40:24'),
-(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', 'e691aa0917ed480a230df53182e98707', 1, 1, '2016-12-18 18:40:09', '2016-09-25 21:12:31', '2016-12-18 11:40:09'),
+(69, 'trungducng', '$2a$07$ptmB8rvtgg6vIPXuMfmAdehht//LXi8HE.WAbGI0AqgLwTleTtpOa', '3c0936169ed737838cbb81818ece362e', 1, 1, '2016-12-20 20:05:49', '2016-09-25 21:12:31', '2016-12-20 13:05:49'),
 (70, 'hoannguyen', '$2a$07$ptmA8mivY6K7UHey4l1WuuSSE86e3Ucf7Myb6jBg1GxPKTlTlWJCC', '776734022b615bdeb3921ef576c8d47d', 1, 1, '2016-10-23 23:47:36', '2016-09-25 21:23:56', '2016-10-23 16:54:01'),
 (71, 'thuliinh', '$2a$07$ptmAX8jI0HUiArUmBp4szO0wwA6u59DKHARLdzW9mKC/LrV8HSCne', '0df6f89023f9b4581d512b094ea24bdf', 1, 1, '2016-11-01 19:16:13', '2016-09-25 21:27:42', '2016-11-01 12:16:13'),
 (72, 'kuzing', '$2a$07$ptmOv0GqpHbdf0BXWdyczOOre5xhexJoIcRMVQU5FMc7Aazl0DnxO', '6a909baae64b7a4fb3bcc807f7705568', 1, 1, '2016-10-26 08:17:52', '2016-09-25 21:29:13', '2016-10-26 01:24:23'),
