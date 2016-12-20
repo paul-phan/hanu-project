@@ -155,12 +155,11 @@
     </thead>
     <tbody class="table-hover">
     <?php
-    var_dump($revenue);
     if(isset($revenue)):
     foreach ($revenue as $value):     ?>
     <tr>
         <td class="text-left"><?= $value->title ?></td>
-        <td class="text-left"> <?= $value->SUM('order_product.item_count') ?></td>
+        <td class="text-left"> <?= $value->total ?></td>
     </tr>
     <?php endforeach; endif; ?>
     </tbody>
