@@ -62,7 +62,7 @@ class Blog extends MainController
         $blogModel = new \Administration\Models\blog($co);
         $blog = $blogModel->findById2($id);
         $this->addDataView(array(
-            'viewTitle' => 'Chi tiết bài viết',
+            'viewTitle' => 'Danh sách bài viết',
             'viewSiteName' => 'Bài viết',
             'blogs' => $blog,
         ));
