@@ -15,7 +15,7 @@
                                             echo $value." VNĐ";
                                         }
                                     }else{
-                                        echo "Không có số liệu";
+                                        echo "Không có số liệu, vui lòng chọn tháng để xem";
                                     }
                                 ?>
                          </b> </h4>

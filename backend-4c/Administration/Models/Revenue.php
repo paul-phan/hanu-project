@@ -144,7 +144,7 @@ class Revenue extends MainModel
                 case 1:
                     $startInterval = $nowYear . '-01-01';
                     $endInterval = $nowYear . '-01-31';
-                    $sql = "SELECT product.title,SUM(order_product.item_count) 
+                    $sql = "SELECT product.title, SUM(order_product.item_count) AS total
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
                             WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5 GROUP BY order_product.product_id";
