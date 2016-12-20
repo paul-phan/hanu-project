@@ -6,25 +6,37 @@
             <table id="user" class="table table-bordered table-striped">
                 <tbody>
                 <tr>
-                    <td style="width:25%"> Doanh Thu Tháng</td>
+                    <td style="width:25%"> Doanh Thu Tháng <?php echo isset($_GET['month']) ? $_GET['month'] : '' ?></td>
                     <td>
                         <h4><b>
                                 <?php
                                     if(isset($revenue)){
-                                        var_dump($revenue);
+                                        foreach ($revenue[0] as $value){
+                                            echo $value." VNĐ";
+                                        }
                                     }else{
-                                        echo "no value";
+                                        echo "Không có số liệu";
                                     }
-                                ?></b> </h4>
+                                ?>
+                         </b> </h4>
                     </td>
                 </tr>
                 </tbody>
             </table>
 
-            <form method="get">
-                <input type="number" name="month"/>
-                <input type="submit" name="submit"  value="SUBMIT"/>
-            </form>
+
+                <div class="form-group">
+                    <form method="get">
+                    <label for="sel1">Xem doanh thu tháng</label>
+                    <select class="form-control" name="month">
+                        <?php for($i=1; $i<=12; $i++): ?>
+                            <option value="<?= $i ?>">Tháng <?= $i ?></option>
+                        <?php endfor; ?>
+                    </select>
+                <input class="btn btn-info" type="submit" name="submit"  value="XEM"/>
+                    </form>
+                </div>
+
         </div>
         <div class='col-md-4'></div>
     </div>
