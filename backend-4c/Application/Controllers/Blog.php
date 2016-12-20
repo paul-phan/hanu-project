@@ -26,6 +26,18 @@ class Blog extends MainController
         header("Refresh:1; url=blog/list", true, 200);
     }
 
+    public function topicAction(){
+        global $connection;
+        $co = $connection->getCo();
+        $blogModel = new \Administration\Models\Blog($co);
+        $result = $blogModel->fetchAll2();
+        $this->addDataView(array(
+            'viewTitle' => 'Chủ đề',
+            'viewSiteName' => 'Danh sách chủ đề',
+            'topics' => $result
+        ));
+    }
+
     public function viewAction()
     {
         Tools\Helper::checkUrlParamsIsNumeric();
@@ -43,14 +55,16 @@ class Blog extends MainController
     }
 
     public function listAction() {
+        Tools\Helper::checkUrlParamsIsNumeric();
+        $id = $_GET['params'];
         global $connection;
         $co = $connection->getCo();
-        $blogModel = new \Administration\Models\Blog($co);
-        $result = $blogModel->fetchAll();
+        $blogModel = new \Administration\Models\blog($co);
+        $blog = $blogModel->findById2($id);
         $this->addDataView(array(
-            'viewTitle' => 'Quản lý',
+            'viewTitle' => 'Chi tiết bài viết',
             'viewSiteName' => 'Bài viết',
-            'blogs' => $result
+            'blogs' => $blog,
         ));
     }
 }

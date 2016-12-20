@@ -25,9 +25,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Params</td>
+                        <td>Ảnh</td>
                         <td>
-                            <p> <?= $blog->params ?> </p>
+                            <p><img src="<?= $blog->image ?>" height="300px" width="300px" /></p>
                         </td>
                     </tr>
                     
@@ -39,10 +39,37 @@
                     </tr>
                   
                     <tr>
-                        <td> Cập nhật</td>
+                        <td>Ngày viết</td>
                         <td>
                             <p> <?= $blog->updated ?> </p>
                         </td>
+                    </tr>
+
+                    <tr>
+                        <td>Chủ đề</td>
+                        <td><?php
+                            switch($blog->topic_id){
+                                case 1:
+                                    echo "Công nghệ";
+                                    break;
+
+                                case 2:
+                                    echo "Về chúng tôi";
+                                    break;
+
+                                case 3:
+                                    echo "Sản phẩm mới";
+                                    break;
+
+                                case 4:
+                                    echo "Mẹo vặt";
+                                    break;
+
+                                case 5:
+                                    echo "Chuyện trò linh tinh";
+                                    break;
+                            }
+                            ?></td>
                     </tr>
 
                     </tbody>

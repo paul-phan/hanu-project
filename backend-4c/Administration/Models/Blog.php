@@ -18,7 +18,9 @@ use Library\Core\BlogModel;
 class Blog extends MainModel implements BlogModel
 {
     protected $table = 'blog';
+    protected $table2 = 'topic';
     protected $primary = 'id';
+    protected $primary2 = 'topic_id';
 
     public function __construct($co)
     {
@@ -34,6 +36,7 @@ class Blog extends MainModel implements BlogModel
             'image' => $post['image'],
             'body' => isset($post['body']) ? $post['body'] : '',
             'user_id' => $_SESSION['User']['id'],
+            'topic_id' => isset($post['topic_id']) ? $post['topic_id'] : '',
             'created' => date("Y-m-d H:i:s")
         ));
     }
@@ -46,7 +49,8 @@ class Blog extends MainModel implements BlogModel
             'tags' => !empty($post['tags'] ? $post['tags'] : 'no tag'),
             'image' => $post['image'],
             'body' => isset($post['body']) ? $post['body'] : '',
-            'user_id' => $_SESSION['User']['id']
+            'user_id' => $_SESSION['User']['id'],
+            'topic_id' => isset($post['topic_id']) ? $post['topic_id'] : '',
         ), " id = '$id' ");
     }
 }

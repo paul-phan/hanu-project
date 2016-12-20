@@ -32,7 +32,7 @@ class Revenue extends MainController
             $month=$_GET['month'];
             $revenue=$revenueModel->revenue($month);
             if(!empty($revenue)) {
-                header("Refresh:3; url=/admin/revenue/view", true, 303);
+//                header("Refresh:3; url=/admin/revenue/view", true, 303);
                 $this->addDataView(array(
                     'viewTitle' => 'Doanh Thu Tháng ' + $month,
                     'viewSiteName' => 'Doanh Thu',
@@ -55,7 +55,7 @@ class Revenue extends MainController
             if(!empty($monthlySales)) {
                 //header("Refresh:3; url=/admin/revenue/view", true, 303);
                 $this->addDataView(array(
-                    'viewTitle' => 'Thống Kê Bán Hàng Tháng ' + $month,
+                    'viewTitle' => 'Thống Kê Bán Hàng Tháng '.$month,
                     'viewSiteName' => 'Thống Kê Bán Hàng',
                     'revenue' => $monthlySales
                 ));

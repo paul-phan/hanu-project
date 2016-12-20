@@ -186,6 +186,18 @@ abstract class Model
         return false;
     }
 
+    public function findById2($value_primary, $fields = '*')
+    {
+        if (!empty($value_primary)) {
+            $q = "SELECT $fields FROM `" . $this->table . "` WHERE `" . $this->primary2 . "`='$value_primary'";
+            $sql = $this->db->prepare($q);
+            $sql->execute();
+            $sql->setFetchMode(PDO::FETCH_OBJ);
+            return $sql->fetchAll();
+        }
+        return false;
+    }
+
     /**
      * fetchAll() return all element of table with selected criteria
      * @param mixed $where
@@ -195,6 +207,15 @@ abstract class Model
     public function fetchAll($where = 1, $fields = '*')
     {
         $q = "SELECT $fields FROM `" . $this->table . "` WHERE $where";
+        $sql = $this->db->prepare($q);
+        $sql->execute();
+        $sql->setFetchMode(PDO::FETCH_OBJ);
+        return $sql->fetchAll();
+    }
+
+    public function fetchAll2($where = 1, $fields = '*')
+    {
+        $q = "SELECT $fields FROM `" . $this->table2 . "` WHERE $where";
         $sql = $this->db->prepare($q);
         $sql->execute();
         $sql->setFetchMode(PDO::FETCH_OBJ);

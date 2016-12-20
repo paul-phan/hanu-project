@@ -36,82 +36,94 @@ class Revenue extends MainModel
             $nowYear = date('Y', $now);
             switch ($month) {
                 case 1:
-                    $startInterval = $nowYear + '-01-01';
-                    $endInterval = $nowYear + '-01-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-01-01';
+                    $endInterval = $nowYear .'-01-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 2:
                     $startInterval = '';
                     $endInterval = '';
                     if ($this->isLeapYear($nowYear)) {
-                        $startInterval = $nowYear + '-02-01';
-                        $endInterval = $nowYear + '-02-29';
+                        $startInterval = $nowYear .'-02-01';
+                        $endInterval = $nowYear . '-02-29';
                     } else {
-                        $startInterval = $nowYear + '-02-01';
-                        $endInterval = $nowYear + '-02-28';
+                        $startInterval = $nowYear .'-02-01';
+                        $endInterval = $nowYear .'-02-28';
                     }
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 3:
-                    $startInterval = $nowYear + '-03-01';
-                    $endInterval = $nowYear + '-03-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-03-01';
+                    $endInterval = $nowYear .'-03-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 4:
-                    $startInterval = $nowYear + '-04-01';
-                    $endInterval = $nowYear + '-04-30';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear . '-04-01';
+                    $endInterval = $nowYear . '-04-30';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 5:
-                    $startInterval = $nowYear + '-05-01';
-                    $endInterval = $nowYear + '-05-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-05-01';
+                    $endInterval = $nowYear .'-05-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 6:
-                    $startInterval = $nowYear + '-06-01';
-                    $endInterval = $nowYear + '-06-30';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-06-01';
+                    $endInterval = $nowYear . '-06-30';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 7:
-                    $startInterval = $nowYear + '-07-01';
-                    $endInterval = $nowYear + '-07-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-07-01';
+                    $endInterval = $nowYear . '-07-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 8:
-                    $startInterval = $nowYear + '-08-01';
-                    $endInterval = $nowYear + '-08-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-08-01';
+                    $endInterval = $nowYear .'-08-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 9:
-                    $startInterval = $nowYear + '-09-01';
-                    $endInterval = $nowYear + '-09-30';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-09-01';
+                    $endInterval = $nowYear .'-09-30';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 10:
-                    $startInterval = $nowYear + '-10-01';
-                    $endInterval = $nowYear + '-10-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-10-01';
+                    $endInterval = $nowYear .'-10-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 11:
-                    $startInterval = $nowYear + '-11-01';
-                    $endInterval = $nowYear + '-11-30';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear .'-11-01';
+                    $endInterval = $nowYear .'-11-30';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 12:
-                    $startInterval = $nowYear + '-12-01';
-                    $endInterval = $nowYear + '-12-31';
-                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order.product.status=5";
+                    $startInterval = $nowYear . '-12-01';
+                    $endInterval = $nowYear . '-12-31';
+                    $sql = "SELECT SUM(order_product.total_price) FROM `order_product` WHERE order_product.updated BETWEEN '$startInterval' AND '$endInterval' AND order_product.status=5";
+                    echo $sql;
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 default :
@@ -130,8 +142,8 @@ class Revenue extends MainModel
             $nowYear = date('Y', $now);
             switch ($month) {
                 case 1:
-                    $startInterval = $nowYear + '-01-01';
-                    $endInterval = $nowYear + '-01-31';
+                    $startInterval = $nowYear . '-01-01';
+                    $endInterval = $nowYear . '-01-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -142,11 +154,11 @@ class Revenue extends MainModel
                     $startInterval = '';
                     $endInterval = '';
                     if ($this->isLeapYear($nowYear)) {
-                        $startInterval = $nowYear + '-02-01';
-                        $endInterval = $nowYear + '-02-29';
+                        $startInterval = $nowYear .'-02-01';
+                        $endInterval = $nowYear .'-02-29';
                     } else {
-                        $startInterval = $nowYear + '-02-01';
-                        $endInterval = $nowYear + '-02-28';
+                        $startInterval = $nowYear . '-02-01';
+                        $endInterval = $nowYear . '-02-28';
                     }
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
@@ -155,8 +167,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 3:
-                    $startInterval = $nowYear + '-03-01';
-                    $endInterval = $nowYear + '-03-31';
+                    $startInterval = $nowYear .'-03-01';
+                    $endInterval = $nowYear . '-03-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -164,8 +176,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 4:
-                    $startInterval = $nowYear + '-04-01';
-                    $endInterval = $nowYear + '-04-30';
+                    $startInterval = $nowYear . '-04-01';
+                    $endInterval = $nowYear . '-04-30';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -173,8 +185,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 5:
-                    $startInterval = $nowYear + '-05-01';
-                    $endInterval = $nowYear + '-05-31';
+                    $startInterval = $nowYear . '-05-01';
+                    $endInterval = $nowYear . '-05-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -182,8 +194,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 6:
-                    $startInterval = $nowYear + '-06-01';
-                    $endInterval = $nowYear + '-06-30';
+                    $startInterval = $nowYear . '-06-01';
+                    $endInterval = $nowYear . '-06-30';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -191,8 +203,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 7:
-                    $startInterval = $nowYear + '-07-01';
-                    $endInterval = $nowYear + '-07-31';
+                    $startInterval = $nowYear . '-07-01';
+                    $endInterval = $nowYear . '-07-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -200,8 +212,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 8:
-                    $startInterval = $nowYear + '-08-01';
-                    $endInterval = $nowYear + '-08-31';
+                    $startInterval = $nowYear . '-08-01';
+                    $endInterval = $nowYear . '-08-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -209,8 +221,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 9:
-                    $startInterval = $nowYear + '-09-01';
-                    $endInterval = $nowYear + '-09-30';
+                    $startInterval = $nowYear . '-09-01';
+                    $endInterval = $nowYear . '-09-30';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -218,8 +230,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 10:
-                    $startInterval = $nowYear + '-10-01';
-                    $endInterval = $nowYear + '-10-31';
+                    $startInterval = $nowYear . '-10-01';
+                    $endInterval = $nowYear . '-10-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -227,8 +239,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 11:
-                    $startInterval = $nowYear + '-11-01';
-                    $endInterval = $nowYear + '-11-30';
+                    $startInterval = $nowYear . '-11-01';
+                    $endInterval = $nowYear . '-11-30';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 
@@ -236,8 +248,8 @@ class Revenue extends MainModel
                     $rs = $this->fetchMatchedFields($sql);
                     return $rs;
                 case 12:
-                    $startInterval = $nowYear + '-12-01';
-                    $endInterval = $nowYear + '-12-31';
+                    $startInterval = $nowYear . '-12-01';
+                    $endInterval = $nowYear . '-12-31';
                     $sql = "SELECT product.title,SUM(order_product.item_count) 
                               FROM `order_product` 
                               INNER JOIN product ON product.id=order_product.product_id 

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2016 at 05:57 PM
+-- Generation Time: Dec 19, 2016 at 06:46 PM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -51,9 +51,19 @@ CREATE TABLE `blog` (
   `image` varchar(255) NOT NULL,
   `params` varchar(255) NOT NULL,
   `user_id` int(11) UNSIGNED NOT NULL,
+  `topic_id` int(11) UNSIGNED NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `body`, `tags`, `image`, `params`, `user_id`, `topic_id`, `created`, `updated`) VALUES
+(1, 'abc', 'sdafdfggsbsgb', 'PHP', '/Public/upload/blog/ctlt.jpg', '', 67, 1, '2016-12-19 22:01:26', '2016-12-19 15:01:26'),
+(5, 'Trên tay Macbook Pro 13', 'Macbook Pro 13" mới màu xám không gian quá đẹp và hoàn hảo khi lần đầu tiên bạn nhìn thấy nó. Tiếp theo là cảm giác mỏng hơn, nhỏ gọn hơn không chỉ do màu mà do kích thước thực tế được giảm đi đáng kể. Bàn phím mỏng hơn, màn hình mỏng hơn, trackpad to quá, to hơn mình tưởng tượng luôn. Xung quanh chỉ còn 2 cổng USB-C và 1 lỗ cắm tai nghe 3.5 nên nhìn máy mượt và đơn giản đi. Hai cạnh hai bên của màn hình mỏng đi nhiều so với Macbook 13 cũ.\r\nChiếc máy này có cấu hình thấp nhất trong những máy mà Apple giới thiệu rạng sáng hôm qua. Đây cũng là chiếc mà Apple bán ngay sau khi giới thiệu. Những chiếc bán ra sau 2 đến 3 tuần sau thì mới có trang bị Touch Bar và TouchID. Vĩnh Phát Mobile bán Macbook Pro 13" Late 2016 cấu hình cơ bản này giá 36 triệu đồng.\r\n', '1', '/Public/upload/blog/1482166827-tren-tay-macbook-pro-13.jpg', '2016-12-20-000027-tren-tay-macbook-pro-13', 69, 1, '2016-12-19 22:31:25', '2016-12-19 15:31:25'),
+(6, 'Vinamilk ra mắt sản phẩm sữa tươi 100% organic sản xuất tại Việt Nam', 'Vinamilk là công ty sữa đầu tiên tại Việt Nam sản xuất sữa tươi Vinamilk 100% Organic cao cấp theo tiêu chuẩn hữu cơ Châu Âu.\r\n\r\nViệc cho ra đời sản phẩm Sữa tươi Vinamilk 100% Organic cũng đánh dấu một bước chuyển mình của Vinamilk trên hành trình hội nhập với thị trường sữa thế giới, tiên phong mở lối cho xu hướng Organic tại thị trường Việt Nam.\r\n\r\nLà công ty sữa hàng đầu tại Việt Nam với các sản phẩm dinh dưỡng theo tiêu chuẩn chất lượng quốc tế, Vinamilk đã tiên phong cho ra đời dòng sản phẩm Sữa tươi Vinamilk 100% Organic cao cấp theo tiêu chuẩn hữu cơ Châu Âu lần đầu tiên được sản xuất ngay tại Việt Nam. Đây là thành quả từ việc xây dựng trang trại bò sữa Vinamilk Organic Đà Lạt - trang trại bò sữa đầu tiên tại Việt Nam đạt tiêu chuẩn hữu cơ Châu Âu do tổ chức uy tín thế giới Control Union (Hà Lan) chứng nhận. Control Union là một mạng lưới toàn cầu về các hoạt động kiểm định hàng hóa và quản lý chất lượng, chuyên giám định và giám sát độc lập hàng hóa với tiêu chuẩn quốc tế trên phạm vi toàn cầu.', '1', '/Public/upload/blog/1482166871-vinamilk-ra-mat-san-pham-sua-tuoi-100-organic-san-xuat-tai-viet-nam.jpg', '2016-12-20-000111-vinamilk-ra-mat-san-pham-sua-tuoi-100-organic-san-xuat-tai-viet-nam', 69, 1, '2016-12-19 23:47:41', '2016-12-19 16:47:41');
 
 -- --------------------------------------------------------
 
@@ -626,6 +636,31 @@ INSERT INTO `subcribe` (`id`, `email`, `updated`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `topic`
+--
+
+CREATE TABLE `topic` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `topic_title` varchar(255) NOT NULL,
+  `topic_image` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `params` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `topic`
+--
+
+INSERT INTO `topic` (`id`, `topic_title`, `topic_image`, `description`, `params`) VALUES
+(1, 'Công nghệ', 'Public/upload/blog/congnghe.jpg', 'Khám phá công nghệ mới nhất trong nước và trên toàn thế giới', ''),
+(2, 'About us - Về chúng tôi (AT-Mobile)', 'Public/upload/blog/aboutus.jpg', 'Những bài viết về những sản phẩm và dịch vụ của chúng tôi AT-Mobile', ''),
+(3, 'Sản phẩm mới', 'Public/upload/blog/sanphammoi.jpg', 'Trên tay, review những sản phẩm mới nhất trên thị trường và những sản phẩm sắp ra mắt', ''),
+(4, 'Mẹo văt', 'Public/upload/blog/meovat.jpg', 'Mẹo vặt hay trong quá trình sử dụng thiết bị', ''),
+(5, 'Chuyện trò linh tinh', 'Public/upload/blog/ctlt.jpg', 'Chuyện phiếm, chém gió về những khía cạnh của cuộc sống', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -700,7 +735,8 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `topic_id` (`topic_id`);
 
 --
 -- Indexes for table `calendar`
@@ -835,6 +871,12 @@ ALTER TABLE `subcribe`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `topic`
+--
+ALTER TABLE `topic`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -861,7 +903,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `calendar`
 --
@@ -953,6 +995,11 @@ ALTER TABLE `salary`
 ALTER TABLE `subcribe`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `topic`
+--
+ALTER TABLE `topic`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
@@ -970,7 +1017,8 @@ ALTER TABLE `user_feedback`
 -- Constraints for table `blog`
 --
 ALTER TABLE `blog`
-  ADD CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `blog_ibfk_2` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comment`

@@ -36,7 +36,8 @@
                                         </div>
                                     </div>
                                     <figure class="aa-blog-img">
-                                        <a href="#"><img src=" <?= $blog->image ?>" alt=" <?= $blog->image ?>"></a>
+                                        <h1><?= $blog->title ?></h1>
+                                        <img src=" <?= $blog->image ?>" alt=" <?= $blog->image ?>">
                                     </figure>
                                         <p>
                                             <?= $blog->body ?>
@@ -64,10 +65,8 @@
                                 </article>
                                 <!-- blog navigation -->
                                 <div class="aa-blog-navigation">
-                                    <a class="aa-blog-prev" href="blog/list"><span class="fa fa-arrow-left"></span>QUAY LẠI</a>
+                                    <a class="aa-blog-prev" href="blog/topic"><span class="fa fa-arrow-left"></span>QUAY LẠI</a>
                                 </div>
-
-                                <!-- Blog Comment threats -->
 
                                 <!-- blog comments form -->
                             </div>
@@ -77,12 +76,26 @@
                         <div class="col-md-3">
                             <aside class="aa-blog-sidebar">
                                 <div class="aa-sidebar-widget">
-
+                                    <h3>Cùng chủ đề</h3>
+                                        <ul class="aa-catg-nav">
+                                            <li><a href="blog/list/<?= $blog->topic_id ?>"><?= $blog->topic_id ?></a></li>
+                                        </ul>
                                 </div>
                                 <div class="aa-sidebar-widget">
-
+                                    <h3>Tags</h3>
+                                    <div class="tag-cloud">
+                                        <a href="blog/topic/"><?= $blog->tags ?></a>
+                                    </div>
                                 </div>
                                 <div class="aa-sidebar-widget">
+                                    <h3>Recent Post</h3>
+                                    <div class="aa-recently-views">
+                                        <h3>The time now is: </h3>
+                                        <?php
+                                        echo date("Y-m-d")."<br/>";
+                                        echo date("h:i:sa");
+                                        ?>
+                                    </div>
                                 </div>
                             </aside>
                         </div>

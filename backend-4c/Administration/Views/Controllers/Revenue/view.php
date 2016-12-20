@@ -8,12 +8,23 @@
                 <tr>
                     <td style="width:25%"> Doanh Thu Tháng</td>
                     <td>
-                        <h4><b> <?= $revenue ?></b> </h4>
+                        <h4><b>
+                                <?php
+                                    if(isset($revenue)){
+                                        var_dump($revenue);
+                                    }else{
+                                        echo "no value";
+                                    }
+                                ?></b> </h4>
                     </td>
                 </tr>
                 </tbody>
-
             </table>
+
+            <form method="get">
+                <input type="number" name="month"/>
+                <input type="submit" name="submit"  value="SUBMIT"/>
+            </form>
         </div>
         <div class='col-md-4'></div>
     </div>

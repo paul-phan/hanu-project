@@ -97,7 +97,7 @@
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
                                         <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
                                             <img
-                                                src="<?= isset($form->image) ? UPLOAD_DIR . '/employee/' . $form->image : 'updatelater.jpg' ?>"
+                                                src="<?= isset($form->image) ? $form->image : 'updatelater.jpg' ?>"
                                                 alt=""/></div>
                                         <div class="fileinput-preview fileinput-exists thumbnail"
                                              style="max-width: 200px; max-height: 150px;"></div>
@@ -105,7 +105,7 @@
                                                             <span class="btn default btn-file">
                                                                 <span class="fileinput-new"> Chon ảnh </span>
                                                                 <span class="fileinput-exists"> Thay đổi </span>
-                                                                <input type="file" name="image"> </span>
+                                                                <input type="file" name="image" value="<?php echo isset($form->image) ? $form->image : 'updatelater.jpg' ?>"> </span>
                                             <a href="javascript:;" class="btn red fileinput-exists"
                                                data-dismiss="fileinput"> Xóa </a>
                                         </div>
