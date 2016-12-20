@@ -36,7 +36,7 @@ class Blog extends MainModel implements BlogModel
             'image' => $post['image'],
             'body' => isset($post['body']) ? $post['body'] : '',
             'user_id' => $_SESSION['User']['id'],
-//            'topic_id' => isset($post['topic_id']) ? $post['topic_id'] : '', // if add the topic, plz upload `topic` table to at_mobile.sql
+            'topic_id' => isset($post['topic_id']) ? $post['topic_id'] : '', // if add the topic, plz upload `topic` table to at_mobile.sql
             'created' => date("Y-m-d H:i:s")
         ));
     }
@@ -50,7 +50,7 @@ class Blog extends MainModel implements BlogModel
             'image' => $post['image'],
             'body' => isset($post['body']) ? $post['body'] : '',
             'user_id' => $_SESSION['User']['id'],
-//            'topic_id' => isset($post['topic_id']) ? $post['topic_id'] : '',
+            'topic_id' => isset($post['topic_id']) ? $post['topic_id'] : '',
         ), " id = '$id' ");
     }
 }
