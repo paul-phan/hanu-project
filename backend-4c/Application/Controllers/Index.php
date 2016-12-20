@@ -31,11 +31,16 @@ class Index extends MainController
         $time = date("Y-m-d H:i:s");
         $events = $eventModel->fetchByClause(" WHERE date_start < '$time' and date_end > '$time' ");
 
+        $appleProducts = $productModel->fetchByClause('JOIN company ON company.id = product.company_id and product.company_id = 1 left join image on image.product_id = product.id and image.base_image = 1 group by product.id order by created desc limit 8   ', ' product.*,  company.com_name as ccom_name, image.url as iurl, image.label as ilabel ');
+        $samsungProducts = $productModel->fetchByClause(' JOIN company ON company.id = product.company_id and product.company_id = 5 left join image on image.product_id = product.id and image.base_image = 1 group by product.id order by created desc limit 8   ', ' product.*,  company.com_name as ccom_name, image.url as iurl, image.label as ilabel ');
+
         $this->addDataView(array(
             'viewTitle' => 'AT - Mobile',
             'viewSiteName' => 'Trang chủ',
             'product' => $result,
-            'events' => $events
+            'events' => $events,
+            'apples' => $appleProducts,
+            'samsungs' => $samsungProducts
         ));
 
     }

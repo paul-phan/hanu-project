@@ -250,88 +250,74 @@
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Trang chủ</a></li>
-                        <li><a href="#">Apple <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Iphone 6</a></li>
-                                <li><a href="#">Thêm.. <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Iphone 6</a></li>
-                                        <li><a href="#">Iphone 6</a></li>
-                                        <li><a href="#">Iphone 6</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li><a href="product/list/apple">Apple </a>
+
                         </li>
-                        <li><a href="#">SAMSUNG <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Galaxy Note 7</a></li>
-                                <li><a href="#">Thêm.. <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Galaxy Note 7</a></li>
-                                        <li><a href="#">Galaxy Note 7</a></li>
-                                        <li><a href="#">Galaxy Note 7</a></li>
-                                        <li><a href="#">Thêm.. <span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                                <li><a href="#">Galaxy Note 7</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li><a href="product/list/samsung">SAMSUNG </a>
+                            <!--                            <ul class="dropdown-menu">-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                <li><a href="#">Thêm.. <span class="caret"></span></a>-->
+                            <!--                                    <ul class="dropdown-menu">-->
+                            <!--                                        <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                        <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                        <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                        <li><a href="#">Thêm.. <span class="caret"></span></a>-->
+                            <!--                                            <ul class="dropdown-menu">-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                                <li><a href="#">Galaxy Note 7</a></li>-->
+                            <!--                                            </ul>-->
+                            <!--                                        </li>-->
+                            <!--                                    </ul>-->
+                            <!--                                </li>-->
+                            <!--                            </ul>-->
                         </li>
-                        <li><a href="#">Xiaomi <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Redmi Note 3 Pro</a></li>
-                                <li><a href="#">Thêm.. <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Redmi Note 3 Pro</a></li>
-                                        <li><a href="#">Redmi Note 3 Pro</a></li>
-                                        <li><a href="#">Redmi Note 3 Pro</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li><a href="product/list/xiaomi">Xiaomi
+                                <!--                                <span class="caret"></span>-->
+                            </a>
+                            <!--                            <ul class="dropdown-menu">-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                <li><a href="#">Thêm.. <span class="caret"></span></a>-->
+                            <!--                                    <ul class="dropdown-menu">-->
+                            <!--                                        <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                        <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                        <li><a href="#">Redmi Note 3 Pro</a></li>-->
+                            <!--                                    </ul>-->
+                            <!--                                </li>-->
+                            <!--                            </ul>-->
                         </li>
-                        <li><a href="#">Phụ kiện</a></li>
-                        <li><a href="contact">Liên hệ <span class="caret"></span></a>
+
+                        <li><a href="/product/list/accessories">Phụ kiện <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Camera</a></li>
                                 <li><a href="#">Mobile</a></li>
@@ -340,6 +326,7 @@
                                 <li><a href="#">Accesories</a></li>
                             </ul>
                         </li>
+                        <li><a href="contact">Liên hệ</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

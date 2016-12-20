@@ -60,12 +60,12 @@
         <div class="page-logo">
 
             <!-- Text based logo -->
-            <a href="index.html" style="font-size: x-large">
-                <span class="fa fa-mobile"></span>
-                <span> AT<strong>Mobile</strong></span>
-            </a>
+            <!--            <a href="index.html" style="font-size: x-large">-->
+            <!--                <span class="fa fa-mobile"></span>-->
+            <!--                <span> AT<strong>Mobile</strong></span>-->
+            <!--            </a>-->
             <!-- img based logo -->
-            <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+            <a href="admin"><img width="140" src="<?= UPLOAD_DIR ?>/logo.png" alt="logo img"></a>
 
             <div class="menu-toggler sidebar-toggler"></div>
         </div>
