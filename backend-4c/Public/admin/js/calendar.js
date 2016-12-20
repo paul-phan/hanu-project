@@ -68,11 +68,11 @@ var AppCalendar = function () {
                 });
             };
 
-            var addEvent = function (title, start) {
+            var addEvent = function (title, start, url) {
 
                 title = title.length === 0 ? "Untitled Event" : title;
                 start = new Date(start);
-                var html = $('<div class="external-event label label-default" data-start="' + start + '">' + title + '</div>');
+                var html = $('<div class="external-event label label-default" data-url="' + url + '" data-start="' + start + '">' + title + '</div>');
                 jQuery('#event_box').append(html);
                 initDrag(html);
             };
@@ -84,7 +84,8 @@ var AppCalendar = function () {
             $('#event_add').unbind('click').click(function () {
                 var title = $('#event_title').val();
                 var start = $('#event-start').val();
-                addEvent(title, start);
+                var url = $('#event-url').val();
+                addEvent(title, start, url);
             });
 
             //predefined events
@@ -110,6 +111,7 @@ function updateEvents(data) {
 
             console.log($(this).text());
             // assign it the date that was reported
+            copiedEventObject.url = $(this).attr("data-url");
             copiedEventObject.title = $(this).text();
             copiedEventObject.allDay = true;
             copiedEventObject.start = ($(this).attr("data-start") == "Invalid Date") ? new Date(y, m, d) : $(this).attr("data-start");
@@ -159,13 +161,21 @@ function updateEvents(data) {
             element.append("<span class='closeon'>X</span>");
             element.find(".closeon").click(function (e) {
                 e.preventDefault();
-                console.log(event);
                 if (!confirm("Are you sure to delete?")) {
                     revertFunc();
                 }
                 $('#calendar').fullCalendar('removeEvents', event._id);
             });
 
+        },
+        eventClick: function (calEvent, jsEvent, view) {
+            console.log(calEvent);
+            console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+            console.log('View: ' + view.name);
+
+            // change the border color just for fun
+            $(this).css('border-color', 'red');
+            return false;
         }
     })
 }

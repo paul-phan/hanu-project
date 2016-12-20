@@ -27,10 +27,23 @@ class Calendar extends Model
             "title" => $post['title'],
             "start" => isset($post['start']) ? date("Y-m-d H:i:s", strtotime($post['start'])) : date("Y-m-d H:i:s"),
             "end" => isset($post['end']) ? date("Y-m-d H:i:s", strtotime($post['end'])) : date("Y-m-d H:i:s", strtotime($post['start']) + 86400),
-            "backgroundColor" => array_rand(["black" => 5, "red" => 1, "green" => 2, "blue" => 3, "yellow" => 4]),
+            "backgroundColor" => isset($post['backgroundColor']) ? $post['backgroundColor'] : array_rand(["black" => 5, "red" => 1, "green" => 2, "blue" => 3, "yellow" => 4]),
             "allDay" => isset($post['allDay']) ? 1 : 0,
             "url" => !empty($post['url']) ? $post['url'] : "#",
             "user_id" => $_SESSION['User']['id']
         ]);
+    }
+
+    public function editCalendar($post, $id)
+    {
+        return $this->update([
+            "title" => $post['title'],
+            "start" => date("Y-m-d H:i:s", strtotime($post['start'])),
+            "end" => date("Y-m-d H:i:s", strtotime($post['end'])),
+            "backgroundColor" => isset($post['backgroundColor']) ? $post['backgroundColor'] : array_rand(["black" => 5, "red" => 1, "green" => 2, "blue" => 3, "yellow" => 4]),
+            "allDay" => isset($post['allDay']) ? 1 : 0,
+            "url" => !empty($post['url']) ? $post['url'] : "#",
+            "user_id" => $_SESSION['User']['id']
+        ], "id = $id");
     }
 }

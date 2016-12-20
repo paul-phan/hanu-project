@@ -29,6 +29,7 @@
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                                 </div>
+                                <label>Url:</label><input class="form-control" name="url" id="event-url" type="url"/>
                                 <br/>
                                 <a href="javascript:;" id="event_add" class="btn green"> Add Event </a>
                             </form>

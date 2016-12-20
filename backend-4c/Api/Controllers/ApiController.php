@@ -25,7 +25,7 @@ abstract class ApiController extends MainController
         110002 => 'Save data fail',
         110003 => 'No data found!',
         120000 => 'Upload image error',
-        130000 => 'abc',
+        130000 => 'Invalid http request type',
         130001 => 'def',
         130002 => 'item not found',
     );
@@ -33,11 +33,6 @@ abstract class ApiController extends MainController
     function __construct()
     {
         parent::__construct();
-    }
-
-    private function setHeader($code)
-    {
-        http_response_code($code);
     }
 
     protected function responseApi($code = 0, $message = '', $data = array(), $header_type = 'json')
@@ -70,5 +65,10 @@ abstract class ApiController extends MainController
             );
         }
         die;
+    }
+
+    private function setHeader($code)
+    {
+        http_response_code($code);
     }
 }
