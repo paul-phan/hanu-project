@@ -165,7 +165,7 @@
 
                                     </ul>
 
-                                    <a class="aa-browse-btn" href="#">Browse all Product <span
+                                    <a class="aa-browse-btn" href="product/list">Browse all Product <span
                                                 class="fa fa-long-arrow-right"></span></a>
                                 </div>
                                 <!-- / men product category -->
@@ -214,7 +214,7 @@
 
                                     </ul>
 
-                                    <a class="aa-browse-btn" href="#">Browse all Product <span
+                                    <a class="aa-browse-btn" href="product/list/apple">Browse all Product <span
                                                 class="fa fa-long-arrow-right"></span></a>
                                 </div>
                                 <!-- / men product category -->
@@ -263,7 +263,7 @@
 
                                     </ul>
 
-                                    <a class="aa-browse-btn" href="#">Browse all Product <span
+                                    <a class="aa-browse-btn" href="product/list/xiaomi">Browse all Product <span
                                                 class="fa fa-long-arrow-right"></span></a>
                                 </div>
                                 <!-- / men product category -->

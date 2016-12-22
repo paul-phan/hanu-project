@@ -449,12 +449,13 @@
                     <!-- single sidebar -->
                     <div class="aa-sidebar-widget">
                         <h3>Category</h3>
+                        <?= $_SERVER['REQUEST_URI'] ?>
                         <ul class="aa-catg-nav">
-                            <li><a href="#">Men</a></li>
-                            <li><a href="">Women</a></li>
-                            <li><a href="">Kids</a></li>
-                            <li><a href="">Electornics</a></li>
-                            <li><a href="">Sports</a></li>
+                            <?php foreach ($categories as $category) { ?>
+                                <li>
+                                    <a href="/product/list?category=<?= $category->params ?>"><?= $category->cat_name ?></a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </div>
                     <!-- single sidebar -->

@@ -30,8 +30,8 @@ RewriteRule ^admin$ index.php?end=admin&page= [QSA]
 RewriteRule ^css/(.*)$ app/css/$1 [L]
 RewriteRule ^js/(.*)$	app/js/$1 [L]
 RewriteRule ^front/img/(.*)$	images/$1 [L]
-RewriteRule ^([0-9a-zA-Z\_\-\/]*)$ index.php?end=front&page=$1 [L]
-RewriteRule ^([0-9a-zA-Z\_\-\/]*).html$ index.php?end=front&page=$1 [L]
+RewriteRule ^([0-9a-zA-Z\_\-\/]*)$ index.php?end=front&page=$1 [QSA]
+RewriteRule ^([0-9a-zA-Z\_\-\/]*).html$ index.php?end=front&page=$1 [QSA]
 
 
 #Compression Deflate

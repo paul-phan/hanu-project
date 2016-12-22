@@ -47,12 +47,13 @@ class Product extends MainController
 
     public function listAction()
     {
-
         global $connection;
         $co = $connection->getCo();
         $productModel = new \Administration\Models\Product($co);
+        $categoryModel = new \Administration\Models\Category($co);
         $orderBy = '';
         $limit = '';
+        var_dump($_GET);
         if (!empty($_GET['sort'])) {
             $sort = $_GET['sort'];
             switch ($sort) {
@@ -102,10 +103,13 @@ class Product extends MainController
         } else {
             $results = $productModel->fetchByClause(' left JOIN company ON company.id = product.company_id left join image on image.product_id = product.id and image.base_image = 1 group by product.id ' . $orderBy . $limit, ' product.*,  company.com_name as ccom_name, image.url as iurl, image.label as ilabel ');
         }
+
+        $categories = $categoryModel->fetchAll();
         $this->addDataView([
             "viewTitle" => "AT-Mobile",
             "viewSiteName" => !empty($_GET['params']) ? $_GET['params'] : "Tất cả sản phẩm",
-            "products" => $results
+            "products" => $results,
+            "categories" => $categories
         ]);
     }
 
