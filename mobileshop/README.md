@@ -8,11 +8,11 @@ Import database into your phpMyadmin, by default, name the database:
 **_Important:_** to use this project, config your virtualhost as below: 
 Go to `(xampp)\apache\conf\extra\httpd-vhosts.conf` and paste this below other vhost: (remeber to change directory)
 
-`<VirtualHost backend.4c.dev:80>` <br />
-`   ServerName backend.4c.dev` <br/>
-`   ServerAlias www.backend.4c.dev`<br/>
-`   DocumentRoot "D:/your/project/dir"` <br/>
-`<Directory "D:/your/project/dir">`
+`<VirtualHost yourwebsitename.dev:80>` <br />
+`   ServerName yourwebsitename.dev` <br/>
+`   ServerAlias www.yourwebsitename.dev`<br/>
+`   DocumentRoot "D:/yourprojectdir/mobileshop"` <br/>
+`<Directory "D:/yourprojectdir/mobileshop">`
 ` 		Options All `<br/>
 ` 		AllowOverride All` <br/>
 ` 		Require all granted`<br/>
@@ -25,9 +25,8 @@ Go to `(xampp)\apache\conf\extra\httpd-vhosts.conf` and paste this below other v
 
 **Next:** 
 Open your host file(C:\Windows\System32\drivers\etc\hosts) and add: <br/>
-`127.0.0.1	backend.4c.dev` 
+`127.0.0.1	yourwebsitename.dev` 
 
-If got any problem, please Google by yourself to configure your vhosts.
 
 [Demo page is now available here: http://www.hanu4c13.html-5.me] (http://www.hanu4c13.html-5.me)
 
