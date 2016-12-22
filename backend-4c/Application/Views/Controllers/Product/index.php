@@ -208,7 +208,7 @@
                                     <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To
                                         Cart</a>
                                     <figcaption>
-                                        <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                        <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                         <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
                                     </figcaption>
                                 </figure>
@@ -257,7 +257,7 @@
                                         Cart</a>
                                 </figure>
                                 <figcaption>
-                                    <h4 class="aa-product-title"><a href="#">T-Shirt</a></h4>
+                                    <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                     <span class="aa-product-price">$45.50</span>
                                 </figcaption>
                                 <div class="aa-product-hvr-content">
@@ -302,7 +302,7 @@
                                     <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To
                                         Cart</a>
                                     <figcaption>
-                                        <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                        <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                         <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
                                     </figcaption>
                                 </figure>
@@ -348,7 +348,7 @@
                                     <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>Add To
                                         Cart</a>
                                     <figcaption>
-                                        <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                        <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                         <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
                                     </figcaption>
                                 </figure>

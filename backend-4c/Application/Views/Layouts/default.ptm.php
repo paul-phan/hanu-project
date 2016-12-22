@@ -250,10 +250,10 @@
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">Trang chủ</a></li>
-                        <li><a href="product/list/apple">Apple </a>
+                        <li><a href="#women">Apple </a>
 
                         </li>
-                        <li><a href="product/list/samsung">SAMSUNG </a>
+                        <li><a href="#sports">SAMSUNG </a>
                             <!--                            <ul class="dropdown-menu">-->
                             <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
                             <!--                                <li><a href="#">Galaxy Note 7</a></li>-->
@@ -295,7 +295,7 @@
                             <!--                                </li>-->
                             <!--                            </ul>-->
                         </li>
-                        <li><a href="product/list/xiaomi">Xiaomi
+                        <li><a href="#men">Xiaomi
                                 <!--                                <span class="caret"></span>-->
                             </a>
                             <!--                            <ul class="dropdown-menu">-->
@@ -317,13 +317,13 @@
                             <!--                            </ul>-->
                         </li>
 
-                        <li><a href="/product/list/accessories">Phụ kiện <span class="caret"></span></a>
+                        <li><a href="#electronics">Phụ kiện <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Camera</a></li>
-                                <li><a href="#">Mobile</a></li>
-                                <li><a href="#">Tablet</a></li>
-                                <li><a href="#">Laptop</a></li>
-                                <li><a href="#">Accesories</a></li>
+                                <li><a href="#men">Camera</a></li>
+                                <li><a href="#men">Mobile</a></li>
+                                <li><a href="#men">Tablet</a></li>
+                                <li><a href="#men">Laptop</a></li>
+                                <li><a href="#men">Accesories</a></li>
                             </ul>
                         </li>
                         <li><a href="contact">Liên hệ</a></li>
@@ -399,7 +399,7 @@
                                     </select>
                                 </form>
                                 <p class="aa-prod-category">
-                                    Hãng: <a id="m-company" href="#">Polo T-Shirt</a>
+                                    Hãng: <a id="m-company" href="#">Lorem ipsum</a>
                                 </p>
                             </div>
                             <div class="aa-prod-view-bottom">
@@ -498,10 +498,14 @@
                                             <p><span class="fa fa-envelope"></span>phanminh65@gmail.com</p>
                                         </address>
                                         <div class="aa-footer-social">
-                                            <a href="#"><span class="fa fa-facebook"></span></a>
-                                            <a href="#"><span class="fa fa-twitter"></span></a>
-                                            <a href="#"><span class="fa fa-google-plus"></span></a>
-                                            <a href="#"><span class="fa fa-youtube"></span></a>
+                                            <a href="https://www.facebook.com/gangstar.a2"><span
+                                                        class="fa fa-facebook"></span></a>
+                                            <a href="https://twitter.com/_gangstar_a2_"><span
+                                                        class="fa fa-twitter"></span></a>
+                                            <a href="https://plus.google.com/u/0/115706164293459306701"><span
+                                                        class="fa fa-google-plus"></span></a>
+                                            <a href="https://www.youtube.com/user/phanminh65"><span
+                                                        class="fa fa-youtube"></span></a>
                                         </div>
                                     </div>
                                 </div>

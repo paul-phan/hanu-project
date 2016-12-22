@@ -284,7 +284,9 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="aa-banner-area">
-                        <a href="#"><img src="img/fashion-banner.jpg" alt="fashion banner img"></a>
+                        <a href="#"><img
+                                    src="https://d3g05h8z4k53lk.cloudfront.net/wp-content/uploads/Who-Is-Mediabridge-1170x170.jpg"
+                                    alt="fashion banner img"></a>
                     </div>
                 </div>
             </div>
@@ -317,7 +319,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -367,7 +369,7 @@
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                         </figure>
                                         <figcaption>
-                                            <h4 class="aa-product-title"><a href="#">T-Shirt</a></h4>
+                                            <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                             <span class="aa-product-price">$45.50</span>
                                         </figcaption>
                                         <div class="aa-product-hvr-content">
@@ -413,7 +415,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -461,7 +463,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -520,7 +522,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -570,7 +572,7 @@
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                         </figure>
                                         <figcaption>
-                                            <h4 class="aa-product-title"><a href="#">T-Shirt</a></h4>
+                                            <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                             <span class="aa-product-price">$45.50</span>
                                         </figcaption>
                                         <div class="aa-product-hvr-content">
@@ -616,7 +618,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -664,7 +666,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -723,7 +725,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -773,7 +775,7 @@
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                         </figure>
                                         <figcaption>
-                                            <h4 class="aa-product-title"><a href="#">T-Shirt</a></h4>
+                                            <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                             <span class="aa-product-price">$45.50</span>
                                         </figcaption>
                                         <div class="aa-product-hvr-content">
@@ -819,7 +821,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -867,7 +869,7 @@
                                             <a class="aa-add-card-btn" href="#"><span
                                                         class="fa fa-shopping-cart"></span>Add To Cart</a>
                                             <figcaption>
-                                                <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
+                                                <h4 class="aa-product-title"><a href="#">Lorem ipsum</a></h4>
                                                 <span class="aa-product-price">$45.50</span><span
                                                         class="aa-product-price"><del>$65.50</del></span>
                                             </figcaption>
@@ -974,9 +976,9 @@
                                     possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis
                                     possimus, facere, quidem qui.</p>
                                 <div class="aa-testimonial-info">
-                                    <p>Allison</p>
-                                    <span>Designer</span>
-                                    <a href="#">Dribble.com</a>
+                                    <p>Minh Phan</p>
+                                    <span>Full-stack Developer</span>
+                                    <a href="#">phanminh65@gmail.com</a>
                                 </div>
                             </div>
                         </li>
@@ -989,9 +991,9 @@
                                     possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis
                                     possimus, facere, quidem qui.</p>
                                 <div class="aa-testimonial-info">
-                                    <p>KEVIN MEYER</p>
-                                    <span>CEO</span>
-                                    <a href="#">Alphabet</a>
+                                    <p>Thu Tran</p>
+                                    <span>BA&QA</span>
+                                    <a href="#">FPT-Software</a>
                                 </div>
                             </div>
                         </li>
@@ -1004,9 +1006,9 @@
                                     possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis
                                     possimus, facere, quidem qui.</p>
                                 <div class="aa-testimonial-info">
-                                    <p>Luner</p>
-                                    <span>COO</span>
-                                    <a href="#">Kinatic Solution</a>
+                                    <p>Duc Nguyen</p>
+                                    <span>Software Engineer</span>
+                                    <a href="#">FPT-Software</a>
                                 </div>
                             </div>
                         </li>

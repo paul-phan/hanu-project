@@ -53,7 +53,7 @@ class Product extends MainController
         $categoryModel = new \Administration\Models\Category($co);
         $orderBy = '';
         $limit = '';
-        var_dump($_GET);
+//        var_dump($_GET);
         if (!empty($_GET['sort'])) {
             $sort = $_GET['sort'];
             switch ($sort) {

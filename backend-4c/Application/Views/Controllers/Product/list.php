@@ -4,7 +4,7 @@
     <div class="aa-catg-head-banner-area">
         <div class="container">
             <div class="aa-catg-head-banner-content">
-                <h2><?= $viewSiteName ?></h2>
+                <h2>On Updating...</h2>
                 <ol class="breadcrumb">
                     <li><a href="index.html"><?= $viewTitle ?></a></li>
                     <li class="active"><?= $viewSiteName ?></li>
