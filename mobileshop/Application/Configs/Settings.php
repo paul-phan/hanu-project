@@ -50,9 +50,9 @@ class Settings
 
 //        Database Configure
         define('DB_HOST', 'localhost');
-        define('DB_NAME', 'at_mobile');
-        define('DB_USER', 'root');
-        define('DB_PASSWORD', '');
+        define('DB_NAME', 'ebz_mobileshop');
+        define('DB_USER', 'root');//your phpmyadmin user
+        define('DB_PASSWORD', '');//phpmyadmin password
         define('DB_CHARSET', 'utf8');
 
         define('TIMEZONE', 'Asia/Ho_Chi_Minh');

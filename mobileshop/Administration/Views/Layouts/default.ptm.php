@@ -50,6 +50,8 @@
     <script src="dashboard/js/jquery.uniform.min.js" type="text/javascript"></script>
     <script src="dashboard/js/bootstrap-switch.min.js" type="text/javascript"></script>
     <script src="dashboard/js/moment.min.js" type="text/javascript"></script>
+<script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="dashboard/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
     <!--END CORE PLUGIN-->
     <link rel="shortcut icon" href="dashboard/img/favicon.ico"/>
 </head>
@@ -1403,8 +1405,6 @@
 <script src="dashboard/js/datatables.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.min.js" type="text/javascript"></script>
 <script src="dashboard/js/datatables.bootstrap.js" type="text/javascript"></script>
-<script src="dashboard/js/bootstrap-datepicker.js" type="text/javascript"></script>
-<script src="dashboard/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
 <script src="dashboard/js/bootstrap-maxlength.min.js" type="text/javascript"></script>
 <script src="dashboard/js/jquery.fancybox.pack.js" type="text/javascript"></script>
 <script src="dashboard/js/plupload.full.min.js" type="text/javascript"></script>

@@ -59,5 +59,7 @@
 <script src="dashboard/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="dashboard/js/calendar.js" type="text/javascript"></script>
 <script>
-
+$('.datetimepicker').datetimepicker({
+        format:      'YYYY-MM-DD HH:mm',
+    });
 </script>
