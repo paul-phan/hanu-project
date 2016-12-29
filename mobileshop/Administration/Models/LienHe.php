@@ -22,7 +22,7 @@ class LienHe extends MainModel implements LienHeModel
 
     public function conStructSQL($value)
     {
-        $sql = "SELECT title FROM LienHe
+        $sql = "SELECT title FROM Lienhe
         WHERE title LIKE '%$value%'";
         return $sql;
     }

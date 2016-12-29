@@ -10,7 +10,7 @@ namespace Administration\Controllers;
 use Administration\Controllers\AdminController as MainController;
 use Library\Tools;
 
-class LienHe extends MainController
+class Lienhe extends MainController
 {
     public function __construct()
     {
@@ -19,14 +19,14 @@ class LienHe extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/LienHe/list", true, 200);
+        header("Refresh:1; url=/admin/lienhe/list", true, 200);
     }
 
     public function listAction()
     {
         global $connection;
         $co = $connection->getCo();
-        $lienHeModel = new \Administration\Models\lienHe($co);
+        $lienHeModel = new \Administration\Models\LienHe($co);
         $result = $lienHeModel->fetchAll();
         $this->addDataView(array(
             'viewTitle' => 'Quản lý',
@@ -47,13 +47,13 @@ class LienHe extends MainController
                 if ($lienHeModel->delete($_GET['params'])) {
                     $alert = Tools\Alert::render('Xóa liên hệ thành công!', 'success');
                     $action = TRUE;
-                    header("Refresh:3; url=/admin/LienHe/list", true, 200);
+                    header("Refresh:3; url=/admin/Lienhe/list", true, 200);
                 } else {
                     $alert = Tools\Alert::render('Xảy ra lỗi, vui lòng thử lại!', 'danger');
                 }
             } else {
                 $alert = Tools\Alert::render('liên hệ này không tồn tại!', 'danger');
-                header("Refresh:3; url=/admin/LienHe/list", true, 200);
+                header("Refresh:3; url=/admin/Lienhe/list", true, 200);
             }
         }
         $this->addDataView(array(

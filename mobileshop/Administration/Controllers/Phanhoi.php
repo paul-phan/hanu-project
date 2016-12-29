@@ -10,7 +10,7 @@ namespace Administration\Controllers;
 use Administration\Controllers\AdminController as MainController;
 use Library\Tools;
 
-class PhanHoi extends MainController
+class Phanhoi extends MainController
 {
     public function __construct()
     {
@@ -19,7 +19,7 @@ class PhanHoi extends MainController
 
     public function indexAction()
     {
-        header("Refresh:1; url=/admin/phanHoi/list", true, 200);
+        header("Refresh:1; url=/admin/phanhoi/list", true, 200);
     }
 
     public function listAction()
