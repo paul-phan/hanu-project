@@ -1,3 +1,5 @@
+** No longer maintain, please see: https://github.com/gangstara2/eazy-php **
+
 # hanu-project-4c13
 **_By_**: <br />
     `Phan Thế Minh` `Nguyễn Trung Đức` `Trần Thị Thu` `Nguyễn Khắc Hoàn` `Trần Kim Tiến`
